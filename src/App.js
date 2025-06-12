@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   Heart, Brain, Activity, Users, Mail, Zap, Shield, Target, 
   TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink, DollarSign
+  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink, DollarSign,
+  Copy, X
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -12,6 +13,9 @@ function App() {
   const [subscribers, setSubscribers] = useState(127);
   const [progressAnimated, setProgressAnimated] = useState(false);
   const [donationAmount, setDonationAmount] = useState('25');
+  const [showDonationModal, setShowDonationModal] = useState(false);
+  const [currentDonationUrl, setCurrentDonationUrl] = useState('');
+  const [currentDonationAmount, setCurrentDonationAmount] = useState(0);
 
   // Animate progress bar on load
   useEffect(() => {
@@ -57,38 +61,122 @@ function App() {
 
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    // Create a temporary text area to copy the URL
+    setCurrentDonationUrl(donateUrl);
+    setCurrentDonationAmount(amount);
+    setShowDonationModal(true);
+    
+    toast.success(`Ready to donate $${amount}! Follow the instructions in the popup.`, {
+      duration: 4000,
+      icon: '💙'
+    });
+  };
+
+  const handleQuickDonation = (amount) => {
+    setDonationAmount(amount.toString());
+    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+    
+    setCurrentDonationUrl(donateUrl);
+    setCurrentDonationAmount(amount);
+    setShowDonationModal(true);
+    
+    toast.success(`Ready to donate $${amount}! Follow the instructions in the popup.`, {
+      duration: 4000,
+      icon: '💙'
+    });
+  };
+
+  const copyDonationUrl = () => {
     const textArea = document.createElement('textarea');
-    textArea.value = donateUrl;
+    textArea.value = currentDonationUrl;
     document.body.appendChild(textArea);
     textArea.select();
     
     try {
       document.execCommand('copy');
       document.body.removeChild(textArea);
-      toast.success(`✅ Donation link copied! ($${amount}) - Paste in new tab`, {
-        duration: 6000,
-        icon: '💙'
-      });
+      toast.success('✅ Donation link copied to clipboard!');
     } catch (error) {
       document.body.removeChild(textArea);
-      // Show the URL in an alert as fallback
-      prompt('Copy this PayPal donation URL:', donateUrl);
+      toast.error('Unable to copy. Please manually copy the URL below.');
     }
-    
-    // Also show a helpful modal with instructions
-    setShowDonationModal(true);
-    setCurrentDonationUrl(donateUrl);
-    setCurrentDonationAmount(amount);
-  };
-
-  const handleQuickDonation = (amount) => {
-    setDonationAmount(amount.toString());
-    setTimeout(() => handleCustomDonation(), 100);
   };
 
   return (
     <div className="container">
+      
+      {/* Donation Modal */}
+      {showDonationModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3>Complete Your Donation</h3>
+              <button 
+                onClick={() => setShowDonationModal(false)}
+                className="modal-close"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="modal-body">
+              <div className="donation-amount-display">
+                <Heart size={24} className="heart-icon" />
+                <span className="amount-text">${currentDonationAmount}</span>
+              </div>
+              
+              <p className="modal-description">
+                Your contribution will help accelerate the development of revolutionary pain management technology.
+              </p>
+              
+              <div className="donation-url-container">
+                <label htmlFor="donation-url-input">PayPal Donation Link:</label>
+                <div className="url-input-group">
+                  <input
+                    id="donation-url-input"
+                    type="text"
+                    value={currentDonationUrl}
+                    readOnly
+                    className="url-input"
+                  />
+                  <button 
+                    onClick={copyDonationUrl}
+                    className="copy-btn"
+                    title="Copy to clipboard"
+                  >
+                    <Copy size={16} />
+                  </button>
+                </div>
+              </div>
+              
+              <div className="donation-instructions">
+                <h4>How to complete your donation:</h4>
+                <ol>
+                  <li>Click the "Copy Link" button above</li>
+                  <li>Open a new browser tab</li>
+                  <li>Paste the link in the address bar</li>
+                  <li>Complete your secure PayPal donation</li>
+                </ol>
+              </div>
+              
+              <div className="modal-actions">
+                <button 
+                  onClick={copyDonationUrl}
+                  className="primary-action-btn"
+                >
+                  <Copy size={16} />
+                  Copy Donation Link
+                </button>
+                <button 
+                  onClick={() => setShowDonationModal(false)}
+                  className="secondary-action-btn"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* Header */}
       <header className="header">
