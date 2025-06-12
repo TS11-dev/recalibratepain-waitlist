@@ -91,7 +91,8 @@ function App() {
           },
           description: "Support Recalibrate Development - Revolutionary Pain Management Platform"
         }
-      ]
+      ],
+      intent: "CAPTURE"
     });
   };
 
@@ -105,6 +106,12 @@ function App() {
   const onDonationError = (err) => {
     toast.error('Donation failed. Please try again.');
     console.error('PayPal Error:', err);
+  };
+
+  const handleDirectDonation = () => {
+    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=25&currency_code=USD&item_name=Support Recalibrate Development`;
+    window.open(donateUrl, '_blank');
+    toast.success('Opening PayPal donation page...');
   };
 
   return (
@@ -186,10 +193,13 @@ function App() {
         <form onSubmit={handleEmailSubmit} className="email-form-wide">
           <input
             type="email"
+            id="waitlist-email"
+            name="email"
             className="email-input"
             placeholder="Enter your professional email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
             required
           />
           <button 
@@ -244,44 +254,29 @@ function App() {
           </div>
           
           <div className="investment-content">
-            <div className="paypal-container">
-              <PayPalButtons
-                createOrder={createDonationOrder}
-                onApprove={onDonationApprove}
-                onError={onDonationError}
-                style={{
-                  layout: 'horizontal',
-                  color: 'blue',
-                  shape: 'rect',
-                  label: 'donate',
-                  height: 55,
-                  tagline: false
-                }}
-                forceReRender={[25.00]}
-              />
-              
-              {/* Fallback button if PayPal doesn't load */}
-              <div style={{ marginTop: '16px' }}>
-                <button 
-                  onClick={() => window.open('https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=25&currency_code=USD', '_blank')}
+            <div className="donation-buttons">
+              {/* PayPal Buttons */}
+              <div className="paypal-container">
+                <PayPalButtons
+                  createOrder={createDonationOrder}
+                  onApprove={onDonationApprove}
+                  onError={onDonationError}
                   style={{
-                    width: '100%',
-                    padding: '16px 24px',
-                    background: 'linear-gradient(135deg, #0070ba, #003087)',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '12px',
-                    fontSize: '1.1rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px'
+                    layout: 'horizontal',
+                    color: 'blue',
+                    shape: 'rect',
+                    label: 'donate',
+                    height: 50,
+                    tagline: false
                   }}
-                  onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
-                  onMouseOut={(e) => e.target.style.transform = 'translateY(0px)'}
+                />
+              </div>
+              
+              {/* Direct Donation Button */}
+              <div className="direct-donation">
+                <button 
+                  onClick={handleDirectDonation}
+                  className="donate-btn-direct"
                 >
                   <Heart size={20} />
                   Donate $25 via PayPal

@@ -10,7 +10,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const paypalOptions = {
   "client-id": "AXelGwuFcPNmrOaqtvMgsrstOqJL6aNoNEH1m-Uh_0hn_BlSdRw2QFiQ2TV2-Qd8fsPLpTzer1DgGHb2",
   currency: "USD",
-  intent: "capture"
+  intent: "capture",
+  "disable-funding": "credit,card"
 };
 
 root.render(
