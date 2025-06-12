@@ -539,6 +539,18 @@ body {
   color: #2563eb;
 }
 
+/* PayPal Checkout Section */
+.paypal-checkout-section {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.paypal-buttons-container {
+  margin: 20px 0;
+  min-height: 150px;
+}
+
 /* Payment URL Section */
 .payment-url-section {
   width: 100%;
