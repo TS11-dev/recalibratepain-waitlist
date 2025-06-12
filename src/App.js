@@ -57,21 +57,29 @@ function App() {
 
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    // Show the URL in a user-friendly way
-    toast.success(`Donation URL ready! Amount: $${amount}`, {
-      duration: 5000,
-      icon: '💙'
-    });
+    // Create a temporary text area to copy the URL
+    const textArea = document.createElement('textarea');
+    textArea.value = donateUrl;
+    document.body.appendChild(textArea);
+    textArea.select();
     
-    // Log for user to copy manually if needed
-    console.log('Donation URL:', donateUrl);
-    
-    // Try to open in same tab as fallback
     try {
-      window.location.href = donateUrl;
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      toast.success(`✅ Donation link copied! ($${amount}) - Paste in new tab`, {
+        duration: 6000,
+        icon: '💙'
+      });
     } catch (error) {
-      console.log('Manual URL:', donateUrl);
+      document.body.removeChild(textArea);
+      // Show the URL in an alert as fallback
+      prompt('Copy this PayPal donation URL:', donateUrl);
     }
+    
+    // Also show a helpful modal with instructions
+    setShowDonationModal(true);
+    setCurrentDonationUrl(donateUrl);
+    setCurrentDonationAmount(amount);
   };
 
   const handleQuickDonation = (amount) => {
