@@ -23,5 +23,10 @@
     "name": "Count Test 1749742361",
     "email": "count.test.1749742361@example.com",
     "timestamp": "2025-06-12T15:32:41.071092"
+  },
+  {
+    "name": "Simple Test",
+    "email": "simple@test.com",
+    "timestamp": "2025-06-12T15:56:42.667436"
   }
 ]
