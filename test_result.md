@@ -199,12 +199,12 @@ frontend:
 metadata:
   created_by: "testing_agent"
   version: "1.0"
-  test_sequence: 1
-  run_ui: false
+  test_sequence: 2
+  run_ui: true
 
 test_plan:
   current_focus:
-    - "Backend API Testing"
+    - "Frontend Testing"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
@@ -212,3 +212,5 @@ test_plan:
 agent_communication:
   - agent: "testing"
     message: "Completed comprehensive testing of all backend API endpoints. All tests passed successfully. The backend is correctly handling email validation, duplicate prevention, data persistence, CORS for frontend integration, error scenarios, and providing proper response formats and status codes."
+  - agent: "testing"
+    message: "Completed comprehensive testing of the frontend application. All tests passed successfully. The email collection form works correctly with proper validation. PayPal integration is working with donation amount input and quick donation buttons. The application is responsive and works well on different screen sizes."
