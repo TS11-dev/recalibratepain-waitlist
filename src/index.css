@@ -533,10 +533,10 @@ body {
   box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
 }
 
-.quick-amount-btn.featured {
-  border-color: #2563eb;
-  background: #dbeafe;
-  color: #2563eb;
+.quick-amount-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* PayPal Checkout Section */
