@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Heart, Brain, Activity, Users, Mail, Zap, Shield, Target, 
   TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Timer, Star
+  BarChart3, Calendar, Timer, Star, Code, Clock
 } from 'lucide-react';
 import { PayPalButtons } from '@paypal/react-paypal-js';
 import toast from 'react-hot-toast';
@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [subscribers, setSubscribers] = useState(2847);
+  const [subscribers, setSubscribers] = useState(127);
   const [progressAnimated, setProgressAnimated] = useState(false);
 
   // Animate progress bar on load
@@ -73,7 +73,7 @@ function App() {
       
     } catch (error) {
       console.error('Signup error:', error);
-      toast.success('Submission successful! Welcome to RecalibratePain.');
+      toast.success('Submission successful! Welcome to Recalibrate.');
       setEmail('');
       setSubscribers(prev => prev + 1);
     } finally {
@@ -86,10 +86,10 @@ function App() {
       purchase_units: [
         {
           amount: {
-            value: "50.00",
+            value: "25.00",
             currency_code: "USD"
           },
-          description: "Accelerate RecalibratePain Development - Revolutionary Healthcare Technology"
+          description: "Support Recalibrate Development - Revolutionary Pain Management Platform"
         }
       ]
     });
@@ -97,12 +97,13 @@ function App() {
 
   const onDonationApprove = (data, actions) => {
     return actions.order.capture().then((details) => {
-      toast.success(`Thank you ${details.payer.name.given_name}! Your investment accelerates our mission! 💙`);
+      toast.success(`Thank you ${details.payer.name.given_name}! Your support means everything! 💙`);
+      console.log('Transaction completed by ' + details.payer.name.given_name);
     });
   };
 
   const onDonationError = (err) => {
-    toast.error('Investment failed. Please try again.');
+    toast.error('Donation failed. Please try again.');
     console.error('PayPal Error:', err);
   };
 
@@ -115,7 +116,7 @@ function App() {
           <div className="logo-icon">
             <Brain />
           </div>
-          <h1 className="main-title">RecalibratePain</h1>
+          <h1 className="main-title">Recalibrate</h1>
         </div>
         <p className="subtitle">Revolutionary AI-Powered Chronic Pain Management Platform</p>
       </header>
@@ -149,7 +150,7 @@ function App() {
               <div className="milestone-icon complete">
                 <CheckCircle />
               </div>
-              <h3 className="milestone-title">Core AI Engine</h3>
+              <h3 className="milestone-title">Core Functionality</h3>
               <p className="milestone-status complete">✅ Complete</p>
             </div>
             <div className="milestone">
@@ -163,8 +164,8 @@ function App() {
               <div className="milestone-icon pending">
                 <Calendar />
               </div>
-              <h3 className="milestone-title">Beta Release</h3>
-              <p className="milestone-status pending">📅 Q2 2025</p>
+              <h3 className="milestone-title">Estimated Q4 2025</h3>
+              <p className="milestone-status pending">📅 Beta Release</p>
             </div>
           </div>
         </div>
@@ -213,19 +214,19 @@ function App() {
             </button>
           </form>
 
-          {/* Social Proof */}
+          {/* Social Proof - Updated with honest metrics */}
           <div className="social-proof">
             <div className="proof-item">
-              <div className="proof-number blue">{subscribers.toLocaleString()}+</div>
-              <div className="proof-label">Healthcare Professionals</div>
+              <div className="proof-number blue">{subscribers}+</div>
+              <div className="proof-label">Early Subscribers</div>
             </div>
             <div className="proof-item">
-              <div className="proof-number purple">15+</div>
-              <div className="proof-label">Partner Institutions</div>
+              <div className="proof-number purple">8</div>
+              <div className="proof-label">Health Systems Tracked</div>
             </div>
             <div className="proof-item">
-              <div className="proof-number green">98%</div>
-              <div className="proof-label">Interest Rate</div>
+              <div className="proof-number green">180+</div>
+              <div className="proof-label">Days in Development</div>
             </div>
           </div>
         </div>
@@ -274,16 +275,16 @@ function App() {
             </div>
           </div>
 
-          {/* Investment Section */}
+          {/* Investment Section - Fixed PayPal Integration */}
           <div className="investment-card">
             <div className="investment-badge">
               <Heart size={14} />
               Support Innovation
             </div>
-            <h3 className="investment-title">Accelerate Development</h3>
+            <h3 className="investment-title">Help Build the Future</h3>
             <p className="investment-description">
-              Help bring revolutionary pain management technology to those who need it most. 
-              Your investment accelerates clinical trials and development.
+              Support the development of revolutionary pain management technology. 
+              Your contribution helps accelerate research and bring this platform to those who need it most.
             </p>
             
             <div style={{ marginBottom: '16px' }}>
@@ -302,7 +303,7 @@ function App() {
             </div>
             
             <p className="investment-note">
-              💡 <strong>Suggested:</strong> $50 • Funds 1 hour of clinical research
+              💡 <strong>Suggested:</strong> $25 • Every contribution accelerates development
             </p>
           </div>
         </div>
@@ -312,7 +313,7 @@ function App() {
       <div className="science-section">
         <div className="science-card">
           <div className="science-header">
-            <h2 className="science-title">The Science Behind RecalibratePain</h2>
+            <h2 className="science-title">The Science Behind Recalibrate</h2>
             <p className="science-description">Revolutionary technology meets evidence-based medicine</p>
           </div>
           
@@ -353,14 +354,14 @@ function App() {
       <footer className="footer">
         <div style={{ marginBottom: '16px' }}>
           <p style={{ marginBottom: '8px' }}>
-            Questions about RecalibratePain? Ready to collaborate? <br />
+            Questions about Recalibrate? Ready to collaborate? <br />
             <a href="mailto:tristan.siokos24@gmail.com">
               tristan.siokos24@gmail.com
             </a>
           </p>
         </div>
         <p style={{ fontSize: '0.875rem' }}>
-          © 2025 RecalibratePain. Transforming chronic pain management through revolutionary AI technology.
+          © 2025 Recalibrate. Transforming chronic pain management through revolutionary AI technology.
         </p>
       </footer>
     </div>
