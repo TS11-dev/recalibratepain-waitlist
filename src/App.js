@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Heart, Brain, Activity, Users, Mail, Zap, Shield, Target, 
   TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink
+  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink, DollarSign
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [subscribers, setSubscribers] = useState(127);
   const [progressAnimated, setProgressAnimated] = useState(false);
+  const [donationAmount, setDonationAmount] = useState('25');
 
   // Animate progress bar on load
   useEffect(() => {
@@ -47,21 +48,35 @@ function App() {
     }
   };
 
-  const handleDonation = (amount) => {
+  const handleCustomDonation = () => {
+    const amount = parseFloat(donationAmount);
+    if (!amount || amount < 1) {
+      toast.error('Please enter a valid donation amount ($1 minimum)');
+      return;
+    }
+
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    // Copy URL to clipboard as backup
-    navigator.clipboard.writeText(donateUrl).then(() => {
-      toast.success(`Donation link copied! ($${amount})`);
-    });
-    
-    // Show donation modal instead of popup
-    toast.success('Opening PayPal donation...', {
-      duration: 4000,
+    // Show the URL in a user-friendly way
+    toast.success(`Donation URL ready! Amount: $${amount}`, {
+      duration: 5000,
       icon: '💙'
     });
     
+    // Log for user to copy manually if needed
     console.log('Donation URL:', donateUrl);
+    
+    // Try to open in same tab as fallback
+    try {
+      window.location.href = donateUrl;
+    } catch (error) {
+      console.log('Manual URL:', donateUrl);
+    }
+  };
+
+  const handleQuickDonation = (amount) => {
+    setDonationAmount(amount.toString());
+    setTimeout(() => handleCustomDonation(), 100);
   };
 
   return (
@@ -188,7 +203,7 @@ function App() {
         </div>
       </div>
 
-      {/* Investment Section - Full Width with Working Buttons */}
+      {/* Investment Section - Full Width with Custom Amount */}
       <div className="investment-section-full">
         <div className="investment-card-full">
           <div className="investment-header">
@@ -204,42 +219,75 @@ function App() {
           </div>
           
           <div className="investment-content">
-            <div className="donation-buttons">
-              <button 
-                onClick={() => handleDonation(25)}
-                className="donate-btn-primary"
-              >
-                <Heart size={20} />
-                Donate $25
-                <ExternalLink size={16} />
-              </button>
+            <div className="donation-form">
+              <div className="amount-input-container">
+                <div className="amount-input-wrapper">
+                  <DollarSign size={20} className="dollar-icon" />
+                  <input
+                    type="number"
+                    id="donation-amount"
+                    name="donationAmount"
+                    className="amount-input"
+                    placeholder="25"
+                    value={donationAmount}
+                    onChange={(e) => setDonationAmount(e.target.value)}
+                    min="1"
+                    max="10000"
+                    autoComplete="off"
+                  />
+                </div>
+                <button 
+                  onClick={handleCustomDonation}
+                  className="donate-btn-custom"
+                  disabled={!donationAmount || parseFloat(donationAmount) < 1}
+                >
+                  <Heart size={20} />
+                  Donate Now
+                  <ExternalLink size={16} />
+                </button>
+              </div>
               
-              <button 
-                onClick={() => handleDonation(50)}
-                className="donate-btn-secondary"
-              >
-                <Heart size={20} />
-                Donate $50
-                <ExternalLink size={16} />
-              </button>
-              
-              <button 
-                onClick={() => handleDonation(100)}
-                className="donate-btn-premium"
-              >
-                <Heart size={20} />
-                Donate $100
-                <ExternalLink size={16} />
-              </button>
+              <div className="quick-amounts">
+                <span className="quick-amounts-label">Quick amounts:</span>
+                <button 
+                  type="button"
+                  onClick={() => handleQuickDonation(10)}
+                  className="quick-amount-btn"
+                >
+                  $10
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => handleQuickDonation(25)}
+                  className="quick-amount-btn featured"
+                >
+                  $25
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => handleQuickDonation(50)}
+                  className="quick-amount-btn"
+                >
+                  $50
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => handleQuickDonation(100)}
+                  className="quick-amount-btn"
+                >
+                  $100
+                </button>
+              </div>
             </div>
             
-            <p className="investment-note">
-              💡 <strong>Suggested:</strong> $25 • Every contribution accelerates development
-            </p>
-            
-            <p className="investment-note">
-              🔗 <strong>Note:</strong> Donation links will be copied to clipboard and opened externally
-            </p>
+            <div className="investment-notes">
+              <p className="investment-note">
+                💡 <strong>Even $10 helps!</strong> • Every contribution accelerates development
+              </p>
+              <p className="investment-note">
+                🚀 <strong>Larger donations</strong> fund clinical trials and research partnerships
+              </p>
+            </div>
           </div>
         </div>
       </div>
