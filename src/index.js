@@ -8,10 +8,9 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const paypalOptions = {
-  "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID || "AXelGwuFcPNmrOaqtvMgsrstOqJL6aNoNEH1m-Uh_0hn_BlSdRw2QFiQ2TV2-Qd8fsPLpTzer1DgGHb2",
+  "client-id": "AXelGwuFcPNmrOaqtvMgsrstOqJL6aNoNEH1m-Uh_0hn_BlSdRw2QFiQ2TV2-Qd8fsPLpTzer1DgGHb2",
   currency: "USD",
-  intent: "capture",
-  "enable-funding": "venmo,paylater"
+  intent: "capture"
 };
 
 root.render(
