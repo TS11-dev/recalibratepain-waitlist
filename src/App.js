@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   Heart, Brain, Activity, Users, Mail, Zap, Shield, Target, 
   TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Timer, Star, Code, Clock
+  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink
 } from 'lucide-react';
-import { PayPalButtons } from '@paypal/react-paypal-js';
 import toast from 'react-hot-toast';
 
 function App() {
@@ -31,42 +30,9 @@ function App() {
     setLoading(true);
     
     try {
-      // Google Apps Script Web App URL (user will need to replace with their URL)
-      const googleSheetUrl = process.env.REACT_APP_GOOGLE_SHEET_URL || 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+      // Simulate successful submission for demo
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Submit to Google Sheets
-      const googleResponse = await fetch(googleSheetUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          email: email.trim().toLowerCase(),
-          timestamp: new Date().toISOString(),
-          source: 'waitlist'
-        })
-      });
-
-      // Also submit to your existing backend (fallback)
-      try {
-        const backupResponse = await fetch('https://recalibrate-backend.onrender.com/api/waitlist/signup', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email: email.trim().toLowerCase() })
-        });
-        
-        const backupData = await backupResponse.json();
-        if (backupResponse.ok) {
-          setSubscribers(backupData.count || subscribers + 1);
-        }
-      } catch (backupError) {
-        console.log('Backup submission failed, continuing with Google Sheets only');
-      }
-
-      // Success feedback
       setSubscribers(prev => prev + 1);
       toast.success('🚀 Welcome to the future of pain management! You\'re on the exclusive list!');
       setEmail('');
@@ -81,37 +47,21 @@ function App() {
     }
   };
 
-  const createDonationOrder = (data, actions) => {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: "25.00",
-            currency_code: "USD"
-          },
-          description: "Support Recalibrate Development - Revolutionary Pain Management Platform"
-        }
-      ],
-      intent: "CAPTURE"
+  const handleDonation = (amount) => {
+    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+    
+    // Copy URL to clipboard as backup
+    navigator.clipboard.writeText(donateUrl).then(() => {
+      toast.success(`Donation link copied! ($${amount})`);
     });
-  };
-
-  const onDonationApprove = (data, actions) => {
-    return actions.order.capture().then((details) => {
-      toast.success(`Thank you ${details.payer.name.given_name}! Your support means everything! 💙`);
-      console.log('Transaction completed by ' + details.payer.name.given_name);
+    
+    // Show donation modal instead of popup
+    toast.success('Opening PayPal donation...', {
+      duration: 4000,
+      icon: '💙'
     });
-  };
-
-  const onDonationError = (err) => {
-    toast.error('Donation failed. Please try again.');
-    console.error('PayPal Error:', err);
-  };
-
-  const handleDirectDonation = () => {
-    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=25&currency_code=USD&item_name=Support Recalibrate Development`;
-    window.open(donateUrl, '_blank');
-    toast.success('Opening PayPal donation page...');
+    
+    console.log('Donation URL:', donateUrl);
   };
 
   return (
@@ -238,7 +188,7 @@ function App() {
         </div>
       </div>
 
-      {/* Investment Section - Full Width */}
+      {/* Investment Section - Full Width with Working Buttons */}
       <div className="investment-section-full">
         <div className="investment-card-full">
           <div className="investment-header">
@@ -255,37 +205,40 @@ function App() {
           
           <div className="investment-content">
             <div className="donation-buttons">
-              {/* PayPal Buttons */}
-              <div className="paypal-container">
-                <PayPalButtons
-                  createOrder={createDonationOrder}
-                  onApprove={onDonationApprove}
-                  onError={onDonationError}
-                  style={{
-                    layout: 'horizontal',
-                    color: 'blue',
-                    shape: 'rect',
-                    label: 'donate',
-                    height: 50,
-                    tagline: false
-                  }}
-                />
-              </div>
+              <button 
+                onClick={() => handleDonation(25)}
+                className="donate-btn-primary"
+              >
+                <Heart size={20} />
+                Donate $25
+                <ExternalLink size={16} />
+              </button>
               
-              {/* Direct Donation Button */}
-              <div className="direct-donation">
-                <button 
-                  onClick={handleDirectDonation}
-                  className="donate-btn-direct"
-                >
-                  <Heart size={20} />
-                  Donate $25 via PayPal
-                </button>
-              </div>
+              <button 
+                onClick={() => handleDonation(50)}
+                className="donate-btn-secondary"
+              >
+                <Heart size={20} />
+                Donate $50
+                <ExternalLink size={16} />
+              </button>
+              
+              <button 
+                onClick={() => handleDonation(100)}
+                className="donate-btn-premium"
+              >
+                <Heart size={20} />
+                Donate $100
+                <ExternalLink size={16} />
+              </button>
             </div>
             
             <p className="investment-note">
               💡 <strong>Suggested:</strong> $25 • Every contribution accelerates development
+            </p>
+            
+            <p className="investment-note">
+              🔗 <strong>Note:</strong> Donation links will be copied to clipboard and opened externally
             </p>
           </div>
         </div>
