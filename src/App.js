@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Heart, Brain, Activity, Users, Mail, Zap, Shield, Target, 
+  Heart, Brain, Activity, Shield, Target, 
   TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink, DollarSign
+  BarChart3, Calendar, Timer, Star, Code, DollarSign, Copy
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -12,6 +12,8 @@ function App() {
   const [subscribers, setSubscribers] = useState(127);
   const [progressAnimated, setProgressAnimated] = useState(false);
   const [donationAmount, setDonationAmount] = useState('25');
+  const [showPaymentUrl, setShowPaymentUrl] = useState(false);
+  const [paymentUrl, setPaymentUrl] = useState('');
 
   // Animate progress bar on load
   useEffect(() => {
@@ -31,16 +33,12 @@ function App() {
     setLoading(true);
     
     try {
-      // Simulate successful submission for demo
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
       setSubscribers(prev => prev + 1);
-      toast.success('🚀 Welcome to the future of pain management! You\'re on the exclusive list!');
+      toast.success('🚀 Welcome to the future of pain management!');
       setEmail('');
-      
     } catch (error) {
-      console.error('Signup error:', error);
-      toast.success('Submission successful! Welcome to Recalibrate.');
+      toast.success('Welcome to Recalibrate!');
       setEmail('');
       setSubscribers(prev => prev + 1);
     } finally {
@@ -48,45 +46,44 @@ function App() {
     }
   };
 
-  const handleDonation = (amount) => {
-    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
-    
-    toast.success(`Opening secure PayPal donation ($${amount})...`, {
-      duration: 3000,
-      icon: '💙'
-    });
-    
-    // Use the most reliable method for this environment
-    try {
-      // Try opening in new tab first
-      const newWindow = window.open(donateUrl, '_blank', 'noopener,noreferrer');
-      
-      // If blocked, redirect current page after short delay
-      if (!newWindow) {
-        setTimeout(() => {
-          window.location.href = donateUrl;
-        }, 1500);
-      }
-    } catch (error) {
-      // Fallback: direct redirect
-      setTimeout(() => {
-        window.location.href = donateUrl;
-      }, 1500);
-    }
+  const generatePaymentUrl = (amount) => {
+    const url = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+    setPaymentUrl(url);
+    setShowPaymentUrl(true);
+    toast.success(`Payment link generated for $${amount}!`);
   };
 
   const handleCustomDonation = () => {
     const amount = parseFloat(donationAmount);
     if (!amount || amount < 1) {
-      toast.error('Please enter a valid donation amount ($1 minimum)');
+      toast.error('Please enter a valid amount ($1 minimum)');
       return;
     }
-    handleDonation(amount);
+    generatePaymentUrl(amount);
   };
 
-  const handleQuickDonation = (amount) => {
-    setDonationAmount(amount.toString());
-    handleDonation(amount);
+  const copyPaymentUrl = () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(paymentUrl).then(() => {
+        toast.success('Payment link copied!');
+      }).catch(() => {
+        toast.error('Please manually copy the link below');
+      });
+    } else {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = paymentUrl;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        toast.success('Payment link copied!');
+      } catch (err) {
+        document.body.removeChild(textArea);
+        toast.error('Please manually copy the link below');
+      }
+    }
   };
 
   return (
@@ -103,10 +100,10 @@ function App() {
         <p className="subtitle">Revolutionary AI-Powered Chronic Pain Management Platform</p>
       </header>
 
-      {/* Progress Section - Made Prominent */}
+      {/* Progress Section */}
       <div className="progress-section">
         <div className="progress-card">
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div className="progress-header-section">
             <div className="progress-badge">
               <Sparkles size={16} />
               Development Status
@@ -115,7 +112,6 @@ function App() {
             <p className="progress-description">We're building the future of chronic pain management</p>
           </div>
           
-          {/* Large Progress Bar */}
           <div className="progress-container">
             <div className="progress-header">
               <span className="progress-label">Overall Progress</span>
@@ -126,7 +122,6 @@ function App() {
             </div>
           </div>
 
-          {/* Progress Milestones */}
           <div className="milestones">
             <div className="milestone">
               <div className="milestone-icon progress">
@@ -153,7 +148,7 @@ function App() {
         </div>
       </div>
 
-      {/* Email Signup - Full Width */}
+      {/* Email Signup */}
       <div className="email-section-full">
         <div className="exclusive-badge">
           <Star size={16} />
@@ -161,15 +156,14 @@ function App() {
         </div>
         <h2 className="email-title">Join the Paincare Revolution</h2>
         <p className="email-description">
-          Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform. 
-          Join healthcare professionals, researchers, and patients already on the waitlist.
+          Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform.
         </p>
 
         <form onSubmit={handleEmailSubmit} className="email-form-wide">
           <input
             type="email"
-            id="waitlist-email"
-            name="email"
+            id="waitlist-email-input"
+            name="waitlistEmail"
             className="email-input"
             placeholder="Enter your professional email"
             value={email}
@@ -196,7 +190,6 @@ function App() {
           </button>
         </form>
 
-        {/* Social Proof - Updated with honest metrics */}
         <div className="social-proof">
           <div className="proof-item">
             <div className="proof-number blue">{subscribers}+</div>
@@ -213,7 +206,7 @@ function App() {
         </div>
       </div>
 
-      {/* Investment Section - Streamlined Direct Donation */}
+      {/* Donation Section */}
       <div className="investment-section-full">
         <div className="investment-card-full">
           <div className="investment-header">
@@ -223,97 +216,127 @@ function App() {
             </div>
             <h3 className="investment-title">Help Build the Future</h3>
             <p className="investment-description">
-              Support the development of revolutionary pain management technology. 
-              Your contribution helps accelerate research and bring this platform to those who need it most.
+              Support revolutionary pain management technology development.
             </p>
           </div>
           
           <div className="investment-content">
-            <div className="donation-form">
-              <div className="amount-input-container">
-                <div className="amount-input-wrapper">
-                  <DollarSign size={20} className="dollar-icon" />
+            {!showPaymentUrl ? (
+              <>
+                <div className="donation-form">
+                  <div className="amount-input-container">
+                    <div className="amount-input-wrapper">
+                      <DollarSign size={20} className="dollar-icon" />
+                      <input
+                        type="number"
+                        id="donation-amount-input"
+                        name="donationAmount"
+                        className="amount-input"
+                        placeholder="25"
+                        value={donationAmount}
+                        onChange={(e) => setDonationAmount(e.target.value)}
+                        min="1"
+                        max="10000"
+                        autoComplete="off"
+                      />
+                    </div>
+                    <button 
+                      type="button"
+                      onClick={handleCustomDonation}
+                      className="donate-btn-custom"
+                      disabled={!donationAmount || parseFloat(donationAmount) < 1}
+                    >
+                      <Heart size={20} />
+                      Generate Payment Link
+                    </button>
+                  </div>
+                  
+                  <div className="quick-amounts">
+                    <span className="quick-amounts-label">Quick amounts:</span>
+                    <button 
+                      type="button"
+                      onClick={() => generatePaymentUrl(10)}
+                      className="quick-amount-btn"
+                    >
+                      $10
+                    </button>
+                    <button 
+                      type="button"
+                      onClick={() => generatePaymentUrl(25)}
+                      className="quick-amount-btn featured"
+                    >
+                      $25
+                    </button>
+                    <button 
+                      type="button"
+                      onClick={() => generatePaymentUrl(50)}
+                      className="quick-amount-btn"
+                    >
+                      $50
+                    </button>
+                    <button 
+                      type="button"
+                      onClick={() => generatePaymentUrl(100)}
+                      className="quick-amount-btn"
+                    >
+                      $100
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="payment-url-section">
+                <h4 className="payment-title">Your PayPal Donation Link</h4>
+                <div className="payment-url-container">
                   <input
-                    type="number"
-                    id="donation-amount"
-                    name="donationAmount"
-                    className="amount-input"
-                    placeholder="25"
-                    value={donationAmount}
-                    onChange={(e) => setDonationAmount(e.target.value)}
-                    min="1"
-                    max="10000"
-                    autoComplete="off"
+                    type="text"
+                    id="payment-url-display"
+                    name="paymentUrl"
+                    value={paymentUrl}
+                    readOnly
+                    className="payment-url-input"
                   />
+                  <button 
+                    type="button"
+                    onClick={copyPaymentUrl}
+                    className="copy-btn"
+                    title="Copy payment link"
+                  >
+                    <Copy size={16} />
+                  </button>
+                </div>
+                <div className="payment-instructions">
+                  <p><strong>How to complete your donation:</strong></p>
+                  <ol>
+                    <li>Copy the payment link above</li>
+                    <li>Open a new browser tab</li>
+                    <li>Paste the link and press Enter</li>
+                    <li>Complete your secure PayPal donation</li>
+                  </ol>
                 </div>
                 <button 
-                  onClick={handleCustomDonation}
-                  className="donate-btn-custom"
-                  disabled={!donationAmount || parseFloat(donationAmount) < 1}
+                  type="button"
+                  onClick={() => setShowPaymentUrl(false)}
+                  className="back-btn"
                 >
-                  <Heart size={20} />
-                  Donate Securely
-                  <ExternalLink size={16} />
+                  ← Back to Donation Options
                 </button>
               </div>
-              
-              <div className="quick-amounts">
-                <span className="quick-amounts-label">Quick amounts:</span>
-                <button 
-                  type="button"
-                  onClick={() => handleQuickDonation(10)}
-                  className="quick-amount-btn"
-                >
-                  $10
-                </button>
-                <button 
-                  type="button"
-                  onClick={() => handleQuickDonation(25)}
-                  className="quick-amount-btn featured"
-                >
-                  $25
-                </button>
-                <button 
-                  type="button"
-                  onClick={() => handleQuickDonation(50)}
-                  className="quick-amount-btn"
-                >
-                  $50
-                </button>
-                <button 
-                  type="button"
-                  onClick={() => handleQuickDonation(100)}
-                  className="quick-amount-btn"
-                >
-                  $100
-                </button>
-              </div>
-            </div>
-            
-            <div className="donation-security-info">
-              <div className="security-badge">
-                <Shield size={16} />
-                <span>Secure PayPal Donation</span>
-              </div>
-              <p className="security-description">
-                Click any amount above to be securely redirected to PayPal. 
-                Your donation is processed safely through PayPal's encrypted platform.
-              </p>
-            </div>
+            )}
             
             <div className="investment-notes">
               <p className="investment-note">
-                💡 <strong>Even $10 helps!</strong> • Every contribution accelerates development
+                💡 <strong>Even $10 helps!</strong> Every contribution accelerates development
               </p>
               <p className="investment-note">
-                🚀 <strong>Larger donations</strong> fund clinical trials and research partnerships
+                🔒 <strong>Secure:</strong> All payments processed through PayPal's encrypted platform
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* What We're Building - Enhanced with Revolutionary Features */}
+      {/* Science Section */}
       <div className="science-section">
         <div className="science-card">
           <div className="science-header">
@@ -327,42 +350,42 @@ function App() {
                 <Brain />
               </div>
               <h3>AI Pattern Recognition</h3>
-              <p>Advanced algorithms identify pain patterns and predict flare-ups before they happen</p>
+              <p>Advanced algorithms identify pain patterns and predict flare-ups</p>
             </div>
             <div className="science-item">
               <div className="science-icon purple">
                 <Activity />
               </div>
               <h3>Multi-System Tracking</h3>
-              <p>8 interconnected health systems: neural, immune, musculoskeletal, and autonomic</p>
+              <p>8 interconnected health systems: neural, immune, musculoskeletal, autonomic</p>
             </div>
             <div className="science-item">
               <div className="science-icon green">
                 <Shield />
               </div>
               <h3>Clinical Integration</h3>
-              <p>Seamless provider collaboration with evidence-based protocols and real-world validation</p>
+              <p>Seamless provider collaboration with evidence-based protocols</p>
             </div>
             <div className="science-item">
               <div className="science-icon orange">
                 <Target />
               </div>
               <h3>Personalized Care</h3>
-              <p>Tailored treatment protocols based on individual health patterns and responses</p>
+              <p>Tailored treatment protocols based on individual health patterns</p>
             </div>
             <div className="science-item">
               <div className="science-icon blue">
                 <BarChart3 />
               </div>
               <h3>Advanced Analytics</h3>
-              <p>Weighted scoring algorithms process complex health data patterns for actionable insights</p>
+              <p>Weighted scoring algorithms for actionable health insights</p>
             </div>
             <div className="science-item">
               <div className="science-icon purple">
                 <TrendingUp />
               </div>
               <h3>Predictive Insights</h3>
-              <p>AI-powered pattern recognition enables proactive care and prevention strategies</p>
+              <p>AI-powered pattern recognition for proactive care</p>
             </div>
           </div>
         </div>
@@ -370,15 +393,15 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <div style={{ marginBottom: '16px' }}>
-          <p style={{ marginBottom: '8px' }}>
+        <div className="footer-content">
+          <p>
             Questions about Recalibrate? Ready to collaborate? <br />
             <a href="mailto:tristan.siokos24@gmail.com">
               tristan.siokos24@gmail.com
             </a>
           </p>
         </div>
-        <p style={{ fontSize: '0.875rem' }}>
+        <p className="footer-copyright">
           © 2025 Recalibrate. Transforming chronic pain management through revolutionary AI technology.
         </p>
       </footer>

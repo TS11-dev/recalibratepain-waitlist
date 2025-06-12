@@ -66,7 +66,7 @@ body {
   font-weight: 500;
 }
 
-/* Progress Section - PROMINENT */
+/* Progress Section */
 .progress-section {
   max-width: 1000px;
   margin: 0 auto 64px;
@@ -78,6 +78,11 @@ body {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
   padding: 48px;
+}
+
+.progress-header-section {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
 .progress-badge {
@@ -102,7 +107,6 @@ body {
 
 .progress-description {
   color: #64748b;
-  margin-bottom: 32px;
 }
 
 .progress-container {
@@ -166,7 +170,6 @@ body {
   100% { transform: translateX(100%); }
 }
 
-/* Milestones */
 .milestones {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -187,10 +190,6 @@ body {
   margin: 0 auto 12px;
 }
 
-.milestone-icon.complete {
-  background: #dcfce7;
-}
-
 .milestone-icon.progress {
   background: #dbeafe;
 }
@@ -202,10 +201,6 @@ body {
 .milestone-icon svg {
   width: 24px;
   height: 24px;
-}
-
-.milestone-icon.complete svg {
-  color: #16a34a;
 }
 
 .milestone-icon.progress svg {
@@ -227,10 +222,6 @@ body {
   font-size: 0.875rem;
 }
 
-.milestone-status.complete {
-  color: #16a34a;
-}
-
 .milestone-status.progress {
   color: #2563eb;
 }
@@ -239,7 +230,7 @@ body {
   color: #6b7280;
 }
 
-/* Email Section - Full Width */
+/* Email Section */
 .email-section-full {
   max-width: 1000px;
   margin: 0 auto 32px;
@@ -345,7 +336,6 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Social Proof */
 .social-proof {
   background: linear-gradient(135deg, #dbeafe, #faf5ff);
   border-radius: 16px;
@@ -382,7 +372,7 @@ body {
   color: #64748b;
 }
 
-/* Investment Section - Full Width */
+/* Investment Section */
 .investment-section-full {
   max-width: 1000px;
   margin: 0 auto 64px;
@@ -435,7 +425,7 @@ body {
   gap: 24px;
 }
 
-/* Custom Donation Form */
+/* Donation Form */
 .donation-form {
   width: 100%;
   max-width: 500px;
@@ -486,7 +476,7 @@ body {
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -494,7 +484,7 @@ body {
   align-items: center;
   gap: 8px;
   white-space: nowrap;
-  min-width: 160px;
+  min-width: 180px;
   justify-content: center;
 }
 
@@ -509,7 +499,6 @@ body {
   transform: none;
 }
 
-/* Quick Amount Buttons */
 .quick-amounts {
   display: flex;
   align-items: center;
@@ -550,37 +539,93 @@ body {
   color: #2563eb;
 }
 
-/* Security Information */
-.donation-security-info {
-  background: white;
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-  border: 1px solid #e5e7eb;
-  max-width: 500px;
+/* Payment URL Section */
+.payment-url-section {
   width: 100%;
+  max-width: 600px;
+  text-align: center;
 }
 
-.security-badge {
-  display: inline-flex;
-  align-items: center;
+.payment-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.payment-url-container {
+  display: flex;
   gap: 8px;
-  background: #dcfce7;
-  color: #166534;
-  padding: 8px 16px;
+  margin-bottom: 20px;
+}
+
+.payment-url-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
   border-radius: 12px;
   font-size: 0.875rem;
+  background: #f8fafc;
+  color: #374151;
+}
+
+.copy-btn {
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn:hover {
+  background: #1d4ed8;
+}
+
+.payment-instructions {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.payment-instructions p {
   font-weight: 600;
+  color: #374151;
   margin-bottom: 12px;
 }
 
-.security-description {
+.payment-instructions ol {
   color: #64748b;
-  font-size: 0.875rem;
+  padding-left: 20px;
+}
+
+.payment-instructions li {
+  margin-bottom: 8px;
   line-height: 1.5;
 }
 
-/* Investment Notes */
+.back-btn {
+  padding: 12px 24px;
+  background: transparent;
+  color: #6b7280;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
 .investment-notes {
   text-align: center;
   display: flex;
@@ -594,7 +639,7 @@ body {
   font-weight: 500;
 }
 
-/* Science Section - Enhanced */
+/* Science Section */
 .science-section {
   max-width: 1000px;
   margin: 0 auto 64px;
@@ -712,6 +757,10 @@ body {
   padding-bottom: 32px;
 }
 
+.footer-content {
+  margin-bottom: 16px;
+}
+
 .footer a {
   color: #2563eb;
   text-decoration: none;
@@ -720,6 +769,10 @@ body {
 
 .footer a:hover {
   color: #1d4ed8;
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
 }
 
 /* Responsive */
