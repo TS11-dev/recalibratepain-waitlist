@@ -48,67 +48,45 @@ function App() {
     }
   };
 
+  const handleDonation = (amount) => {
+    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+    
+    toast.success(`Opening secure PayPal donation ($${amount})...`, {
+      duration: 3000,
+      icon: '💙'
+    });
+    
+    // Use the most reliable method for this environment
+    try {
+      // Try opening in new tab first
+      const newWindow = window.open(donateUrl, '_blank', 'noopener,noreferrer');
+      
+      // If blocked, redirect current page after short delay
+      if (!newWindow) {
+        setTimeout(() => {
+          window.location.href = donateUrl;
+        }, 1500);
+      }
+    } catch (error) {
+      // Fallback: direct redirect
+      setTimeout(() => {
+        window.location.href = donateUrl;
+      }, 1500);
+    }
+  };
+
   const handleCustomDonation = () => {
     const amount = parseFloat(donationAmount);
     if (!amount || amount < 1) {
       toast.error('Please enter a valid donation amount ($1 minimum)');
       return;
     }
-
-    // Create PayPal donation URL
-    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
-    
-    toast.success(`Opening secure PayPal donation ($${amount})...`, {
-      duration: 3000,
-      icon: '💙'
-    });
-    
-    // Try multiple methods to ensure it works
-    try {
-      // Method 1: Try window.open() first (works in most environments)
-      const newWindow = window.open(donateUrl, '_blank', 'noopener,noreferrer');
-      
-      // Method 2: If popup blocked, use location.href as fallback
-      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        setTimeout(() => {
-          window.location.href = donateUrl;
-        }, 1000);
-      }
-    } catch (error) {
-      // Method 3: Direct redirect as final fallback
-      setTimeout(() => {
-        window.location.href = donateUrl;
-      }, 1000);
-    }
+    handleDonation(amount);
   };
 
   const handleQuickDonation = (amount) => {
     setDonationAmount(amount.toString());
-    
-    const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
-    
-    toast.success(`Opening secure PayPal donation ($${amount})...`, {
-      duration: 3000,
-      icon: '💙'
-    });
-    
-    // Try multiple methods to ensure it works
-    try {
-      // Method 1: Try window.open() first
-      const newWindow = window.open(donateUrl, '_blank', 'noopener,noreferrer');
-      
-      // Method 2: If popup blocked, use location.href as fallback
-      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        setTimeout(() => {
-          window.location.href = donateUrl;
-        }, 1000);
-      }
-    } catch (error) {
-      // Method 3: Direct redirect as final fallback
-      setTimeout(() => {
-        window.location.href = donateUrl;
-      }, 1000);
-    }
+    handleDonation(amount);
   };
 
   return (
