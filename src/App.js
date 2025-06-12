@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { 
   Heart, Brain, Activity, Shield, Target, 
   TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Timer, Star, Code, DollarSign, Copy
+  BarChart3, Calendar, Timer, Star, Code, DollarSign, ExternalLink
 } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 function App() {
   const [name, setName] = useState('');
@@ -14,11 +13,8 @@ function App() {
   const [subscribers, setSubscribers] = useState(127);
   const [progressAnimated, setProgressAnimated] = useState(false);
   const [donationAmount, setDonationAmount] = useState('25');
-  const [showPayPalButtons, setShowPayPalButtons] = useState(false);
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
-  const PAYPAL_CLIENT_ID = process.env.REACT_APP_PAYPAL_CLIENT_ID;
-  const isPayPalEnabled = PAYPAL_CLIENT_ID && PAYPAL_CLIENT_ID !== 'test' && PAYPAL_CLIENT_ID !== 'YOUR_PAYPAL_CLIENT_ID';
 
   // Animate progress bar on load
   useEffect(() => {
@@ -88,219 +84,22 @@ function App() {
     }
   };
 
-  const handleShowPayPal = () => {
-    if (!isPayPalEnabled) {
-      toast.error('PayPal integration is not configured. Please contact support.');
-      return;
-    }
-    
+  const handleDonation = () => {
     const amount = parseFloat(donationAmount);
     if (!amount || amount < 1) {
       toast.error('Please enter a valid amount ($1 minimum)');
       return;
     }
-    setShowPayPalButtons(true);
-  };
 
-  const handleQuickDonation = (amount) => {
-    if (!isPayPalEnabled) {
-      toast.error('PayPal integration is not configured. Please contact support.');
-      return;
-    }
+    // Create PayPal donation URL
+    const paypalUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    setDonationAmount(amount.toString());
-    setShowPayPalButtons(true);
+    // Open PayPal in new tab
+    window.open(paypalUrl, '_blank');
+    
+    toast.success(`Opening PayPal for $${amount} donation. Thank you for your support!`);
   };
 
-  const createOrder = (data, actions) => {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: donationAmount,
-            currency_code: 'USD'
-          },
-          description: 'Support Recalibrate Development'
-        }
-      ]
-    });
-  };
-
-  const onApprove = (data, actions) => {
-    return actions.order.capture().then((details) => {
-      toast.success(`Thank you ${details.payer.name.given_name}! Your donation helps build the future of pain management.`);
-      setShowPayPalButtons(false);
-      setDonationAmount('25');
-    });
-  };
-
-  const onError = (err) => {
-    toast.error('Payment failed. Please try again.');
-    console.error('PayPal error:', err);
-  };
-
-  const onCancel = () => {
-    toast('Payment cancelled', { icon: '👋' });
-    setShowPayPalButtons(false);
-  };
-
-  const DonationSection = () => (
-    <div className="investment-content">
-      {!showPayPalButtons ? (
-        <>
-          <div className="donation-form">
-            <div className="amount-input-container">
-              <div className="amount-input-wrapper">
-                <DollarSign size={20} className="dollar-icon" />
-                <input
-                  type="number"
-                  id="donation-amount-input"
-                  name="donationAmount"
-                  className="amount-input"
-                  placeholder="25"
-                  value={donationAmount}
-                  onChange={(e) => setDonationAmount(e.target.value)}
-                  min="1"
-                  max="10000"
-                  autoComplete="off"
-                />
-              </div>
-              <button 
-                type="button"
-                onClick={handleShowPayPal}
-                className="donate-btn-custom"
-                disabled={!donationAmount || parseFloat(donationAmount) < 1}
-              >
-                <Heart size={20} />
-                {isPayPalEnabled ? 'Donate Now' : 'PayPal Setup Required'}
-              </button>
-            </div>
-            
-            <div className="quick-amounts">
-              <span className="quick-amounts-label">Quick amounts:</span>
-              <button 
-                type="button"
-                onClick={() => handleQuickDonation(10)}
-                className="quick-amount-btn"
-                disabled={!isPayPalEnabled}
-              >
-                $10
-              </button>
-              <button 
-                type="button"
-                onClick={() => handleQuickDonation(25)}
-                className="quick-amount-btn featured"
-                disabled={!isPayPalEnabled}
-              >
-                $25
-              </button>
-              <button 
-                type="button"
-                onClick={() => handleQuickDonation(50)}
-                className="quick-amount-btn"
-                disabled={!isPayPalEnabled}
-              >
-                $50
-              </button>
-              <button 
-                type="button"
-                onClick={() => handleQuickDonation(100)}
-                className="quick-amount-btn"
-                disabled={!isPayPalEnabled}
-              >
-                $100
-              </button>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="paypal-checkout-section">
-          <h4 className="payment-title">Complete Your ${donationAmount} Donation</h4>
-          <div className="paypal-buttons-container">
-            {isPayPalEnabled ? (
-              <PayPalButtons
-                createOrder={createOrder}
-                onApprove={onApprove}
-                onError={onError}
-                onCancel={onCancel}
-                style={{
-                  layout: 'vertical',
-                  color: 'blue',
-                  shape: 'rect',
-                  label: 'donate'
-                }}
-              />
-            ) : (
-              <div className="paypal-error">
-                <p>PayPal integration requires valid credentials.</p>
-                <p>Please contact support to complete your donation.</p>
-              </div>
-            )}
-          </div>
-          <button 
-            type="button"
-            onClick={() => setShowPayPalButtons(false)}
-            className="back-btn"
-          >
-            ← Back to Donation Options
-          </button>
-        </div>
-      )}
-      
-      <div className="investment-notes">
-        <p className="investment-note">
-          💡 <strong>Even $10 helps!</strong> Every contribution accelerates development
-        </p>
-        <p className="investment-note">
-          🔒 <strong>Secure:</strong> All payments processed through PayPal's encrypted platform
-        </p>
-        {!isPayPalEnabled && (
-          <p className="investment-note">
-            ⚠️ <strong>Setup Required:</strong> Contact tristan.siokos24@gmail.com to enable donations
-          </p>
-        )}
-      </div>
-    </div>
-  );
-
-  return (
-    <div className="app-wrapper">
-      {isPayPalEnabled ? (
-        <PayPalScriptProvider options={{ 
-          "client-id": PAYPAL_CLIENT_ID, 
-          currency: "USD",
-          intent: "capture"
-        }}>
-          <AppContent 
-            DonationSection={DonationSection}
-            name={name}
-            setName={setName}
-            email={email}
-            setEmail={setEmail}
-            loading={loading}
-            handleEmailSubmit={handleEmailSubmit}
-            subscribers={subscribers}
-            progressAnimated={progressAnimated}
-          />
-        </PayPalScriptProvider>
-      ) : (
-        <AppContent 
-          DonationSection={DonationSection}
-          name={name}
-          setName={setName}
-          email={email}
-          setEmail={setEmail}
-          loading={loading}
-          handleEmailSubmit={handleEmailSubmit}
-          subscribers={subscribers}
-          progressAnimated={progressAnimated}
-        />
-      )}
-    </div>
-  );
-}
-
-function AppContent({ DonationSection, name, setName, email, setEmail, loading, handleEmailSubmit, subscribers, progressAnimated }) {
   return (
     <div className="container">
       
@@ -432,7 +231,7 @@ function AppContent({ DonationSection, name, setName, email, setEmail, loading, 
         </div>
       </div>
 
-      {/* Donation Section */}
+      {/* Simple Donation Section */}
       <div className="investment-section-full">
         <div className="investment-card-full">
           <div className="investment-header">
@@ -442,11 +241,51 @@ function AppContent({ DonationSection, name, setName, email, setEmail, loading, 
             </div>
             <h3 className="investment-title">Help Build the Future</h3>
             <p className="investment-description">
-              Support revolutionary pain management technology development.
+              Support revolutionary pain management technology development through PayPal.
             </p>
           </div>
           
-          <DonationSection />
+          <div className="donation-simple">
+            <div className="donation-input-row">
+              <div className="amount-input-wrapper">
+                <DollarSign size={20} className="dollar-icon" />
+                <input
+                  type="number"
+                  id="donation-amount-input"
+                  name="donationAmount"
+                  className="amount-input-simple"
+                  placeholder="Enter amount"
+                  value={donationAmount}
+                  onChange={(e) => setDonationAmount(e.target.value)}
+                  min="1"
+                  max="10000"
+                  autoComplete="off"
+                />
+              </div>
+              <button 
+                type="button"
+                onClick={handleDonation}
+                className="donate-btn-simple"
+                disabled={!donationAmount || parseFloat(donationAmount) < 1}
+              >
+                <Heart size={20} />
+                Donate via PayPal
+                <ExternalLink size={16} />
+              </button>
+            </div>
+            
+            <div className="donation-info">
+              <p className="donation-note">
+                💡 <strong>Secure Payment:</strong> Opens PayPal in new tab for safe transaction
+              </p>
+              <p className="donation-note">
+                🚀 <strong>Direct Impact:</strong> Every dollar accelerates pain management innovation
+              </p>
+              <p className="donation-note">
+                🔒 <strong>Protected:</strong> Your payment details are handled securely by PayPal
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
