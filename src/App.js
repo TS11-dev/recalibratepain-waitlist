@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Heart, Brain, Activity, Users, Mail, Zap, Shield, Target, 
   TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink, DollarSign,
-  Copy, X
+  BarChart3, Calendar, Timer, Star, Code, Clock, ExternalLink, DollarSign
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -13,9 +12,6 @@ function App() {
   const [subscribers, setSubscribers] = useState(127);
   const [progressAnimated, setProgressAnimated] = useState(false);
   const [donationAmount, setDonationAmount] = useState('25');
-  const [showDonationModal, setShowDonationModal] = useState(false);
-  const [currentDonationUrl, setCurrentDonationUrl] = useState('');
-  const [currentDonationAmount, setCurrentDonationAmount] = useState(0);
 
   // Animate progress bar on load
   useEffect(() => {
@@ -59,15 +55,15 @@ function App() {
       return;
     }
 
-    // Direct PayPal donation redirect - much better UX
+    // Direct PayPal donation redirect - seamless experience
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    toast.success(`Redirecting to PayPal for $${amount} donation...`, {
+    toast.success(`Redirecting to secure PayPal donation ($${amount})...`, {
       duration: 2000,
       icon: '💙'
     });
     
-    // Direct redirect to PayPal - seamless experience
+    // Direct redirect to PayPal - no barriers
     setTimeout(() => {
       window.location.href = donateUrl;
     }, 1000);
@@ -78,7 +74,7 @@ function App() {
     
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    toast.success(`Redirecting to PayPal for $${amount} donation...`, {
+    toast.success(`Redirecting to secure PayPal donation ($${amount})...`, {
       duration: 2000,
       icon: '💙'
     });
@@ -89,98 +85,8 @@ function App() {
     }, 1000);
   };
 
-  const copyDonationUrl = () => {
-    const textArea = document.createElement('textarea');
-    textArea.value = currentDonationUrl;
-    document.body.appendChild(textArea);
-    textArea.select();
-    
-    try {
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      toast.success('✅ Donation link copied to clipboard!');
-    } catch (error) {
-      document.body.removeChild(textArea);
-      toast.error('Unable to copy. Please manually copy the URL below.');
-    }
-  };
-
   return (
     <div className="container">
-      
-      {/* Donation Modal */}
-      {showDonationModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h3>Complete Your Donation</h3>
-              <button 
-                onClick={() => setShowDonationModal(false)}
-                className="modal-close"
-              >
-                <X size={20} />
-              </button>
-            </div>
-            
-            <div className="modal-body">
-              <div className="donation-amount-display">
-                <Heart size={24} className="heart-icon" />
-                <span className="amount-text">${currentDonationAmount}</span>
-              </div>
-              
-              <p className="modal-description">
-                Your contribution will help accelerate the development of revolutionary pain management technology.
-              </p>
-              
-              <div className="donation-url-container">
-                <label htmlFor="donation-url-input">PayPal Donation Link:</label>
-                <div className="url-input-group">
-                  <input
-                    id="donation-url-input"
-                    type="text"
-                    value={currentDonationUrl}
-                    readOnly
-                    className="url-input"
-                  />
-                  <button 
-                    onClick={copyDonationUrl}
-                    className="copy-btn"
-                    title="Copy to clipboard"
-                  >
-                    <Copy size={16} />
-                  </button>
-                </div>
-              </div>
-              
-              <div className="donation-instructions">
-                <h4>How to complete your donation:</h4>
-                <ol>
-                  <li>Click the "Copy Link" button above</li>
-                  <li>Open a new browser tab</li>
-                  <li>Paste the link in the address bar</li>
-                  <li>Complete your secure PayPal donation</li>
-                </ol>
-              </div>
-              
-              <div className="modal-actions">
-                <button 
-                  onClick={copyDonationUrl}
-                  className="primary-action-btn"
-                >
-                  <Copy size={16} />
-                  Copy Donation Link
-                </button>
-                <button 
-                  onClick={() => setShowDonationModal(false)}
-                  className="secondary-action-btn"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
       
       {/* Header */}
       <header className="header">
@@ -303,7 +209,7 @@ function App() {
         </div>
       </div>
 
-      {/* Investment Section - Full Width with Custom Amount */}
+      {/* Investment Section - Streamlined Direct Donation */}
       <div className="investment-section-full">
         <div className="investment-card-full">
           <div className="investment-header">
@@ -342,7 +248,7 @@ function App() {
                   disabled={!donationAmount || parseFloat(donationAmount) < 1}
                 >
                   <Heart size={20} />
-                  Donate Now
+                  Donate Securely
                   <ExternalLink size={16} />
                 </button>
               </div>
@@ -378,6 +284,17 @@ function App() {
                   $100
                 </button>
               </div>
+            </div>
+            
+            <div className="donation-security-info">
+              <div className="security-badge">
+                <Shield size={16} />
+                <span>Secure PayPal Donation</span>
+              </div>
+              <p className="security-description">
+                Click any amount above to be securely redirected to PayPal. 
+                Your donation is processed safely through PayPal's encrypted platform.
+              </p>
             </div>
             
             <div className="investment-notes">

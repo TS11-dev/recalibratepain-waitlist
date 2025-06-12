@@ -20,198 +20,6 @@ body {
   padding: 0 24px;
 }
 
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-  max-width: 500px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 24px 0;
-  margin-bottom: 20px;
-}
-
-.modal-header h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.modal-close {
-  background: #f1f5f9;
-  border: none;
-  border-radius: 8px;
-  padding: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.modal-close:hover {
-  background: #e2e8f0;
-}
-
-.modal-body {
-  padding: 0 24px 24px;
-}
-
-.donation-amount-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding: 20px;
-  background: linear-gradient(135deg, #dbeafe, #faf5ff);
-  border-radius: 16px;
-}
-
-.heart-icon {
-  color: #ef4444;
-}
-
-.amount-text {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #2563eb;
-}
-
-.modal-description {
-  text-align: center;
-  color: #64748b;
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
-
-.donation-url-container {
-  margin-bottom: 24px;
-}
-
-.donation-url-container label {
-  display: block;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 8px;
-}
-
-.url-input-group {
-  display: flex;
-  gap: 8px;
-}
-
-.url-input {
-  flex: 1;
-  padding: 12px 16px;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  color: #374151;
-  background: #f8fafc;
-}
-
-.copy-btn {
-  padding: 12px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.copy-btn:hover {
-  background: #1d4ed8;
-}
-
-.donation-instructions {
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 24px;
-}
-
-.donation-instructions h4 {
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 12px;
-}
-
-.donation-instructions ol {
-  color: #64748b;
-  padding-left: 20px;
-}
-
-.donation-instructions li {
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-
-.modal-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.primary-action-btn {
-  flex: 1;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, #0070ba, #003087);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.primary-action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 112, 186, 0.3);
-}
-
-.secondary-action-btn {
-  padding: 16px 24px;
-  background: transparent;
-  color: #64748b;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.secondary-action-btn:hover {
-  border-color: #cbd5e1;
-  color: #475569;
-}
-
 /* Header */
 .header {
   text-align: center;
@@ -686,7 +494,7 @@ body {
   align-items: center;
   gap: 8px;
   white-space: nowrap;
-  min-width: 140px;
+  min-width: 160px;
   justify-content: center;
 }
 
@@ -717,27 +525,59 @@ body {
 }
 
 .quick-amount-btn {
-  padding: 8px 16px;
+  padding: 12px 20px;
   border: 2px solid #e5e7eb;
   background: white;
   color: #374151;
-  border-radius: 8px;
-  font-size: 0.875rem;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  min-width: 80px;
 }
 
 .quick-amount-btn:hover {
   border-color: #2563eb;
   color: #2563eb;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
 }
 
 .quick-amount-btn.featured {
   border-color: #2563eb;
   background: #dbeafe;
   color: #2563eb;
+}
+
+/* Security Information */
+.donation-security-info {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  max-width: 500px;
+  width: 100%;
+}
+
+.security-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #dcfce7;
+  color: #166534;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.security-description {
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 /* Investment Notes */
@@ -903,10 +743,6 @@ body {
   .quick-amounts {
     justify-content: center;
   }
-
-  .modal-actions {
-    flex-direction: column;
-  }
 }
 
 @media (max-width: 768px) {
@@ -970,13 +806,5 @@ body {
   
   .quick-amount-btn {
     justify-content: center;
-  }
-
-  .modal-overlay {
-    padding: 10px;
-  }
-
-  .modal-content {
-    max-height: 95vh;
   }
 }
