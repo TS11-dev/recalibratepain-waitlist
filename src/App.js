@@ -55,18 +55,31 @@ function App() {
       return;
     }
 
-    // Direct PayPal donation redirect - seamless experience
+    // Create PayPal donation URL
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    toast.success(`Redirecting to secure PayPal donation ($${amount})...`, {
-      duration: 2000,
+    toast.success(`Opening secure PayPal donation ($${amount})...`, {
+      duration: 3000,
       icon: '💙'
     });
     
-    // Direct redirect to PayPal - no barriers
-    setTimeout(() => {
-      window.location.href = donateUrl;
-    }, 1000);
+    // Try multiple methods to ensure it works
+    try {
+      // Method 1: Try window.open() first (works in most environments)
+      const newWindow = window.open(donateUrl, '_blank', 'noopener,noreferrer');
+      
+      // Method 2: If popup blocked, use location.href as fallback
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        setTimeout(() => {
+          window.location.href = donateUrl;
+        }, 1000);
+      }
+    } catch (error) {
+      // Method 3: Direct redirect as final fallback
+      setTimeout(() => {
+        window.location.href = donateUrl;
+      }, 1000);
+    }
   };
 
   const handleQuickDonation = (amount) => {
@@ -74,15 +87,28 @@ function App() {
     
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    toast.success(`Redirecting to secure PayPal donation ($${amount})...`, {
-      duration: 2000,
+    toast.success(`Opening secure PayPal donation ($${amount})...`, {
+      duration: 3000,
       icon: '💙'
     });
     
-    // Direct redirect to PayPal - seamless experience
-    setTimeout(() => {
-      window.location.href = donateUrl;
-    }, 1000);
+    // Try multiple methods to ensure it works
+    try {
+      // Method 1: Try window.open() first
+      const newWindow = window.open(donateUrl, '_blank', 'noopener,noreferrer');
+      
+      // Method 2: If popup blocked, use location.href as fallback
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        setTimeout(() => {
+          window.location.href = donateUrl;
+        }, 1000);
+      }
+    } catch (error) {
+      // Method 3: Direct redirect as final fallback
+      setTimeout(() => {
+        window.location.href = donateUrl;
+      }, 1000);
+    }
   };
 
   return (
