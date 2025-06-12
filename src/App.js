@@ -5,15 +5,19 @@ import {
   BarChart3, Calendar, Timer, Star, Code, DollarSign, Copy
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 function App() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [subscribers, setSubscribers] = useState(127);
   const [progressAnimated, setProgressAnimated] = useState(false);
   const [donationAmount, setDonationAmount] = useState('25');
-  const [showPaymentUrl, setShowPaymentUrl] = useState(false);
-  const [paymentUrl, setPaymentUrl] = useState('');
+  const [showPayPalButtons, setShowPayPalButtons] = useState(false);
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+  const PAYPAL_CLIENT_ID = process.env.REACT_APP_PAYPAL_CLIENT_ID;
 
   // Animate progress bar on load
   useEffect(() => {
@@ -23,8 +27,29 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Fetch current subscriber count on load
+  useEffect(() => {
+    fetchSubscriberCount();
+  }, []);
+
+  const fetchSubscriberCount = async () => {
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/waitlist/count`);
+      if (response.ok) {
+        const data = await response.json();
+        setSubscribers(data.count || 127);
+      }
+    } catch (error) {
+      console.log('Could not fetch subscriber count, using default');
+    }
+  };
+
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
+    if (!name.trim()) {
+      toast.error('Please enter your name');
+      return;
+    }
     if (!email || !email.includes('@')) {
       toast.error('Please enter a valid email address');
       return;
@@ -33,57 +58,79 @@ function App() {
     setLoading(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setSubscribers(prev => prev + 1);
-      toast.success('🚀 Welcome to the future of pain management!');
-      setEmail('');
+      const response = await fetch(`${BACKEND_URL}/api/waitlist/join`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.toLowerCase().trim()
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        toast.success(data.message);
+        setSubscribers(data.total_subscribers);
+        setName('');
+        setEmail('');
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.detail || 'Something went wrong. Please try again.');
+      }
     } catch (error) {
-      toast.success('Welcome to Recalibrate!');
-      setEmail('');
-      setSubscribers(prev => prev + 1);
+      toast.error('Network error. Please check your connection and try again.');
+      console.error('Email submission error:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  const generatePaymentUrl = (amount) => {
-    const url = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
-    setPaymentUrl(url);
-    setShowPaymentUrl(true);
-    toast.success(`Payment link generated for $${amount}!`);
-  };
-
-  const handleCustomDonation = () => {
+  const handleShowPayPal = () => {
     const amount = parseFloat(donationAmount);
     if (!amount || amount < 1) {
       toast.error('Please enter a valid amount ($1 minimum)');
       return;
     }
-    generatePaymentUrl(amount);
+    setShowPayPalButtons(true);
   };
 
-  const copyPaymentUrl = () => {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(paymentUrl).then(() => {
-        toast.success('Payment link copied!');
-      }).catch(() => {
-        toast.error('Please manually copy the link below');
-      });
-    } else {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea');
-      textArea.value = paymentUrl;
-      document.body.appendChild(textArea);
-      textArea.select();
-      try {
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        toast.success('Payment link copied!');
-      } catch (err) {
-        document.body.removeChild(textArea);
-        toast.error('Please manually copy the link below');
-      }
-    }
+  const handleQuickDonation = (amount) => {
+    setDonationAmount(amount.toString());
+    setShowPayPalButtons(true);
+  };
+
+  const createOrder = (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: donationAmount,
+            currency_code: 'USD'
+          },
+          description: 'Support Recalibrate Development'
+        }
+      ]
+    });
+  };
+
+  const onApprove = (data, actions) => {
+    return actions.order.capture().then((details) => {
+      toast.success(`Thank you ${details.payer.name.given_name}! Your donation helps build the future of pain management.`);
+      setShowPayPalButtons(false);
+      setDonationAmount('25');
+    });
+  };
+
+  const onError = (err) => {
+    toast.error('Payment failed. Please try again.');
+    console.error('PayPal error:', err);
+  };
+
+  const onCancel = () => {
+    toast('Payment cancelled', { icon: '👋' });
+    setShowPayPalButtons(false);
   };
 
   return (
