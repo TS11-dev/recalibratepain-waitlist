@@ -159,7 +159,7 @@ backend:
 frontend:
   - task: "Email Collection Form"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/src/App.js"
     stuck_count: 0
     priority: "high"
@@ -168,6 +168,33 @@ frontend:
       - working: "NA"
         agent: "main"
         comment: "Not tested yet"
+      - working: true
+        agent: "testing"
+        comment: "Email collection form works correctly. Form validation for empty fields and invalid email formats works as expected. Successful submission adds the email to the waitlist and updates the subscriber count."
+  
+  - task: "PayPal Integration"
+    implemented: true
+    working: true
+    file: "/app/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "PayPal integration is working correctly. Donation amount input field and quick donation buttons ($10, $25, $50, $100) work as expected. PayPal buttons are displayed correctly and ready for checkout."
+  
+  - task: "Responsive Design"
+    implemented: true
+    working: true
+    file: "/app/src/App.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Responsive design works correctly on desktop, tablet, and mobile screen sizes. All UI elements adjust appropriately to different viewport sizes."
 
 metadata:
   created_by: "testing_agent"
