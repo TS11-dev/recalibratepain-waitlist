@@ -425,13 +425,98 @@ body {
   gap: 24px;
 }
 
-/* Donation Form */
-.donation-form {
-  width: 100%;
-  max-width: 500px;
+/* Simple Donation Section */
+.donation-simple {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.donation-input-row {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.amount-input-simple {
+  width: 200px;
+  padding: 16px 16px 16px 48px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: border-color 0.2s;
+  background: white;
+  text-align: center;
+}
+
+.amount-input-simple:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.donate-btn-simple {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #0070ba, #003087);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.donate-btn-simple:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 112, 186, 0.3);
+}
+
+.donate-btn-simple:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.donation-info {
+  background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+}
+
+.donation-note {
+  font-size: 0.875rem;
+  color: #475569;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+/* Remove old complex donation styles */
+.donation-form,
+.paypal-checkout-section,
+.paypal-buttons-container,
+.paypal-error,
+.payment-url-section,
+.payment-title,
+.payment-url-container,
+.payment-url-input,
+.copy-btn,
+.payment-instructions,
+.back-btn,
+.amount-input-container,
+.quick-amounts,
+.quick-amounts-label,
+.quick-amount-btn {
+  display: none;
 }
 
 .amount-input-container {
