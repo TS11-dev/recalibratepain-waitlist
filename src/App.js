@@ -254,9 +254,39 @@ function App() {
                   color: 'blue',
                   shape: 'rect',
                   label: 'donate',
-                  height: 55
+                  height: 55,
+                  tagline: false
                 }}
+                forceReRender={[25.00]}
               />
+              
+              {/* Fallback button if PayPal doesn't load */}
+              <div style={{ marginTop: '16px' }}>
+                <button 
+                  onClick={() => window.open('https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=25&currency_code=USD', '_blank')}
+                  style={{
+                    width: '100%',
+                    padding: '16px 24px',
+                    background: 'linear-gradient(135deg, #0070ba, #003087)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '12px',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
+                  onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
+                  onMouseOut={(e) => e.target.style.transform = 'translateY(0px)'}
+                >
+                  <Heart size={20} />
+                  Donate $25 via PayPal
+                </button>
+              </div>
             </div>
             
             <p className="investment-note">
