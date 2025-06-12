@@ -3,5 +3,25 @@
     "name": "Test User",
     "email": "test@example.com",
     "timestamp": "2025-06-12T15:30:22.788569"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1749742361@example.com",
+    "timestamp": "2025-06-12T15:32:41.039035"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1749742361@example.com",
+    "timestamp": "2025-06-12T15:32:41.043307"
+  },
+  {
+    "name": "Persistence Test 1749742361",
+    "email": "persistence.test.1749742361@example.com",
+    "timestamp": "2025-06-12T15:32:41.063411"
+  },
+  {
+    "name": "Count Test 1749742361",
+    "email": "count.test.1749742361@example.com",
+    "timestamp": "2025-06-12T15:32:41.071092"
   }
 ]
