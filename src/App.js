@@ -269,7 +269,7 @@ function App() {
                 disabled={!donationAmount || parseFloat(donationAmount) < 1}
               >
                 <Heart size={20} />
-                Donate via PayPal
+                Support
                 <ExternalLink size={16} />
               </button>
             </div>
