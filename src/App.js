@@ -18,6 +18,7 @@ function App() {
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
   const PAYPAL_CLIENT_ID = process.env.REACT_APP_PAYPAL_CLIENT_ID;
+  const isPayPalEnabled = PAYPAL_CLIENT_ID && PAYPAL_CLIENT_ID !== 'test' && PAYPAL_CLIENT_ID !== 'YOUR_PAYPAL_CLIENT_ID';
 
   // Animate progress bar on load
   useEffect(() => {
