@@ -147,11 +147,11 @@ function App() {
           {/* Progress Milestones */}
           <div className="milestones">
             <div className="milestone">
-              <div className="milestone-icon complete">
-                <CheckCircle />
+              <div className="milestone-icon progress">
+                <Code />
               </div>
               <h3 className="milestone-title">Core Functionality</h3>
-              <p className="milestone-status complete">✅ Complete</p>
+              <p className="milestone-status progress">⚡ 80% Complete</p>
             </div>
             <div className="milestone">
               <div className="milestone-icon progress">
@@ -171,112 +171,67 @@ function App() {
         </div>
       </div>
 
-      {/* Main Content Grid */}
-      <div className="main-grid">
-        
-        {/* Email Signup - Left Column */}
-        <div className="email-section">
-          <div className="exclusive-badge">
-            <Star size={16} />
-            Exclusive Access
+      {/* Email Signup - Full Width */}
+      <div className="email-section-full">
+        <div className="exclusive-badge">
+          <Star size={16} />
+          Exclusive Access
+        </div>
+        <h2 className="email-title">Join the Paincare Revolution</h2>
+        <p className="email-description">
+          Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform. 
+          Join healthcare professionals, researchers, and patients already on the waitlist.
+        </p>
+
+        <form onSubmit={handleEmailSubmit} className="email-form-wide">
+          <input
+            type="email"
+            className="email-input"
+            placeholder="Enter your professional email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="submit-btn"
+          >
+            {loading ? (
+              <>
+                <div className="loading-spinner"></div>
+                Joining...
+              </>
+            ) : (
+              <>
+                Join Waitlist
+                <ArrowRight size={20} />
+              </>
+            )}
+          </button>
+        </form>
+
+        {/* Social Proof - Updated with honest metrics */}
+        <div className="social-proof">
+          <div className="proof-item">
+            <div className="proof-number blue">{subscribers}+</div>
+            <div className="proof-label">Early Subscribers</div>
           </div>
-          <h2 className="email-title">Join the Healthcare Revolution</h2>
-          <p className="email-description">
-            Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform. 
-            Join healthcare professionals, researchers, and patients already on the waitlist.
-          </p>
-
-          <form onSubmit={handleEmailSubmit} className="email-form">
-            <input
-              type="email"
-              className="email-input"
-              placeholder="Enter your professional email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button 
-              type="submit" 
-              disabled={loading}
-              className="submit-btn"
-            >
-              {loading ? (
-                <>
-                  <div className="loading-spinner"></div>
-                  Joining...
-                </>
-              ) : (
-                <>
-                  Join Waitlist
-                  <ArrowRight size={20} />
-                </>
-              )}
-            </button>
-          </form>
-
-          {/* Social Proof - Updated with honest metrics */}
-          <div className="social-proof">
-            <div className="proof-item">
-              <div className="proof-number blue">{subscribers}+</div>
-              <div className="proof-label">Early Subscribers</div>
-            </div>
-            <div className="proof-item">
-              <div className="proof-number purple">8</div>
-              <div className="proof-label">Health Systems Tracked</div>
-            </div>
-            <div className="proof-item">
-              <div className="proof-number green">180+</div>
-              <div className="proof-label">Days in Development</div>
-            </div>
+          <div className="proof-item">
+            <div className="proof-number purple">8</div>
+            <div className="proof-label">Health Systems Tracked</div>
+          </div>
+          <div className="proof-item">
+            <div className="proof-number green">180+</div>
+            <div className="proof-label">Days in Development</div>
           </div>
         </div>
+      </div>
 
-        {/* Features & Stats - Right Column */}
-        <div className="sidebar">
-          
-          {/* Key Features */}
-          <div className="features-card">
-            <h3 className="features-title">Revolutionary Features</h3>
-            <div className="feature-item">
-              <div className="feature-icon blue">
-                <Brain size={16} />
-              </div>
-              <div className="feature-text">
-                <h4>AI Pattern Recognition</h4>
-                <p>Advanced algorithms identify pain patterns</p>
-              </div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon purple">
-                <Activity size={16} />
-              </div>
-              <div className="feature-text">
-                <h4>Multi-System Tracking</h4>
-                <p>8 interconnected health systems</p>
-              </div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon green">
-                <Shield size={16} />
-              </div>
-              <div className="feature-text">
-                <h4>Clinical Integration</h4>
-                <p>Seamless provider collaboration</p>
-              </div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon orange">
-                <Target size={16} />
-              </div>
-              <div className="feature-text">
-                <h4>Personalized Care</h4>
-                <p>Tailored treatment protocols</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Investment Section - Fixed PayPal Integration */}
-          <div className="investment-card">
+      {/* Investment Section - Full Width */}
+      <div className="investment-section-full">
+        <div className="investment-card-full">
+          <div className="investment-header">
             <div className="investment-badge">
               <Heart size={14} />
               Support Innovation
@@ -286,18 +241,20 @@ function App() {
               Support the development of revolutionary pain management technology. 
               Your contribution helps accelerate research and bring this platform to those who need it most.
             </p>
-            
-            <div style={{ marginBottom: '16px' }}>
+          </div>
+          
+          <div className="investment-content">
+            <div className="paypal-container">
               <PayPalButtons
                 createOrder={createDonationOrder}
                 onApprove={onDonationApprove}
                 onError={onDonationError}
                 style={{
-                  layout: 'vertical',
+                  layout: 'horizontal',
                   color: 'blue',
                   shape: 'rect',
                   label: 'donate',
-                  height: 45
+                  height: 55
                 }}
               />
             </div>
@@ -309,7 +266,7 @@ function App() {
         </div>
       </div>
 
-      {/* What We're Building */}
+      {/* What We're Building - Enhanced with Revolutionary Features */}
       <div className="science-section">
         <div className="science-card">
           <div className="science-header">
@@ -317,34 +274,48 @@ function App() {
             <p className="science-description">Revolutionary technology meets evidence-based medicine</p>
           </div>
           
-          <div className="science-grid">
+          <div className="science-grid-large">
+            <div className="science-item">
+              <div className="science-icon blue">
+                <Brain />
+              </div>
+              <h3>AI Pattern Recognition</h3>
+              <p>Advanced algorithms identify pain patterns and predict flare-ups before they happen</p>
+            </div>
+            <div className="science-item">
+              <div className="science-icon purple">
+                <Activity />
+              </div>
+              <h3>Multi-System Tracking</h3>
+              <p>8 interconnected health systems: neural, immune, musculoskeletal, and autonomic</p>
+            </div>
+            <div className="science-item">
+              <div className="science-icon green">
+                <Shield />
+              </div>
+              <h3>Clinical Integration</h3>
+              <p>Seamless provider collaboration with evidence-based protocols and real-world validation</p>
+            </div>
+            <div className="science-item">
+              <div className="science-icon orange">
+                <Target />
+              </div>
+              <h3>Personalized Care</h3>
+              <p>Tailored treatment protocols based on individual health patterns and responses</p>
+            </div>
             <div className="science-item">
               <div className="science-icon blue">
                 <BarChart3 />
               </div>
               <h3>Advanced Analytics</h3>
-              <p>Weighted scoring algorithms process complex health data patterns</p>
+              <p>Weighted scoring algorithms process complex health data patterns for actionable insights</p>
             </div>
             <div className="science-item">
               <div className="science-icon purple">
-                <Globe />
-              </div>
-              <h3>Multi-System Integration</h3>
-              <p>Neural, immune, musculoskeletal, and autonomic system tracking</p>
-            </div>
-            <div className="science-item">
-              <div className="science-icon green">
                 <TrendingUp />
               </div>
               <h3>Predictive Insights</h3>
-              <p>AI-powered pattern recognition for proactive care</p>
-            </div>
-            <div className="science-item">
-              <div className="science-icon orange">
-                <Award />
-              </div>
-              <h3>Clinical Excellence</h3>
-              <p>Evidence-based protocols with real-world validation</p>
+              <p>AI-powered pattern recognition enables proactive care and prevention strategies</p>
             </div>
           </div>
         </div>
