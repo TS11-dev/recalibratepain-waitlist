@@ -59,30 +59,34 @@ function App() {
       return;
     }
 
+    // Direct PayPal donation redirect - much better UX
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    setCurrentDonationUrl(donateUrl);
-    setCurrentDonationAmount(amount);
-    setShowDonationModal(true);
-    
-    toast.success(`Ready to donate $${amount}! Follow the instructions in the popup.`, {
-      duration: 4000,
+    toast.success(`Redirecting to PayPal for $${amount} donation...`, {
+      duration: 2000,
       icon: '💙'
     });
+    
+    // Direct redirect to PayPal - seamless experience
+    setTimeout(() => {
+      window.location.href = donateUrl;
+    }, 1000);
   };
 
   const handleQuickDonation = (amount) => {
     setDonationAmount(amount.toString());
+    
     const donateUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
-    setCurrentDonationUrl(donateUrl);
-    setCurrentDonationAmount(amount);
-    setShowDonationModal(true);
-    
-    toast.success(`Ready to donate $${amount}! Follow the instructions in the popup.`, {
-      duration: 4000,
+    toast.success(`Redirecting to PayPal for $${amount} donation...`, {
+      duration: 2000,
       icon: '💙'
     });
+    
+    // Direct redirect to PayPal - seamless experience
+    setTimeout(() => {
+      window.location.href = donateUrl;
+    }, 1000);
   };
 
   const copyDonationUrl = () => {
