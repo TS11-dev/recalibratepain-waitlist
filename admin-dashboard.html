@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecalibratePain Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8b5cf6;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        button {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        .subscriber-list {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 1.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .subscriber {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 1rem;
+            border-left: 4px solid #8b5cf6;
+        }
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #8b5cf6;
+            font-size: 1.2rem;
+        }
+        .error {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 RecalibratePain Admin Dashboard</h1>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCount">--</div>
+                <div>Total Subscribers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayCount">--</div>
+                <div>Today's Signups</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="recentCount">--</div>
+                <div>This Week</div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="loadSubscribers()">🔄 Refresh Data</button>
+            <button onclick="exportToCSV()">📊 Download CSV</button>
+            <button onclick="exportToJSON()">💾 Download JSON</button>
+            <button onclick="copyEmails()">📧 Copy All Emails</button>
+        </div>
+
+        <div id="error-message"></div>
+        
+        <div class="subscriber-list">
+            <h3>📋 Subscriber List</h3>
+            <div id="subscribers">
+                <div class="loading">Loading your subscribers...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'https://d7af1d19-19a8-40ef-afdf-717564de273d.preview.emergentagent.com/api';
+        let currentData = null;
+
+        async function loadSubscribers() {
+            try {
+                document.getElementById('error-message').innerHTML = '';
+                document.getElementById('subscribers').innerHTML = '<div class="loading">Loading...</div>';
+                
+                // Get full data
+                const response = await fetch(`${API_BASE}/waitlist/export`);
+                const data = await response.json();
+                currentData = data;
+                
+                // Get stats
+                const statsResponse = await fetch(`${API_BASE}/waitlist/stats`);
+                const stats = await statsResponse.json();
+                
+                // Update stats
+                document.getElementById('totalCount').textContent = data.total_count;
+                document.getElementById('todayCount').textContent = stats.today_signups || 0;
+                document.getElementById('recentCount').textContent = stats.recent_signups || 0;
+                
+                // Display subscribers
+                displaySubscribers(data.waitlist);
+                
+            } catch (error) {
+                document.getElementById('error-message').innerHTML = 
+                    `<div class="error">❌ Error loading data: ${error.message}</div>`;
+                console.error('Error:', error);
+            }
+        }
+
+        function displaySubscribers(subscribers) {
+            const container = document.getElementById('subscribers');
+            
+            if (subscribers.length === 0) {
+                container.innerHTML = '<div class="loading">No subscribers yet!</div>';
+                return;
+            }
+
+            const subscriberHtml = subscribers
+                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+                .map(sub => `
+                    <div class="subscriber">
+                        <div><strong>${sub.name}</strong></div>
+                        <div>${sub.email}</div>
+                        <div>${new Date(sub.timestamp).toLocaleDateString()}</div>
+                    </div>
+                `).join('');
+            
+            container.innerHTML = subscriberHtml;
+        }
+
+        function exportToCSV() {
+            if (!currentData || !currentData.waitlist) {
+                alert('Please load data first!');
+                return;
+            }
+
+            const headers = ['Name', 'Email', 'Date', 'Time'];
+            const rows = currentData.waitlist.map(sub => [
+                sub.name,
+                sub.email,
+                new Date(sub.timestamp).toLocaleDateString(),
+                new Date(sub.timestamp).toLocaleTimeString()
+            ]);
+
+            const csvContent = [headers, ...rows]
+                .map(row => row.map(field => `"${field}"`).join(','))
+                .join('\n');
+
+            downloadFile(csvContent, 'recalibrate-subscribers.csv', 'text/csv');
+        }
+
+        function exportToJSON() {
+            if (!currentData) {
+                alert('Please load data first!');
+                return;
+            }
+
+            const jsonContent = JSON.stringify(currentData, null, 2);
+            downloadFile(jsonContent, 'recalibrate-subscribers.json', 'application/json');
+        }
+
+        function copyEmails() {
+            if (!currentData || !currentData.waitlist) {
+                alert('Please load data first!');
+                return;
+            }
+
+            const emails = currentData.waitlist.map(sub => sub.email).join('\n');
+            navigator.clipboard.writeText(emails).then(() => {
+                alert('✅ All email addresses copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy emails:', err);
+                alert('❌ Failed to copy emails. Please try again.');
+            });
+        }
+
+        function downloadFile(content, filename, mimeType) {
+            const blob = new Blob([content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Load data when page loads
+        loadSubscribers();
+
+        // Auto-refresh every 30 seconds
+        setInterval(loadSubscribers, 30000);
+    </script>
+</body>
+</html>
