@@ -77,6 +77,21 @@ def save_waitlist(waitlist: List[dict]) -> bool:
         logger.error(f"Error saving waitlist file: {e}")
         return False
 
+@app.on_event("startup")
+async def startup_event():
+    """Log startup information"""
+    port = os.environ.get("PORT", os.environ.get("API_PORT", "8001"))
+    logger.info(f"🚀 RecalibratePain API starting up on port {port}")
+    logger.info(f"📁 Waitlist file location: {WAITLIST_FILE}")
+    logger.info(f"✅ Health check endpoint: /api/health")
+    
+    # Ensure data directory exists
+    ensure_data_directory()
+    
+    # Load initial data
+    waitlist = load_waitlist()
+    logger.info(f"📊 Loaded {len(waitlist)} existing subscribers")
+
 @app.get("/api/health")
 async def health_check():
     """Enhanced health check endpoint"""
