@@ -389,7 +389,7 @@ function App() {
                     type="button"
                     onClick={() => {
                       setDonationAmount(amount.toString());
-                      const paypalUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+                      const paypalUrl = `https://paypal.me/tristansiokos24/${amount}?country.x=US&locale.x=en_US`;
                       window.open(paypalUrl, '_blank');
                       toast.success(`Opening PayPal for $${amount} donation. Thank you!`, {
                         style: {
