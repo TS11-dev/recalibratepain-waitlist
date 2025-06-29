@@ -2174,12 +2174,12 @@ body::after {
 .badge-title {
   font-weight: 600;
   font-size: 0.875rem;
-  color: #a78bfa;
+  color: #c4b5fd;
 }
 
 .badge-subtitle {
   font-size: 0.75rem;
-  color: rgba(167, 139, 250, 0.7);
+  color: rgba(196, 181, 253, 0.8);
 }
 
 /* Mobile responsiveness for social section */
