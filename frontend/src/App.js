@@ -394,7 +394,6 @@ function App() {
                     value={donationAmount}
                     onChange={(e) => {
                       setDonationAmount(e.target.value);
-                      setShowCustomDonation(true);
                     }}
                     min="1"
                     max="10000"
