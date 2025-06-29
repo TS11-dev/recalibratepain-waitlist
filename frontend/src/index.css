@@ -293,6 +293,16 @@ body::after {
   box-shadow: 0 0 15px rgba(220, 38, 127, 0.3);
 }
 
+/* Mobile responsive HEART */
+@media (max-width: 768px) {
+  .anatomical-heart {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    top: 30%;
+  }
+}
+
 /* DNA MOLECULE - TOP LEFT OF LOGO */
 .dna-molecule {
   position: absolute;
