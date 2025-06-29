@@ -9,11 +9,18 @@ from datetime import datetime
 BACKEND_URL = os.environ.get('REACT_APP_BACKEND_URL', 'http://localhost:8001')
 WAITLIST_FILE = "/app/backend/waitlist.json"
 
+print(f"Using backend URL: {BACKEND_URL}")
+
 # Test results tracking
 test_results = {
     "passed": 0,
     "failed": 0,
-    "total": 0
+    "total": 0,
+    "dual_storage_tests": {
+        "passed": 0,
+        "failed": 0,
+        "total": 0
+    }
 }
 
 def run_test(test_name, test_func):
