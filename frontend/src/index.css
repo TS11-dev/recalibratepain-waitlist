@@ -247,6 +247,16 @@ body::after {
   animation: cellularActivity 10s ease-in-out infinite;
 }
 
+/* Mobile responsive CELL */
+@media (max-width: 768px) {
+  .cell-diagram {
+    width: 40px;
+    height: 40px;
+    right: 5%;
+    top: 8%;
+  }
+}
+
 /* LUNGS - MORE INWARD */
 .lung-system {
   position: absolute;
