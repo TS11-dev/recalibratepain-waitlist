@@ -219,7 +219,7 @@ function App() {
             </div>
           </div>
           <p className="subtitle">Your intelligent pain management companion</p>
-          <p className="sub-description">Track symptoms, learn from pain science, build your care team, use our built in therapeutic tools and get AI-powered insights to personalize your painful experience and live to your best.</p>
+          <p className="sub-description">Track symptoms, learn from pain science, build your care team, use our built in therapeutic tools and get AI-powered insights to personalize your pain management and live a better life.</p>
           
           {/* Social Media & Coming Soon Section */}
           <div className="social-and-badges-section">
