@@ -138,5 +138,9 @@
     "name": "Count Test 1751154870",
     "email": "count.test.1751154870@example.com",
     "timestamp": "2025-06-28T23:54:30.439137"
-  }
-]
+  },
+  {
+    "name": "Test Dual Storage",
+    "email": "dualstorage@test.com",
+    "timestamp": "2025-06-29T00:32:01.912949",
+    "_id": 
