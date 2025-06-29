@@ -2140,25 +2140,25 @@ body::after {
 }
 
 .badge-item.beta {
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.18);
+  border: 1px solid rgba(139, 92, 246, 0.5);
 }
 
 .badge-item.beta:hover {
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(139, 92, 246, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
 }
 
 .badge-item.playstore {
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  background: rgba(34, 197, 94, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.5);
 }
 
 .badge-item.playstore:hover {
-  background: rgba(34, 197, 94, 0.15);
+  background: rgba(34, 197, 94, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.35);
 }
 
 .badge-icon {
