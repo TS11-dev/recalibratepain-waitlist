@@ -275,7 +275,7 @@ async def get_subscriber_count():
         return {
             "count": count, 
             "timestamp": datetime.now().isoformat(),
-            "source": "mongodb" if mongo_collection else "json_backup"
+            "source": "mongodb" if mongo_collection is not None else "json_backup"
         }
     except Exception as e:
         logger.error(f"Error getting subscriber count: {e}")
