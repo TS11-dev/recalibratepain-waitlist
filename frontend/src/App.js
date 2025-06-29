@@ -492,7 +492,7 @@ function App() {
                     }
                     
                     // Simple PayPal redirect that works
-                    const paypalUrl = `https://www.paypal.com/donate/?business=AT2eBtaogFKVj599L8Ifr4Q5Y9avS_gRT2-lvm3CP165l7BBDs8iwB-5mRSV46gapeoPrJ4BjKdOZJtM&amount=${amount}&currency_code=USD&item_name=Support%20RecalibratePain%20Development`;
+                    const paypalUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20RecalibratePain%20Development`;
                     window.open(paypalUrl, '_blank');
                     
                     toast.success(`Opening secure payment for $${amount}. Thank you for your support!`, {
