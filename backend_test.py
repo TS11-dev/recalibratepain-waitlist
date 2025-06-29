@@ -516,22 +516,25 @@ def test_subscriber_count_accuracy():
 def run_all_tests():
     """Run all tests and print summary"""
     print("\n🧪 STARTING BACKEND API TESTS 🧪\n")
+    print("\n🔍 TESTING DUAL STORAGE SYSTEM (MongoDB + JSON) 🔍\n")
     
     # Basic endpoint tests
-    run_test("Health Endpoint", test_health_endpoint)
+    run_test("Health Endpoint with Dual Storage Status", test_health_endpoint)
     run_test("Root Endpoint", test_root_endpoint)
-    run_test("Waitlist Count Endpoint", test_waitlist_count_endpoint)
-    run_test("Waitlist Export Endpoint", test_waitlist_export_endpoint)
-    run_test("Waitlist Stats Endpoint", test_waitlist_stats_endpoint)
+    run_test("Waitlist Count Endpoint with Source Info", test_waitlist_count_endpoint)
+    run_test("Waitlist Export Endpoint with Storage Info", test_waitlist_export_endpoint)
+    run_test("Waitlist Stats Endpoint with Storage Source", test_waitlist_stats_endpoint)
     
     # Waitlist join tests
-    run_test("Join Waitlist - Valid Data", test_join_waitlist_valid_data)
+    run_test("Join Waitlist - Valid Data with Dual Storage", test_join_waitlist_valid_data)
     run_test("Join Waitlist - Duplicate Email", test_join_waitlist_duplicate_email)
     run_test("Join Waitlist - Invalid Email", test_join_waitlist_invalid_email)
     run_test("Join Waitlist - Missing Fields", test_join_waitlist_missing_fields)
     
     # Data persistence and accuracy tests
-    run_test("Data Persistence", test_data_persistence)
+    run_test("Data Persistence in JSON", test_data_persistence)
+    run_test("Dual Storage Functionality", test_dual_storage_functionality)
+    run_test("MongoDB Primary Source", test_mongodb_primary_source)
     run_test("Subscriber Count Accuracy", test_subscriber_count_accuracy)
     
     # CORS test
