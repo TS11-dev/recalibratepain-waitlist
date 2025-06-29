@@ -135,8 +135,9 @@ function App() {
 
   const handleDonation = () => {
     const amount = parseFloat(donationAmount);
-    if (!amount || amount < 1) {
-      toast.error('Please enter a valid amount ($1 minimum)', {
+    
+    if (isNaN(amount) || amount < 1) {
+      toast.error('Please enter a valid donation amount.', {
         style: {
           background: 'rgba(239, 68, 68, 0.1)',
           color: '#fff',
@@ -147,12 +148,12 @@ function App() {
       return;
     }
 
-    // Create PayPal donation URL
-    const paypalUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+    // Use PayPal.me link for better compatibility with live payments
+    const paypalUrl = `https://paypal.me/tristansiokos24/${amount}?country.x=US&locale.x=en_US`;
     
     // Open PayPal in new tab
     window.open(paypalUrl, '_blank');
-    
+
     toast.success(`Opening PayPal for $${amount} donation. Thank you for your support!`, {
       style: {
         background: 'rgba(139, 92, 246, 0.1)',
