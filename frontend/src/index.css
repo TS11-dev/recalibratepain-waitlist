@@ -227,6 +227,16 @@ body::after {
   transform-style: preserve-3d;
 }
 
+/* Mobile responsive DNA */
+@media (max-width: 768px) {
+  .dna-molecule {
+    width: 25px;
+    height: 50px;
+    left: 5%;
+    top: 8%;
+  }
+}
+
 /* CELL - FAR RIGHT */
 .cell-diagram {
   position: absolute;
