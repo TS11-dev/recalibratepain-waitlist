@@ -476,17 +476,42 @@ function App() {
                     autoComplete="off"
                   />
                 </div>
-                <PayPalButtons
-                  style={{
-                    color: "gold",
-                    layout: "horizontal",
-                    height: 40,
-                    tagline: false
+                <button 
+                  type="button"
+                  onClick={() => {
+                    const amount = parseFloat(donationAmount) || selectedDonationAmount;
+                    if (!amount || amount < 1) {
+                      toast.error('Please select or enter a valid amount ($1 minimum)', {
+                        style: {
+                          background: 'rgba(239, 68, 68, 0.1)',
+                          color: '#fff',
+                          border: '1px solid rgba(239, 68, 68, 0.3)',
+                          backdropFilter: 'blur(10px)',
+                        },
+                      });
+                      return;
+                    }
+                    
+                    // Simple PayPal redirect that works
+                    const paypalUrl = `https://www.paypal.com/donate/?business=AT2eBtaogFKVj599L8Ifr4Q5Y9avS_gRT2-lvm3CP165l7BBDs8iwB-5mRSV46gapeoPrJ4BjKdOZJtM&amount=${amount}&currency_code=USD&item_name=Support%20RecalibratePain%20Development`;
+                    window.open(paypalUrl, '_blank');
+                    
+                    toast.success(`Opening secure payment for $${amount}. Thank you for your support!`, {
+                      style: {
+                        background: 'rgba(139, 92, 246, 0.1)',
+                        color: '#fff',
+                        border: '1px solid rgba(139, 92, 246, 0.3)',
+                        backdropFilter: 'blur(10px)',
+                      },
+                    });
                   }}
-                  createOrder={createOrder}
-                  onApprove={onApprove}
-                  onError={onError}
-                />
+                  className="donate-btn-simple"
+                  disabled={!donationAmount && !selectedDonationAmount}
+                >
+                  <Heart size={20} />
+                  Support Development
+                  <ExternalLink size={16} />
+                </button>
               </div>
               
               <div className="donation-info">
