@@ -516,13 +516,14 @@ function App() {
               
               <div className="donation-info">
                 <p className="donation-note">
-                  💡 <strong>Secure Payment:</strong> Opens PayPal in new tab for safe transaction
+                  💳 <strong>Secure Payment:</strong> Accepts all major credit & debit cards
                 </p>
                 <p className="donation-note">
                   🚀 <strong>Direct Impact:</strong> Every dollar accelerates pain management innovation
                 </p>
                 <p className="donation-note">
-                  🔒 <strong>Protected:</strong> Your payment details are handled securely by PayPal
+                  🔒 <strong>Protected:</strong> Your payment details are handled securely
+                </p>
                 </p>
               </div>
             </div>
