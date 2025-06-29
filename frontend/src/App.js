@@ -388,7 +388,7 @@ function App() {
                     type="button"
                     onClick={() => {
                       setDonationAmount(amount.toString());
-                      const paypalUrl = `https://www.paypal.com/donate/?business=info@recalibratepain.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+                      const paypalUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
                       window.open(paypalUrl, '_blank');
                       toast.success(`Opening PayPal for $${amount} donation. Thank you!`, {
                         style: {
@@ -530,8 +530,8 @@ function App() {
           <div className="footer-content">
             <p>
               Questions about Recalibrate? Ready to collaborate? <br />
-              <a href="mailto:info@recalibratepain.com">
-                info@recalibratepain.com
+              <a href="mailto:tristan.siokos24@gmail.com">
+                tristan.siokos24@gmail.com
               </a>
             </p>
           </div>
