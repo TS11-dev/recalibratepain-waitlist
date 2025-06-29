@@ -43,14 +43,32 @@ def run_test(test_name, test_func):
         return False
 
 def test_health_endpoint():
-    """Test the health check endpoint"""
+    """Test the health check endpoint with dual storage status"""
     response = requests.get(f"{BACKEND_URL}/api/health")
     print(f"Response: {response.status_code} - {response.text}")
     
+    data = response.json()
+    
+    # Check for dual storage information
+    has_dual_storage_info = (
+        "storage" in data and
+        "mongodb" in data["storage"] and
+        "json_backup" in data["storage"] and
+        "dual_storage" in data["storage"]
+    )
+    
+    print(f"Dual storage info present: {has_dual_storage_info}")
+    if has_dual_storage_info:
+        print(f"MongoDB status: {data['storage']['mongodb']}")
+        print(f"JSON backup status: {data['storage']['json_backup']}")
+        print(f"Dual storage active: {data['storage']['dual_storage']}")
+    
     return (
         response.status_code == 200 and
-        response.json().get("status") == "healthy" and
-        response.json().get("service") == "RecalibratePain Waitlist API"
+        data.get("status") == "healthy" and
+        data.get("service") == "RecalibratePain Waitlist API" and
+        data.get("version") == "3.0.0" and
+        has_dual_storage_info
     )
 
 def test_waitlist_count_endpoint():
