@@ -296,10 +296,10 @@ body::after {
 /* Mobile responsive HEART */
 @media (max-width: 768px) {
   .anatomical-heart {
-    width: 40px;
-    height: 40px;
-    right: 10px;
-    top: 30%;
+    width: 28px;
+    height: 28px;
+    right: 5px;
+    top: 45%;
   }
 }
 
