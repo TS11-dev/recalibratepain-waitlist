@@ -289,16 +289,25 @@ def test_cors_headers():
     )
 
 def test_waitlist_stats_endpoint():
-    """Test the waitlist stats endpoint"""
+    """Test the waitlist stats endpoint with storage source information"""
     response = requests.get(f"{BACKEND_URL}/api/waitlist/stats")
     print(f"Response: {response.status_code} - {response.text}")
     
+    data = response.json()
+    
+    # Check for storage source information
+    has_storage_source = "storage_source" in data
+    if has_storage_source:
+        print(f"Storage source: {data['storage_source']}")
+    
     return (
         response.status_code == 200 and
-        "total_subscribers" in response.json() and
-        "recent_signups" in response.json() and
-        "today_signups" in response.json() and
-        "timestamp" in response.json()
+        "total_subscribers" in data and
+        "recent_signups" in data and
+        "today_signups" in data and
+        "timestamp" in data and
+        has_storage_source and
+        data.get("storage_source") in ["mongodb", "json_backup", "empty"]
     )
 
 def test_root_endpoint():
