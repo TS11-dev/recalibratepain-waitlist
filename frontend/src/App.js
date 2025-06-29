@@ -27,7 +27,17 @@ function App() {
 
   // Fetch current subscriber count on load
   useEffect(() => {
+    setProgressAnimated(true);
+    
+    // Fetch subscriber count immediately
     fetchSubscriberCount();
+    
+    // Set up interval to refresh count every 30 seconds
+    const countInterval = setInterval(fetchSubscriberCount, 30000);
+    
+    return () => {
+      clearInterval(countInterval);
+    };
   }, []);
 
   const fetchSubscriberCount = async () => {
