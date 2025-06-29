@@ -82,14 +82,32 @@ def test_waitlist_count_endpoint():
     )
 
 def test_waitlist_export_endpoint():
-    """Test the waitlist export endpoint"""
+    """Test the waitlist export endpoint with storage information"""
     response = requests.get(f"{BACKEND_URL}/api/waitlist/export")
     print(f"Response: {response.status_code} - {response.text}")
     
+    data = response.json()
+    
+    # Check for storage information
+    has_storage_info = (
+        "storage_info" in data and
+        "primary_source" in data["storage_info"] and
+        "mongodb_entries" in data["storage_info"] and
+        "json_backup_entries" in data["storage_info"] and
+        "dual_storage_active" in data["storage_info"]
+    )
+    
+    if has_storage_info:
+        print(f"Primary source: {data['storage_info']['primary_source']}")
+        print(f"MongoDB entries: {data['storage_info']['mongodb_entries']}")
+        print(f"JSON backup entries: {data['storage_info']['json_backup_entries']}")
+        print(f"Dual storage active: {data['storage_info']['dual_storage_active']}")
+    
     return (
         response.status_code == 200 and
-        "waitlist" in response.json() and
-        "total_count" in response.json()
+        "waitlist" in data and
+        "total_count" in data and
+        has_storage_info
     )
 
 def test_join_waitlist_valid_data():
