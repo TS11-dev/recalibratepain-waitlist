@@ -12,6 +12,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy backend application code
 COPY backend/ .
 
+# Copy startup script
+COPY start.sh .
+RUN chmod +x start.sh
+
 # Create data directory for waitlist storage
 RUN mkdir -p /app/data
 
@@ -19,5 +23,5 @@ RUN mkdir -p /app/data
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
-# Start command - Railway will provide PORT env var
-CMD ["python", "-c", "import uvicorn; import os; uvicorn.run('server:app', host='0.0.0.0', port=int(os.environ.get('PORT', 8001)), log_level='info')"]
+# Start command using startup script
+CMD ["./start.sh"]
