@@ -556,8 +556,8 @@ function App() {
           <div className="footer-content">
             <p>
               Questions about Recalibrate? Ready to collaborate? <br />
-              <a href="mailto:tristan.siokos24@gmail.com">
-                tristan.siokos24@gmail.com
+              <a href="mailto:info@recalibratepain.com">
+                info@recalibratepain.com
               </a>
             </p>
           </div>
