@@ -112,7 +112,9 @@ function App() {
             backdropFilter: 'blur(10px)',
           },
         });
-        setSubscribers(prev => prev + 1);
+        
+        // Fetch updated count from server
+        fetchSubscriberCount();
         setName('');
         setEmail('');
       }
