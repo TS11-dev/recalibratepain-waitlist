@@ -70,10 +70,10 @@ async def init_mongodb():
     
     try:
         logger.info("🔌 Connecting to MongoDB Atlas...")
-        mongo_client = AsyncIOMotorClient(MONGO_URL, serverSelectionTimeoutMS=5000)
+        mongo_client = AsyncIOMotorClient(MONGO_URL, serverSelectionTimeoutMS=10000)
         
-        # Test the connection
-        await mongo_client.admin.command('ping')
+        # Test the connection with timeout
+        await asyncio.wait_for(mongo_client.admin.command('ping'), timeout=10.0)
         
         mongo_db = mongo_client[DB_NAME]
         mongo_collection = mongo_db[COLLECTION_NAME]
@@ -81,6 +81,9 @@ async def init_mongodb():
         logger.info("✅ MongoDB Atlas connected successfully!")
         return True
         
+    except asyncio.TimeoutError:
+        logger.error("❌ MongoDB connection timeout")
+        return False
     except (ConnectionFailure, ServerSelectionTimeoutError) as e:
         logger.error(f"❌ MongoDB connection failed: {e}")
         return False
