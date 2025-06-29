@@ -2112,15 +2112,15 @@ body::after {
 }
 
 .social-icon.twitter {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(30, 30, 30, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: #ffffff;
 }
 
 .social-icon.twitter:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(30, 30, 30, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 .coming-soon-badges {
