@@ -123,7 +123,7 @@ def save_json_waitlist(waitlist: List[dict]) -> bool:
 
 async def load_mongo_waitlist() -> List[dict]:
     """Load waitlist data from MongoDB"""
-    if not mongo_collection:
+    if mongo_collection is None:
         logger.warning("🟡 MongoDB not available, using JSON fallback")
         return []
     
