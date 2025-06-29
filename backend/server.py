@@ -271,10 +271,12 @@ async def health_check():
         # Try to get waitlist count, but don't fail if it doesn't work
         try:
             waitlist = await get_combined_waitlist()
-            subscriber_count = len(waitlist)
+            actual_count = len(waitlist)
+            display_count = actual_count + BASE_SUBSCRIBER_COUNT  # Add social proof base
         except Exception as e:
             logger.error(f"Error getting waitlist for health check: {e}")
-            subscriber_count = 0
+            actual_count = 0
+            display_count = BASE_SUBSCRIBER_COUNT
         
         # Test MongoDB connection safely
         mongo_status = "❌ Disconnected"
@@ -295,7 +297,8 @@ async def health_check():
             "service": "RecalibratePain Waitlist API",
             "version": "3.0.0",
             "timestamp": datetime.now().isoformat(),
-            "subscribers": subscriber_count,
+            "subscribers": display_count,  # Show social proof count
+            "actual_subscribers": actual_count,  # For internal tracking
             "storage": {
                 "mongodb": mongo_status,
                 "json_backup": json_status,
@@ -310,7 +313,8 @@ async def health_check():
             "service": "RecalibratePain Waitlist API",
             "version": "3.0.0",
             "timestamp": datetime.now().isoformat(),
-            "subscribers": 0,
+            "subscribers": BASE_SUBSCRIBER_COUNT,
+            "actual_subscribers": 0,
             "storage": {
                 "mongodb": "❌ Error",
                 "json_backup": "❌ Error",
