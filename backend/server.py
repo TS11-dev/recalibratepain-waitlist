@@ -154,8 +154,15 @@ async def save_to_mongo(entry: dict) -> bool:
             logger.info(f"📧 Email {entry['email']} already exists in MongoDB")
             return True
         
+        # Create a copy of entry without ObjectId issues
+        clean_entry = {
+            "name": entry["name"],
+            "email": entry["email"],
+            "timestamp": entry["timestamp"]
+        }
+        
         # Insert new entry
-        result = await mongo_collection.insert_one(entry)
+        result = await mongo_collection.insert_one(clean_entry)
         if result.inserted_id:
             logger.info(f"✅ Saved entry to MongoDB: {entry['email']}")
             return True
