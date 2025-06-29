@@ -1,14 +1,9 @@
 {
   "version": 2,
   "name": "recalibratepain",
-  "build": {
-    "env": {
-      "REACT_APP_BACKEND_URL": "@backend_url"
-    }
-  },
-  "functions": {
-    "app/frontend/build/static/js/*.js": {
-      "maxDuration": 10
-    }
-  }
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/build",
+  "installCommand": "cd frontend && npm install",
+  "devCommand": "cd frontend && npm start",
+  "framework": "create-react-app"
 }
