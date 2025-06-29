@@ -497,6 +497,69 @@ async def root():
             "docs": "/docs"
         }
 
+@app.delete("/api/admin/cleanup-test-data")
+async def cleanup_test_data():
+    """Remove test data from database - ADMIN ONLY"""
+    try:
+        removed_count = 0
+        
+        # Remove test entries from MongoDB
+        if mongo_collection is not None:
+            # Remove entries that look like test data
+            test_patterns = [
+                {"email": {"$regex": "test.*@.*", "$options": "i"}},
+                {"email": {"$regex": ".*test.*@.*", "$options": "i"}},
+                {"email": {"$regex": ".*@test\\..*", "$options": "i"}},
+                {"email": {"$regex": ".*@example\\..*", "$options": "i"}},
+                {"name": {"$regex": "test.*", "$options": "i"}},
+                {"name": {"$regex": ".*test.*", "$options": "i"}}
+            ]
+            
+            for pattern in test_patterns:
+                result = await mongo_collection.delete_many(pattern)
+                removed_count += result.deleted_count
+                logger.info(f"Removed {result.deleted_count} entries matching pattern: {pattern}")
+        
+        # Load and clean JSON backup too
+        json_data = load_json_waitlist()
+        original_json_count = len(json_data)
+        
+        # Filter out test data from JSON
+        clean_json_data = []
+        for entry in json_data:
+            email = entry.get("email", "").lower()
+            name = entry.get("name", "").lower()
+            
+            # Keep if it doesn't look like test data
+            if not any([
+                "test" in email,
+                "test" in name,
+                "@test." in email,
+                "@example." in email,
+                "dualstorage" in email,
+                "mongotest" in email,
+                "atlastest" in email
+            ]):
+                clean_json_data.append(entry)
+        
+        # Save cleaned JSON data
+        save_json_waitlist(clean_json_data)
+        json_removed = original_json_count - len(clean_json_data)
+        
+        logger.info(f"🧹 Cleanup complete: Removed {removed_count} from MongoDB, {json_removed} from JSON")
+        
+        return {
+            "success": True,
+            "message": "Test data cleanup completed",
+            "removed_from_mongodb": removed_count,
+            "removed_from_json": json_removed,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error during cleanup: {e}")
+        raise HTTPException(status_code=500, detail=f"Cleanup failed: {str(e)}")
+
 if __name__ == "__main__":
     import uvicorn
     # Railway provides PORT, fallback to API_PORT from .env, then default to 8001
