@@ -469,13 +469,24 @@ async def get_waitlist_stats():
 @app.get("/")
 async def root():
     """Root endpoint with storage status"""
-    return {
-        "message": "RecalibratePain Waitlist API",
-        "version": "3.0.0",
-        "status": "operational",
-        "storage": "dual" if mongo_client is not None else "json_backup",
-        "docs": "/docs"
-    }
+    try:
+        return {
+            "message": "RecalibratePain Waitlist API",
+            "version": "3.0.0",
+            "status": "operational",
+            "storage": "dual" if mongo_client is not None else "json_backup",
+            "docs": "/docs",
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Root endpoint error: {e}")
+        return {
+            "message": "RecalibratePain Waitlist API",
+            "version": "3.0.0",
+            "status": "operational",
+            "storage": "unknown",
+            "docs": "/docs"
+        }
 
 if __name__ == "__main__":
     import uvicorn
