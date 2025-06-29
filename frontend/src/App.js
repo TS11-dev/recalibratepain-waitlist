@@ -215,7 +215,6 @@ function App() {
 
   return (
     <PayPalScriptProvider options={paypalOptions}>
-    <>
       <Toaster position="top-center" />
 
       <div className="container">
