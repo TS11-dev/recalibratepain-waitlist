@@ -433,8 +433,8 @@ function App() {
                     key={amount}
                     type="button"
                     onClick={() => {
+                      setDonationAmount(amount.toString());
                       setSelectedDonationAmount(amount);
-                      setShowCustomDonation(false);
                     }}
                     style={{
                       padding: '0.75rem 1.5rem',
