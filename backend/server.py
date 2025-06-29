@@ -239,7 +239,7 @@ async def health_check():
         
         # Test MongoDB connection
         mongo_status = "❌ Disconnected"
-        if mongo_client:
+        if mongo_client is not None:
             try:
                 await mongo_client.admin.command('ping')
                 mongo_status = "✅ Connected"
