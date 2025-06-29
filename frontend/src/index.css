@@ -2317,3 +2317,20 @@ body::after {
   fill: rgba(220, 38, 38, 0.25);
   filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.5));
 }
+
+/* Hide animations on very small screens */
+@media (max-width: 480px) {
+  .dna-molecule,
+  .cell-diagram,
+  .lung-system,
+  .anatomical-heart {
+    display: none;
+  }
+}
+
+/* Reduce header padding on mobile */
+@media (max-width: 768px) {
+  .header {
+    padding: 4rem 1rem;
+  }
+}
