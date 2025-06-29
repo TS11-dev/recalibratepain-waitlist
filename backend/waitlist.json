@@ -13,5 +13,10 @@
     "name": "Test User",
     "email": "testpersist@test.com",
     "timestamp": "2025-06-29T13:28:07.797112"
+  },
+  {
+    "name": "Tristan Test",
+    "email": "intristed11@gmail.com",
+    "timestamp": "2025-06-29T15:11:58.714270"
   }
 ]
