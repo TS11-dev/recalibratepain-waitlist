@@ -5,6 +5,7 @@ import {
   BarChart3, Calendar, Timer, Star, Code, DollarSign, ExternalLink
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 function App() {
   const [name, setName] = useState('');
