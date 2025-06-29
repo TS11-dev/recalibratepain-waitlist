@@ -324,21 +324,23 @@ async def health_check():
 
 @app.get("/api/waitlist/count")
 async def get_subscriber_count():
-    """Get current subscriber count from dual storage"""
+    """Get current subscriber count with social proof base"""
     try:
         waitlist = await get_combined_waitlist()
-        count = len(waitlist)
-        logger.info(f"📊 Returning subscriber count: {count}")
+        actual_count = len(waitlist)
+        display_count = actual_count + BASE_SUBSCRIBER_COUNT  # Add social proof base
+        
+        logger.info(f"📊 Returning display count: {display_count} (actual: {actual_count} + base: {BASE_SUBSCRIBER_COUNT})")
         return {
-            "count": count, 
+            "count": display_count, 
             "timestamp": datetime.now().isoformat(),
             "source": "mongodb" if mongo_collection is not None else "json_backup"
         }
     except Exception as e:
         logger.error(f"Error getting subscriber count: {e}")
-        # Return fallback count
+        # Return fallback count with base
         return {
-            "count": 127, 
+            "count": BASE_SUBSCRIBER_COUNT, 
             "timestamp": datetime.now().isoformat(),
             "source": "fallback"
         }
