@@ -55,6 +55,9 @@ MONGO_URL = os.environ.get("MONGO_URL")
 DB_NAME = "recalibrate-waitlinglist"
 COLLECTION_NAME = "Emails"
 
+# Social proof base count - easily adjustable
+BASE_SUBSCRIBER_COUNT = 127  # Add this to actual count for social proof
+
 # MongoDB client
 mongo_client = None
 mongo_db = None
