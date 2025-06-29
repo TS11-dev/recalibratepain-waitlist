@@ -148,7 +148,7 @@ function App() {
     }
 
     // Create PayPal donation URL
-    const paypalUrl = `https://www.paypal.com/donate/?business=info@recalibratepain.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
+    const paypalUrl = `https://www.paypal.com/donate/?business=tristan.siokos24@gmail.com&amount=${amount}&currency_code=USD&item_name=Support%20Recalibrate%20Development`;
     
     // Open PayPal in new tab
     window.open(paypalUrl, '_blank');
