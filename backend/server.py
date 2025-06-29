@@ -423,7 +423,7 @@ async def root():
         "message": "RecalibratePain Waitlist API",
         "version": "3.0.0",
         "status": "operational",
-        "storage": "dual" if mongo_client else "json_backup",
+        "storage": "dual" if mongo_client is not None else "json_backup",
         "docs": "/docs"
     }
 
