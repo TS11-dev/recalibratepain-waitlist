@@ -134,11 +134,28 @@ function App() {
     }
   };
 
-  const handleDonation = () => {
-    const amount = parseFloat(donationAmount);
-    
-    if (isNaN(amount) || amount < 1) {
-      toast.error('Please enter a valid donation amount.', {
+  // PayPal configuration
+  const paypalOptions = {
+    "client-id": "AT2eBtaogFKVj599L8Ifr4Q5Y9avS_gRT2-lvm3CP165l7BBDs8iwB-5mRSV46gapeoPrJ4BjKdOZJtM",
+    currency: "USD",
+    intent: "capture",
+  };
+
+  // PayPal donation functions
+  const [selectedDonationAmount, setSelectedDonationAmount] = useState(null);
+  const [showCustomDonation, setShowCustomDonation] = useState(false);
+
+  const getDonationAmount = () => {
+    if (showCustomDonation && donationAmount) {
+      return parseFloat(donationAmount);
+    }
+    return selectedDonationAmount;
+  };
+
+  const createOrder = (data, actions) => {
+    const amount = getDonationAmount();
+    if (!amount || amount <= 0) {
+      toast.error('Please select or enter a valid donation amount', {
         style: {
           background: 'rgba(239, 68, 68, 0.1)',
           color: '#fff',
@@ -149,17 +166,46 @@ function App() {
       return;
     }
 
-    // Use PayPal.me link for better compatibility with live payments
-    const paypalUrl = `https://paypal.me/tristansiokos24/${amount}?country.x=US&locale.x=en_US`;
-    
-    // Open PayPal in new tab
-    window.open(paypalUrl, '_blank');
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: amount.toString(),
+          currency_code: 'USD'
+        },
+        description: `Donation to RecalibratePain - $${amount}`
+      }]
+    });
+  };
 
-    toast.success(`Opening PayPal for $${amount} donation. Thank you for your support!`, {
+  const onApprove = (data, actions) => {
+    return actions.order.capture().then((details) => {
+      const donorName = details.payer.name.given_name;
+      const donationValue = details.purchase_units[0].amount.value;
+      
+      toast.success(`Thank you ${donorName} for your $${donationValue} donation! 🎉`, {
+        style: {
+          background: 'rgba(34, 197, 94, 0.1)',
+          color: '#fff',
+          border: '1px solid rgba(34, 197, 94, 0.3)',
+          backdropFilter: 'blur(10px)',
+        },
+        duration: 6000,
+      });
+      
+      // Reset donation form
+      setSelectedDonationAmount(null);
+      setDonationAmount('25');
+      setShowCustomDonation(false);
+    });
+  };
+
+  const onError = (err) => {
+    console.error('PayPal Error:', err);
+    toast.error('An error occurred during the transaction. Please try again.', {
       style: {
-        background: 'rgba(139, 92, 246, 0.1)',
+        background: 'rgba(239, 68, 68, 0.1)',
         color: '#fff',
-        border: '1px solid rgba(139, 92, 246, 0.3)',
+        border: '1px solid rgba(239, 68, 68, 0.3)',
         backdropFilter: 'blur(10px)',
       },
     });
@@ -168,6 +214,7 @@ function App() {
   const quickDonationAmounts = [10, 25, 50, 100];
 
   return (
+    <PayPalScriptProvider options={paypalOptions}>
     <>
       <Toaster position="top-center" />
 
