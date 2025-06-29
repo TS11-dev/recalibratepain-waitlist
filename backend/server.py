@@ -27,6 +27,7 @@ app.add_middleware(
         "http://localhost:3000",
         "https://recalibratepain.com",
         "https://*.vercel.app",
+        "https://recalibratepain-waitlist.vercel.app",
         "https://*.railway.app",
         "https://*.netlify.app",
         "*"  # For development - remove in production
