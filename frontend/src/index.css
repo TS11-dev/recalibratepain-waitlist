@@ -267,6 +267,16 @@ body::after {
   animation: respiratoryMotion 6s ease-in-out infinite;
 }
 
+/* Mobile responsive LUNGS */
+@media (max-width: 768px) {
+  .lung-system {
+    width: 35px;
+    height: 45px;
+    left: 10px;
+    top: 30%;
+  }
+}
+
 /* HEART - MORE INWARD */
 .anatomical-heart {
   position: absolute;
