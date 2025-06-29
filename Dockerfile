@@ -13,9 +13,5 @@ COPY backend/ .
 # Set environment variables for Railway
 ENV PYTHONUNBUFFERED=1
 
-# Create a startup script to handle PORT properly
-RUN echo '#!/bin/bash\nset -e\necho "Starting on port: ${PORT:-8001}"\nexec python -m uvicorn server:app --host 0.0.0.0 --port ${PORT:-8001}' > /app/start.sh
-RUN chmod +x /app/start.sh
-
-# Use the startup script
-CMD ["/app/start.sh"]
+# Use Python to handle PORT variable reliably
+CMD ["python", "-c", "import os; import uvicorn; port=int(os.environ.get('PORT', 8001)); print(f'Starting on port {port}'); uvicorn.run('server:app', host='0.0.0.0', port=port, log_level='info')"]
