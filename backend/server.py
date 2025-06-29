@@ -408,7 +408,7 @@ async def get_waitlist_stats():
             "recent_signups": recent_signups,
             "today_signups": today_signups,
             "timestamp": datetime.now().isoformat(),
-            "storage_source": "mongodb" if mongo_collection else "json_backup"
+            "storage_source": "mongodb" if mongo_collection is not None else "json_backup"
         }
     
     except Exception as e:
