@@ -2285,3 +2285,33 @@ body::after {
   stroke-width: 1.5;
   filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.4));
 }
+
+/* CELL NUCLEUS */
+.cell-nucleus {
+  fill: rgba(139, 92, 246, 0.8);
+  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.6));
+}
+
+/* CELL MEMBRANE */
+.cell-membrane {
+  stroke: #a78bfa;
+  stroke-width: 2.5;
+  fill: none;
+  filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.5));
+}
+
+/* LUNG DETAIL */
+.lung-detail {
+  stroke: #06b6d4;
+  stroke-width: 2;
+  fill: rgba(6, 182, 212, 0.2);
+  filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.4));
+}
+
+/* HEART DETAIL */
+.heart-detail {
+  stroke: #dc2626;
+  stroke-width: 2.5;
+  fill: rgba(220, 38, 38, 0.25);
+  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.5));
+}
