@@ -598,7 +598,7 @@ function App() {
           </p>
         </footer>
       </div>
-    </PayPalScriptProvider>
+    </>
   );
 }
 
