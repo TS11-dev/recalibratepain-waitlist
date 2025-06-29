@@ -3,5 +3,30 @@
     "name": "MongoDB Test",
     "email": "mongotest123@test.com",
     "timestamp": "2025-06-29T00:32:37.399485"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1751157312@example.com",
+    "timestamp": "2025-06-29T00:35:12.550617"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1751157313@example.com",
+    "timestamp": "2025-06-29T00:35:13.551798"
+  },
+  {
+    "name": "Persistence Test 1751157314",
+    "email": "persistence.test.1751157314@example.com",
+    "timestamp": "2025-06-29T00:35:14.804371"
+  },
+  {
+    "name": "Dual Storage Test 1751157315",
+    "email": "dual.storage.test.1751157315@example.com",
+    "timestamp": "2025-06-29T00:35:15.796421"
+  },
+  {
+    "name": "Count Test 1751157317",
+    "email": "count.test.1751157317@example.com",
+    "timestamp": "2025-06-29T00:35:18.045047"
   }
 ]
