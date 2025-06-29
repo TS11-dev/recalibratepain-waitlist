@@ -97,6 +97,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Health check endpoint returns correct status and service name"
+      - working: true
+        agent: "testing"
+        comment: "Health check endpoint correctly shows dual storage status with MongoDB connected and JSON backup available"
 
   - task: "Join Waitlist Endpoint"
     implemented: true
@@ -109,6 +112,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Successfully adds new entries with name and email, validates input, and prevents duplicates"
+      - working: true
+        agent: "testing"
+        comment: "Successfully adds new entries to both MongoDB and JSON backup with proper storage_info indicating dual storage success"
 
   - task: "Subscriber Count Endpoint"
     implemented: true
@@ -121,6 +127,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Returns accurate subscriber count that updates correctly when new entries are added"
+      - working: true
+        agent: "testing"
+        comment: "Returns accurate subscriber count from MongoDB as primary source with proper source information"
 
   - task: "Export Waitlist Endpoint"
     implemented: true
@@ -133,6 +142,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Successfully exports all waitlist data with total count"
+      - working: true
+        agent: "testing"
+        comment: "Successfully exports waitlist data from MongoDB with detailed storage information including primary source, MongoDB entries, JSON backup entries, and dual storage status"
 
   - task: "Data Persistence"
     implemented: true
@@ -145,6 +157,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Data is correctly saved to waitlist.json file with name, email, and timestamp"
+      - working: true
+        agent: "testing"
+        comment: "Data is correctly saved to both MongoDB and JSON backup with proper dual storage functionality. MongoDB is used as primary source with JSON as fallback"
 
   - task: "CORS Configuration"
     implemented: true
@@ -169,6 +184,18 @@ backend:
       - working: true
         agent: "testing"
         comment: "Properly handles invalid data, missing fields, and validation errors"
+
+  - task: "Waitlist Stats Endpoint"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully returns waitlist statistics including total subscribers, recent signups, and today's signups with proper storage source information"
 
 frontend:
   - task: "Email Collection Form"
