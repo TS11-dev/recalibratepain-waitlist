@@ -51,7 +51,7 @@ class WaitlistResponse(BaseModel):
 # Storage configuration
 WAITLIST_FILE = os.path.join(os.path.dirname(__file__), "waitlist.json")
 MONGO_URL = os.environ.get("MONGO_URL")
-DB_NAME = "recalibrate_waitlist"
+DB_NAME = "recalibrate-waitlinglist"
 COLLECTION_NAME = "Emails"
 
 # MongoDB client
