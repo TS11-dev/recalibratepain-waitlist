@@ -257,7 +257,7 @@ function App() {
               <div className="badge-item playstore">
                 <div className="badge-icon">📱</div>
                 <div className="badge-text">
-                  <span className="badge-title">Google Play</span>
+                  <span className="badge-title">Download on Google Play Store</span>
                   <span className="badge-subtitle">Coming Soon</span>
                 </div>
               </div>
