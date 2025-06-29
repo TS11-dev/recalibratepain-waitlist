@@ -32,16 +32,21 @@ function App() {
 
   const fetchSubscriberCount = async () => {
     try {
-      const response = await fetch(`${BACKEND_URL}/api/waitlist/count`, {
+      const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
         method: 'GET',
         headers: {
-          'Accept': 'application/json',
-        },
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
       });
       
       if (response.ok) {
         const data = await response.json();
-        setSubscribers(data.count || 127);
+        setSubscribers(data.count);
+        console.log('✅ Subscriber count updated:', data.count);
+      } else {
+        console.log('Could not fetch subscriber count, using default');
       }
     } catch (error) {
       console.log('Could not fetch subscriber count, using default');
