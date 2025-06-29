@@ -265,6 +265,135 @@ def test_data_persistence():
         print(f"Error reading waitlist file: {str(e)}")
         return False
 
+def test_dual_storage_functionality():
+    """Test that the dual storage system is working correctly"""
+    # This test will add a new entry and verify it's stored in both MongoDB and JSON
+    
+    # Generate unique email to avoid duplicates
+    timestamp = int(time.time())
+    test_name = f"Dual Storage Test {timestamp}"
+    test_email = f"dual.storage.test.{timestamp}@example.com"
+    
+    test_data = {
+        "name": test_name,
+        "email": test_email
+    }
+    
+    # Add the entry
+    join_response = requests.post(
+        f"{BACKEND_URL}/api/waitlist/join", 
+        json=test_data
+    )
+    print(f"Add entry response: {join_response.status_code} - {join_response.text}")
+    
+    if join_response.status_code != 200:
+        print("Failed to add test entry")
+        return False
+    
+    # Check storage_info for dual storage confirmation
+    storage_info = join_response.json().get("storage_info", "")
+    dual_storage_confirmed = "MongoDB + JSON" in storage_info
+    print(f"Dual storage confirmed in response: {dual_storage_confirmed}")
+    print(f"Storage info: {storage_info}")
+    
+    # Check if entry exists in exported data
+    export_response = requests.get(f"{BACKEND_URL}/api/waitlist/export")
+    if export_response.status_code != 200:
+        print("Failed to export waitlist data")
+        return False
+    
+    export_data = export_response.json()
+    waitlist = export_data.get("waitlist", [])
+    storage_info = export_data.get("storage_info", {})
+    
+    # Check if our entry exists in the waitlist
+    entry_found = False
+    for entry in waitlist:
+        if entry.get("email") == test_email and entry.get("name") == test_name:
+            entry_found = True
+            print(f"Found entry in exported data: {entry}")
+            break
+    
+    # Check if the entry was stored in MongoDB
+    mongodb_active = storage_info.get("primary_source") == "mongodb"
+    mongodb_has_entries = storage_info.get("mongodb_entries", 0) > 0
+    
+    # Check if the entry was stored in JSON backup
+    json_has_entries = storage_info.get("json_backup_entries", 0) > 0
+    
+    # Check if dual storage is active
+    dual_storage_active = storage_info.get("dual_storage_active", False)
+    
+    print(f"MongoDB active: {mongodb_active}")
+    print(f"MongoDB has entries: {mongodb_has_entries}")
+    print(f"JSON has entries: {json_has_entries}")
+    print(f"Dual storage active: {dual_storage_active}")
+    
+    # For this test to pass, we need:
+    # 1. Entry to be found in the exported data
+    # 2. Storage info to indicate dual storage is active
+    # 3. Both MongoDB and JSON to have entries
+    return (
+        entry_found and
+        dual_storage_active and
+        mongodb_has_entries and
+        json_has_entries
+    )
+
+def test_mongodb_primary_source():
+    """Test that MongoDB is used as the primary data source when available"""
+    # Get the export data which includes storage info
+    export_response = requests.get(f"{BACKEND_URL}/api/waitlist/export")
+    if export_response.status_code != 200:
+        print("Failed to export waitlist data")
+        return False
+    
+    export_data = export_response.json()
+    storage_info = export_data.get("storage_info", {})
+    
+    # Check if MongoDB is the primary source
+    primary_source = storage_info.get("primary_source", "")
+    print(f"Primary data source: {primary_source}")
+    
+    # Get the count endpoint data which also includes source info
+    count_response = requests.get(f"{BACKEND_URL}/api/waitlist/count")
+    if count_response.status_code != 200:
+        print("Failed to get count data")
+        return False
+    
+    count_data = count_response.json()
+    count_source = count_data.get("source", "")
+    print(f"Count data source: {count_source}")
+    
+    # Get the stats endpoint data which also includes source info
+    stats_response = requests.get(f"{BACKEND_URL}/api/waitlist/stats")
+    if stats_response.status_code != 200:
+        print("Failed to get stats data")
+        return False
+    
+    stats_data = stats_response.json()
+    stats_source = stats_data.get("storage_source", "")
+    print(f"Stats data source: {stats_source}")
+    
+    # For this test to pass, MongoDB should be the primary source for all endpoints
+    # if dual storage is active
+    dual_storage_active = storage_info.get("dual_storage_active", False)
+    
+    if dual_storage_active:
+        return (
+            primary_source == "mongodb" and
+            count_source == "mongodb" and
+            stats_source == "mongodb"
+        )
+    else:
+        # If dual storage is not active, we should be using JSON backup
+        print("Dual storage not active, checking for JSON backup usage")
+        return (
+            primary_source == "json_backup" and
+            count_source == "json_backup" and
+            stats_source == "json_backup"
+        )
+
 def test_cors_headers():
     """Test that CORS headers are properly set"""
     # Send an OPTIONS request to check CORS headers
