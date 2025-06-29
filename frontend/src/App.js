@@ -446,7 +446,7 @@ function App() {
                   🚀 <strong>Direct Impact:</strong> Every dollar accelerates pain management innovation
                 </p>
                 <p className="donation-note">
-                  🔒 <strong>Protected:</strong> Your payment details are handled securely
+                  🔒 <strong>Protected:</strong> Your payment details are handled securely through PayPal
                 </p>
               </div>
             </div>
