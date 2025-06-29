@@ -144,7 +144,7 @@ async def load_mongo_waitlist() -> List[dict]:
 
 async def save_to_mongo(entry: dict) -> bool:
     """Save a single entry to MongoDB"""
-    if not mongo_collection:
+    if mongo_collection is None:
         return False
     
     try:
