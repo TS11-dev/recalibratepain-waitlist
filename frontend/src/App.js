@@ -524,7 +524,6 @@ function App() {
                 <p className="donation-note">
                   🔒 <strong>Protected:</strong> Your payment details are handled securely
                 </p>
-                </p>
               </div>
             </div>
           </div>
