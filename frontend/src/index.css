@@ -2270,3 +2270,18 @@ body::after {
     margin: 0 auto !important;
   }
 }
+
+/* DNA Double Helix */
+.dna-helix {
+  stroke: #8b5cf6;
+  stroke-width: 2.5;
+  fill: none;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+}
+
+.dna-base {
+  fill: #a78bfa;
+  stroke: #8b5cf6;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.4));
+}
