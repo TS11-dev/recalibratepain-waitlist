@@ -93,7 +93,7 @@ def test_waitlist_export_endpoint():
     )
 
 def test_join_waitlist_valid_data():
-    """Test joining waitlist with valid data"""
+    """Test joining waitlist with valid data and verify dual storage"""
     # Generate unique email to avoid duplicates
     timestamp = int(time.time())
     test_data = {
@@ -107,10 +107,19 @@ def test_join_waitlist_valid_data():
     )
     print(f"Response: {response.status_code} - {response.text}")
     
+    data = response.json()
+    
+    # Check for dual storage information
+    has_storage_info = "storage_info" in data
+    if has_storage_info:
+        print(f"Storage info: {data['storage_info']}")
+    
     return (
         response.status_code == 200 and
-        response.json().get("success") == True and
-        "total_subscribers" in response.json()
+        data.get("success") == True and
+        "total_subscribers" in data and
+        has_storage_info and
+        ("MongoDB" in data.get("storage_info", "") or "JSON" in data.get("storage_info", ""))
     )
 
 def test_join_waitlist_duplicate_email():
