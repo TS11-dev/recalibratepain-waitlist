@@ -213,7 +213,7 @@ function App() {
   const quickDonationAmounts = [10, 25, 50, 100];
 
   return (
-    <PayPalScriptProvider options={paypalOptions}>
+    <>
 
       <div className="container">
         
