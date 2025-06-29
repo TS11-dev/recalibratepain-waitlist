@@ -429,28 +429,19 @@ function App() {
             </div>
             
             <div className="donation-simple">
-              {/* Quick Donation Buttons */}
+              {/* PayPal Donation Buttons */}
               <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '2rem', flexWrap: 'wrap' }}>
                 {quickDonationAmounts.map(amount => (
                   <button
                     key={amount}
                     type="button"
                     onClick={() => {
-                      setDonationAmount(amount.toString());
-                      const paypalUrl = `https://paypal.me/tristansiokos24/${amount}?country.x=US&locale.x=en_US`;
-                      window.open(paypalUrl, '_blank');
-                      toast.success(`Opening PayPal for $${amount} donation. Thank you!`, {
-                        style: {
-                          background: 'rgba(139, 92, 246, 0.1)',
-                          color: '#fff',
-                          border: '1px solid rgba(139, 92, 246, 0.3)',
-                          backdropFilter: 'blur(10px)',
-                        },
-                      });
+                      setSelectedDonationAmount(amount);
+                      setShowCustomDonation(false);
                     }}
                     style={{
                       padding: '0.75rem 1.5rem',
-                      background: 'rgba(139, 92, 246, 0.1)',
+                      background: selectedDonationAmount === amount ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.1)',
                       border: '2px solid rgba(139, 92, 246, 0.3)',
                       borderRadius: '12px',
                       color: '#a78bfa',
@@ -459,16 +450,8 @@ function App() {
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
                       backdropFilter: 'blur(10px)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.background = 'rgba(139, 92, 246, 0.2)';
-                      e.target.style.transform = 'translateY(-2px)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(139, 92, 246, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.background = 'rgba(139, 92, 246, 0.1)';
-                      e.target.style.transform = 'translateY(0)';
-                      e.target.style.boxShadow = 'none';
+                      transform: selectedDonationAmount === amount ? 'translateY(-2px)' : 'none',
+                      boxShadow: selectedDonationAmount === amount ? '0 8px 25px rgba(139, 92, 246, 0.3)' : 'none'
                     }}
                   >
                     ${amount}
@@ -486,22 +469,26 @@ function App() {
                     className="amount-input-simple"
                     placeholder="Enter custom amount"
                     value={donationAmount}
-                    onChange={(e) => setDonationAmount(e.target.value)}
+                    onChange={(e) => {
+                      setDonationAmount(e.target.value);
+                      setShowCustomDonation(true);
+                    }}
                     min="1"
                     max="10000"
                     autoComplete="off"
                   />
                 </div>
-                <button 
-                  type="button"
-                  onClick={handleDonation}
-                  className="donate-btn-simple"
-                  disabled={!donationAmount || parseFloat(donationAmount) < 1}
-                >
-                  <Heart size={20} />
-                  Support
-                  <ExternalLink size={16} />
-                </button>
+                <PayPalButtons
+                  style={{
+                    color: "gold",
+                    layout: "horizontal",
+                    height: 40,
+                    tagline: false
+                  }}
+                  createOrder={createOrder}
+                  onApprove={onApprove}
+                  onError={onError}
+                />
               </div>
               
               <div className="donation-info">
