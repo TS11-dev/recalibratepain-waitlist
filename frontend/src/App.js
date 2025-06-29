@@ -343,7 +343,7 @@ function App() {
               id="waitlist-email-input"
               name="waitlistEmail"
               className="email-input"
-              placeholder="Enter your professional email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="email"
