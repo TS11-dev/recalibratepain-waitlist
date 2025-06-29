@@ -72,13 +72,22 @@ def test_health_endpoint():
     )
 
 def test_waitlist_count_endpoint():
-    """Test the waitlist count endpoint"""
+    """Test the waitlist count endpoint with source information"""
     response = requests.get(f"{BACKEND_URL}/api/waitlist/count")
     print(f"Response: {response.status_code} - {response.text}")
     
+    data = response.json()
+    
+    # Check for source information
+    has_source_info = "source" in data
+    if has_source_info:
+        print(f"Data source: {data['source']}")
+    
     return (
         response.status_code == 200 and
-        "count" in response.json()
+        "count" in data and
+        has_source_info and
+        data.get("source") in ["mongodb", "json_backup", "fallback"]
     )
 
 def test_waitlist_export_endpoint():
