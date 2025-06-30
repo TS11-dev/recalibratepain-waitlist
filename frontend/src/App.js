@@ -463,6 +463,7 @@ function App() {
               <div className="donation-input-row">
                 <div className="amount-input-wrapper">
                   <DollarSign size={20} className="dollar-icon" />
+                  <label htmlFor="donation-amount-input" className="sr-only">Donation Amount</label>
                   <input
                     type="number"
                     id="donation-amount-input"
