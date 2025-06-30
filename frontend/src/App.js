@@ -57,13 +57,23 @@ function App() {
       
       if (response.ok) {
         const data = await response.json();
-        setSubscribers(data.count);
-        console.log('✅ Subscriber count updated:', data.count);
+        const newCount = data.count;
+        
+        // NEVER go backwards - only update if count is higher
+        setSubscribers(prevCount => {
+          const finalCount = Math.max(prevCount, newCount);
+          
+          // Save to localStorage for persistence
+          localStorage.setItem('recalibrate_subscriber_count', finalCount.toString());
+          
+          console.log('✅ Subscriber count updated:', finalCount, `(was: ${prevCount}, received: ${newCount})`);
+          return finalCount;
+        });
       } else {
-        console.log('Could not fetch subscriber count, using default');
+        console.log('❌ API failed, keeping current count');
       }
     } catch (error) {
-      console.log('Could not fetch subscriber count, using default');
+      console.log('❌ Network error, keeping current count');
     }
   };
 
