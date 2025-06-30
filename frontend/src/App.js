@@ -356,6 +356,7 @@ function App() {
           </p>
 
           <form onSubmit={handleEmailSubmit} className="email-form-wide">
+            <label htmlFor="waitlist-name-input" className="sr-only">Your Name</label>
             <input
               type="text"
               id="waitlist-name-input"
@@ -367,6 +368,7 @@ function App() {
               autoComplete="name"
               required
             />
+            <label htmlFor="waitlist-email-input" className="sr-only">Your Email Address</label>
             <input
               type="email"
               id="waitlist-email-input"
