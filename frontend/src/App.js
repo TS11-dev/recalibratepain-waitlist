@@ -10,7 +10,11 @@ function App() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [subscribers, setSubscribers] = useState(127);
+  const [subscribers, setSubscribers] = useState(() => {
+    // Get last known count from localStorage or default to 127
+    const savedCount = localStorage.getItem('recalibrate_subscriber_count');
+    return savedCount ? parseInt(savedCount) : 127;
+  });
   const [progressAnimated, setProgressAnimated] = useState(false);
   const [donationAmount, setDonationAmount] = useState('25');
 
