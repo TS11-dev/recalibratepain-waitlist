@@ -2334,3 +2334,18 @@ body::after {
     padding: 4rem 1rem;
   }
 }
+
+/* Screen reader only labels */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Add at end of file */
