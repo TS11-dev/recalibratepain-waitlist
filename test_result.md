@@ -130,6 +130,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Returns accurate subscriber count from MongoDB as primary source with proper source information"
+      - working: true
+        agent: "testing"
+        comment: "Focused testing confirms the count endpoint responds quickly (under 300ms) and accurately reflects real-time subscriber count with no caching issues or stale data problems"
 
   - task: "Export Waitlist Endpoint"
     implemented: true
