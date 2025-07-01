@@ -223,8 +223,11 @@ async def save_dual_storage(entry: dict) -> tuple[bool, bool, str]:
     
     return mongo_success, json_success, storage_info
 
-@app.on_event("startup")
-async def startup_event():
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
     """Initialize services on startup"""
     try:
         port = os.environ.get("PORT", os.environ.get("API_PORT", "8001"))
