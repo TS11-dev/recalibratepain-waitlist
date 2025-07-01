@@ -73,6 +73,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "https://recalibratepain.com",
+        "https://www.recalibratepain.com",  # Added www version
         "https://*.vercel.app",
         "https://recalibratepain-waitlist.vercel.app",
         "https://*.railway.app",
