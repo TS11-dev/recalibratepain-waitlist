@@ -229,7 +229,6 @@ from contextlib import asynccontextmanager
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
-    """Initialize services on startup"""
     try:
         port = os.environ.get("PORT", os.environ.get("API_PORT", "8001"))
         logger.info(f"🚀 RecalibratePain API v3.0.0 starting on port {port}")
@@ -267,6 +266,13 @@ async def lifespan(app: FastAPI):
         logger.error(f"❌ Startup error: {e}")
         logger.info("🔄 Continuing with minimal configuration...")
         # Don't raise the exception - let the service start anyway
+    
+    yield
+    
+    # Shutdown
+    logger.info("🔄 API shutting down...")
+
+app = FastAPI(title="RecalibratePain Waitlist API", version="3.0.0", lifespan=lifespan)
 
 @app.get("/api/health")
 async def health_check():
