@@ -271,53 +271,6 @@ async def save_dual_storage(entry: dict) -> tuple[bool, bool, str]:
     return mongo_success, json_success, storage_info
 
 @app.get("/api/health")
-async def lifespan(app: FastAPI):
-    # Startup
-    try:
-        port = os.environ.get("PORT", os.environ.get("API_PORT", "8001"))
-        logger.info(f"🚀 RecalibratePain API v3.0.0 starting on port {port}")
-        logger.info(f"📁 JSON backup location: {WAITLIST_FILE}")
-        logger.info(f"🗄️ MongoDB Database: {DB_NAME}")
-        logger.info(f"📋 Collection: {COLLECTION_NAME}")
-        
-        # Initialize MongoDB with timeout and error handling
-        try:
-            mongo_connected = await asyncio.wait_for(init_mongodb(), timeout=15.0)
-        except asyncio.TimeoutError:
-            logger.error("❌ MongoDB initialization timed out")
-            mongo_connected = False
-        except Exception as e:
-            logger.error(f"❌ MongoDB initialization failed: {e}")
-            mongo_connected = False
-        
-        # Load initial data (always works with JSON fallback)
-        try:
-            waitlist = await get_combined_waitlist()
-            logger.info(f"📊 Total subscribers loaded: {len(waitlist)}")
-        except Exception as e:
-            logger.error(f"❌ Error loading initial data: {e}")
-            logger.info("📊 Total subscribers loaded: 0 (using fallback)")
-        
-        # Show storage status
-        if mongo_connected:
-            logger.info("✅ Dual storage active: MongoDB + JSON backup")
-        else:
-            logger.info("🟡 Single storage active: JSON file only")
-            
-        logger.info("🎯 API startup complete - ready to serve requests")
-        
-    except Exception as e:
-        logger.error(f"❌ Startup error: {e}")
-        logger.info("🔄 Continuing with minimal configuration...")
-        # Don't raise the exception - let the service start anyway
-    
-    yield
-    
-    # Shutdown
-    logger.info("🔄 API shutting down...")
-
-
-@app.get("/api/health")
 async def health_check():
     """Enhanced health check with storage status"""
     try:
