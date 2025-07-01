@@ -4,7 +4,7 @@ A comprehensive, enterprise-grade waiting list application for the revolutionary
 
 ## 🚀 Features
 
-### ✅ Working Email Collection
+## ✅ Working Email Collection
 - **Real email storage**: Names and emails saved to backend JSON file
 - **Duplicate prevention**: Prevents same email from registering twice
 - **Real-time subscriber count**: Updates dynamically as users join
