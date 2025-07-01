@@ -55,16 +55,9 @@ function App() {
         const data = await response.json();
         const newCount = data.count;
         
-        // NEVER go backwards - only update if count is higher
-        setSubscribers(prevCount => {
-          const finalCount = Math.max(prevCount, newCount);
-          
-          // Save to localStorage for persistence
-          localStorage.setItem('recalibrate_subscriber_count', finalCount.toString());
-          
-          console.log('✅ Subscriber count updated:', finalCount, `(was: ${prevCount}, received: ${newCount})`);
-          return finalCount;
-        });
+        // Always update to the current count from the database
+        setSubscribers(newCount);
+        console.log('✅ Subscriber count updated to:', newCount);
       } else {
         console.log('❌ API failed, keeping current count');
       }
