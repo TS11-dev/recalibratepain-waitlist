@@ -270,9 +270,7 @@ async def save_dual_storage(entry: dict) -> tuple[bool, bool, str]:
     
     return mongo_success, json_success, storage_info
 
-from contextlib import asynccontextmanager
-
-@asynccontextmanager
+@app.get("/api/health")
 async def lifespan(app: FastAPI):
     # Startup
     try:
