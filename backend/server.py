@@ -272,7 +272,6 @@ async def lifespan(app: FastAPI):
     # Shutdown
     logger.info("🔄 API shutting down...")
 
-app = FastAPI(title="RecalibratePain Waitlist API", version="3.0.0", lifespan=lifespan)
 
 @app.get("/api/health")
 async def health_check():
