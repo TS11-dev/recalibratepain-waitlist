@@ -266,48 +266,46 @@ function App() {
       )}
 
       {/* Hero Section */}
-      <section className="pt-24 pb-20 px-6 relative">
+      <section className="pt-24 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-animate id="hero" className={`transition-all duration-1000 ${isVisible.hero ? 'animate-fade-in-up' : 'opacity-0 translate-y-12'}`}>
+          <div className="text-center mb-16">
             {/* Launch Announcement */}
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-full px-6 py-3 mb-8 launch-badge">
-              <Sparkles className="w-5 h-5 text-purple-600 animate-pulse" />
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-full px-6 py-3 mb-8">
+              <Sparkles className="w-5 h-5 text-purple-600" />
               <span className="text-sm font-semibold text-gray-700">Launching on Google Play, iOS & Web</span>
-              <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xs px-3 py-1 rounded-full animate-bounce-gentle">
-                Coming Soon
-              </span>
+              <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">Coming Soon</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 hero-title">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
                 Welcome to
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent gradient-shift">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Recalibrate
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in-up delay-200">
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Your intelligent health and pain management companion
             </p>
             
-            <p className="text-lg text-gray-500 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up delay-400">
+            <p className="text-lg text-gray-500 mb-12 max-w-4xl mx-auto leading-relaxed">
               Track symptoms, learn from pain science, build your care team, use our built-in therapeutic tools 
               and get AI-powered insights to personalize your pain management and live a better life.
             </p>
 
             {/* Platform Badges */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up delay-600">
-              <div className="platform-badge">
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <div className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm">
                 <Smartphone className="w-5 h-5 text-blue-600" />
                 <span className="font-medium text-gray-700">iOS App</span>
               </div>
-              <div className="platform-badge">
+              <div className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm">
                 <Play className="w-5 h-5 text-green-600" />
                 <span className="font-medium text-gray-700">Google Play</span>
               </div>
-              <div className="platform-badge">
+              <div className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm">
                 <Globe className="w-5 h-5 text-purple-600" />
                 <span className="font-medium text-gray-700">Web App</span>
               </div>
