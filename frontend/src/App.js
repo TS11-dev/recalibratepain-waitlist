@@ -178,9 +178,9 @@ function App() {
             <div className="hidden md:flex items-center space-x-8">
               <button onClick={() => smoothScroll('features')} className="text-gray-700 hover:text-purple-600 font-medium">Features</button>
               <button onClick={() => smoothScroll('ecosystem')} className="text-gray-700 hover:text-purple-600 font-medium">Ecosystem</button>
-              <button onClick={() => smoothScroll('contact')} className="text-gray-700 hover:text-purple-600 font-medium">Contact</button>
+              <button onClick={() => setShowContactModal(true)} className="text-gray-700 hover:text-purple-600 font-medium">Contact</button>
               <a href="mailto:info@recalibratepain.com" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all">
-                Contact
+                Email Us
               </a>
             </div>
           </div>
