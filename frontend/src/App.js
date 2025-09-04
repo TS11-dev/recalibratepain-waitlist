@@ -311,74 +311,125 @@ function App() {
             </div>
           </div>
 
-          {/* Hero Visual */}
-          <div className="relative max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6">
+          {/* Hero Visual - Redesigned */}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden transform hover:scale-105 transition-all duration-500">
+              {/* App Header */}
+              <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 p-6 relative">
                 <div className="flex items-center justify-between text-white">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">R</span>
+                    <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/30">
+                      <span className="text-white font-bold text-lg">R</span>
                     </div>
-                    <span className="font-semibold">Recalibrate</span>
+                    <div>
+                      <div className="font-bold text-lg">Recalibrate</div>
+                      <div className="text-xs opacity-75">Health Dashboard</div>
+                    </div>
                   </div>
-                  <div className="text-sm opacity-90">Welcome Back 👋</div>
+                  <div className="text-right">
+                    <div className="text-sm font-medium">Welcome Back 👋</div>
+                    <div className="text-xs opacity-75">Last updated: Sep 4</div>
+                  </div>
                 </div>
               </div>
+
+              {/* Dashboard Content */}
               <div className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                  <div className="text-center metric-card">
-                    <div className="text-3xl font-bold text-blue-600 mb-1 animate-counter">46%</div>
-                    <div className="text-sm text-gray-500">Current Stability</div>
-                    <div className="text-xs text-gray-400">Updated Sep 4</div>
+                {/* Main Metrics */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                  <div className="text-center bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200">
+                    <div className="text-4xl font-bold text-blue-600 mb-2">46%</div>
+                    <div className="text-sm font-semibold text-gray-700">Current Stability</div>
+                    <div className="text-xs text-gray-500 mt-1">Updated Sep 4</div>
                   </div>
-                  <div className="text-center metric-card">
-                    <div className="text-3xl font-bold text-purple-600 mb-1 animate-counter">0</div>
-                    <div className="text-sm text-gray-500">Lessons Completed</div>
-                    <div className="text-xs text-gray-400">0 XP Total</div>
+                  <div className="text-center bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 border border-purple-200">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">0</div>
+                    <div className="text-sm font-semibold text-gray-700">Lessons Completed</div>
+                    <div className="text-xs text-gray-500 mt-1">0 XP Total</div>
                   </div>
-                  <div className="text-center metric-card">
-                    <div className="text-3xl font-bold text-green-600 mb-1 animate-counter">7</div>
-                    <div className="text-sm text-gray-500">Days Tracked</div>
-                    <div className="text-xs text-gray-400">13 total entries</div>
+                  <div className="text-center bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200">
+                    <div className="text-4xl font-bold text-green-600 mb-2">7</div>
+                    <div className="text-sm font-semibold text-gray-700">Days Tracked</div>
+                    <div className="text-xs text-gray-500 mt-1">13 total entries</div>
                   </div>
-                  <div className="text-center metric-card">
-                    <div className="text-3xl font-bold text-orange-500 mb-1 animate-counter">36%</div>
-                    <div className="text-sm text-gray-500">Data Quality</div>
-                    <div className="text-xs text-gray-400">Getting better</div>
+                  <div className="text-center bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-200">
+                    <div className="text-4xl font-bold text-orange-500 mb-2">36%</div>
+                    <div className="text-sm font-semibold text-gray-700">Data Quality</div>
+                    <div className="text-xs text-gray-500 mt-1">Getting better</div>
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 multi-system-panel">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Multi-System Analysis</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="text-center system-metric">
-                      <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2 hover:scale-110 transition-transform duration-300">
-                        <Heart className="w-6 h-6 text-red-600" />
-                      </div>
-                      <div className="text-2xl font-bold text-red-600 animate-counter">58</div>
-                      <div className="text-xs text-gray-500">Neural</div>
+                {/* Multi-System Analysis */}
+                <div className="bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 rounded-3xl p-8 border border-gray-200">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-2xl font-bold text-gray-800">Multi-System Analysis</h3>
+                    <div className="flex items-center space-x-2 text-sm text-gray-500">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span>Live Data</span>
                     </div>
-                    <div className="text-center system-metric">
-                      <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2 hover:scale-110 transition-transform duration-300">
-                        <Activity className="w-6 h-6 text-orange-600" />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="text-center group">
+                      <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Heart className="w-8 h-8 text-red-600" />
                       </div>
-                      <div className="text-2xl font-bold text-orange-600 animate-counter">41</div>
-                      <div className="text-xs text-gray-500">Musculoskeletal</div>
+                      <div className="text-3xl font-bold text-red-600 mb-1">58</div>
+                      <div className="text-sm font-medium text-gray-600">Neural</div>
+                      <div className="w-full bg-red-100 rounded-full h-2 mt-2">
+                        <div className="bg-red-500 h-2 rounded-full" style={{width: '58%'}}></div>
+                      </div>
                     </div>
-                    <div className="text-center system-metric">
-                      <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2 hover:scale-110 transition-transform duration-300">
-                        <Zap className="w-6 h-6 text-yellow-600" />
+                    
+                    <div className="text-center group">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Activity className="w-8 h-8 text-orange-600" />
                       </div>
-                      <div className="text-2xl font-bold text-yellow-600 animate-counter">44</div>
-                      <div className="text-xs text-gray-500">Autonomic</div>
+                      <div className="text-3xl font-bold text-orange-600 mb-1">41</div>
+                      <div className="text-sm font-medium text-gray-600">Musculoskeletal</div>
+                      <div className="w-full bg-orange-100 rounded-full h-2 mt-2">
+                        <div className="bg-orange-500 h-2 rounded-full" style={{width: '41%'}}></div>
+                      </div>
                     </div>
-                    <div className="text-center system-metric">
-                      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 hover:scale-110 transition-transform duration-300">
-                        <Shield className="w-6 h-6 text-green-600" />
+                    
+                    <div className="text-center group">
+                      <div className="w-16 h-16 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Zap className="w-8 h-8 text-yellow-600" />
                       </div>
-                      <div className="text-2xl font-bold text-green-600 animate-counter">51</div>
-                      <div className="text-xs text-gray-500">Immune</div>
+                      <div className="text-3xl font-bold text-yellow-600 mb-1">44</div>
+                      <div className="text-sm font-medium text-gray-600">Autonomic</div>
+                      <div className="w-full bg-yellow-100 rounded-full h-2 mt-2">
+                        <div className="bg-yellow-500 h-2 rounded-full" style={{width: '44%'}}></div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center group">
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Shield className="w-8 h-8 text-green-600" />
+                      </div>
+                      <div className="text-3xl font-bold text-green-600 mb-1">51</div>
+                      <div className="text-sm font-medium text-gray-600">Immune</div>
+                      <div className="w-full bg-green-100 rounded-full h-2 mt-2">
+                        <div className="bg-green-500 h-2 rounded-full" style={{width: '51%'}}></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Insights Panel */}
+                  <div className="mt-6 bg-white/60 rounded-2xl p-4 border border-white/50">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                          <Brain className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800">AI Insight</div>
+                          <div className="text-sm text-gray-600">Your neural patterns suggest improved stability trends</div>
+                        </div>
+                      </div>
+                      <button className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
