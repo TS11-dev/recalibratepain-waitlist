@@ -5,8 +5,18 @@ import time
 import os
 from datetime import datetime
 
-# Get backend URL from environment variable
-BACKEND_URL = os.environ.get('REACT_APP_BACKEND_URL', 'http://localhost:8001')
+# Get backend URL from frontend environment variable
+# Read from frontend .env file to use the same URL as the frontend
+try:
+    with open('/app/frontend/.env', 'r') as f:
+        for line in f:
+            if line.startswith('REACT_APP_BACKEND_URL='):
+                BACKEND_URL = line.split('=', 1)[1].strip()
+                break
+    else:
+        BACKEND_URL = 'http://localhost:8001'
+except:
+    BACKEND_URL = 'http://localhost:8001'
 WAITLIST_FILE = "/app/backend/waitlist.json"
 
 print(f"Using backend URL: {BACKEND_URL}")
