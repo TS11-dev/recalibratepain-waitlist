@@ -313,13 +313,12 @@ function App() {
           </div>
 
           {/* Hero Visual */}
-          <div className="relative max-w-5xl mx-auto animate-fade-in-up delay-800" data-animate id="hero-visual">
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden app-mockup hover:shadow-3xl transition-all duration-500">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-purple-600/90"></div>
-                <div className="flex items-center justify-between text-white relative z-10">
+          <div className="relative max-w-5xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6">
+                <div className="flex items-center justify-between text-white">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur">
+                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
                       <span className="text-white font-bold text-sm">R</span>
                     </div>
                     <span className="font-semibold">Recalibrate</span>
