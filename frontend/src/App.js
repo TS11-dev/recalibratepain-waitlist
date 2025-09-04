@@ -471,6 +471,77 @@ function App() {
         </div>
       </section>
 
+      {/* Email Signup Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl border border-gray-200 p-12">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-6 py-2 mb-8">
+              <Sparkles className="w-5 h-5" />
+              <span className="font-semibold">Exclusive Early Access</span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
+                Join the Revolution
+              </span>
+            </h2>
+            
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+              Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform.
+            </p>
+
+            <form onSubmit={handleEmailSubmit} className="space-y-4 max-w-md mx-auto mb-8">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg transition-all duration-300 hover:border-purple-300"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg transition-all duration-300 hover:border-purple-300"
+                required
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2"
+              >
+                {loading ? (
+                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  <>
+                    <span>Join Waitlist</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </>
+                )}
+              </button>
+            </form>
+
+            {/* Stats */}
+            <div className="flex justify-center items-center space-x-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-blue-600">{subscribers}+</div>
+                <div className="text-sm text-gray-500">Early Subscribers</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-purple-600">200+</div>
+                <div className="text-sm text-gray-500">Tools & Lessons</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-green-600">∞</div>
+                <div className="text-sm text-gray-500">Potential</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Ecosystem Breakdown */}
       <section id="ecosystem" className="py-20 px-6 bg-gradient-to-r from-slate-50 to-blue-50" data-animate>
         <div className="max-w-7xl mx-auto">
