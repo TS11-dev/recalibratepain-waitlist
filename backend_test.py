@@ -13,8 +13,8 @@ try:
             if line.startswith('REACT_APP_BACKEND_URL='):
                 BACKEND_URL = line.split('=', 1)[1].strip()
                 break
-    else:
-        BACKEND_URL = 'http://localhost:8001'
+        else:
+            BACKEND_URL = 'http://localhost:8001'
 except:
     BACKEND_URL = 'http://localhost:8001'
 WAITLIST_FILE = "/app/backend/waitlist.json"
