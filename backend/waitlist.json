@@ -13,5 +13,30 @@
     "name": "stuart wolstenholme",
     "email": "stuartw6040@gmail.com",
     "timestamp": "2025-06-29T15:32:27.454364"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1757023604@example.com",
+    "timestamp": "2025-09-04T22:06:44.801438"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1757023605@example.com",
+    "timestamp": "2025-09-04T22:06:45.755764"
+  },
+  {
+    "name": "Persistence Test 1757023606",
+    "email": "persistence.test.1757023606@example.com",
+    "timestamp": "2025-09-04T22:06:46.949713"
+  },
+  {
+    "name": "Dual Storage Test 1757023607",
+    "email": "dual.storage.test.1757023607@example.com",
+    "timestamp": "2025-09-04T22:06:47.896606"
+  },
+  {
+    "name": "Count Test 1757023609",
+    "email": "count.test.1757023609@example.com",
+    "timestamp": "2025-09-04T22:06:50.035534"
   }
 ]
