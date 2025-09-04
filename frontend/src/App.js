@@ -15,6 +15,7 @@ function App() {
   const [subscribers, setSubscribers] = useState(127);
   const [openFaq, setOpenFaq] = useState(null);
   const [isVisible, setIsVisible] = useState({});
+  const [showContactModal, setShowContactModal] = useState(false);
 
   // Use environment variable for backend URL
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
