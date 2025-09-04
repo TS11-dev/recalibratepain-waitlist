@@ -737,129 +737,58 @@ function App() {
         </div>
       </section>
 
-      {/* Email Signup Section */}
-      <section className="py-20 px-6 bg-white" data-animate id="signup">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className={`bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl border border-gray-200 p-12 signup-section transition-all duration-1000 ${isVisible.signup ? 'animate-fade-in-up' : 'opacity-0 translate-y-12'}`}>
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-6 py-2 mb-8 animate-bounce-gentle">
-              <Sparkles className="w-5 h-5" />
-              <span className="font-semibold">Exclusive Early Access</span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                Join the Revolution
-              </span>
-            </h2>
-            
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-              Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform.
-            </p>
-
-            <form onSubmit={handleEmailSubmit} className="space-y-4 max-w-md mx-auto mb-8">
-              <input
-                type="text"
-                placeholder="Your Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg transition-all duration-300 hover:border-purple-300"
-                required
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg transition-all duration-300 hover:border-purple-300"
-                required
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 btn-primary"
-              >
-                {loading ? (
-                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                ) : (
-                  <>
-                    <span>Join Waitlist</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </>
-                )}
-              </button>
-            </form>
-
-            {/* Stats */}
-            <div className="flex justify-center items-center space-x-8 text-center">
-              {[
-                { number: subscribers + "+", label: "Early Subscribers", color: "text-blue-600" },
-                { number: "200+", label: "Tools & Lessons", color: "text-purple-600" },
-                { number: "∞", label: "Potential", color: "text-green-600" }
-              ].map((stat, index) => (
-                <div key={index} className="stat-card">
-                  <div className={`text-3xl font-bold ${stat.color} animate-counter`}>{stat.number}</div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Partner Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-slate-50 to-blue-50" data-animate id="partner">
+      <section className="py-20 px-6 bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-4xl mx-auto text-center">
-          <div className={`transition-all duration-1000 ${isVisible.partner ? 'animate-fade-in-up' : 'opacity-0 translate-y-12'}`}>
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full px-6 py-3 mb-8">
-              <Star className="w-5 h-5 text-purple-600" />
-              <span className="text-sm font-semibold text-gray-700">Partnership Opportunities</span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                Partner with Us
-              </span>
-            </h2>
-            
-            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-              Join us in revolutionizing pain management. Whether you're a healthcare system, researcher, 
-              or investor, let's build the future of chronic pain care together.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {[
-                {
-                  title: "Healthcare Systems",
-                  description: "Integrate Recalibrate into your patient care workflow",
-                  icon: Shield
-                },
-                {
-                  title: "Researchers",
-                  description: "Collaborate on groundbreaking pain management studies",
-                  icon: BarChart3
-                },
-                {
-                  title: "Investors",
-                  description: "Join our mission to transform chronic pain care",
-                  icon: TrendingUp
-                }
-              ].map((partner, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 partner-card">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <partner.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{partner.title}</h3>
-                  <p className="text-gray-600 text-sm">{partner.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <a href="mailto:info@recalibratepain.com" className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
-              <Mail className="w-5 h-5" />
-              <span>Contact Us</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full px-6 py-3 mb-8">
+            <Star className="w-5 h-5 text-purple-600" />
+            <span className="text-sm font-semibold text-gray-700">Partnership Opportunities</span>
           </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
+              Partner with Us
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            Join us in revolutionizing pain management. Whether you're a healthcare system, researcher, 
+            or investor, let's build the future of chronic pain care together.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                title: "Healthcare Systems",
+                description: "Integrate Recalibrate into your patient care workflow",
+                icon: Shield
+              },
+              {
+                title: "Researchers",
+                description: "Collaborate on groundbreaking pain management studies",
+                icon: BarChart3
+              },
+              {
+                title: "Investors",
+                description: "Join our mission to transform chronic pain care",
+                icon: TrendingUp
+              }
+            ].map((partner, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <partner.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{partner.title}</h3>
+                <p className="text-gray-600 text-sm">{partner.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <a href="mailto:info@recalibratepain.com" className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <Mail className="w-5 h-5" />
+            <span>Contact Us</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
       </section>
 
