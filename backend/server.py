@@ -360,7 +360,7 @@ async def health_check():
             "service": "RecalibratePain Waitlist API",
             "version": "3.0.0",
             "timestamp": datetime.now().isoformat(),
-            "subscribers": BASE_SUBSCRIBER_COUNT,
+            "subscribers": 0,  # Show 0 if unable to count
             "actual_subscribers": 0,
             "storage": {
                 "mongodb": "❌ Error",
