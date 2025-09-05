@@ -146,34 +146,42 @@ function App() {
 
       if (response.ok) {
         const data = await response.json();
-        toast.success('🚀 Welcome to the future of pain management!', { 
-          id: 'success',
-          duration: 5000
-        });
         
-        // Update local count immediately and fetch fresh count
-        setSubscribers(data.total_subscribers || subscribers + 1);
-        setEmail('');
-        
-        // Force fresh count update after successful submission
-        setTimeout(() => {
-          fetchSubscriberCount();
-        }, 1000);
-        
-        console.log('✅ Email submitted successfully:', sanitizedEmail);
-        console.log('✅ New subscriber count:', data.total_subscribers);
+        // Only show success if the backend actually reports success
+        if (data.success) {
+          toast.success('🚀 Welcome to the future of pain management!', { 
+            id: 'success',
+            duration: 5000
+          });
+          
+          // Update local count immediately and fetch fresh count
+          setSubscribers(data.total_subscribers || subscribers + 1);
+          setEmail('');
+          
+          // Force fresh count update after successful submission
+          setTimeout(() => {
+            fetchSubscriberCount();
+          }, 1000);
+          
+          console.log('✅ Email submitted successfully:', sanitizedEmail);
+          console.log('✅ New subscriber count:', data.total_subscribers);
+        } else {
+          // Backend returned 200 but with success: false
+          toast.error(data.message || 'Failed to join waitlist. Please try again.', {
+            id: 'backend-error',
+            duration: 4000,
+          });
+          console.log('❌ Backend reported failure:', data.message);
+        }
       } else {
         const errorData = await response.text();
         console.log('❌ Submission failed:', response.status, errorData);
         
-        toast.success('🚀 Welcome to the future of pain management!', { 
-          id: 'success',
-          duration: 5000
+        // Show proper error message instead of fake success
+        toast.error('Failed to join waitlist. Please check your connection and try again.', {
+          id: 'network-error',
+          duration: 4000,
         });
-        
-        // Still fetch updated count in case it worked on backend
-        fetchSubscriberCount();
-        setEmail('');
       }
     } catch (error) {
       console.log('❌ Email submission error:', error.message);
