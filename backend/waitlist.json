@@ -73,5 +73,30 @@
     "name": "Final Test User",
     "email": "final@test.com",
     "timestamp": "2025-09-04T22:58:32.281013"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1757067777@example.com",
+    "timestamp": "2025-09-05T10:22:57.680368"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1757067778@example.com",
+    "timestamp": "2025-09-05T10:22:58.675368"
+  },
+  {
+    "name": "Persistence Test 1757067779",
+    "email": "persistence.test.1757067779@example.com",
+    "timestamp": "2025-09-05T10:22:59.928690"
+  },
+  {
+    "name": "Dual Storage Test 1757067780",
+    "email": "dual.storage.test.1757067780@example.com",
+    "timestamp": "2025-09-05T10:23:00.920455"
+  },
+  {
+    "name": "Count Test 1757067782",
+    "email": "count.test.1757067782@example.com",
+    "timestamp": "2025-09-05T10:23:03.159101"
   }
 ]
