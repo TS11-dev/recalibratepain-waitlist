@@ -67,22 +67,22 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="RecalibratePain Waitlist API", version="3.0.0", lifespan=lifespan)
 
-# Enhanced CORS configuration for production deployment
+# Enhanced CORS configuration for production security
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
         "https://recalibratepain.com",
-        "https://www.recalibratepain.com",  # Added www version
+        "https://www.recalibratepain.com",
         "https://*.vercel.app",
         "https://recalibratepain-waitlist.vercel.app",
         "https://*.railway.app",
         "https://*.netlify.app",
-        "*"  # For development - remove in production
+        "https://*.emergentagent.com"  # For preview environments
     ],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Accept", "Origin", "Cache-Control", "Pragma", "Expires"],
 )
 
 # Data models
