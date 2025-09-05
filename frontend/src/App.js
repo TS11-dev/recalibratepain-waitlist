@@ -57,6 +57,7 @@ function App() {
 
   // Use environment variable for backend URL with fallback
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
+  console.log('🌐 Backend URL:', BACKEND_URL);
 
   // Email validation utility
   const isValidEmail = useCallback((email) => {
