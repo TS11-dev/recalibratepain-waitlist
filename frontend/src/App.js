@@ -189,14 +189,11 @@ function App() {
       if (error.name === 'AbortError') {
         toast.error('Request timed out. Please try again.', { id: 'timeout' });
       } else {
-        toast.success('🚀 Welcome to the future of pain management!', { 
-          id: 'success',
-          duration: 5000
+        // Show proper error message instead of fake success
+        toast.error('Network error. Please check your connection and try again.', {
+          id: 'network-error',
+          duration: 4000,
         });
-        
-        // Try to fetch updated count anyway
-        fetchSubscriberCount();
-        setEmail('');
       }
     } finally {
       setLoading(false);
