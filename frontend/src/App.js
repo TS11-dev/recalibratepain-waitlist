@@ -313,29 +313,43 @@ function App() {
 
           {/* Hero Visual - Simplified */}
           <div className="relative max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-gray-200 text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-2xl">R</span>
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-gray-200 text-center relative overflow-hidden">
+              {/* Animated Background Art */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-10 left-10 w-16 h-16 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-20 right-16 w-8 h-8 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full animate-bounce delay-1000"></div>
+                <div className="absolute bottom-16 left-20 w-12 h-12 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-full animate-pulse delay-500"></div>
+                <div className="absolute bottom-10 right-10 w-6 h-6 bg-gradient-to-r from-orange-400/30 to-red-400/30 rounded-full animate-bounce delay-1500"></div>
+                
+                {/* Animated Swirls */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
+                  <div className="w-full h-full border-2 border-blue-300 rounded-full animate-spin-slow"></div>
+                  <div className="absolute inset-8 border-2 border-purple-300 rounded-full animate-reverse-spin"></div>
+                  <div className="absolute inset-16 border-2 border-pink-300 rounded-full animate-spin-slow delay-1000"></div>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                The Future of Pain Management
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-                Experience the world's first AI-powered, multi-system chronic pain management platform. 
-                Comprehensive insights, personalized approaches, and evidence-based care - all in one place.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-sm border">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">AI-Powered Insights</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-sm border">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">Multi-System Analysis</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-sm border">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">Evidence-Based Care</span>
+              
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  The Future of Health & Pain Management
+                </h3>
+                <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                  Experience the world's first AI-powered, multi-system health and pain management platform. 
+                  Comprehensive insights, personalized approaches, and evidence-based care - all in one place.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-sm border">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-700">AI-Powered Insights</span>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-sm border">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-700">Multi-System Analysis</span>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-sm border">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-700">Evidence-Based Care</span>
+                  </div>
                 </div>
               </div>
             </div>
