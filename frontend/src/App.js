@@ -757,7 +757,7 @@ function App() {
               
               <h2 id="providers-title" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                 <span className="bg-gradient-to-r from-gray-900 to-emerald-600 bg-clip-text text-transparent">
-                  Provider & Research Platform
+                  Provider & Research
                 </span>
               </h2>
               <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
