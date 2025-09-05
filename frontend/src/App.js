@@ -819,7 +819,7 @@ function App() {
             </h2>
             
             <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
-              Join us in revolutionizing health and pain management. Whether you're a healthcare company, research institution, 
+              Join us in revolutionizing health and pain management. Whether you're a healthcare clinic, research institution, 
               or investor, let's build the future of comprehensive health management together.
             </p>
 
