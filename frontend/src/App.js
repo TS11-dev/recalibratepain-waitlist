@@ -551,32 +551,16 @@ function App() {
                 Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform.
               </p>
 
-              <form onSubmit={handleEmailSubmit} className="space-y-4 max-w-sm sm:max-w-md mx-auto mb-6 sm:mb-8" noValidate>
-                <div>
-                  <label htmlFor="signup-name" className="sr-only">Your Name</label>
-                  <input
-                    id="signup-name"
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base sm:text-lg transition-all duration-300 hover:border-purple-300"
-                    required
-                    maxLength="100"
-                    autoComplete="name"
-                    aria-describedby="name-help"
-                  />
-                  <div id="name-help" className="sr-only">Enter your full name</div>
-                </div>
+              <form onSubmit={handleEmailSubmit} className="max-w-sm sm:max-w-md mx-auto mb-6 sm:mb-8" noValidate>
                 <div>
                   <label htmlFor="signup-email" className="sr-only">Your Email</label>
                   <input
                     id="signup-email"
                     type="email"
-                    placeholder="Your Email"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base sm:text-lg transition-all duration-300 hover:border-purple-300"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base sm:text-lg transition-all duration-300 hover:border-purple-300 mb-4"
                     required
                     maxLength="254"
                     autoComplete="email"
