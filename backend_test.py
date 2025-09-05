@@ -5,8 +5,8 @@ import time
 import os
 from datetime import datetime
 
-# Use Railway production URL for production readiness testing
-BACKEND_URL = 'https://recalibratepain-waitlist-production.up.railway.app'
+# Use local backend since Railway production is down
+BACKEND_URL = 'http://localhost:8001'
 WAITLIST_FILE = "/app/backend/waitlist.json"
 
 print(f"Using backend URL: {BACKEND_URL}")
