@@ -5,18 +5,8 @@ import time
 import os
 from datetime import datetime
 
-# Get backend URL from frontend environment variable
-# Read from frontend .env file to use the same URL as the frontend
-try:
-    with open('/app/frontend/.env', 'r') as f:
-        for line in f:
-            if line.startswith('REACT_APP_BACKEND_URL='):
-                BACKEND_URL = line.split('=', 1)[1].strip()
-                break
-        else:
-            BACKEND_URL = 'http://localhost:8001'
-except:
-    BACKEND_URL = 'http://localhost:8001'
+# Use Railway production URL for production readiness testing
+BACKEND_URL = 'https://recalibratepain-waitlist-production.up.railway.app'
 WAITLIST_FILE = "/app/backend/waitlist.json"
 
 print(f"Using backend URL: {BACKEND_URL}")
