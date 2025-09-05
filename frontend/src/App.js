@@ -109,12 +109,13 @@ function App() {
 
   const fetchSubscriberCount = useCallback(async () => {
     try {
-      const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
+      const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}&cache=${Math.random()}`, {
         method: 'GET',
         headers: {
           'Cache-Control': 'no-cache, no-store, must-revalidate',
           'Pragma': 'no-cache',
-          'Expires': '0'
+          'Expires': '0',
+          'If-Modified-Since': 'Mon, 01 Jan 1990 00:00:00 GMT'
         },
         signal: AbortSignal.timeout(10000) // 10 second timeout
       });
@@ -122,10 +123,13 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         setSubscribers(data.count);
+        console.log('✅ Subscriber count updated to:', data.count);
+      } else {
+        console.log('❌ API response not ok:', response.status);
       }
     } catch (error) {
       if (error.name !== 'AbortError') {
-        console.log('Network error, keeping current count');
+        console.log('❌ Network error fetching count:', error.message);
       }
     }
   }, [BACKEND_URL]);
