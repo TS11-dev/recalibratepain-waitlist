@@ -475,12 +475,12 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
               {[
                 {
                   icon: Brain,
                   title: "AI Pattern Recognition",
-                  description: "Advanced algorithms identify pain patterns and predict flare-ups using machine learning from your personal health data.",
+                  description: "Advanced algorithms identify pain patterns using machine learning.",
                   gradient: "from-blue-50 to-blue-100",
                   border: "border-blue-200",
                   iconBg: "from-blue-600 to-blue-700"
@@ -488,7 +488,7 @@ function App() {
                 {
                   icon: Activity,
                   title: "Multi-System Tracking",
-                  description: "Monitor 8 interconnected health systems: neural, immune, musculoskeletal, autonomic, and more for comprehensive insights.",
+                  description: "Monitor 8 interconnected health systems for comprehensive insights.",
                   gradient: "from-purple-50 to-purple-100",
                   border: "border-purple-200",
                   iconBg: "from-purple-600 to-purple-700"
@@ -496,7 +496,7 @@ function App() {
                 {
                   icon: Shield,
                   title: "Clinical Integration",
-                  description: "Seamless provider collaboration with evidence-based protocols and real-time data sharing capabilities.",
+                  description: "Seamless provider collaboration with evidence-based protocols.",
                   gradient: "from-green-50 to-green-100",
                   border: "border-green-200",
                   iconBg: "from-green-600 to-green-700"
@@ -504,7 +504,7 @@ function App() {
                 {
                   icon: Target,
                   title: "Personalized Care",
-                  description: "Comprehensive management approaches based on individual health patterns, responses, and personal care preferences.",
+                  description: "Comprehensive management approaches based on individual patterns.",
                   gradient: "from-orange-50 to-orange-100",
                   border: "border-orange-200",
                   iconBg: "from-orange-600 to-orange-700"
@@ -512,7 +512,7 @@ function App() {
                 {
                   icon: BarChart3,
                   title: "Advanced Analytics",
-                  description: "Weighted scoring algorithms provide actionable health insights and data-driven recommendations.",
+                  description: "Weighted scoring algorithms provide actionable health insights.",
                   gradient: "from-indigo-50 to-indigo-100",
                   border: "border-indigo-200",
                   iconBg: "from-indigo-600 to-indigo-700"
@@ -520,7 +520,7 @@ function App() {
                 {
                   icon: TrendingUp,
                   title: "Predictive Insights",
-                  description: "AI-powered pattern recognition enables proactive care and prevention strategies for better outcomes.",
+                  description: "AI-powered pattern recognition enables proactive care strategies.",
                   gradient: "from-teal-50 to-teal-100",
                   border: "border-teal-200",
                   iconBg: "from-teal-600 to-teal-700"
@@ -528,16 +528,16 @@ function App() {
               ].map((feature, index) => (
                 <div 
                   key={index} 
-                  className={`bg-gradient-to-br ${feature.gradient} rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border ${feature.border} hover:shadow-lg transition-all duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-purple-500 h-full flex flex-col`}
+                  className={`bg-gradient-to-br ${feature.gradient} rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border ${feature.border} hover:shadow-lg transition-all duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-purple-500 h-full flex flex-col`}
                   role="article"
                   aria-labelledby={`feature-title-${index}`}
                 >
-                  <div className={`w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 bg-gradient-to-r ${feature.iconBg} rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 shadow-lg flex-shrink-0`} aria-hidden="true">
-                    <feature.icon className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 text-white" />
+                  <div className={`w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 bg-gradient-to-r ${feature.iconBg} rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 shadow-lg flex-shrink-0`} aria-hidden="true">
+                    <feature.icon className="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 id={`feature-title-${index}`} className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4">{feature.title}</h3>
-                    <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">{feature.description}</p>
+                    <h3 id={`feature-title-${index}`} className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-1 sm:mb-2 leading-tight">{feature.title}</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-snug">{feature.description}</p>
                   </div>
                 </div>
               ))}
