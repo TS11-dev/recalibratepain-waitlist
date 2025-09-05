@@ -1,0 +1,17 @@
+{
+  "name": "recalibrate-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && yarn install --frozen-lockfile && yarn build",
+    "start": "cd frontend && yarn start",
+    "dev": "cd frontend && yarn start"
+  },
+  "workspaces": [
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0"
+  }
+}
