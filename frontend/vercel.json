@@ -2,13 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "src": "frontend/package.json",
+      "use": "@vercel/node"
     }
   ],
+  "buildCommand": "cd frontend && yarn install && yarn build",
+  "outputDirectory": "frontend/build",
+  "installCommand": "cd frontend && yarn install",
+  "devCommand": "cd frontend && yarn start",
   "routes": [
     {
       "src": "/static/(.*)",
@@ -62,10 +63,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "REACT_APP_BACKEND_URL": "https://recalibratepain-waitlist-production.up.railway.app",
-    "GENERATE_SOURCEMAP": "false",
-    "INLINE_RUNTIME_CHUNK": "false"
-  }
+  ]
 }
