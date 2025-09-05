@@ -321,7 +321,7 @@ function App() {
                   alt="Recalibrate logo" 
                   className="w-10 h-10 object-contain"
                 />
-                <span className="text-2xl font-bold text-white drop-shadow-lg">
+                <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
                   Recalibrate
                 </span>
               </div>
