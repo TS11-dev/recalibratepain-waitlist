@@ -132,16 +132,7 @@ function App() {
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     
-    const sanitizedName = sanitizeInput(name);
     const sanitizedEmail = sanitizeInput(email);
-    
-    if (!sanitizedName || sanitizedName.length < 2) {
-      toast.error('Please enter a valid name (at least 2 characters)', {
-        id: 'name-error',
-        duration: 4000,
-      });
-      return;
-    }
     
     if (!isValidEmail(sanitizedEmail)) {
       toast.error('Please enter a valid email address', {
@@ -161,7 +152,7 @@ function App() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          name: sanitizedName,
+          name: "Website Subscriber", // Default name since removed from form
           email: sanitizedEmail.toLowerCase()
         }),
         signal: AbortSignal.timeout(15000) // 15 second timeout
@@ -171,12 +162,10 @@ function App() {
         const data = await response.json();
         toast.success('🚀 Welcome to the future of pain management!', { id: 'success' });
         setSubscribers(data.total_subscribers || subscribers + 1);
-        setName('');
         setEmail('');
       } else {
         toast.success('🚀 Welcome to the future of pain management!', { id: 'success' });
         fetchSubscriberCount();
-        setName('');
         setEmail('');
       }
     } catch (error) {
@@ -185,7 +174,6 @@ function App() {
       } else {
         toast.success('🚀 Welcome to the future of pain management!', { id: 'success' });
         fetchSubscriberCount();
-        setName('');
         setEmail('');
       }
     } finally {
