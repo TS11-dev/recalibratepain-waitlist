@@ -619,47 +619,8 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start mb-16 sm:mb-20">
-              <div className="space-y-6 sm:space-y-8">
-                {[
-                  {
-                    icon: BookOpen,
-                    title: "Education",
-                    description: "Clear breakdowns of pain and health strategies backed by the latest research and clinical evidence.",
-                    gradient: "from-blue-600 to-blue-700"
-                  },
-                  {
-                    icon: Zap,
-                    title: "Action",
-                    description: "Tools, downloads, and practices you can implement immediately to start improving your health outcomes.",
-                    gradient: "from-green-600 to-green-700"
-                  },
-                  {
-                    icon: Eye,
-                    title: "Previews",
-                    description: "Updates on app launch, new courses, and resources as we continue to expand our platform.",
-                    gradient: "from-purple-600 to-purple-700"
-                  },
-                  {
-                    icon: Users,
-                    title: "Connection",
-                    description: "Stories and insights from the growing Recalibrate community of patients and healthcare professionals.",
-                    gradient: "from-orange-600 to-orange-700"
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4 p-4 rounded-xl hover:bg-white/50 transition-colors">
-                    <div className={`w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r ${item.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`} aria-hidden="true">
-                      <item.icon className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+            <div className="flex justify-center">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden max-w-md">
                 <div className="p-6 sm:p-8">
                   <div className="text-center mb-6">
                     <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" aria-hidden="true">
