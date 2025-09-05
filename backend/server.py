@@ -417,7 +417,7 @@ async def join_waitlist(entry: WaitlistEntry):
                 return WaitlistResponse(
                     success=True,
                     message="Welcome back! You're already on our waitlist.",
-                    total_subscribers=len(existing_waitlist),  # Show actual count only
+                    total_subscribers=len(existing_waitlist) + BASE_SUBSCRIBER_COUNT,  # Base + actual count
                     storage_info="Already exists in database"
                 )
         
