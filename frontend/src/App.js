@@ -548,7 +548,7 @@ function App() {
               </h2>
               
               <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
-                Get exclusive early access to the world's first AI-powered, multi-system chronic pain management platform.
+                Get exclusive early access to the world's first AI-powered, multi-system health and pain management platform with comprehensive chronic pain benefits.
               </p>
 
               <form onSubmit={handleEmailSubmit} className="max-w-sm sm:max-w-md mx-auto mb-6 sm:mb-8" noValidate>
