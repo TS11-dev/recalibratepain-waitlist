@@ -413,7 +413,7 @@ async def join_waitlist(entry: WaitlistEntry):
                 return WaitlistResponse(
                     success=True,
                     message="Welcome back! You're already on our waitlist.",
-                    total_subscribers=len(existing_waitlist) + BASE_SUBSCRIBER_COUNT,  # Add social proof base
+                    total_subscribers=len(existing_waitlist),  # Show actual count only
                     storage_info="Already exists in database"
                 )
         
