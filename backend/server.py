@@ -143,8 +143,8 @@ MONGO_URL = os.environ.get("MONGO_URL")
 DB_NAME = "RecalibrateWebsite"  # Exact case from Atlas
 COLLECTION_NAME = "Emails"  # Capital E as shown in Atlas
 
-# Social proof base count - easily adjustable
-BASE_SUBSCRIBER_COUNT = 127  # Add this to actual count for social proof
+# Show actual MongoDB collection count only - no social proof manipulation
+BASE_SUBSCRIBER_COUNT = 0  # No artificial inflation - show real count
 
 # MongoDB client
 mongo_client = None
