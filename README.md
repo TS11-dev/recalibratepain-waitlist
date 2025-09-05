@@ -2,7 +2,7 @@
 
 A comprehensive, VC-ready website for the revolutionary AI-powered health and pain management platform with comprehensive chronic pain benefits.
 
-## 🚀 Platform Overview
+## 🚀 Recalibrate Overview
 
 **Recalibrate** is the world's first AI-powered, multi-system health and pain management platform that provides:
 - Comprehensive health tracking and insights
