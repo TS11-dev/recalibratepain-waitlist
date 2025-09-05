@@ -439,7 +439,7 @@ async def join_waitlist(entry: WaitlistEntry):
             return WaitlistResponse(
                 success=True,
                 message="🚀 Welcome to the future of pain management!",
-                total_subscribers=len(updated_waitlist),  # Show actual count only
+                total_subscribers=len(updated_waitlist) + BASE_SUBSCRIBER_COUNT,  # Base + actual count
                 storage_info=storage_info
             )
         else:
