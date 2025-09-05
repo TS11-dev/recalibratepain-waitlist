@@ -158,5 +158,10 @@
     "name": "MongoDB Test User",
     "email": "mongotest@example.com",
     "timestamp": "2025-09-05T16:17:29.147961"
+  },
+  {
+    "name": "Website Subscriber",
+    "email": "frontend.test@example.com",
+    "timestamp": "2025-09-05T16:21:35.191200"
   }
 ]
