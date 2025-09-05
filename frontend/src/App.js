@@ -619,8 +619,8 @@ function App() {
               </p>
             </div>
 
-            <div className="flex justify-center">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden max-w-md">
+            <div className="flex justify-center mb-12 sm:mb-16">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden max-w-md w-full sm:max-w-lg">
                 <div className="p-6 sm:p-8">
                   <div className="text-center mb-6">
                     <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" aria-hidden="true">
