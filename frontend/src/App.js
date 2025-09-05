@@ -106,34 +106,6 @@ function App() {
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(prev => ({
-              ...prev,
-              [entry.target.id]: true
-            }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Observe all sections with slight delay to prevent rapid state updates
-    const timer = setTimeout(() => {
-      const sections = document.querySelectorAll('[data-animate]');
-      sections.forEach(section => observer.observe(section));
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      observer.disconnect();
-    };
-  }, []);
-
   // Fetch current subscriber count on load - more frequent updates
   useEffect(() => {
     fetchSubscriberCount();
@@ -141,33 +113,6 @@ function App() {
     const countInterval = setInterval(fetchSubscriberCount, 10000);
     return () => clearInterval(countInterval);
   }, [fetchSubscriberCount]);
-
-  const fetchSubscriberCount = useCallback(async () => {
-    try {
-      const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}&cache=${Math.random()}`, {
-        method: 'GET',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-          'If-Modified-Since': 'Mon, 01 Jan 1990 00:00:00 GMT'
-        },
-        signal: AbortSignal.timeout(10000) // 10 second timeout
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        setSubscribers(data.count);
-        console.log('✅ Subscriber count updated to:', data.count);
-      } else {
-        console.log('❌ API response not ok:', response.status);
-      }
-    } catch (error) {
-      if (error.name !== 'AbortError') {
-        console.log('❌ Network error fetching count:', error.message);
-      }
-    }
-  }, [BACKEND_URL]);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
