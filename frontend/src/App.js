@@ -807,7 +807,7 @@ function App() {
                 {
                   icon: MessageCircle,
                   title: "Secure Communication",
-                  description: "HIPAA-compliant messaging system with built-in chat, secure file sharing, and consultation scheduling.",
+                  description: "Built-in messaging system with chat, file sharing, and consultation scheduling capabilities.",
                   gradient: "from-emerald-50 to-emerald-100",
                   border: "border-emerald-200",
                   iconBg: "from-emerald-600 to-emerald-700"
