@@ -214,17 +214,33 @@ function App() {
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
-  // Keyboard navigation support
+  // Keyboard navigation support and mobile menu handling
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape' && showContactModal) {
-        setShowContactModal(false);
+      if (event.key === 'Escape') {
+        if (showContactModal) {
+          setShowContactModal(false);
+        }
+        if (mobileMenuOpen) {
+          setMobileMenuOpen(false);
+        }
+      }
+    };
+
+    const handleClickOutside = (event) => {
+      if (mobileMenuOpen && !event.target.closest('nav')) {
+        setMobileMenuOpen(false);
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [showContactModal]);
+    document.addEventListener('click', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [showContactModal, mobileMenuOpen]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
