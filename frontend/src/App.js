@@ -371,14 +371,14 @@ function App() {
           
           {/* Mobile Menu Dropdown */}
           {mobileMenuOpen && (
-            <div className="md:hidden bg-gradient-to-r from-blue-600 to-purple-600 border-t border-blue-400 shadow-lg">
+            <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
               <div className="px-4 py-2 space-y-2">
                 <button 
                   onClick={() => {
                     smoothScroll('features');
                     setMobileMenuOpen(false);
                   }} 
-                  className="block w-full text-left px-4 py-3 text-white hover:text-blue-200 hover:bg-white/20 rounded-lg font-medium transition-colors"
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg font-medium transition-colors"
                 >
                   Features
                 </button>
@@ -387,7 +387,7 @@ function App() {
                     smoothScroll('ecosystem');
                     setMobileMenuOpen(false);
                   }} 
-                  className="block w-full text-left px-4 py-3 text-white hover:text-blue-200 hover:bg-white/20 rounded-lg font-medium transition-colors"
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg font-medium transition-colors"
                 >
                   Ecosystem
                 </button>
@@ -396,7 +396,7 @@ function App() {
                     setShowContactModal(true);
                     setMobileMenuOpen(false);
                   }} 
-                  className="block w-full text-left px-4 py-3 bg-white text-purple-600 rounded-lg font-medium hover:bg-blue-50 transition-all"
+                  className="block w-full text-left px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all"
                 >
                   Contact
                 </button>
