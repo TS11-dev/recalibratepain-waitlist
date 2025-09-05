@@ -78,7 +78,15 @@ app = FastAPI(
 # Security Middleware
 app.add_middleware(
     TrustedHostMiddleware, 
-    allowed_hosts=["localhost", "127.0.0.1", "*.railway.app", "*.vercel.app", "recalibratepain.com", "www.recalibratepain.com"]
+    allowed_hosts=[
+        "localhost", 
+        "127.0.0.1", 
+        "*.railway.app", 
+        "*.vercel.app", 
+        "recalibratepain.com", 
+        "www.recalibratepain.com",
+        "recalibratepain-waitlist-production.up.railway.app"
+    ]
 )
 
 # Security Headers Middleware
