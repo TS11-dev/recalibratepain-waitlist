@@ -163,5 +163,10 @@
     "name": "Website Subscriber",
     "email": "frontend.test@example.com",
     "timestamp": "2025-09-05T16:21:35.191200"
+  },
+  {
+    "name": "Quick Test",
+    "email": "quicktest@example.com",
+    "timestamp": "2025-09-05T16:25:02.200630"
   }
 ]
