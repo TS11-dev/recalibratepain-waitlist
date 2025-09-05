@@ -53,6 +53,7 @@ function App() {
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isVisible, setIsVisible] = useState({});
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Use environment variable for backend URL with fallback
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
