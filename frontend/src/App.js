@@ -560,18 +560,20 @@ function App() {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base sm:text-lg transition-all duration-300 hover:border-purple-300 mb-4"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-purple-600 text-base sm:text-lg transition-all duration-300 hover:border-purple-300 mb-4 placeholder-gray-400 bg-white"
                     required
                     maxLength="254"
                     autoComplete="email"
+                    autoFocus={false}
+                    spellCheck="false"
                     aria-describedby="email-help"
                   />
                   <div id="email-help" className="sr-only">Enter your email address to join the waitlist</div>
                 </div>
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                  disabled={loading || !email.trim()}
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                   aria-label={loading ? "Submitting form" : "Join waitlist"}
                 >
                   {loading ? (
