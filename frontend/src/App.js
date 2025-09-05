@@ -825,7 +825,7 @@ function App() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
               {[
-                { title: "Healthcare Companies", description: "Partner with us to integrate comprehensive health management solutions", icon: Shield },
+                { title: "Healthcare Clinics", description: "Partner with us to integrate comprehensive health management solutions", icon: Shield },
                 { title: "Research Collaborations", description: "Collaborate on groundbreaking health and pain management research studies", icon: BarChart3 },
                 { title: "Investors", description: "Join our mission to transform the future of health and pain management", icon: TrendingUp }
               ].map((partner, index) => (
