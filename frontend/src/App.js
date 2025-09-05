@@ -922,9 +922,11 @@ function App() {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col sm:flex-row justify-between items-center mb-8 sm:mb-12">
               <div className="flex items-center space-x-3 mb-6 sm:mb-0">
-                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg" aria-hidden="true">
-                  <span className="text-white font-bold text-lg sm:text-xl">R</span>
-                </div>
+                <img 
+                  src="/recalibrate-logo.png" 
+                  alt="Recalibrate logo" 
+                  className="w-10 sm:w-12 h-10 sm:h-12 object-contain"
+                />
                 <span className="text-2xl sm:text-3xl font-bold">Recalibrate</span>
               </div>
               
