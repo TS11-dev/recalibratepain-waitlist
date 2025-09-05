@@ -324,7 +324,8 @@ function App() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Advanced AI meets evidence-based medicine to transform how you understand and manage chronic pain
+              Experience the world's first AI-powered, multi-system health and pain management platform. 
+              Comprehensive insights, personalized approaches, and evidence-based care - all in one place.
             </p>
           </div>
 
