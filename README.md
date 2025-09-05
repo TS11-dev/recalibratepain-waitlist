@@ -1,72 +1,92 @@
-# RecalibratePain Waiting List
+# Recalibrate Website - Enterprise-Grade Health & Pain Management Platform
 
-A comprehensive, enterprise-grade waiting list application for the revolutionary AI-powered chronic pain management platform.
+A comprehensive, VC-ready website for the revolutionary AI-powered health and pain management platform with comprehensive chronic pain benefits.
 
-## 🚀 Features
+## 🚀 Platform Overview
 
-### ✅ Working Email Collection
-- **Real email storage**: Names and emails saved to backend JSON file
-- **Duplicate prevention**: Prevents same email from registering twice
-- **Real-time subscriber count**: Updates dynamically as users join
-- **Form validation**: Proper client and server-side validation
+**Recalibrate** is the world's first AI-powered, multi-system health and pain management platform that provides:
+- Comprehensive health tracking and insights
+- Advanced pain management tools and strategies  
+- AI-driven pattern recognition for better outcomes
+- Clinical integration for collaborative care
+- Evidence-based approaches to chronic pain management
 
-### ✅ PayPal Integration Ready
-- **Popup checkout flow**: Professional PayPal SDK integration
-- **Multiple donation amounts**: $10, $25, $50, $100 + custom amounts
-- **Secure payments**: All transactions processed through PayPal
-- **Error handling**: Graceful fallbacks when PayPal credentials not configured
+## ✨ Website Features
 
-### ✅ Enterprise-Level Design
-- **Responsive**: Works perfectly on desktop, tablet, and mobile
-- **Professional UI**: Modern card-based layout with gradients and animations
-- **Progress tracking**: 43% development progress with milestones
-- **Social proof**: Real subscriber counts and development metrics
+### ✅ Modern Enterprise Design
+- **VC-Ready Interface**: Professional design optimized for investor presentations
+- **Responsive Excellence**: Perfect experience across mobile, tablet, and desktop
+- **Accessibility Compliant**: WCAG 2.1 standards with keyboard navigation and screen reader support
+- **Performance Optimized**: Fast loading with smooth professional animations
 
-### ✅ Production Ready
-- **Backend API**: FastAPI server with proper CORS and validation
-- **Clean architecture**: Separated frontend and backend concerns
-- **Environment configuration**: Ready for deployment with proper .env setup
-- **Comprehensive testing**: Backend API fully tested and verified
+### ✅ Email Waitlist System
+- **Real-time subscriber tracking**: MongoDB + JSON backup dual storage
+- **Email-only signup**: Streamlined conversion-optimized form
+- **Duplicate prevention**: Intelligent email validation and deduplication
+- **Live subscriber count**: Real-time updates showing growth metrics
+
+### ✅ Comprehensive Ecosystem Showcase
+- **Education**: Clear breakdowns of pain and health strategies
+- **Action**: Tools and practices for immediate implementation
+- **Previews**: App launch updates and new course announcements
+- **Connection**: Community stories and professional insights
+- **Newsletter Integration**: Direct beehiiv subscription integration
+
+### ✅ Provider & Research Platform
+- **Multi-patient monitoring**: Track multiple connected patients/research subjects
+- **Secure communication**: Built-in messaging and file sharing capabilities
+- **Advanced analytics**: Research-grade data insights and outcome predictions
+
+### ✅ Contact & Partnership
+- **Professional contact system**: Modal-based contact with comprehensive FAQs
+- **Partnership opportunities**: Healthcare systems, researchers, and investor outreach
+- **Social media integration**: Complete social presence links
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React 18 + Tailwind CSS + Lucide Icons
-- **Backend**: FastAPI + Python
-- **Payment**: PayPal SDK
-- **Storage**: JSON file (easily upgradeable to database)
-- **Deployment**: Vercel-ready with vercel.json configuration
+- **Frontend**: React 18 + Tailwind CSS 3.x + Lucide Icons
+- **Backend**: FastAPI + Python with enterprise security
+- **Database**: MongoDB Atlas with JSON backup redundancy
+- **Deployment**: Vercel (frontend) + Railway (backend)
+- **Email Integration**: Beehiiv newsletter platform
 
 ## 📁 Project Structure
 
 ```
 /app/
-├── src/                    # React frontend source
-│   ├── App.js             # Main application component
-│   ├── index.js           # React entry point
-│   └── index.css          # Tailwind styles
+├── frontend/               # React frontend application
+│   ├── src/
+│   │   ├── App.js         # Main application component
+│   │   ├── App.css        # Custom CSS with animations
+│   │   ├── index.js       # React entry point
+│   │   └── index.css      # Tailwind CSS configuration
+│   ├── public/
+│   │   └── index.html     # SEO-optimized HTML with meta tags
+│   ├── package.json       # Frontend dependencies
+│   ├── vercel.json        # Vercel deployment configuration
+│   └── .env              # Frontend environment variables
 ├── backend/               # FastAPI backend
-│   ├── server.py          # API server
+│   ├── server.py          # API server with security headers
 │   ├── requirements.txt   # Python dependencies
-│   ├── waitlist.json      # Email storage (auto-created)
-│   └── .env              # Backend environment
-├── public/               # Static assets
-├── package.json         # Frontend dependencies
-├── vercel.json          # Deployment configuration
-└── .env                 # Frontend environment
+│   ├── railway.toml       # Railway deployment configuration
+│   ├── waitlist.json      # Email storage backup
+│   └── .env              # Backend environment variables
+└── PRODUCTION_DEPLOYMENT_GUIDE.md  # Complete deployment guide
 ```
 
-## 🚦 Getting Started
+## 🚦 Development Setup
 
 ### Prerequisites
-- Node.js 16+
-- Python 3.8+
+- Node.js 18+
+- Python 3.9+
 - Yarn package manager
+- MongoDB Atlas account
 
-### Installation & Running
+### Local Development
 
 1. **Install Frontend Dependencies**
    ```bash
-   cd /app
+   cd /app/frontend
    yarn install
    ```
 
@@ -76,108 +96,94 @@ A comprehensive, enterprise-grade waiting list application for the revolutionary
    pip install -r requirements.txt
    ```
 
-3. **Start Backend Server**
+3. **Configure Environment Variables**
+   - Frontend: Set `REACT_APP_BACKEND_URL` in `/app/frontend/.env`
+   - Backend: Set `MONGO_URL` in `/app/backend/.env`
+
+4. **Start Development Servers**
    ```bash
-   cd /app/backend
-   python server.py
+   # Backend (port 8001)
+   cd /app/backend && python server.py
+   
+   # Frontend (port 3000)
+   cd /app/frontend && yarn start
    ```
-   Backend runs on `http://localhost:8001`
 
-4. **Start Frontend Development Server**
-   ```bash
-   cd /app
-   yarn start
-   ```
-   Frontend runs on `http://localhost:3000`
+## 🌐 Production Deployment
 
-## 🔧 Configuration
+### Current Production Stack
+- **Frontend**: Vercel → `www.recalibratepain.com`
+- **Backend**: Railway → `recalibratepain-waitlist-production.up.railway.app`  
+- **Database**: MongoDB Atlas → `recalibrate-waitlinglist`
 
-### Environment Variables
-
-**Frontend (.env)**
-```env
-REACT_APP_BACKEND_URL=http://localhost:8001
-REACT_APP_PAYPAL_CLIENT_ID=your_paypal_client_id_here
-```
-
-**Backend (/backend/.env)**
-```env
-ENVIRONMENT=development
-API_PORT=8001
-```
-
-### PayPal Setup
-1. Create PayPal Developer Account at https://developer.paypal.com
-2. Create a new app and get your Client ID
-3. Update `REACT_APP_PAYPAL_CLIENT_ID` in `.env`
-4. For production, use live credentials
+### Deployment Configuration
+- **Vercel**: Configured with security headers and optimized build
+- **Railway**: Enterprise security with CORS protection
+- **MongoDB**: Dual storage system with JSON backup redundancy
 
 ## 📡 API Endpoints
 
-- `GET /api/health` - Health check
-- `GET /api/waitlist/count` - Get subscriber count
-- `POST /api/waitlist/join` - Add email to waitlist
-- `GET /api/waitlist/export` - Export all waitlist data (admin)
+- `GET /api/health` - Comprehensive health check with storage status
+- `GET /api/waitlist/count` - Real-time subscriber count
+- `POST /api/waitlist/join` - Email waitlist signup
+- `GET /api/waitlist/export` - Admin data export
+- `GET /api/waitlist/stats` - Detailed analytics
 
-## 🔒 Security Features
+## 🔒 Enterprise Security
 
-- **Email validation**: Server-side email format validation
-- **CORS protection**: Properly configured for frontend communication
-- **Input sanitization**: All inputs properly sanitized
-- **Duplicate prevention**: Email uniqueness enforced
-- **PayPal security**: All payments processed through PayPal's secure platform
+### Backend Security
+- **Input validation**: Comprehensive sanitization and validation
+- **CORS protection**: Specific domain allowlists (no wildcards)
+- **Security headers**: Complete HTTP security header implementation
+- **MongoDB security**: Authenticated connections with proper access controls
 
-## 📈 Data Storage
+### Frontend Security  
+- **XSS protection**: Input sanitization and secure rendering
+- **CSP headers**: Content Security Policy implementation
+- **Secure links**: All external links use `rel="noopener noreferrer"`
+- **Error boundaries**: Graceful error handling with user-friendly fallbacks
 
-Waitlist data is stored in `/app/backend/waitlist.json`:
-```json
-[
-  {
-    "name": "John Doe",
-    "email": "john@example.com",
-    "timestamp": "2025-06-12T15:30:22.788569"
-  }
-]
-```
+## 📱 Mobile Excellence
 
-## 🚀 Deployment
+- **Mobile-first design**: Responsive grid system optimized for all devices
+- **2-column layout**: Feature cards maintain 2-column layout on mobile
+- **Touch optimization**: 44px minimum touch targets for accessibility
+- **Performance**: Optimized animations and reduced motion support
 
-### Vercel Deployment (Recommended)
-1. Connect your GitHub repo to Vercel
-2. Set environment variables in Vercel dashboard
-3. Deploy automatically on git push
+## 📈 Analytics & Monitoring
 
-### Manual Deployment
-1. Build frontend: `yarn build`
-2. Deploy build folder to your hosting provider
-3. Deploy backend to Python hosting service
-4. Update environment variables for production URLs
+- **Real-time metrics**: Live subscriber count with MongoDB Atlas integration
+- **Dual storage**: MongoDB primary with JSON backup for redundancy
+- **Growth tracking**: Historical signup data with timestamp tracking
+- **Performance monitoring**: Health check endpoints for uptime verification
 
-## 🧪 Testing
+## 🎯 VC-Ready Features
 
-Backend API tested with:
-- ✅ Health check endpoint
-- ✅ Email collection and validation
-- ✅ Duplicate email prevention
-- ✅ Subscriber count accuracy
-- ✅ Data persistence
-- ✅ CORS configuration
-- ✅ Error handling
+- **Professional branding**: Clean, modern design optimizing for investor presentations
+- **Growth indicators**: Live subscriber metrics demonstrating platform traction
+- **Comprehensive platform**: Showcases full ecosystem from patient app to provider tools
+- **Enterprise standards**: Security, accessibility, and performance optimized
+- **Multi-platform launch**: iOS, Android, and web application announcements
 
-## 📊 Monitoring
+## 🔧 Troubleshooting
 
-### View Waitlist Data
-Access `GET /api/waitlist/export` to download all collected emails in JSON format.
+### Common Issues
+1. **Build Failures**: Ensure Tailwind CSS 3.x (not 4.x) for compatibility
+2. **CORS Errors**: Verify backend CORS configuration includes all frontend domains
+3. **MongoDB Connection**: Check Atlas connection string and network access
+4. **Vercel Deployment**: Use yarn for dependencies, npm may cause conflicts
 
-### Subscriber Count
-Real-time subscriber count available at `GET /api/waitlist/count`
+### Health Checks
+- **Frontend**: `https://www.recalibratepain.com` (should load website)
+- **Backend**: `https://recalibratepain-waitlist-production.up.railway.app/api/health`
+- **Database**: Check MongoDB Atlas dashboard for connection status
 
-## 🆘 Support
+## 📞 Support
 
-For questions or issues:
-- Email: tristan.siokos24@gmail.com
-- Check server logs for backend issues
-- Check browser console for frontend issues
+For questions or technical issues:
+- **General**: info@recalibratepain.com
+- **Technical**: Check deployment logs in Vercel/Railway dashboards
+- **Database**: Monitor MongoDB Atlas metrics and logs
 
 ## 📄 License
 
@@ -185,4 +191,5 @@ For questions or issues:
 
 ---
 
-**Ready for launch!** 🎉 Your RecalibratePain waiting list is production-ready with working email collection and PayPal integration.
+**Production Status**: ✅ **ENTERPRISE-READY** 
+Your Recalibrate website is production-ready with comprehensive health and pain management platform showcase, optimized for VC presentations and user acquisition! 🎉
