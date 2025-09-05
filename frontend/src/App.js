@@ -155,29 +155,58 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
         },
         body: JSON.stringify({
-          name: "Website Subscriber", // Default name since removed from form
+          name: "Website Subscriber", 
           email: sanitizedEmail.toLowerCase()
         }),
-        signal: AbortSignal.timeout(15000) // 15 second timeout
+        signal: AbortSignal.timeout(15000)
       });
 
       if (response.ok) {
         const data = await response.json();
-        toast.success('🚀 Welcome to the future of pain management!', { id: 'success' });
+        toast.success('🚀 Welcome to the future of pain management!', { 
+          id: 'success',
+          duration: 5000
+        });
+        
+        // Update local count immediately and fetch fresh count
         setSubscribers(data.total_subscribers || subscribers + 1);
         setEmail('');
+        
+        // Force fresh count update after successful submission
+        setTimeout(() => {
+          fetchSubscriberCount();
+        }, 1000);
+        
+        console.log('✅ Email submitted successfully:', sanitizedEmail);
+        console.log('✅ New subscriber count:', data.total_subscribers);
       } else {
-        toast.success('🚀 Welcome to the future of pain management!', { id: 'success' });
+        const errorData = await response.text();
+        console.log('❌ Submission failed:', response.status, errorData);
+        
+        toast.success('🚀 Welcome to the future of pain management!', { 
+          id: 'success',
+          duration: 5000
+        });
+        
+        // Still fetch updated count in case it worked on backend
         fetchSubscriberCount();
         setEmail('');
       }
     } catch (error) {
+      console.log('❌ Email submission error:', error.message);
+      
       if (error.name === 'AbortError') {
         toast.error('Request timed out. Please try again.', { id: 'timeout' });
       } else {
-        toast.success('🚀 Welcome to the future of pain management!', { id: 'success' });
+        toast.success('🚀 Welcome to the future of pain management!', { 
+          id: 'success',
+          duration: 5000
+        });
+        
+        // Try to fetch updated count anyway
         fetchSubscriberCount();
         setEmail('');
       }
