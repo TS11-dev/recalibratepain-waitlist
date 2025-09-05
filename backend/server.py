@@ -115,6 +115,22 @@ class WaitlistEntry(BaseModel):
     name: str
     email: EmailStr
     timestamp: str = None
+    
+    @validator('name')
+    def validate_name(cls, v):
+        if len(v.strip()) < 2:
+            raise ValueError('Name must be at least 2 characters long')
+        if len(v.strip()) > 100:
+            raise ValueError('Name must be less than 100 characters')
+        # Basic sanitization
+        sanitized = v.strip().replace('<', '&lt;').replace('>', '&gt;').replace('&', '&amp;').replace('"', '&quot;')
+        return sanitized
+    
+    @validator('email')
+    def validate_email(cls, v):
+        if len(v) > 254:  # RFC 5321 limit
+            raise ValueError('Email address too long')
+        return v.lower().strip()
 
 class WaitlistResponse(BaseModel):
     success: bool
