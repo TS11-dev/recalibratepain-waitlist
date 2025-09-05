@@ -92,19 +92,17 @@ async def add_security_headers(request: Request, call_next):
     response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
     return response
 
-# Enhanced CORS configuration for Railway + Vercel + Custom Domain
+# Enhanced CORS configuration for your actual production URLs
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",                                    # Development
-        "https://recalibratepain.com",                             # Production domain
-        "https://www.recalibratepain.com",                         # WWW subdomain
-        "https://recalibratepain-frontend.vercel.app",             # Vercel deployment
-        "https://recalibrate-frontend.vercel.app",                 # Vercel alt
-        "https://*.vercel.app",                                    # All Vercel subdomains
-        "https://recalibratepain-waitlist.vercel.app",             # Legacy Vercel
-        "https://*.railway.app",                                   # Railway previews
-        "https://*.emergentagent.com"                              # Preview environments
+        "http://localhost:3000",                                                    # Development
+        "https://recalibratepain.com",                                             # Production domain
+        "https://www.recalibratepain.com",                                         # WWW subdomain  
+        "https://recalibratepain-waitlist-izl3w3a2d-ts11-devs-projects.vercel.app", # Your Vercel deployment
+        "https://*.vercel.app",                                                    # All Vercel subdomains
+        "https://*.railway.app",                                                   # Railway previews
+        "https://*.emergentagent.com"                                              # Preview environments
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
