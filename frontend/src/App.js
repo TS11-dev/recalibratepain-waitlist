@@ -475,7 +475,7 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {[
                 {
                   icon: Brain,
@@ -528,15 +528,17 @@ function App() {
               ].map((feature, index) => (
                 <div 
                   key={index} 
-                  className={`bg-gradient-to-br ${feature.gradient} rounded-2xl p-6 sm:p-8 border ${feature.border} hover:shadow-lg transition-all duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-purple-500`}
+                  className={`bg-gradient-to-br ${feature.gradient} rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border ${feature.border} hover:shadow-lg transition-all duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-purple-500 h-full flex flex-col`}
                   role="article"
                   aria-labelledby={`feature-title-${index}`}
                 >
-                  <div className={`w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-r ${feature.iconBg} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg`} aria-hidden="true">
-                    <feature.icon className="w-7 sm:w-8 h-7 sm:h-8 text-white" />
+                  <div className={`w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 bg-gradient-to-r ${feature.iconBg} rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 shadow-lg flex-shrink-0`} aria-hidden="true">
+                    <feature.icon className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 text-white" />
                   </div>
-                  <h3 id={`feature-title-${index}`} className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{feature.description}</p>
+                  <div className="flex-1">
+                    <h3 id={`feature-title-${index}`} className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4">{feature.title}</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">{feature.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
