@@ -47,10 +47,9 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [subscribers, setSubscribers] = useState(127);
+  const [subscribers, setSubscribers] = useState(149); // Start with expected count
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isVisible, setIsVisible] = useState({});
