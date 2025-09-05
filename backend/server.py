@@ -67,7 +67,30 @@ async def lifespan(app: FastAPI):
     # Shutdown
     logger.info("🔄 API shutting down...")
 
-app = FastAPI(title="RecalibratePain Waitlist API", version="3.0.0", lifespan=lifespan)
+app = FastAPI(
+    title="RecalibratePain Waitlist API", 
+    version="3.0.0", 
+    lifespan=lifespan,
+    docs_url="/docs" if os.environ.get("ENVIRONMENT") == "development" else None,
+    redoc_url="/redoc" if os.environ.get("ENVIRONMENT") == "development" else None
+)
+
+# Security Middleware
+app.add_middleware(
+    TrustedHostMiddleware, 
+    allowed_hosts=["localhost", "127.0.0.1", "*.railway.app", "*.vercel.app", "recalibratepain.com", "www.recalibratepain.com"]
+)
+
+# Security Headers Middleware
+@app.middleware("http")
+async def add_security_headers(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
+    return response
 
 # Enhanced CORS configuration for production security
 app.add_middleware(
