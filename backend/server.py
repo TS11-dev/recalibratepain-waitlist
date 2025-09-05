@@ -150,7 +150,7 @@ class WaitlistResponse(BaseModel):
 # Storage configuration
 WAITLIST_FILE = os.path.join(os.path.dirname(__file__), "waitlist.json")
 MONGO_URL = os.environ.get("MONGO_URL")
-DB_NAME = "RecalibrateWebsite"  # Updated to match exact database name with capitals
+DB_NAME = "Recalibratewebsite"  # Exact case as user specified
 COLLECTION_NAME = "email"  # Updated to match your collection name
 
 # Social proof base count - easily adjustable
