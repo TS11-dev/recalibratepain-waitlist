@@ -385,9 +385,9 @@ async def get_subscriber_count():
         }
     except Exception as e:
         logger.error(f"Error getting subscriber count: {e}")
-        # Return fallback count with base
+        # Return fallback count - 0 if unable to get real count
         return {
-            "count": BASE_SUBSCRIBER_COUNT, 
+            "count": 0, 
             "timestamp": datetime.now().isoformat(),
             "source": "fallback"
         }
