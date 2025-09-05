@@ -150,8 +150,8 @@ class WaitlistResponse(BaseModel):
 # Storage configuration
 WAITLIST_FILE = os.path.join(os.path.dirname(__file__), "waitlist.json")
 MONGO_URL = os.environ.get("MONGO_URL")
-DB_NAME = "Recalibratewebsite"  # Exact case as user specified
-COLLECTION_NAME = "email"  # Updated to match your collection name
+DB_NAME = "RecalibrateWebsite"  # Exact case from Atlas
+COLLECTION_NAME = "Emails"  # Capital E as shown in Atlas
 
 # Social proof base count - easily adjustable
 BASE_SUBSCRIBER_COUNT = 127  # Add this to actual count for social proof
