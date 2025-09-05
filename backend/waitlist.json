@@ -148,5 +148,10 @@
     "name": "Count Test 1757087842",
     "email": "count.test.1757087842@example.com",
     "timestamp": "2025-09-05T15:57:22.613731"
+  },
+  {
+    "name": "Website Subscriber",
+    "email": "test.success@example.com",
+    "timestamp": "2025-09-05T15:59:19.666448"
   }
 ]
