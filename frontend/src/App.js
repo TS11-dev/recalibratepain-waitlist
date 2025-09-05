@@ -139,7 +139,7 @@ function App() {
     },
     {
       question: "How does the healthcare provider integration work?",
-      answer: "Healthcare providers can securely access your progress data (with your permission) to make more informed treatment decisions. This creates a collaborative care approach while keeping you in control."
+      answer: "Healthcare providers can securely access your progress data (with your permission) to make more informed care decisions. This creates a collaborative management approach while keeping you in control."
     },
     {
       question: "What makes Recalibrate different from other health apps?",
