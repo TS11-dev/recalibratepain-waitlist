@@ -319,15 +319,12 @@ async def health_check():
         try:
             waitlist = await get_combined_waitlist()
             actual_count = len(waitlist)
-            # If MongoDB is connected, show actual count, otherwise show fallback
-            if mongo_collection is not None:
-                display_count = actual_count  # Show actual MongoDB count
-            else:
-                display_count = max(actual_count, BASE_SUBSCRIBER_COUNT)  # Show fallback when MongoDB disconnected
+            # Always add base count to actual count for social proof
+            display_count = actual_count + BASE_SUBSCRIBER_COUNT  # 127 + actual count
         except Exception as e:
             logger.error(f"Error getting waitlist for health check: {e}")
             actual_count = 0
-            display_count = BASE_SUBSCRIBER_COUNT  # Show fallback if error
+            display_count = BASE_SUBSCRIBER_COUNT  # Show base if error
         
         # Test MongoDB connection safely
         mongo_status = "❌ Disconnected"
