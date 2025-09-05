@@ -655,6 +655,108 @@ function App() {
         </div>
       </section>
 
+      {/* Healthcare Providers & Researchers Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200 rounded-full px-6 py-3 mb-8">
+              <Shield className="w-5 h-5 text-emerald-600" />
+              <span className="text-sm font-semibold text-gray-700">For Healthcare Professionals</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-emerald-600 bg-clip-text text-transparent">
+                Provider & Research Platform
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Advanced tools for healthcare providers and researchers to monitor multiple patients, 
+              conduct studies, and gain unprecedented insights into health patterns.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Multi-Patient Monitoring */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200 hover:shadow-lg transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Multi-Patient Monitoring</h3>
+              <p className="text-gray-600 mb-6">
+                Monitor multiple connected patients or research subjects simultaneously. 
+                Real-time health data, progress tracking, and comprehensive overview dashboards.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Real-time patient data sync</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Aggregate health metrics</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Progress visualization</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Communication Tools */}
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 border border-emerald-200 hover:shadow-lg transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center mb-6">
+                <MessageCircle className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Secure Communication</h3>
+              <p className="text-gray-600 mb-6">
+                HIPAA-compliant messaging system for provider-patient communication. 
+                Built-in chat, secure file sharing, and consultation scheduling.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Encrypted messaging</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">File sharing & notes</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Appointment coordination</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Data Analytics */}
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border border-purple-200 hover:shadow-lg transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center mb-6">
+                <BarChart3 className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Advanced Data Understanding</h3>
+              <p className="text-gray-600 mb-6">
+                Powerful analytics for research studies and clinical insights. 
+                Population health trends, outcome predictions, and evidence generation.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Research-grade analytics</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Outcome predictions</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-gray-700">Population insights</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Partner Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-4xl mx-auto text-center">
