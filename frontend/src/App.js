@@ -389,7 +389,7 @@ function App() {
               {
                 icon: Target,
                 title: "Personalized Care",
-                description: "Tailored treatment protocols based on individual health patterns, responses, and personal care preferences.",
+                description: "Comprehensive management approaches based on individual health patterns, responses, and personal care preferences.",
                 gradient: "from-orange-50 to-orange-100",
                 border: "border-orange-200",
                 iconBg: "from-orange-600 to-orange-700",
