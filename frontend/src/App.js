@@ -75,6 +75,7 @@ function App() {
   // Fetch subscriber count function - defined early
   const fetchSubscriberCount = useCallback(async () => {
     try {
+      console.log('🔄 Fetching subscriber count from:', `${BACKEND_URL}/api/waitlist/count`);
       const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}&cache=${Math.random()}`, {
         method: 'GET',
         headers: {
@@ -88,6 +89,7 @@ function App() {
       
       if (response.ok) {
         const data = await response.json();
+        console.log('✅ API Response:', data);
         setSubscribers(data.count);
         console.log('✅ Subscriber count updated to:', data.count);
       } else {
