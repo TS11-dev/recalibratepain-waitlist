@@ -319,11 +319,11 @@ async def health_check():
         try:
             waitlist = await get_combined_waitlist()
             actual_count = len(waitlist)
-            display_count = actual_count + BASE_SUBSCRIBER_COUNT  # Add social proof base
+            display_count = actual_count  # Show actual count only - no artificial inflation
         except Exception as e:
             logger.error(f"Error getting waitlist for health check: {e}")
             actual_count = 0
-            display_count = BASE_SUBSCRIBER_COUNT
+            display_count = 0  # Show 0 if unable to count
         
         # Test MongoDB connection safely
         mongo_status = "❌ Disconnected"
