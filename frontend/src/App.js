@@ -752,16 +752,16 @@ function App() {
             <div className="text-center mb-8 sm:mb-12">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200 rounded-full px-4 py-2 mb-4">
                 <Shield className="w-4 h-4 text-emerald-600" aria-hidden="true" />
-                <span className="text-xs font-semibold text-gray-700">For Healthcare Professionals</span>
+                <span className="text-xs font-semibold text-gray-700">For Health Professionals</span>
               </div>
               
               <h2 id="providers-title" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                 <span className="bg-gradient-to-r from-gray-900 to-emerald-600 bg-clip-text text-transparent">
-                  Provider & Research
+                  Providers and Research
                 </span>
               </h2>
               <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-                Monitor multiple patients, conduct studies, and gain insights into health patterns.
+                Physiotherapists, pain specialists, psychologists - monitor multiple patients, conduct studies, and gain insights into health patterns.
               </p>
             </div>
 
