@@ -92,22 +92,23 @@ async def add_security_headers(request: Request, call_next):
     response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
     return response
 
-# Enhanced CORS configuration for production security
+# Enhanced CORS configuration for Railway + Vercel + Custom Domain
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",
-        "https://recalibratepain.com",
-        "https://www.recalibratepain.com",
-        "https://*.vercel.app",
-        "https://recalibratepain-waitlist.vercel.app",
-        "https://*.railway.app",
-        "https://*.netlify.app",
-        "https://*.emergentagent.com"  # For preview environments
+        "http://localhost:3000",                                    # Development
+        "https://recalibratepain.com",                             # Production domain
+        "https://www.recalibratepain.com",                         # WWW subdomain
+        "https://recalibratepain-frontend.vercel.app",             # Vercel deployment
+        "https://recalibrate-frontend.vercel.app",                 # Vercel alt
+        "https://*.vercel.app",                                    # All Vercel subdomains
+        "https://recalibratepain-waitlist.vercel.app",             # Legacy Vercel
+        "https://*.railway.app",                                   # Railway previews
+        "https://*.emergentagent.com"                              # Preview environments
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["Content-Type", "Accept", "Origin", "Cache-Control", "Pragma", "Expires"],
+    allow_headers=["Content-Type", "Accept", "Origin", "Cache-Control", "Pragma", "Expires", "Authorization"],
 )
 
 # Data models
