@@ -2,25 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#00d4ff" />
-    <meta name="description" content="Join the revolution in chronic pain management. RecalibratePain - Revolutionary AI-powered platform coming soon!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#8b5cf6" />
     
-    <!-- Preconnect to external domains for performance -->
+    <!-- SEO Meta Tags -->
+    <title>Recalibrate - AI-Powered Health & Pain Management Platform</title>
+    <meta name="description" content="Revolutionary AI-powered health and pain management platform. Track symptoms, get personalized insights, and transform your pain management journey with evidence-based care." />
+    <meta name="keywords" content="pain management, health tracking, AI healthcare, chronic pain, health platform, pain relief, medical technology" />
+    <meta name="author" content="Recalibrate" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Recalibrate - AI-Powered Health & Pain Management" />
+    <meta property="og:description" content="Revolutionary AI-powered health and pain management platform launching on iOS, Android, and web." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://recalibratepain.com" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Recalibrate" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Recalibrate - AI-Powered Health & Pain Management" />
+    <meta name="twitter:description" content="Revolutionary AI-powered health and pain management platform launching on iOS, Android, and web." />
+    <meta name="twitter:site" content="@Recalibrate_App" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     
-    <!-- Critical CSS for initial load -->
+    <!-- Critical CSS for loading -->
     <style>
-      /* Critical loading styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
       body {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -28,32 +47,24 @@
           sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: #0a0a0f;
-        color: #ffffff;
-        min-height: 100vh;
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
         overflow-x: hidden;
       }
       
-      /* Loading animation */
-      .loading-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #0a0a0f;
+      /* Loading state */
+      .loading {
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
       }
       
-      .loading-spinner {
-        width: 50px;
-        height: 50px;
-        border: 3px solid rgba(0, 212, 255, 0.3);
-        border-top: 3px solid #00d4ff;
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(139, 92, 246, 0.2);
+        border-top: 3px solid #8b5cf6;
         border-radius: 50%;
         animation: spin 1s linear infinite;
       }
@@ -62,49 +73,56 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
-      
-      /* Hide loading when React loads */
-      #root:not(:empty) + .loading-container {
-        opacity: 0;
-        pointer-events: none;
-      }
     </style>
-  </head>
-  <body>
-    <noscript>
-      <div style="padding: 2rem; text-align: center; background: #1f2937; color: white;">
-        <h1>JavaScript Required</h1>
-        <p>Please enable JavaScript to run this application.</p>
-      </div>
-    </noscript>
     
-    <div id="root"></div>
-    
-    <!-- Loading fallback -->
-    <div class="loading-container">
-      <div class="loading-spinner"></div>
-    </div>
-    
-    <!-- Schema.org structured data for SEO -->
+    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "RecalibratePain",
-      "description": "Revolutionary AI-powered chronic pain management platform",
-      "url": "https://recalibratepain.com",
+      "@type": "SoftwareApplication",
+      "name": "Recalibrate",
+      "description": "AI-powered health and pain management platform",
       "applicationCategory": "HealthApplication",
-      "operatingSystem": "Any",
+      "operatingSystem": "iOS, Android, Web",
+      "url": "https://recalibratepain.com",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
       },
-      "author": {
+      "publisher": {
         "@type": "Organization",
-        "name": "RecalibratePain Team"
+        "name": "Recalibrate",
+        "url": "https://recalibratepain.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@recalibratepain.com",
+          "contactType": "customer service"
+        }
       }
     }
     </script>
+  </head>
+  <body>
+    <noscript>
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif; text-align: center; padding: 20px; background: linear-gradient(135deg, #f8fafc, #e2e8f0);">
+        <div>
+          <h1 style="color: #1f2937; margin-bottom: 1rem;">Recalibrate - Health & Pain Management</h1>
+          <p style="color: #6b7280; margin-bottom: 1rem;">JavaScript is required to use this application.</p>
+          <p style="color: #6b7280; margin-bottom: 1rem;">Please enable JavaScript in your browser settings.</p>
+          <p style="color: #6b7280;">For assistance, contact us at: <a href="mailto:info@recalibratepain.com" style="color: #8b5cf6;">info@recalibratepain.com</a></p>
+        </div>
+      </div>
+    </noscript>
+    
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" style="position: absolute; top: -40px; left: 6px; background: #8b5cf6; color: white; padding: 8px; border-radius: 4px; text-decoration: none; z-index: 1000; font-weight: bold;">Skip to main content</a>
+    
+    <div id="root" role="application" aria-label="Recalibrate Web Application">
+      <!-- Loading fallback -->
+      <div class="loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
   </body>
 </html>
