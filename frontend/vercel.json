@@ -64,7 +64,7 @@
     }
   ],
   "env": {
-    "REACT_APP_BACKEND_URL": "@react-app-backend-url",
+    "REACT_APP_BACKEND_URL": "https://recalibratepain-waitlist-production.up.railway.app",
     "GENERATE_SOURCEMAP": "false",
     "INLINE_RUNTIME_CHUNK": "false"
   }
