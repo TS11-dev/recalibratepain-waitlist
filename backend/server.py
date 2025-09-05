@@ -371,13 +371,13 @@ async def health_check():
 
 @app.get("/api/waitlist/count")
 async def get_subscriber_count():
-    """Get current subscriber count with social proof base"""
+    """Get current subscriber count - actual MongoDB count only"""
     try:
         waitlist = await get_combined_waitlist()
         actual_count = len(waitlist)
-        display_count = actual_count + BASE_SUBSCRIBER_COUNT  # Add social proof base
+        display_count = actual_count  # Show real count only - no artificial inflation
         
-        logger.info(f"📊 Returning display count: {display_count} (actual: {actual_count} + base: {BASE_SUBSCRIBER_COUNT})")
+        logger.info(f"📊 Returning actual MongoDB count: {display_count}")
         return {
             "count": display_count, 
             "timestamp": datetime.now().isoformat(),
