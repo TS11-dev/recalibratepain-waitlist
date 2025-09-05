@@ -100,12 +100,13 @@ function App() {
     };
   }, []);
 
-  // Fetch current subscriber count on load
+  // Fetch current subscriber count on load - more frequent updates
   useEffect(() => {
     fetchSubscriberCount();
-    const countInterval = setInterval(fetchSubscriberCount, 30000);
+    // Update count every 10 seconds instead of 30
+    const countInterval = setInterval(fetchSubscriberCount, 10000);
     return () => clearInterval(countInterval);
-  }, []);
+  }, [fetchSubscriberCount]);
 
   const fetchSubscriberCount = useCallback(async () => {
     try {
