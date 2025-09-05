@@ -103,20 +103,10 @@ async def add_security_headers(request: Request, call_next):
 # Enhanced CORS configuration for your actual production domains
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",                                                    # Development
-        "https://recalibratepain.com",                                             # Your main domain
-        "https://www.recalibratepain.com",                                         # Your www subdomain  
-        "https://recalibratepain-waitlist-izl3w3a2d-ts11-devs-projects.vercel.app", # Your Vercel deployment
-        "https://recalibratepain-waitlist-git-main-ts11-devs-projects.vercel.app", # Git deployment URL
-        "https://recalibratepain-waitlist-59z8ssuje-ts11-devs-projects.vercel.app", # Preview URL
-        "https://*.vercel.app",                                                    # All Vercel subdomains
-        "https://*.railway.app",                                                   # Railway previews
-        "https://*.emergentagent.com"                                              # Preview environments
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],  # Allow all origins temporarily to fix the issue
+    allow_credentials=False,  # Must be False when using "*"
     allow_methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["Content-Type", "Accept", "Origin", "Cache-Control", "Pragma", "Expires", "Authorization"],
+    allow_headers=["*"],
 )
 
 # Data models
