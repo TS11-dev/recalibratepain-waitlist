@@ -819,15 +819,15 @@ function App() {
             </h2>
             
             <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
-              Join us in revolutionizing health and pain management. Whether you're a physiotherapist, pain specialist, psychologist, researcher, 
-              or investor, let's build the future of comprehensive healthcare together.
+              Join us in revolutionizing health and pain management. Whether you're a healthcare company, research institution, 
+              or investor, let's build the future of comprehensive health management together.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
               {[
-                { title: "Healthcare Providers", description: "Physiotherapists, pain specialists, psychologists - integrate into your practice", icon: Shield },
-                { title: "Researchers", description: "Collaborate on groundbreaking health and pain management studies", icon: BarChart3 },
-                { title: "Investors", description: "Join our mission to transform comprehensive healthcare", icon: TrendingUp }
+                { title: "Healthcare Companies", description: "Partner with us to integrate comprehensive health management solutions", icon: Shield },
+                { title: "Research Collaborations", description: "Collaborate on groundbreaking health and pain management research studies", icon: BarChart3 },
+                { title: "Investors", description: "Join our mission to transform the future of health and pain management", icon: TrendingUp }
               ].map((partner, index) => (
                 <div key={index} className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4" aria-hidden="true">
