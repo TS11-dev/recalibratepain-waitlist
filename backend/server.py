@@ -375,17 +375,25 @@ async def health_check():
 
 @app.get("/api/waitlist/count")
 async def get_subscriber_count():
-    """Get current subscriber count - actual MongoDB count only"""
+    """Get current subscriber count - MongoDB actual count or fallback"""
     try:
         waitlist = await get_combined_waitlist()
         actual_count = len(waitlist)
-        display_count = actual_count  # Show real count only - no artificial inflation
         
-        logger.info(f"📊 Returning actual MongoDB count: {display_count}")
+        # If MongoDB is connected, show actual count, otherwise show fallback minimum
+        if mongo_collection is not None:
+            display_count = actual_count  # Show actual MongoDB count
+            logger.info(f"📊 MongoDB connected - returning actual count: {display_count}")
+            source = "mongodb"
+        else:
+            display_count = max(actual_count, FALLBACK_SUBSCRIBER_COUNT)  # Show fallback when MongoDB disconnected
+            logger.info(f"📊 MongoDB disconnected - returning fallback count: {display_count} (actual: {actual_count}, fallback: {FALLBACK_SUBSCRIBER_COUNT})")
+            source = "json_backup_with_fallback"
+        
         return {
             "count": display_count, 
             "timestamp": datetime.now().isoformat(),
-            "source": "mongodb" if mongo_collection is not None else "json_backup"
+            "source": source
         }
     except Exception as e:
         logger.error(f"Error getting subscriber count: {e}")
