@@ -316,10 +316,12 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-sm hover:shadow-lg transition-shadow duration-300" role="img" aria-label="Recalibrate logo">
-                  <span className="text-white font-bold text-xl">R</span>
-                </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
+                <img 
+                  src="/recalibrate-logo.png" 
+                  alt="Recalibrate logo" 
+                  className="w-10 h-10 object-contain"
+                />
+                <span className="text-2xl font-bold text-white drop-shadow-lg">
                   Recalibrate
                 </span>
               </div>
