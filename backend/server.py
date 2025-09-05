@@ -344,8 +344,8 @@ async def health_check():
             "service": "RecalibratePain Waitlist API",
             "version": "3.0.0",
             "timestamp": datetime.now().isoformat(),
-            "subscribers": display_count,  # Show social proof count
-            "actual_subscribers": actual_count,  # For internal tracking
+            "subscribers": display_count,  # Show actual count only
+            "actual_subscribers": actual_count,  # Same as display count now
             "storage": {
                 "mongodb": mongo_status,
                 "json_backup": json_status,
