@@ -144,7 +144,7 @@ DB_NAME = "RecalibrateWebsite"  # Exact case from Atlas
 COLLECTION_NAME = "Emails"  # Capital E as shown in Atlas
 
 # MongoDB fallback count - show 127+ when MongoDB unavailable
-FALLBACK_SUBSCRIBER_COUNT = 127  # Base count when MongoDB is disconnected
+BASE_SUBSCRIBER_COUNT = 127  # Base count when MongoDB is disconnected
 
 # MongoDB client
 mongo_client = None
@@ -323,11 +323,11 @@ async def health_check():
             if mongo_collection is not None:
                 display_count = actual_count  # Show actual MongoDB count
             else:
-                display_count = max(actual_count, FALLBACK_SUBSCRIBER_COUNT)  # Show fallback when MongoDB disconnected
+                display_count = max(actual_count, BASE_SUBSCRIBER_COUNT)  # Show fallback when MongoDB disconnected
         except Exception as e:
             logger.error(f"Error getting waitlist for health check: {e}")
             actual_count = 0
-            display_count = FALLBACK_SUBSCRIBER_COUNT  # Show fallback if error
+            display_count = BASE_SUBSCRIBER_COUNT  # Show fallback if error
         
         # Test MongoDB connection safely
         mongo_status = "❌ Disconnected"
@@ -364,7 +364,7 @@ async def health_check():
             "service": "RecalibratePain Waitlist API",
             "version": "3.0.0",
             "timestamp": datetime.now().isoformat(),
-            "subscribers": FALLBACK_SUBSCRIBER_COUNT,  # Show fallback when unable to count
+            "subscribers": BASE_SUBSCRIBER_COUNT,  # Show fallback when unable to count
             "actual_subscribers": 0,
             "storage": {
                 "mongodb": "❌ Error",
@@ -386,8 +386,8 @@ async def get_subscriber_count():
             logger.info(f"📊 MongoDB connected - returning actual count: {display_count}")
             source = "mongodb"
         else:
-            display_count = max(actual_count, FALLBACK_SUBSCRIBER_COUNT)  # Show fallback when MongoDB disconnected
-            logger.info(f"📊 MongoDB disconnected - returning fallback count: {display_count} (actual: {actual_count}, fallback: {FALLBACK_SUBSCRIBER_COUNT})")
+            display_count = max(actual_count, BASE_SUBSCRIBER_COUNT)  # Show fallback when MongoDB disconnected
+            logger.info(f"📊 MongoDB disconnected - returning fallback count: {display_count} (actual: {actual_count}, fallback: {BASE_SUBSCRIBER_COUNT})")
             source = "json_backup_with_fallback"
         
         return {
@@ -399,7 +399,7 @@ async def get_subscriber_count():
         logger.error(f"Error getting subscriber count: {e}")
         # Return fallback count when unable to get real count
         return {
-            "count": FALLBACK_SUBSCRIBER_COUNT, 
+            "count": BASE_SUBSCRIBER_COUNT, 
             "timestamp": datetime.now().isoformat(),
             "source": "fallback"
         }
