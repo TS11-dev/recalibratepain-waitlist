@@ -118,5 +118,10 @@
     "name": "Final Test User",
     "email": "finaltest@example.com",
     "timestamp": "2025-09-05T15:53:17.324360"
+  },
+  {
+    "name": "Connection Test",
+    "email": "connectiontest@example.com",
+    "timestamp": "2025-09-05T15:56:25.429530"
   }
 ]
