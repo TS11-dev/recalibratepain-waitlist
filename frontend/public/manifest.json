@@ -9,14 +9,19 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/favicon.svg", 
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/favicon-512.png", 
+      "sizes": "512x512",
+      "type": "image/png"
     },
     {
-      "src": "/apple-touch-icon.svg",
+      "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/svg+xml"
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
     }
   ],
   "start_url": "/",
