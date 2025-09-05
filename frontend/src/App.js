@@ -761,7 +761,7 @@ function App() {
                 </span>
               </h2>
               <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-                Physiotherapists, pain specialists, psychologists - monitor multiple patients, conduct studies, and gain insights into health patterns.
+                Physiotherapists, pain specialists, psychologists, and research teams for studies - monitor multiple patients, conduct studies, and gain insights into health patterns.
               </p>
             </div>
 
