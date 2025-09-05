@@ -344,21 +344,21 @@ function App() {
               <div className="hidden md:flex items-center space-x-6">
                 <button 
                   onClick={() => smoothScroll('features')} 
-                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-purple-50"
+                  className="text-white hover:text-blue-200 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-white/20"
                   aria-label="Go to features section"
                 >
                   Features
                 </button>
                 <button 
                   onClick={() => smoothScroll('ecosystem')} 
-                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-purple-50"
+                  className="text-white hover:text-blue-200 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-white/20"
                   aria-label="Go to ecosystem section"
                 >
                   Ecosystem
                 </button>
                 <button 
                   onClick={() => setShowContactModal(true)} 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                  className="bg-white text-purple-600 px-6 py-2 rounded-full font-medium hover:shadow-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                   aria-label="Open contact information"
                 >
                   Contact
