@@ -222,9 +222,32 @@ function App() {
     }
   ];
 
-  const smoothScroll = useCallback((targetId) => {
-    const element = document.getElementById(targetId);
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({
+              ...prev,
+              [entry.target.id]: true
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe all sections with slight delay to prevent rapid state updates
+    const timer = setTimeout(() => {
+      const sections = document.querySelectorAll('[data-animate]');
+      sections.forEach(section => observer.observe(section));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   // Keyboard navigation support and mobile menu handling
