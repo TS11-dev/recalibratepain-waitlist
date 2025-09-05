@@ -143,8 +143,8 @@ MONGO_URL = os.environ.get("MONGO_URL")
 DB_NAME = "RecalibrateWebsite"  # Exact case from Atlas
 COLLECTION_NAME = "Emails"  # Capital E as shown in Atlas
 
-# MongoDB fallback count - show 127+ when MongoDB unavailable
-BASE_SUBSCRIBER_COUNT = 127  # Base count when MongoDB is disconnected
+# Social proof base count - always add this to actual MongoDB count
+BASE_SUBSCRIBER_COUNT = 127  # Base count for social proof
 
 # MongoDB client
 mongo_client = None
