@@ -1,4 +1,4 @@
-## Recalibrate Website - Enterprise-Grade Health & Pain Management Platform
+×## Recalibrate Website - Enterprise-Grade Health & Pain Management Platform
 
 A comprehensive, VC-ready website for the revolutionary AI-powered health and pain management platform with comprehensive chronic pain benefits.
 
