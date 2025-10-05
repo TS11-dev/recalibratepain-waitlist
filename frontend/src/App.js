@@ -750,7 +750,7 @@ function App() {
                   </div>
 
                   <a 
-                    href="https://recalibrate.beehiiv.com/subscribe" 
+                    href="https://recalibrate.beehiiv.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 text-sm sm:text-base"
