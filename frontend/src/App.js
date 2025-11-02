@@ -643,12 +643,12 @@ function App() {
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
               {[
                 {
-                  icon: Brain,
-                  title: "AI Pattern Recognition",
-                  description: "Advanced algorithms identify pain patterns using machine learning.",
-                  gradient: "from-blue-50 to-blue-100",
-                  border: "border-blue-200",
-                  iconBg: "from-blue-600 to-blue-700"
+                  icon: Target,
+                  title: "Personalized Care",
+                  description: "Comprehensive management approaches based on individual patterns.",
+                  gradient: "from-orange-50 to-orange-100",
+                  border: "border-orange-200",
+                  iconBg: "from-orange-600 to-orange-700"
                 },
                 {
                   icon: Activity,
@@ -667,12 +667,12 @@ function App() {
                   iconBg: "from-green-600 to-green-700"
                 },
                 {
-                  icon: Target,
-                  title: "Personalized Care",
-                  description: "Comprehensive management approaches based on individual patterns.",
-                  gradient: "from-orange-50 to-orange-100",
-                  border: "border-orange-200",
-                  iconBg: "from-orange-600 to-orange-700"
+                  icon: Brain,
+                  title: "AI Pattern Recognition",
+                  description: "Advanced algorithms identify pain patterns using machine learning.",
+                  gradient: "from-blue-50 to-blue-100",
+                  border: "border-blue-200",
+                  iconBg: "from-blue-600 to-blue-700"
                 },
                 {
                   icon: BarChart3,
@@ -683,9 +683,9 @@ function App() {
                   iconBg: "from-indigo-600 to-indigo-700"
                 },
                 {
-                  icon: TrendingUp,
-                  title: "Predictive Insights",
-                  description: "AI-powered pattern recognition enables proactive care strategies.",
+                  icon: BookOpen,
+                  title: "Pain Education",
+                  description: "Evidence-based learning resources and educational content for better pain understanding.",
                   gradient: "from-teal-50 to-teal-100",
                   border: "border-teal-200",
                   iconBg: "from-teal-600 to-teal-700"
