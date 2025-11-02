@@ -550,6 +550,81 @@ function App() {
           </div>
         </section>
 
+        {/* Email Signup Section - Enhanced */}
+        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white" role="region" aria-labelledby="signup-title">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl sm:rounded-3xl border border-gray-200 p-8 sm:p-12">
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
+                <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
+                <span className="font-semibold text-sm sm:text-base">Exclusive Early Access</span>
+              </div>
+
+              <h2 id="signup-title" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+                <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
+                  Join the Revolution
+                </span>
+              </h2>
+              
+              <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
+                Get exclusive early access to the world's first AI-powered, multi-system health and pain management platform with comprehensive chronic pain benefits.
+              </p>
+
+              <form onSubmit={handleEmailSubmit} className="max-w-sm sm:max-w-md mx-auto mb-6 sm:mb-8" noValidate>
+                <div>
+                  <label htmlFor="signup-email" className="sr-only">Your Email</label>
+                  <input
+                    id="signup-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-purple-600 text-base sm:text-lg transition-all duration-300 hover:border-purple-300 mb-4 placeholder-gray-400 bg-white"
+                    required
+                    maxLength="254"
+                    autoComplete="email"
+                    autoFocus={false}
+                    spellCheck="false"
+                    aria-describedby="email-help"
+                  />
+                  <div id="email-help" className="sr-only">Enter your email address to join the waitlist</div>
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading || !email.trim()}
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                  aria-label={loading ? "Submitting form" : "Join waitlist"}
+                >
+                  {loading ? (
+                    <>
+                      <div className="w-5 sm:w-6 h-5 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true"></div>
+                      <span>Joining...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Join Waitlist</span>
+                      <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
+                    </>
+                  )}
+                </button>
+              </form>
+
+              {/* Stats - Fixed Mobile Layout */}
+              <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+                {[
+                  { number: `${subscribers}+`, label: "Early Subscribers", color: "text-blue-600" },
+                  { number: "200+", label: "Tools & Lessons", color: "text-purple-600" },
+                  { number: "∞", label: "Potential", color: "text-green-600" }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className={`text-2xl sm:text-3xl font-bold ${stat.color} mb-1`}>{stat.number}</div>
+                    <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Core Features - Fixed Spacing */}
         <section id="features" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white" data-animate role="main" aria-labelledby="features-title">
           <div className="max-w-7xl mx-auto">
@@ -631,81 +706,6 @@ function App() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Email Signup Section - Enhanced */}
-        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white" role="region" aria-labelledby="signup-title">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl sm:rounded-3xl border border-gray-200 p-8 sm:p-12">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
-                <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                <span className="font-semibold text-sm sm:text-base">Exclusive Early Access</span>
-              </div>
-
-              <h2 id="signup-title" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                  Join the Revolution
-                </span>
-              </h2>
-              
-              <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
-                Get exclusive early access to the world's first AI-powered, multi-system health and pain management platform with comprehensive chronic pain benefits.
-              </p>
-
-              <form onSubmit={handleEmailSubmit} className="max-w-sm sm:max-w-md mx-auto mb-6 sm:mb-8" noValidate>
-                <div>
-                  <label htmlFor="signup-email" className="sr-only">Your Email</label>
-                  <input
-                    id="signup-email"
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-purple-600 text-base sm:text-lg transition-all duration-300 hover:border-purple-300 mb-4 placeholder-gray-400 bg-white"
-                    required
-                    maxLength="254"
-                    autoComplete="email"
-                    autoFocus={false}
-                    spellCheck="false"
-                    aria-describedby="email-help"
-                  />
-                  <div id="email-help" className="sr-only">Enter your email address to join the waitlist</div>
-                </div>
-                <button
-                  type="submit"
-                  disabled={loading || !email.trim()}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-                  aria-label={loading ? "Submitting form" : "Join waitlist"}
-                >
-                  {loading ? (
-                    <>
-                      <div className="w-5 sm:w-6 h-5 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true"></div>
-                      <span>Joining...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Join Waitlist</span>
-                      <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                    </>
-                  )}
-                </button>
-              </form>
-
-              {/* Stats - Fixed Mobile Layout */}
-              <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-                {[
-                  { number: `${subscribers}+`, label: "Early Subscribers", color: "text-blue-600" },
-                  { number: "200+", label: "Tools & Lessons", color: "text-purple-600" },
-                  { number: "∞", label: "Potential", color: "text-green-600" }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className={`text-2xl sm:text-3xl font-bold ${stat.color} mb-1`}>{stat.number}</div>
-                    <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
