@@ -631,7 +631,7 @@ function App() {
             <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 id="features-title" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
                 <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                  Revolutionary Pain Management
+                  Revolutionary Health and Pain Management
                 </span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
