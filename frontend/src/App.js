@@ -798,7 +798,7 @@ function App() {
                 </div>
 
                 {/* Gumroad Button */}
-                <div className="border-t border-gray-200 pt-6">
+                <div className="border-t border-gray-200 pt-8 mt-4">
                   <a 
                     href="https://recalibratepain.gumroad.com/" 
                     target="_blank" 
