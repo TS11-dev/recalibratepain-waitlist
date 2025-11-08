@@ -775,7 +775,7 @@ function App() {
                 </div>
                 
                 {/* Ko-fi Widget Section */}
-                <div className="mb-6 mt-10">
+                <div className="mb-6 mt-6">
                   <div className="text-center mb-4">
                     <p className="text-gray-700 text-sm font-medium">Support the Health and Pain Revolution:</p>
                   </div>
@@ -818,7 +818,7 @@ function App() {
                 </div>
 
                 {/* Gumroad Button */}
-                <div className="border-t border-gray-200 pt-8 mt-4">
+                <div className="border-t border-gray-200 pt-8 mt-10">
                   <a 
                     href="https://recalibratepain.gumroad.com/" 
                     target="_blank" 
