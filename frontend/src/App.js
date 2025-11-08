@@ -824,10 +824,13 @@ function App() {
                     <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
                   </div>
                   <div className="flex justify-center">
-                    <div 
-                      dangerouslySetInnerHTML={{
-                        __html: `<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Buy us a Coffee', '#8728d4', 'N4N21O1R1W');kofiwidget2.draw();</script>`
-                      }}
+                    <iframe 
+                      id='kofiframe' 
+                      src='https://ko-fi.com/N4N21O1R1W/?hidefeed=true&widget=true&embed=true&preview=true' 
+                      style={{border: 'none', width: '100%', padding: '4px', background: '#f9f9f9'}} 
+                      height='712' 
+                      title='N4N21O1R1W'
+                      className="max-w-sm rounded-lg"
                     />
                   </div>
                 </div>
