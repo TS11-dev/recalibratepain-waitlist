@@ -824,14 +824,19 @@ function App() {
                     <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
                   </div>
                   <div className="flex justify-center">
-                    <iframe 
-                      id='kofiframe' 
-                      src='https://ko-fi.com/N4N21O1R1W/?hidefeed=true&widget=true&embed=true&preview=true' 
-                      style={{border: 'none', width: '100%', padding: '4px', background: '#f9f9f9'}} 
-                      height='712' 
-                      title='N4N21O1R1W'
-                      className="max-w-sm rounded-lg"
-                    />
+                    <a 
+                      href='https://ko-fi.com/N4N21O1R1W' 
+                      target='_blank' 
+                      rel="noopener noreferrer"
+                    >
+                      <img 
+                        height='36' 
+                        style={{border: '0px', height: '36px'}} 
+                        src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' 
+                        alt='Buy Me a Coffee at ko-fi.com' 
+                        className="hover:scale-105 transition-transform duration-200"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
