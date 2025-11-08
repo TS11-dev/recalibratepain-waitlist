@@ -794,8 +794,17 @@ function App() {
                   <div className="text-center mb-4">
                     <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
                   </div>
-                  <div className="flex justify-center" id="kofi-widget-container">
-                    {/* Ko-fi widget will be inserted here by the script */}
+                  <div className="flex justify-center">
+                    <a 
+                      href="https://ko-fi.com/N4N21O1R1W" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-medium text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                      style={{backgroundColor: '#8728d4'}}
+                    >
+                      <Heart className="w-4 h-4 mr-2 text-white" />
+                      Buy us a Coffee
+                    </a>
                   </div>
                 </div>
               </div>
