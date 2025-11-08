@@ -784,11 +784,18 @@ function App() {
                       href='https://ko-fi.com/N4N21O1R1W' 
                       target='_blank' 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg font-medium text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-                      style={{backgroundColor: '#8728d4'}}
+                      className="hover:scale-105 transition-transform duration-200"
                     >
-                      <Heart className="w-4 h-4 mr-2 text-white" />
-                      Buy Me a Coffee
+                      <img 
+                        height='36' 
+                        style={{
+                          border: '0px', 
+                          height: '36px',
+                          filter: 'hue-rotate(240deg) saturate(1.2) brightness(0.9)'
+                        }} 
+                        src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' 
+                        alt='Buy Me a Coffee at ko-fi.com' 
+                      />
                     </a>
                   </div>
                 </div>
