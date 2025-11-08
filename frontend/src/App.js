@@ -777,7 +777,7 @@ function App() {
                 {/* Ko-fi Widget Section */}
                 <div className="mb-6">
                   <div className="text-center mb-4">
-                    <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
+                    <p className="text-gray-700 text-sm font-medium">Support the Health and Pain Revolution:</p>
                   </div>
                   <div className="flex justify-center mb-4">
                     <a 
