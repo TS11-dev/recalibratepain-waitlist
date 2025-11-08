@@ -775,7 +775,7 @@ function App() {
                 </div>
                 
                 {/* Ko-fi Widget Section */}
-                <div className="mb-6 mt-16">
+                <div className="mb-6 mt-10">
                   <div className="text-center mb-4">
                     <p className="text-gray-700 text-sm font-medium">Support the Health and Pain Revolution:</p>
                   </div>
