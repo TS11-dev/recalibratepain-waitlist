@@ -779,28 +779,8 @@ function App() {
                   <div className="text-center mb-4">
                     <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
                   </div>
-                  <div className="flex justify-center mb-4">
-                    <a 
-                      href='https://ko-fi.com/N4N21O1R1W' 
-                      target='_blank' 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 rounded-lg font-medium text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 text-white"
-                      style={{
-                        backgroundColor: '#8728d4',
-                        border: '1px solid #8728d4',
-                        height: '36px'
-                      }}
-                    >
-                      <img 
-                        src="https://storage.ko-fi.com/cdn/cup-border.png" 
-                        alt="Ko-fi donations" 
-                        className="w-5 h-5 mr-2"
-                        style={{filter: 'brightness(0) invert(1)'}}
-                      />
-                      <span style={{color: 'white', fontWeight: '600', fontSize: '14px'}}>
-                        Buy Me a Coffee
-                      </span>
-                    </a>
+                  <div className="flex justify-center mb-4" id="kofi-widget-container">
+                    {/* Ko-fi widget will be inserted here */}
                   </div>
                 </div>
 
