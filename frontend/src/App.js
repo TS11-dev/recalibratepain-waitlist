@@ -780,17 +780,40 @@ function App() {
                     <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
                   </div>
                   <div className="flex justify-center mb-4">
-                    <div 
-                      dangerouslySetInnerHTML={{
-                        __html: `
-                          <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                          <script type='text/javascript'>
-                            kofiwidget2.init('Buy us a Coffee', '#8728d4', 'N4N21O1R1W');
-                            kofiwidget2.draw();
-                          </script>
-                        `
+                    <a 
+                      href='https://ko-fi.com/N4N21O1R1W' 
+                      target='_blank' 
+                      rel="noopener noreferrer"
+                      style={{
+                        backgroundColor: '#8728d4',
+                        border: '1px solid #8728d4',
+                        borderRadius: '6px',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                        color: '#fff',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        fontSize: '14px',
+                        fontFamily: 'system-ui, -apple-system, sans-serif',
+                        fontWeight: '600',
+                        height: '36px',
+                        padding: '0 12px',
+                        textDecoration: 'none',
+                        transition: 'all 0.2s ease',
                       }}
-                    />
+                      onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                      onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                    >
+                      <img 
+                        src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
+                        alt="Ko-fi donations"
+                        style={{
+                          height: '15px',
+                          width: '23px',
+                          marginRight: '6px'
+                        }}
+                      />
+                      Buy us a Coffee
+                    </a>
                   </div>
                 </div>
 
