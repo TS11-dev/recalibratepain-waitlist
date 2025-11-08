@@ -804,12 +804,13 @@ function App() {
                       onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
                     >
                       <img 
-                        src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
-                        alt="Ko-fi donations"
+                        src="https://storage.ko-fi.com/cdn/cup-border.png"
+                        alt="Coffee cup"
                         style={{
                           height: '15px',
-                          width: '23px',
-                          marginRight: '6px'
+                          width: '15px',
+                          marginRight: '6px',
+                          filter: 'brightness(0) invert(1)'
                         }}
                       />
                       Buy us a Coffee
