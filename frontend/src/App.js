@@ -117,6 +117,35 @@ function App() {
     return () => clearInterval(countInterval);
   }, [fetchSubscriberCount]);
 
+  // Load Ko-fi widget
+  useEffect(() => {
+    // Load Ko-fi script
+    const script1 = document.createElement('script');
+    script1.type = 'text/javascript';
+    script1.src = 'https://storage.ko-fi.com/cdn/widget/Widget_2.js';
+    script1.async = true;
+    
+    script1.onload = () => {
+      // Initialize Ko-fi widget after script loads
+      const script2 = document.createElement('script');
+      script2.type = 'text/javascript';
+      script2.innerHTML = "kofiwidget2.init('Buy us a Coffee', '#8728d4', 'N4N21O1R1W');kofiwidget2.draw();";
+      document.body.appendChild(script2);
+    };
+    
+    document.head.appendChild(script1);
+
+    return () => {
+      // Cleanup on unmount
+      const kofiScripts = document.querySelectorAll('script[src*="ko-fi"], script:not([src])');
+      kofiScripts.forEach(script => {
+        if (script.innerHTML.includes('kofiwidget2') || script.src.includes('ko-fi')) {
+          script.remove();
+        }
+      });
+    };
+  }, []);
+
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     
