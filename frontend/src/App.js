@@ -809,8 +809,7 @@ function App() {
                         style={{
                           height: '15px',
                           width: '15px',
-                          marginRight: '6px',
-                          filter: 'brightness(0) invert(1)'
+                          marginRight: '6px'
                         }}
                       />
                       Buy us a Coffee
