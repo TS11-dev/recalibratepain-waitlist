@@ -771,19 +771,32 @@ function App() {
                     <BookOpen className="w-7 sm:w-8 h-7 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Courses</h3>
-                  <p className="text-gray-600 text-sm sm:text-base">Evidence-based learning modules designed for your pain management journey.</p>
+                  <p className="text-gray-600 text-sm sm:text-base mb-6">Browse our Health and Pain education courses and resources</p>
                 </div>
-                <div className="space-y-3">
-                  {[
-                    "Pain Science Fundamentals",
-                    "Movement & Recovery",
-                    "Mindfulness for Pain"
-                  ].map((course, index) => (
-                    <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                      <span className="text-sm font-medium text-gray-700">{course}</span>
-                      <span className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded-full">Coming Soon</span>
-                    </div>
-                  ))}
+                
+                {/* Gumroad Button */}
+                <div className="mb-6">
+                  <a 
+                    href="https://recalibratepain.gumroad.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 sm:py-4 px-6 rounded-xl font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    aria-label="Browse courses on Gumroad (opens in new window)"
+                  >
+                    <BookOpen className="w-4 sm:w-5 h-4 sm:h-5" />
+                    <span>Browse Courses on Gumroad</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {/* Ko-fi Widget Section */}
+                <div className="border-t border-gray-200 pt-6">
+                  <div className="text-center mb-4">
+                    <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
+                  </div>
+                  <div className="flex justify-center" id="kofi-widget-container">
+                    {/* Ko-fi widget will be inserted here by the script */}
+                  </div>
                 </div>
               </div>
 
