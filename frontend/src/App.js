@@ -823,8 +823,12 @@ function App() {
                   <div className="text-center mb-4">
                     <p className="text-gray-700 text-sm font-medium">Support the Pain Revolution:</p>
                   </div>
-                  <div className="flex justify-center" id="kofi-widget-container">
-                    {/* Ko-fi widget will be inserted here */}
+                  <div className="flex justify-center">
+                    <div 
+                      dangerouslySetInnerHTML={{
+                        __html: `<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Buy us a Coffee', '#8728d4', 'N4N21O1R1W');kofiwidget2.draw();</script>`
+                      }}
+                    />
                   </div>
                 </div>
               </div>
