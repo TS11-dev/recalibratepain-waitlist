@@ -50,6 +50,8 @@ function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [subscribers, setSubscribers] = useState(184);
+  const [displayedCount, setDisplayedCount] = useState(0);
+  const [actualCount, setActualCount] = useState(184);
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isVisible, setIsVisible] = useState({});
