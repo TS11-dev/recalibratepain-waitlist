@@ -149,10 +149,10 @@ function App() {
           }, 800); // Wait 800ms before starting animation
           
         } else {
-          // Fallback: animate to 184 if API fails
+          // Fallback: animate to 188 if API fails
           setTimeout(() => {
-            setActualCount(184);
-            setSubscribers(184);
+            setActualCount(188);
+            setSubscribers(188);
           }, 800);
         }
       } catch (error) {
