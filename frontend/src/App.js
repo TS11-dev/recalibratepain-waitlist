@@ -135,21 +135,19 @@ function App() {
         
         if (response.ok) {
           const data = await response.json();
-          const finalCount = data.count || 191; // Use API count or fallback (188 + 3)
+          const finalCount = data.count; // Use actual API count (188 base + database)
           
-          // Once API loads, start animation to final count
+          // Once API loads, show final count immediately
           setActualCount(finalCount);
           setSubscribers(finalCount);
           
         } else {
-          // Fallback: animate to 191 if API fails
-          setActualCount(191);
-          setSubscribers(191);
+          // Keep showing 0+ if API fails
+          console.log('API failed, keeping 0+');
         }
       } catch (error) {
-        // Fallback: animate to 191 if API fails
-        setActualCount(191);
-        setSubscribers(191);
+        // Keep showing 0+ if API fails
+        console.log('API error, keeping 0+');
       }
     };
 
