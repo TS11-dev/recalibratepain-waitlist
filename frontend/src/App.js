@@ -49,7 +49,7 @@ class ErrorBoundary extends React.Component {
 function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [subscribers, setSubscribers] = useState(184);
+  const [subscribers, setSubscribers] = useState(188);
   const [displayedCount, setDisplayedCount] = useState(0);
   const [actualCount, setActualCount] = useState(184);
   const [openFaq, setOpenFaq] = useState(null);
