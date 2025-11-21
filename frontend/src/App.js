@@ -648,7 +648,7 @@ function App() {
               {/* Stats - Fixed Mobile Layout */}
               <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
                 {[
-                  { number: `${subscribers}+`, label: "Early Subscribers", color: "text-blue-600" },
+                  { number: `${displayedCount}+`, label: "Early Subscribers", color: "text-blue-600" },
                   { number: "200+", label: "Tools & Lessons", color: "text-purple-600" },
                   { number: "∞", label: "Potential", color: "text-green-600" }
                 ].map((stat, index) => (
