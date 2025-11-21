@@ -112,47 +112,67 @@ function App() {
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
-  // Counter animation effect
+  // Smooth counter animation effect
   useEffect(() => {
     if (actualCount > displayedCount) {
-      const increment = Math.ceil((actualCount - displayedCount) / 20); // Animate over ~20 steps
+      const difference = actualCount - displayedCount;
+      const increment = Math.max(1, Math.ceil(difference / 30)); // Animate over ~30 steps minimum
       const timer = setTimeout(() => {
         setDisplayedCount(prev => Math.min(prev + increment, actualCount));
-      }, 50); // 50ms intervals for smooth animation
+      }, 80); // Slower 80ms intervals for smoother animation
       return () => clearTimeout(timer);
     }
   }, [actualCount, displayedCount]);
 
-  // Fetch current subscriber count on load - more frequent updates
+  // Fetch subscriber count and animate smartly
   useEffect(() => {
-    // Start animation from 0 when component mounts
-    const animationTimer = setTimeout(() => {
-      let current = 0;
-      const target = 184; // Initial fallback count
-      const increment = Math.ceil(target / 25); // Animate over ~25 steps
-      
-      const animate = () => {
-        current += increment;
-        if (current >= target) {
-          setDisplayedCount(target);
-          // Then fetch real count
-          fetchSubscriberCount();
+    const initializeCounter = async () => {
+      // First, fetch the real count
+      try {
+        const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
+          method: 'GET',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+          },
+          signal: AbortSignal.timeout(8000)
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          const finalCount = data.count || 184; // Use API count or fallback
+          
+          // Small delay, then start smooth animation to final count
+          setTimeout(() => {
+            setActualCount(finalCount);
+            setSubscribers(finalCount);
+          }, 800); // Wait 800ms before starting animation
+          
         } else {
-          setDisplayedCount(current);
-          setTimeout(animate, 40); // 40ms intervals
+          // Fallback: animate to 184 if API fails
+          setTimeout(() => {
+            setActualCount(184);
+            setSubscribers(184);
+          }, 800);
         }
-      };
-      animate();
-    }, 500); // Start animation after 500ms
-
-    // Update count every 10 seconds
-    const countInterval = setInterval(fetchSubscriberCount, 10000);
-    
-    return () => {
-      clearTimeout(animationTimer);
-      clearInterval(countInterval);
+      } catch (error) {
+        // Fallback: animate to 184 if API fails
+        setTimeout(() => {
+          setActualCount(184);
+          setSubscribers(184);
+        }, 800);
+      }
     };
-  }, [fetchSubscriberCount]);
+
+    initializeCounter();
+
+    // Update count every 15 seconds after initial load
+    const countInterval = setInterval(() => {
+      fetchSubscriberCount();
+    }, 15000);
+    
+    return () => clearInterval(countInterval);
+  }, [BACKEND_URL]);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
