@@ -127,7 +127,7 @@ function App() {
   // Fetch subscriber count and animate smartly
   useEffect(() => {
     const initializeCounter = async () => {
-      // First, fetch the real count
+      // Keep showing 0+ while loading
       try {
         const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
           method: 'GET',
@@ -140,27 +140,21 @@ function App() {
         
         if (response.ok) {
           const data = await response.json();
-          const finalCount = data.count || 188; // Use API count or fallback
+          const finalCount = data.count || 191; // Use API count or fallback (188 + 3)
           
-          // Small delay, then start smooth animation to final count
-          setTimeout(() => {
-            setActualCount(finalCount);
-            setSubscribers(finalCount);
-          }, 800); // Wait 800ms before starting animation
+          // Once API loads, start animation to final count
+          setActualCount(finalCount);
+          setSubscribers(finalCount);
           
         } else {
-          // Fallback: animate to 188 if API fails
-          setTimeout(() => {
-            setActualCount(188);
-            setSubscribers(188);
-          }, 800);
+          // Fallback: animate to 191 if API fails
+          setActualCount(191);
+          setSubscribers(191);
         }
       } catch (error) {
-        // Fallback: animate to 188 if API fails
-        setTimeout(() => {
-          setActualCount(188);
-          setSubscribers(188);
-        }, 800);
+        // Fallback: animate to 191 if API fails
+        setActualCount(191);
+        setSubscribers(191);
       }
     };
 
