@@ -51,7 +51,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [subscribers, setSubscribers] = useState(188);
   const [displayedCount, setDisplayedCount] = useState(0);
-  const [actualCount, setActualCount] = useState(188);
+  const [actualCount, setActualCount] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isVisible, setIsVisible] = useState({});
