@@ -172,7 +172,7 @@ function App() {
     }, 15000);
     
     return () => clearInterval(countInterval);
-  }, [BACKEND_URL]);
+  }, [BACKEND_URL, fetchSubscriberCount]);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
