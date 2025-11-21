@@ -112,17 +112,12 @@ function App() {
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
-  // Smooth counter animation effect
+  // No animation - just update directly when API loads
   useEffect(() => {
-    if (actualCount > displayedCount) {
-      const difference = actualCount - displayedCount;
-      const increment = Math.max(1, Math.ceil(difference / 30)); // Animate over ~30 steps minimum
-      const timer = setTimeout(() => {
-        setDisplayedCount(prev => Math.min(prev + increment, actualCount));
-      }, 80); // Slower 80ms intervals for smoother animation
-      return () => clearTimeout(timer);
+    if (actualCount > 0) {
+      setDisplayedCount(actualCount);
     }
-  }, [actualCount, displayedCount]);
+  }, [actualCount]);
 
   // Fetch subscriber count and animate smartly
   useEffect(() => {
