@@ -195,7 +195,9 @@ function App() {
           });
           
           // Update local count immediately and fetch fresh count
-          setSubscribers(data.total_subscribers || subscribers + 1);
+          const newCount = data.total_subscribers || subscribers + 1;
+          setSubscribers(newCount);
+          setActualCount(newCount);
           setEmail('');
           
           // Force fresh count update after successful submission
