@@ -93,6 +93,7 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         console.log('✅ API Response:', data);
+        setActualCount(data.count);
         setSubscribers(data.count);
         console.log('✅ Subscriber count updated to:', data.count);
       } else {
