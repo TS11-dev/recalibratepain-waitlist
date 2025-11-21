@@ -812,7 +812,7 @@ function App() {
                 </div>
                 
                 {/* Ko-fi Widget Section */}
-                <div className="mb-6 mt-16">
+                <div className="mb-6 mt-8">
                   <div className="text-center mb-4">
                     <p className="text-gray-700 text-sm font-medium">Support the Health and Pain Revolution:</p>
                   </div>
@@ -854,8 +854,22 @@ function App() {
                   </div>
                 </div>
 
-                {/* Gumroad Button */}
-                <div className="border-t border-gray-200 pt-8 mt-10">
+                {/* Course Buttons */}
+                <div className="border-t border-gray-200 pt-6 mt-8">
+                  {/* Etsy Button */}
+                  <a 
+                    href="https://www.etsy.com/shop/RecalibrateApp" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 sm:py-4 px-6 rounded-xl font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 mb-4"
+                    aria-label="Browse courses on Etsy (opens in new window)"
+                  >
+                    <BookOpen className="w-4 sm:w-5 h-4 sm:h-5" />
+                    <span>Browse Courses on Etsy</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  
+                  {/* Gumroad Button */}
                   <a 
                     href="https://recalibratepain.gumroad.com/" 
                     target="_blank" 
