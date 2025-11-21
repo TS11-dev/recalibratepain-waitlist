@@ -112,12 +112,46 @@ function App() {
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
+  // Counter animation effect
+  useEffect(() => {
+    if (actualCount > displayedCount) {
+      const increment = Math.ceil((actualCount - displayedCount) / 20); // Animate over ~20 steps
+      const timer = setTimeout(() => {
+        setDisplayedCount(prev => Math.min(prev + increment, actualCount));
+      }, 50); // 50ms intervals for smooth animation
+      return () => clearTimeout(timer);
+    }
+  }, [actualCount, displayedCount]);
+
   // Fetch current subscriber count on load - more frequent updates
   useEffect(() => {
-    fetchSubscriberCount();
-    // Update count every 10 seconds instead of 30
+    // Start animation from 0 when component mounts
+    const animationTimer = setTimeout(() => {
+      let current = 0;
+      const target = 184; // Initial fallback count
+      const increment = Math.ceil(target / 25); // Animate over ~25 steps
+      
+      const animate = () => {
+        current += increment;
+        if (current >= target) {
+          setDisplayedCount(target);
+          // Then fetch real count
+          fetchSubscriberCount();
+        } else {
+          setDisplayedCount(current);
+          setTimeout(animate, 40); // 40ms intervals
+        }
+      };
+      animate();
+    }, 500); // Start animation after 500ms
+
+    // Update count every 10 seconds
     const countInterval = setInterval(fetchSubscriberCount, 10000);
-    return () => clearInterval(countInterval);
+    
+    return () => {
+      clearTimeout(animationTimer);
+      clearInterval(countInterval);
+    };
   }, [fetchSubscriberCount]);
 
   const handleEmailSubmit = async (e) => {
