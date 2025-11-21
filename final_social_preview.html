@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recalibrate - Social Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1200px;
+            height: 630px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #ddd6fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle floating background elements */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.06;
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .orb-1 {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            top: -120px;
+            right: -120px;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            bottom: -90px;
+            left: -90px;
+            animation-delay: 5s;
+        }
+        
+        .orb-3 {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, #06b6d4, #10b981);
+            top: 25%;
+            left: 8%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-40px) rotate(180deg) scale(1.1); }
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 1050px;
+            padding: 90px 70px;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            margin-right: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            object-fit: contain;
+            background: white;
+            padding: 4px;
+        }
+        
+        .brand-name {
+            font-size: 60px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1f2937, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+        
+        .tagline {
+            font-size: 28px;
+            color: #4b5563;
+            margin-bottom: 35px;
+            font-weight: 600;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.3;
+        }
+        
+        .description {
+            font-size: 20px;
+            color: #6b7280;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .website-url {
+            position: absolute;
+            bottom: 40px;
+            right: 55px;
+            font-size: 18px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating background elements -->
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    
+    <div class="container">
+        <div class="logo-section">
+            <img src="/recalibrate-logo.png" alt="Recalibrate Logo" class="logo-image" />
+            <h1 class="brand-name">Recalibrate</h1>
+        </div>
+        
+        <h2 class="tagline">Your intelligent health and pain management companion</h2>
+        
+        <p class="description">
+            Track symptoms, learn from pain science, build your care team, use our built-in therapeutic tools and get AI-powered insights to personalize your pain management and live a better life.
+        </p>
+    </div>
+    
+    <div class="website-url">recalibratepain.com</div>
+</body>
+</html>
