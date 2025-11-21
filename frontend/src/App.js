@@ -140,7 +140,7 @@ function App() {
         
         if (response.ok) {
           const data = await response.json();
-          const finalCount = data.count || 184; // Use API count or fallback
+          const finalCount = data.count || 188; // Use API count or fallback
           
           // Small delay, then start smooth animation to final count
           setTimeout(() => {
