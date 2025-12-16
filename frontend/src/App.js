@@ -39,8 +39,8 @@ class ErrorBoundary extends React.Component {
 function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [subscribers, setSubscribers] = useState(0);
-  const [displayedCount, setDisplayedCount] = useState(0);
+  const [subscribers, setSubscribers] = useState(192);
+  const [displayedCount, setDisplayedCount] = useState(192);
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
