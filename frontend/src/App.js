@@ -500,7 +500,7 @@ function App() {
             </div>
 
             {/* Feature 4: Tools & Exercises - reversed */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20 p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative">
                 <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
                   <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
