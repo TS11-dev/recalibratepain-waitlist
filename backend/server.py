@@ -85,7 +85,9 @@ app.add_middleware(
         "*.vercel.app", 
         "recalibratepain.com", 
         "www.recalibratepain.com",
-        "recalibratepain-waitlist-production.up.railway.app"
+        "recalibratepain-waitlist-production.up.railway.app",
+        "*.emergentagent.com",
+        "*.preview.emergentagent.com"
     ]
 )
 
