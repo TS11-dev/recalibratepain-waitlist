@@ -188,7 +188,7 @@ function App() {
           
           {mobileMenuOpen && (
             <div className="md:hidden bg-white border-t border-purple-100 py-3 px-4 space-y-1">
-              {['features', 'pricing', 'partners', 'resources', 'faq'].map((item) => (
+              {['features', 'pricing', 'partners', 'resources', 'contact us'].map((item) => (
                 <button key={item} onClick={() => smoothScroll(item)} className="block w-full text-left py-3 px-4 text-gray-700 hover:bg-purple-50 rounded-xl capitalize">
                   {item}
                 </button>
