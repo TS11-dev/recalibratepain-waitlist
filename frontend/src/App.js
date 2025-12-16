@@ -165,12 +165,7 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <div className="relative w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
-                  <span className="text-white font-bold text-xl">R</span>
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full flex items-center justify-center">
-                    <Sparkles className="w-2 h-2 text-yellow-800" />
-                  </div>
-                </div>
+                <img src="/recalibrate-logo.png" alt="Recalibrate" className="h-10 w-auto" />
                 <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent">Recalibrate</span>
               </div>
               
