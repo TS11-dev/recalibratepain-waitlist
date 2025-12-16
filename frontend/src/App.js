@@ -1,47 +1,28 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { 
-  Heart, Brain, Activity, Shield, Target, Smartphone,
-  TrendingUp, Award, Globe, CheckCircle, ArrowRight, Sparkles,
-  BarChart3, Calendar, Users, BookOpen, Bell, Play,
-  Zap, Settings, Eye, MessageCircle, Mail, ExternalLink,
-  MapPin, Phone, Clock, ChevronDown, ChevronUp, Star, AlertTriangle
+  Heart, Brain, Activity, Shield, Target, 
+  TrendingUp, CheckCircle, ArrowRight, Sparkles,
+  BarChart3, Users, BookOpen, Bell,
+  Zap, MessageCircle, Mail, ExternalLink,
+  Clock, ChevronDown, ChevronUp, Star, AlertTriangle, X, Menu,
+  Play, Smartphone, Globe, Bot, Flame, Snowflake, Dumbbell
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 
-// Error Boundary Component for Enterprise Error Handling
 class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, errorInfo) {
-    console.error('Error caught by boundary:', error, errorInfo);
-  }
-
+  constructor(props) { super(props); this.state = { hasError: false }; }
+  static getDerivedStateFromError() { return { hasError: true }; }
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
           <div className="text-center p-8">
             <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Something went wrong</h2>
-            <p className="text-gray-600 mb-4">We're sorry, but something unexpected happened.</p>
-            <button 
-              onClick={() => window.location.reload()} 
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Reload Page
-            </button>
+            <button onClick={() => window.location.reload()} className="bg-indigo-600 text-white px-6 py-3 rounded-xl">Reload</button>
           </div>
         </div>
       );
     }
-
     return this.props.children;
   }
 }
@@ -49,128 +30,51 @@ class ErrorBoundary extends React.Component {
 function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [subscribers, setSubscribers] = useState(188);
-  const [displayedCount, setDisplayedCount] = useState(0);
-  const [actualCount, setActualCount] = useState(0);
+  const [waitlistCount, setWaitlistCount] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [isVisible, setIsVisible] = useState({});
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeFeature, setActiveFeature] = useState(0);
 
-  // Use environment variable for backend URL with fallback
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
-  console.log('🌐 Backend URL:', BACKEND_URL);
 
-  // Email validation utility
-  const isValidEmail = useCallback((email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email) && email.length <= 254; // RFC 5321 limit
-  }, []);
-
-  // Input sanitization
-  const sanitizeInput = useCallback((input) => {
-    return input.trim().replace(/[<>&"]/g, (char) => {
-      const entities = { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' };
-      return entities[char] || char;
-    });
-  }, []);
-
-  // Fetch subscriber count function - defined early
-  const fetchSubscriberCount = useCallback(async () => {
+  // Fetch waitlist count on mount and periodically
+  const fetchWaitlistCount = useCallback(async () => {
     try {
-      console.log('🔄 Fetching subscriber count from:', `${BACKEND_URL}/api/waitlist/count`);
-      const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}&cache=${Math.random()}`, {
+      const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
         method: 'GET',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-          'If-Modified-Since': 'Mon, 01 Jan 1990 00:00:00 GMT'
-        },
-        signal: AbortSignal.timeout(10000)
+        headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
       });
-      
       if (response.ok) {
         const data = await response.json();
-        console.log('✅ API Response:', data);
-        setActualCount(data.count);
-        setSubscribers(data.count);
-        console.log('✅ Subscriber count updated to:', data.count);
-      } else {
-        console.log('❌ API response not ok:', response.status);
+        console.log('Waitlist count:', data.count);
+        setWaitlistCount(data.count);
       }
     } catch (error) {
-      if (error.name !== 'AbortError') {
-        console.log('❌ Network error fetching count:', error.message);
-      }
+      console.log('Error fetching waitlist count:', error);
     }
   }, [BACKEND_URL]);
 
-  // Smooth scroll function
-  const smoothScroll = useCallback((targetId) => {
-    const element = document.getElementById(targetId);
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  useEffect(() => {
+    fetchWaitlistCount();
+    const interval = setInterval(fetchWaitlistCount, 10000);
+    return () => clearInterval(interval);
+  }, [fetchWaitlistCount]);
+
+  // Auto-rotate features
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveFeature((prev) => (prev + 1) % 6);
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
-
-  // No animation - just update directly when API loads
-  useEffect(() => {
-    if (actualCount > 0) {
-      setDisplayedCount(actualCount);
-    }
-  }, [actualCount]);
-
-  // Fetch subscriber count and animate smartly
-  useEffect(() => {
-    const initializeCounter = async () => {
-      // Keep showing 0+ while loading
-      try {
-        const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
-          method: 'GET',
-          headers: {
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache',
-          },
-          signal: AbortSignal.timeout(8000)
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          const finalCount = data.count; // Use actual API count (188 base + database)
-          
-          // Once API loads, show final count immediately
-          setActualCount(finalCount);
-          setSubscribers(finalCount);
-          
-        } else {
-          // Keep showing 0+ if API fails
-          console.log('API failed, keeping 0+');
-        }
-      } catch (error) {
-        // Keep showing 0+ if API fails
-        console.log('API error, keeping 0+');
-      }
-    };
-
-    initializeCounter();
-
-    // Update count every 15 seconds after initial load
-    const countInterval = setInterval(() => {
-      fetchSubscriberCount();
-    }, 15000);
-    
-    return () => clearInterval(countInterval);
-  }, [BACKEND_URL, fetchSubscriberCount]);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
+    const trimmedEmail = email.trim().toLowerCase();
     
-    const sanitizedEmail = sanitizeInput(email);
-    
-    if (!isValidEmail(sanitizedEmail)) {
-      toast.error('Please enter a valid email address', {
-        id: 'email-error',
-        duration: 4000,
-      });
+    if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      toast.error('Please enter a valid email address');
       return;
     }
 
@@ -179,977 +83,631 @@ function App() {
     try {
       const response = await fetch(`${BACKEND_URL}/api/waitlist/join`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Cache-Control': 'no-cache'
-        },
-        body: JSON.stringify({
-          name: "Website Subscriber", 
-          email: sanitizedEmail.toLowerCase()
-        }),
-        signal: AbortSignal.timeout(15000)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: "Website Subscriber", email: trimmedEmail })
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        
-        // Only show success if the backend actually reports success
-        if (data.success) {
-          toast.success('🚀 Welcome to the future of pain management!', { 
-            id: 'success',
-            duration: 5000
-          });
-          
-          // Update local count immediately and fetch fresh count
-          const newCount = data.total_subscribers || subscribers + 1;
-          setSubscribers(newCount);
-          setActualCount(newCount);
-          setEmail('');
-          
-          // Force fresh count update after successful submission
-          setTimeout(() => {
-            fetchSubscriberCount();
-          }, 1000);
-          
-          console.log('✅ Email submitted successfully:', sanitizedEmail);
-          console.log('✅ New subscriber count:', data.total_subscribers);
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        toast.success('🎉 You\'re on the list! We\'ll email you when we launch.', { duration: 5000 });
+        setEmail('');
+        // Update count immediately
+        if (data.total_subscribers) {
+          setWaitlistCount(data.total_subscribers);
         } else {
-          // Backend returned 200 but with success: false
-          toast.error(data.message || 'Failed to join waitlist. Please try again.', {
-            id: 'backend-error',
-            duration: 4000,
-          });
-          console.log('❌ Backend reported failure:', data.message);
+          fetchWaitlistCount();
         }
       } else {
-        const errorData = await response.text();
-        console.log('❌ Submission failed:', response.status, errorData);
-        
-        // Show proper error message instead of fake success
-        toast.error('Failed to join waitlist. Please check your connection and try again.', {
-          id: 'network-error',
-          duration: 4000,
-        });
+        toast.error(data.message || 'Something went wrong. Try again!');
       }
     } catch (error) {
-      console.log('❌ Email submission error:', error.message);
-      
-      if (error.name === 'AbortError') {
-        toast.error('Request timed out. Please try again.', { id: 'timeout' });
-      } else {
-        // Show proper error message instead of fake success
-        toast.error('Network error. Please check your connection and try again.', {
-          id: 'network-error',
-          duration: 4000,
-        });
-      }
+      toast.error('Network error. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  const faqs = [
-    {
-      question: "When will the Recalibrate app be available?",
-      answer: "We're launching across Google Play, iOS App Store, and web platforms in Q4 2025. Join our waitlist to get exclusive early access when we launch."
-    },
-    {
-      question: "What devices and platforms will be supported?",
-      answer: "Recalibrate will be available on iOS, Android, and as a web application. This ensures you can access your health data and tools from any device, anywhere."
-    },
-    {
-      question: "How does the AI-powered pain tracking work?",
-      answer: "Our advanced algorithms analyze patterns in your symptom reports, daily activities, and health metrics to identify triggers, predict flare-ups, and suggest personalized management strategies."
-    },
-    {
-      question: "Is my health data private and secure?",
-      answer: "Absolutely. We use enterprise-grade encryption and comply with all healthcare privacy regulations. Your data belongs to you, and we never share it without your explicit consent."
-    },
-    {
-      question: "How does the healthcare provider integration work?",
-      answer: "Healthcare providers can securely access your progress data (with your permission) to make more informed care decisions. This creates a collaborative management approach while keeping you in control."
-    },
-    {
-      question: "What makes Recalibrate different from other health apps?",
-      answer: "We're the first platform to combine multi-system health tracking, AI pattern recognition, evidence-based education, and seamless clinical integration in one comprehensive solution."
-    }
+  const smoothScroll = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
+  };
+
+  const features = [
+    { icon: "📊", title: "Smart Tracker", desc: "Track pain, sleep, mood, energy & more across 8 health systems", color: "from-blue-500 to-indigo-600" },
+    { icon: "📈", title: "Stability Dashboard", desc: "Your overall health score from 18 variables across 8 systems", color: "from-purple-500 to-pink-600" },
+    { icon: "🧠", title: "Pain Academy", desc: "200+ lessons on pain science with XP, badges & streaks", color: "from-orange-500 to-amber-500" },
+    { icon: "🎯", title: "Therapeutic Tools", desc: "Breathing, movement, meditation & heat/cold therapy guides", color: "from-green-500 to-emerald-600" },
+    { icon: "🤖", title: "AI Insights", desc: "Chat with your AI companion powered by Gemini 2.0 Flash", color: "from-violet-500 to-purple-600" },
+    { icon: "👥", title: "Care Team", desc: "Share reports with doctors, physios & your support network", color: "from-pink-500 to-rose-600" }
   ];
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(prev => ({
-              ...prev,
-              [entry.target.id]: true
-            }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Observe all sections with slight delay to prevent rapid state updates
-    const timer = setTimeout(() => {
-      const sections = document.querySelectorAll('[data-animate]');
-      sections.forEach(section => observer.observe(section));
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      observer.disconnect();
-    };
-  }, []);
-
-  // Keyboard navigation support and mobile menu handling
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        if (showContactModal) {
-          setShowContactModal(false);
-        }
-        if (mobileMenuOpen) {
-          setMobileMenuOpen(false);
-        }
-      }
-    };
-
-    const handleClickOutside = (event) => {
-      if (mobileMenuOpen && !event.target.closest('nav')) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('click', handleClickOutside);
-    
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [showContactModal, mobileMenuOpen]);
-
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    if (showContactModal) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [showContactModal]);
+  const faqs = [
+    { q: "When does Recalibrate launch?", a: "Q4 2025 on iOS, Android, and Web. Join the waitlist for early access!" },
+    { q: "Is my health data private?", a: "100% private. Encrypted, never shared, and you own your data." },
+    { q: "How does the AI companion work?", a: "Powered by Gemini 2.0 Flash, it analyzes your patterns and provides personalized insights." },
+    { q: "What makes this different?", a: "We combine tracking, education, therapeutic tools, and AI insights in one app designed for chronic pain." },
+    { q: "Is there a cost?", a: "Free tier available. Early adopters get premium features free forever." }
+  ];
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 overflow-x-hidden">
-        <Toaster position="top-center" />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+        <Toaster position="top-center" toastOptions={{ style: { borderRadius: '12px', background: '#1f2937', color: '#fff' } }} />
         
-        {/* Floating Background Elements - Optimized */}
-        <div className="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="floating-orb orb-1"></div>
-          <div className="floating-orb orb-2"></div>
-          <div className="floating-orb orb-3"></div>
-        </div>
-        
-        {/* Navigation - Fixed Issues */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50" role="navigation" aria-label="Main navigation">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        {/* Navigation */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-purple-100/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/recalibrate-logo.png" 
-                  alt="Recalibrate logo" 
-                  className="w-10 h-10 object-contain"
-                />
-                <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                  Recalibrate
-                </span>
+              <div className="flex items-center space-x-2">
+                <div className="relative w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
+                  <span className="text-white font-bold text-xl">R</span>
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full flex items-center justify-center">
+                    <Sparkles className="w-2 h-2 text-yellow-800" />
+                  </div>
+                </div>
+                <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent">Recalibrate</span>
               </div>
               
-              {/* Mobile Menu Button */}
-              <button 
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900"
-                aria-label="Toggle menu"
-                aria-expanded={mobileMenuOpen}
-              >
-                <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {mobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
+              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 hover:bg-purple-50 rounded-xl">
+                {mobileMenuOpen ? <X className="w-6 h-6 text-gray-700" /> : <Menu className="w-6 h-6 text-gray-700" />}
               </button>
               
-              {/* Desktop Menu */}
-              <div className="hidden md:flex items-center space-x-6">
-                <button 
-                  onClick={() => smoothScroll('features')} 
-                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-purple-50"
-                  aria-label="Go to features section"
-                >
-                  Features
-                </button>
-                <button 
-                  onClick={() => smoothScroll('ecosystem')} 
-                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-purple-50"
-                  aria-label="Go to ecosystem section"
-                >
-                  Ecosystem
-                </button>
-                <button 
-                  onClick={() => setShowContactModal(true)} 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-                  aria-label="Open contact information"
-                >
-                  Contact
+              <div className="hidden md:flex items-center space-x-1">
+                {['features', 'preview', 'faq'].map((item) => (
+                  <button key={item} onClick={() => smoothScroll(item)} className="px-4 py-2 text-gray-600 hover:text-purple-600 text-sm font-medium rounded-lg hover:bg-purple-50 transition-all capitalize">
+                    {item}
+                  </button>
+                ))}
+                <button onClick={() => smoothScroll('waitlist')} className="ml-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5">
+                  Join Waitlist
                 </button>
               </div>
             </div>
           </div>
           
-          {/* Mobile Menu Dropdown */}
           {mobileMenuOpen && (
-            <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
-              <div className="px-4 py-2 space-y-2">
-                <button 
-                  onClick={() => {
-                    smoothScroll('features');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="block w-full text-left px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg font-medium transition-colors"
-                >
-                  Features
+            <div className="md:hidden bg-white border-t border-purple-100 py-3 px-4 space-y-1">
+              {['features', 'preview', 'faq'].map((item) => (
+                <button key={item} onClick={() => smoothScroll(item)} className="block w-full text-left py-3 px-4 text-gray-700 hover:bg-purple-50 rounded-xl capitalize">
+                  {item}
                 </button>
-                <button 
-                  onClick={() => {
-                    smoothScroll('ecosystem');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="block w-full text-left px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg font-medium transition-colors"
-                >
-                  Ecosystem
-                </button>
-                <button 
-                  onClick={() => {
-                    setShowContactModal(true);
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="block w-full text-left px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all"
-                >
-                  Contact
-                </button>
-              </div>
+              ))}
+              <button onClick={() => smoothScroll('waitlist')} className="w-full mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold">
+                Join Waitlist
+              </button>
             </div>
           )}
         </nav>
 
-        {/* Contact Modal - Enhanced Accessibility */}
-        {showContactModal && (
-          <div 
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="contact-modal-title"
-            onClick={(e) => e.target === e.currentTarget && setShowContactModal(false)}
-          >
-            <div className="bg-white rounded-2xl max-w-4xl mx-4 max-h-[90vh] overflow-y-auto shadow-2xl">
-              <div className="p-6 sm:p-8">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 id="contact-modal-title" className="text-2xl sm:text-3xl font-bold text-gray-900">Get in Touch</h2>
-                  <button 
-                    onClick={() => setShowContactModal(false)}
-                    className="text-gray-400 hover:text-gray-600 p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    aria-label="Close contact modal"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mb-8">
-                  Have questions about Recalibrate? We're here to help.
-                </p>
-
-                {/* Contact Info - Fixed Spacing */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8">
-                  <div className="text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                      <Mail className="w-6 h-6 text-white" aria-hidden="true" />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-                    <a 
-                      href="mailto:info@recalibratepain.com" 
-                      className="text-purple-600 hover:text-purple-700 font-medium transition-colors duration-200 text-sm sm:text-base"
-                      aria-label="Send email to info@recalibratepain.com"
-                    >
-                      info@recalibratepain.com
-                    </a>
-                  </div>
-                  <div className="text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                      <MapPin className="w-6 h-6 text-white" aria-hidden="true" />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Location</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">Remote-First Team</p>
-                  </div>
-                  <div className="text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                    <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                      <Clock className="w-6 h-6 text-white" aria-hidden="true" />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Response Time</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">Within 24 hours</p>
-                  </div>
-                </div>
-
-                {/* FAQ Section - Enhanced */}
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
-                  <div className="space-y-3">
-                    {faqs.map((faq, index) => (
-                      <div key={index} className="bg-gray-50 border border-gray-200 rounded-xl hover:border-purple-200 transition-colors">
-                        <button
-                          onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                          className="w-full px-4 sm:px-6 py-4 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-inset"
-                          aria-expanded={openFaq === index}
-                          aria-controls={`faq-answer-${index}`}
-                        >
-                          <span className="font-semibold text-gray-900 text-sm sm:text-base pr-4">{faq.question}</span>
-                          {openFaq === index ? (
-                            <ChevronUp className="w-5 h-5 text-purple-600 flex-shrink-0" aria-hidden="true" />
-                          ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" aria-hidden="true" />
-                          )}
-                        </button>
-                        {openFaq === index && (
-                          <div 
-                            id={`faq-answer-${index}`}
-                            className="px-4 sm:px-6 pb-4 text-gray-600 leading-relaxed text-sm sm:text-base"
-                            role="region"
-                            aria-label="FAQ answer"
-                          >
-                            {faq.answer}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Hero Section - Optimized Spacing */}
-        <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6" role="banner">
+        {/* Hero Section */}
+        <section className="pt-24 sm:pt-32 pb-8 sm:pb-16 px-4 sm:px-6 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center">
-              {/* Launch Announcement */}
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8" role="status" aria-label="App launch status">
-                <Sparkles className="w-4 sm:w-5 h-4 sm:h-5 text-purple-600" aria-hidden="true" />
-                <span className="text-xs sm:text-sm font-semibold text-gray-700">Launching on Google Play, iOS & Web</span>
-                <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">Coming Soon</span>
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Left Content */}
+              <div className="text-center lg:text-left order-2 lg:order-1">
+                {/* Status Badge */}
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200/50 rounded-full px-4 py-2 mb-6">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                  </span>
+                  <span className="text-sm font-semibold text-purple-900">Launching Q4 2025</span>
+                  <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
+                </div>
+                
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-6">
+                  Your intelligent
+                  <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
+                    health companion
+                  </span>
+                </h1>
+                
+                <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                  Track symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons — all in one beautiful app.
+                </p>
+                
+                {/* Email Form */}
+                <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto lg:mx-0 mb-6" id="waitlist">
+                  <div className="relative bg-white rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1.5">
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="flex-1 px-5 py-3.5 bg-gray-50/50 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
+                        required
+                      />
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                      >
+                        {loading ? (
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        ) : (
+                          <>
+                            <span>Get Early Access</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                
+                {/* Social Proof */}
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {['🧑‍⚕️', '👩‍💼', '👨‍🔬', '👩‍🎓'].map((emoji, i) => (
+                        <div key={i} className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-white flex items-center justify-center text-sm shadow-sm">
+                          {emoji}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-sm">
+                      <span className="font-bold text-gray-900">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
+                      <span className="text-gray-500"> on waitlist</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 text-sm text-gray-500">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <span className="ml-1">from beta testers</span>
+                  </div>
+                </div>
               </div>
-
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
-                  Welcome to
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Recalibrate
-                </span>
-              </h1>
               
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
-                Your intelligent health and pain management companion
-              </p>
-              
-              <p className="text-base sm:text-lg text-gray-500 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
-                Track symptoms, learn from pain science, build your care team, use our built-in therapeutic tools 
-                and get AI-powered insights to personalize your pain management and live a better life.
-              </p>
-
-              {/* Platform Badges - Fixed Mobile Layout */}
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-                <div className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-3 sm:px-4 py-2 sm:py-3 shadow-sm hover:shadow-md transition-shadow">
-                  <Smartphone className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600" aria-hidden="true" />
-                  <span className="font-medium text-gray-700 text-sm sm:text-base">iOS App</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-3 sm:px-4 py-2 sm:py-3 shadow-sm hover:shadow-md transition-shadow">
-                  <Play className="w-4 sm:w-5 h-4 sm:h-5 text-green-600" aria-hidden="true" />
-                  <span className="font-medium text-gray-700 text-sm sm:text-base">Google Play</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-3 sm:px-4 py-2 sm:py-3 shadow-sm hover:shadow-md transition-shadow">
-                  <Globe className="w-4 sm:w-5 h-4 sm:h-5 text-purple-600" aria-hidden="true" />
-                  <span className="font-medium text-gray-700 text-sm sm:text-base">Web App</span>
+              {/* Right - Phone Mockup */}
+              <div className="relative order-1 lg:order-2 flex justify-center">
+                <div className="relative">
+                  {/* Phone Frame */}
+                  <div className="relative w-[280px] sm:w-[320px]">
+                    <div className="bg-gray-900 rounded-[3rem] p-3 shadow-2xl shadow-purple-500/20">
+                      {/* Notch */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-gray-900 rounded-b-2xl z-10"></div>
+                      
+                      {/* Screen */}
+                      <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-700 rounded-[2.25rem] overflow-hidden">
+                        {/* App Header */}
+                        <div className="px-5 pt-10 pb-4 bg-gradient-to-b from-black/20 to-transparent">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur">
+                                <span className="font-bold text-white text-sm">R</span>
+                              </div>
+                              <span className="text-white font-semibold text-sm">Recalibrate</span>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 border-2 border-white/30"></div>
+                          </div>
+                        </div>
+                        
+                        {/* App Content */}
+                        <div className="px-4 pb-6 space-y-4">
+                          {/* Welcome Card */}
+                          <div className="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
+                            <p className="text-white/60 text-xs mb-1">Welcome back</p>
+                            <p className="text-white font-semibold">Hello, User 👋</p>
+                          </div>
+                          
+                          {/* Stats Grid */}
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-white rounded-xl p-3 shadow-lg">
+                              <p className="text-2xl font-bold text-indigo-600">53%</p>
+                              <p className="text-xs text-gray-500">Stability</p>
+                            </div>
+                            <div className="bg-white rounded-xl p-3 shadow-lg">
+                              <p className="text-2xl font-bold text-purple-600">50</p>
+                              <p className="text-xs text-gray-500">Lessons</p>
+                            </div>
+                          </div>
+                          
+                          {/* Feature Cards */}
+                          <div className="space-y-2">
+                            <div className="bg-white/95 rounded-xl p-3 flex items-center gap-3">
+                              <span className="text-xl">💊</span>
+                              <div>
+                                <p className="text-gray-900 font-medium text-sm">My Medications</p>
+                                <p className="text-gray-400 text-xs">Track effectiveness</p>
+                              </div>
+                            </div>
+                            <div className="bg-white/95 rounded-xl p-3 flex items-center gap-3">
+                              <span className="text-xl">🐉</span>
+                              <div>
+                                <p className="text-gray-900 font-medium text-sm">Hey! I'm Calum</p>
+                                <p className="text-gray-400 text-xs">Start your tour</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Bottom Nav Preview */}
+                          <div className="flex justify-around pt-2 border-t border-white/10 mt-4">
+                            {['🏠', '📊', '📈', '🧠', '✨'].map((icon, i) => (
+                              <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center ${i === 0 ? 'bg-white/20' : ''}`}>
+                                <span className="text-sm">{icon}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Home Bar */}
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white rounded-full"></div>
+                  </div>
+                  
+                  {/* Floating Cards */}
+                  <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl shadow-purple-500/10 p-3 border border-purple-100 animate-float hidden sm:block">
+                    <div className="flex items-center gap-2">
+                      <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                        <TrendingUp className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-400">Pain Level</p>
+                        <p className="text-sm font-bold text-gray-900">-32% this week</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -bottom-2 -left-4 bg-white rounded-2xl shadow-xl shadow-purple-500/10 p-3 border border-purple-100 animate-float-delayed hidden sm:block">
+                    <div className="flex items-center gap-2">
+                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center">
+                        <Bot className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-400">AI Insight</p>
+                        <p className="text-sm font-bold text-gray-900">Pattern found!</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-1/2 -right-8 bg-white rounded-2xl shadow-xl shadow-purple-500/10 p-3 border border-purple-100 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+                    <div className="flex items-center gap-2">
+                      <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center">
+                        <Zap className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-400">XP Earned</p>
+                        <p className="text-sm font-bold text-gray-900">+835 XP</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Email Signup Section - Enhanced */}
-        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white" role="region" aria-labelledby="signup-title">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl sm:rounded-3xl border border-gray-200 p-8 sm:p-12">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
-                <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                <span className="font-semibold text-sm sm:text-base">Exclusive Early Access</span>
-              </div>
+        {/* Trusted By / As Seen In */}
+        <section className="py-8 px-4 sm:px-6 border-y border-purple-100/50 bg-white/50">
+          <div className="max-w-5xl mx-auto">
+            <p className="text-center text-sm text-gray-400 mb-4">Built with evidence-based approaches from</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              {['Pain Science', 'Cognitive Behavioral', 'Mindfulness', 'Movement Therapy', 'Graded Exposure'].map((item, i) => (
+                <span key={i} className="text-gray-600 font-medium text-sm">{item}</span>
+              ))}
+            </div>
+          </div>
+        </section>
 
-              <h2 id="signup-title" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                  Join the Revolution
-                </span>
+        {/* Features Section */}
+        <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-2">Everything You Need</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                Six powerful tools in one app
               </h2>
-              
-              <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
-                Get exclusive early access to the world's first AI-powered, multi-system health and pain management platform with comprehensive chronic pain benefits.
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                From tracking to education to AI-powered insights — everything designed for people living with chronic pain.
               </p>
-
-              <form onSubmit={handleEmailSubmit} className="max-w-sm sm:max-w-md mx-auto mb-6 sm:mb-8" noValidate>
-                <div>
-                  <label htmlFor="signup-email" className="sr-only">Your Email</label>
-                  <input
-                    id="signup-email"
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-purple-600 text-base sm:text-lg transition-all duration-300 hover:border-purple-300 mb-4 placeholder-gray-400 bg-white"
-                    required
-                    maxLength="254"
-                    autoComplete="email"
-                    autoFocus={false}
-                    spellCheck="false"
-                    aria-describedby="email-help"
-                  />
-                  <div id="email-help" className="sr-only">Enter your email address to join the waitlist</div>
-                </div>
-                <button
-                  type="submit"
-                  disabled={loading || !email.trim()}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-                  aria-label={loading ? "Submitting form" : "Join waitlist"}
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {features.map((feature, i) => (
+                <div
+                  key={i}
+                  className={`group relative bg-white rounded-2xl p-6 border-2 transition-all duration-500 cursor-pointer overflow-hidden ${activeFeature === i ? 'border-purple-300 shadow-xl shadow-purple-500/10 scale-[1.02]' : 'border-purple-100/50 hover:border-purple-200'}`}
+                  onClick={() => setActiveFeature(i)}
                 >
-                  {loading ? (
-                    <>
-                      <div className="w-5 sm:w-6 h-5 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true"></div>
-                      <span>Joining...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Join Waitlist</span>
-                      <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                    </>
-                  )}
-                </button>
-              </form>
-
-              {/* Stats - Fixed Mobile Layout */}
-              <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-                {[
-                  { number: `${displayedCount}+`, label: "Early Subscribers", color: "text-blue-600" },
-                  { number: "200+", label: "Tools & Lessons", color: "text-purple-600" },
-                  { number: "∞", label: "Potential", color: "text-green-600" }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className={`text-2xl sm:text-3xl font-bold ${stat.color} mb-1`}>{stat.number}</div>
-                    <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity`}></div>
+                  <div className="relative">
+                    <span className="text-4xl mb-4 block">{feature.icon}</span>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.desc}</p>
+                    {activeFeature === i && (
+                      <div className={`absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br ${feature.color} rounded-full opacity-10 blur-2xl`}></div>
+                    )}
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* App Preview Section */}
+        <section id="preview" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-purple-50/50 to-white scroll-mt-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-2">Inside The App</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                See what you'll get
+              </h2>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Pain Academy Preview */}
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl shadow-purple-500/5 border border-purple-100">
+                <div className="bg-gradient-to-r from-emerald-500 via-green-500 to-teal-600 p-5 text-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">🧠</span>
+                    <span className="font-bold text-lg">Pain Academy</span>
+                  </div>
+                  <p className="text-white/80 text-sm">Master the language of pain management</p>
+                </div>
+                <div className="p-5 space-y-4">
+                  <div className="flex justify-between text-center">
+                    <div className="bg-purple-50 rounded-xl px-4 py-2">
+                      <p className="text-xl font-bold text-purple-600">835</p>
+                      <p className="text-xs text-gray-500">XP</p>
+                    </div>
+                    <div className="bg-indigo-50 rounded-xl px-4 py-2">
+                      <p className="text-xl font-bold text-indigo-600">50</p>
+                      <p className="text-xs text-gray-500">Lessons</p>
+                    </div>
+                    <div className="bg-amber-50 rounded-xl px-4 py-2">
+                      <p className="text-xl font-bold text-amber-600">6</p>
+                      <p className="text-xs text-gray-500">Badges</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    {['Foundations of Pain', 'Neurobiology', 'Management Strategies'].map((course, i) => (
+                      <div key={i} className="flex items-center gap-3 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
+                        <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white">
+                          {i === 0 ? '🎯' : i === 1 ? '🧠' : '💪'}
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-medium text-gray-900 text-sm">{course}</p>
+                          <p className="text-xs text-gray-500">16 lessons</p>
+                        </div>
+                        <CheckCircle className="w-5 h-5 text-green-500" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Therapeutic Tools Preview */}
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl shadow-purple-500/5 border border-purple-100">
+                <div className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 p-5 text-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">🎯</span>
+                    <span className="font-bold text-lg">Therapeutic Tools</span>
+                  </div>
+                  <p className="text-white/80 text-sm">Evidence-based interventions</p>
+                </div>
+                <div className="p-5 space-y-3">
+                  {[
+                    { icon: <Dumbbell className="w-5 h-5" />, name: 'Gentle Movement', time: '5-7 min', color: 'from-blue-400 to-indigo-500' },
+                    { icon: <Snowflake className="w-5 h-5" />, name: 'Cold Therapy', time: '15-20 min', color: 'from-cyan-400 to-blue-500' },
+                    { icon: <Flame className="w-5 h-5" />, name: 'Heat Therapy', time: '20-25 min', color: 'from-orange-400 to-red-500' },
+                    { icon: <Brain className="w-5 h-5" />, name: 'Body Scan', time: '15-20 min', color: 'from-purple-400 to-violet-500' }
+                  ].map((tool, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-purple-50 transition-colors group">
+                      <div className={`w-10 h-10 bg-gradient-to-br ${tool.color} rounded-xl flex items-center justify-center text-white`}>
+                        {tool.icon}
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-medium text-gray-900 text-sm">{tool.name}</p>
+                        <p className="text-xs text-gray-500">{tool.time}</p>
+                      </div>
+                      <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">Recommended</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* AI Insights Preview */}
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl shadow-purple-500/5 border border-purple-100">
+                <div className="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 p-5 text-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">🤖</span>
+                    <span className="font-bold text-lg">Recalibrate AI</span>
+                  </div>
+                  <p className="text-white/80 text-sm">Powered by Gemini 2.0 Flash</p>
+                </div>
+                <div className="p-5">
+                  <div className="bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl p-4 border border-purple-100">
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                        <Bot className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="flex-1 bg-white rounded-xl p-3 shadow-sm">
+                        <p className="text-sm text-gray-700">Hey! 👋 I'm your AI companion. I have access to all your health data.</p>
+                      </div>
+                    </div>
+                    <div className="space-y-2 ml-11">
+                      <p className="text-xs text-gray-500">📊 Your Current Status:</p>
+                      <div className="flex gap-2 flex-wrap">
+                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Stability: 53%</span>
+                        <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full">21 Entries</span>
+                        <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Baseline ✓</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex gap-2">
+                    {['💬 AI Chat', '🔬 Research', '📋 Care Plan'].map((tab, i) => (
+                      <span key={i} className={`text-xs px-3 py-1.5 rounded-full ${i === 0 ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-600'}`}>
+                        {tab}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="py-16 sm:py-24 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-700 rounded-3xl p-8 sm:p-12 text-center overflow-hidden">
+              {/* Decorative elements */}
+              <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+              
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-4 py-2 mb-6">
+                  <Bell className="w-4 h-4 text-white" />
+                  <span className="text-white font-medium text-sm">{waitlistCount > 0 ? `${waitlistCount.toLocaleString()} people` : '...'} already waiting</span>
+                </div>
+                
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                  Ready to recalibrate your health?
+                </h2>
+                <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
+                  Join the waitlist today. Early adopters get premium features free forever.
+                </p>
+                
+                <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 px-5 py-4 bg-white/10 backdrop-blur border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:bg-white/20 focus:border-white/40 transition-all"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="bg-white text-purple-700 px-8 py-4 rounded-xl font-bold hover:bg-purple-50 transition-all disabled:opacity-60 flex items-center justify-center gap-2"
+                    >
+                      {loading ? (
+                        <div className="w-5 h-5 border-2 border-purple-300 border-t-purple-700 rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <span>Join Waitlist</span>
+                          <ArrowRight className="w-5 h-5" />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </form>
+                
+                <p className="text-white/60 text-sm mt-4">No spam, ever. Unsubscribe anytime.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Resources */}
+        <section className="py-12 px-4 sm:px-6 bg-gray-50">
+          <div className="max-w-5xl mx-auto">
+            <p className="text-center text-gray-500 mb-6">Free resources while you wait</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                { href: "https://recalibrate.beehiiv.com", icon: "📬", text: "Newsletter" },
+                { href: "https://recalibratepain.gumroad.com/", icon: "📚", text: "Courses" },
+                { href: "https://ko-fi.com/N4N21O1R1W", icon: "☕", text: "Support Us" }
+              ].map((link, i) => (
+                <a key={i} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all text-sm font-medium text-gray-700 hover:text-purple-700">
+                  <span>{link.icon}</span>
+                  <span>{link.text}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 scroll-mt-20">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Common questions</h2>
+            </div>
+            
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-white border border-purple-100 rounded-2xl overflow-hidden">
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors">
+                    <span className="font-semibold text-gray-900">{faq.q}</span>
+                    {openFaq === i ? <ChevronUp className="w-5 h-5 text-purple-600" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
+                  </button>
+                  {openFaq === i && <div className="px-6 pb-4 text-gray-600">{faq.a}</div>}
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-8">
+              <button onClick={() => setShowContactModal(true)} className="text-purple-600 font-semibold hover:text-purple-700">
+                Have another question? Contact us →
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-12 px-4 sm:px-6 bg-gray-900 text-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                  <span className="font-bold">R</span>
+                </div>
+                <span className="font-bold text-lg">Recalibrate</span>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                {[
+                  { href: "https://www.instagram.com/recalibrateapp/", icon: "📸" },
+                  { href: "https://www.linkedin.com/company/recalibrate-app/", icon: "💼" },
+                  { href: "https://x.com/RecalibrateApp", icon: "𝕏" }
+                ].map((s, i) => (
+                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-xl flex items-center justify-center transition-colors">
+                    {s.icon}
+                  </a>
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Core Features - Fixed Spacing */}
-        <section id="features" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white" data-animate role="main" aria-labelledby="features-title">
-          <div className="max-w-7xl mx-auto">
-            <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 id="features-title" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                  Revolutionary Health and Pain Management
-                </span>
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                Experience the world's first AI-powered, multi-system health and pain management platform. 
-                Comprehensive insights, personalized approaches, and evidence-based care - all in one place.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-              {[
-                {
-                  icon: Target,
-                  title: "Personalized Care",
-                  description: "Comprehensive management approaches based on individual patterns.",
-                  gradient: "from-orange-50 to-orange-100",
-                  border: "border-orange-200",
-                  iconBg: "from-orange-600 to-orange-700"
-                },
-                {
-                  icon: Activity,
-                  title: "Multi-System Tracking",
-                  description: "Monitor 8 interconnected health systems for comprehensive insights.",
-                  gradient: "from-purple-50 to-purple-100",
-                  border: "border-purple-200",
-                  iconBg: "from-purple-600 to-purple-700"
-                },
-                {
-                  icon: Shield,
-                  title: "Clinical Integration",
-                  description: "Seamless provider collaboration with evidence-based protocols.",
-                  gradient: "from-green-50 to-green-100",
-                  border: "border-green-200",
-                  iconBg: "from-green-600 to-green-700"
-                },
-                {
-                  icon: Brain,
-                  title: "AI Pattern Recognition",
-                  description: "Advanced algorithms identify pain patterns using machine learning.",
-                  gradient: "from-blue-50 to-blue-100",
-                  border: "border-blue-200",
-                  iconBg: "from-blue-600 to-blue-700"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Advanced Analytics",
-                  description: "Weighted scoring algorithms provide actionable health insights.",
-                  gradient: "from-indigo-50 to-indigo-100",
-                  border: "border-indigo-200",
-                  iconBg: "from-indigo-600 to-indigo-700"
-                },
-                {
-                  icon: BookOpen,
-                  title: "Pain Education",
-                  description: "Evidence-based learning resources and educational content for better pain understanding.",
-                  gradient: "from-teal-50 to-teal-100",
-                  border: "border-teal-200",
-                  iconBg: "from-teal-600 to-teal-700"
-                }
-              ].map((feature, index) => (
-                <div 
-                  key={index} 
-                  className={`bg-gradient-to-br ${feature.gradient} rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border ${feature.border} hover:shadow-lg transition-all duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-purple-500 h-full flex flex-col`}
-                  role="article"
-                  aria-labelledby={`feature-title-${index}`}
-                >
-                  <div className={`w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 bg-gradient-to-r ${feature.iconBg} rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 shadow-lg flex-shrink-0`} aria-hidden="true">
-                    <feature.icon className="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 id={`feature-title-${index}`} className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-1 sm:mb-2 leading-tight">{feature.title}</h3>
-                    <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-snug">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Ecosystem Breakdown - Fixed Layout */}
-        <section id="ecosystem" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-r from-slate-50 to-blue-50" data-animate role="region" aria-labelledby="ecosystem-title">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 id="ecosystem-title" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                  The Recalibrate Ecosystem
-                </span>
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                A comprehensive platform designed to support every aspect of your pain management journey
-              </p>
-            </div>
-
-            <div className="flex justify-center mb-12 sm:mb-16">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden max-w-md w-full sm:max-w-lg">
-                <div className="p-6 sm:p-8">
-                  <div className="text-center mb-6">
-                    <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" aria-hidden="true">
-                      <Bell className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Newsletter</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">Stay updated with the latest insights and developments</p>
-                  </div>
-
-                  <div className="space-y-3 sm:space-y-4 mb-6">
-                    {[
-                      { icon: BookOpen, text: "Weekly educational content", color: "text-blue-600", bg: "bg-blue-50" },
-                      { icon: Zap, text: "Actionable tools and resources", color: "text-green-600", bg: "bg-green-50" },
-                      { icon: Calendar, text: "App launch updates", color: "text-purple-600", bg: "bg-purple-50" },
-                      { icon: MessageCircle, text: "Community stories", color: "text-orange-600", bg: "bg-orange-50" }
-                    ].map((item, index) => (
-                      <div key={index} className={`flex items-center space-x-3 p-3 ${item.bg} rounded-lg hover:scale-105 transition-transform duration-200`}>
-                        <item.icon className={`w-4 sm:w-5 h-4 sm:h-5 ${item.color}`} aria-hidden="true" />
-                        <span className="text-sm sm:text-base text-gray-700">{item.text}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <a 
-                    href="https://recalibrate.beehiiv.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 text-sm sm:text-base"
-                    aria-label="Subscribe to newsletter (opens in new window)"
-                  >
-                    <span>Subscribe to Newsletter</span>
-                    <ExternalLink className="w-4 h-4" aria-hidden="true" />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Courses & Community - Compact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
-                <div className="text-center mb-6">
-                  <div className="w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" aria-hidden="true">
-                    <BookOpen className="w-7 sm:w-8 h-7 sm:h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Courses</h3>
-                  <p className="text-gray-600 text-sm sm:text-base mb-6">Browse our Health and Pain education courses and resources</p>
-                </div>
-                
-                {/* Ko-fi Widget Section */}
-                <div className="mb-6 mt-8">
-                  <div className="text-center mb-4">
-                    <p className="text-gray-700 text-sm font-medium">Support the Health and Pain Revolution:</p>
-                  </div>
-                  <div className="flex justify-center mb-4">
-                    <a 
-                      href='https://ko-fi.com/N4N21O1R1W' 
-                      target='_blank' 
-                      rel="noopener noreferrer"
-                      style={{
-                        backgroundColor: '#8728d4',
-                        border: '1px solid #8728d4',
-                        borderRadius: '6px',
-                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                        color: '#fff',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        fontSize: '14px',
-                        fontFamily: 'system-ui, -apple-system, sans-serif',
-                        fontWeight: '600',
-                        height: '36px',
-                        padding: '0 12px',
-                        textDecoration: 'none',
-                        transition: 'all 0.2s ease',
-                      }}
-                      onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
-                      onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                    >
-                      <img 
-                        src="https://storage.ko-fi.com/cdn/cup-border.png"
-                        alt="Coffee cup"
-                        style={{
-                          height: '15px',
-                          width: '15px',
-                          marginRight: '6px'
-                        }}
-                      />
-                      Buy us a Coffee
-                    </a>
-                  </div>
-                </div>
-
-                {/* Course Buttons */}
-                <div className="border-t border-gray-200 pt-6 mt-8">
-                  {/* Etsy Button */}
-                  <a 
-                    href="https://www.etsy.com/shop/RecalibrateApp" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 sm:py-4 px-6 rounded-xl font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 mb-4"
-                    aria-label="Browse courses on Etsy (opens in new window)"
-                  >
-                    <BookOpen className="w-4 sm:w-5 h-4 sm:h-5" />
-                    <span>Browse Courses on Etsy</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                  
-                  {/* Gumroad Button */}
-                  <a 
-                    href="https://recalibratepain.gumroad.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 sm:py-4 px-6 rounded-xl font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    aria-label="Browse courses on Gumroad (opens in new window)"
-                  >
-                    <BookOpen className="w-4 sm:w-5 h-4 sm:h-5" />
-                    <span>Browse Courses on Gumroad</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
-                <div className="text-center mb-6">
-                  <div className="w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" aria-hidden="true">
-                    <Users className="w-7 sm:w-8 h-7 sm:h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Community</h3>
-                  <p className="text-gray-600 text-sm sm:text-base">Connect with others on similar journeys and share experiences that matter.</p>
-                </div>
-                <div className="space-y-3 mb-6">
-                  {[
-                    "Patient Support Groups",
-                    "Community Forums"
-                  ].map((community, index) => (
-                    <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                      <span className="text-sm font-medium text-gray-700">{community}</span>
-                      <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full">Coming Soon</span>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Social Links Section */}
-                <div className="border-t border-gray-200 pt-6">
-                  <div className="text-center mb-4">
-                    <p className="text-gray-700 text-sm font-medium">Follow us on social media:</p>
-                  </div>
-                  <div className="flex justify-center space-x-4">
-                    {[
-                      { 
-                        href: "https://www.instagram.com/recalibrateapp/", 
-                        color: "hover:bg-pink-600", 
-                        label: "Instagram",
-                        path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      },
-                      { 
-                        href: "https://www.linkedin.com/company/recalibrate-app/", 
-                        color: "hover:bg-blue-700", 
-                        label: "LinkedIn",
-                        path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                      },
-                      { 
-                        href: "https://x.com/RecalibrateApp", 
-                        color: "hover:bg-gray-700", 
-                        label: "Twitter/X",
-                        path: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                      },
-                      { 
-                        href: "https://za.pinterest.com/Recalibratepain/", 
-                        color: "hover:bg-red-600", 
-                        label: "Pinterest",
-                        path: "M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.74.099.12.112.22.085.34-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.753 2.87c-.265 1.019-.985 2.304-1.477 3.079C9.26 23.641 10.618 24 12.017 24c6.624 0 11.99-5.367 11.99-12C24.007 5.367 18.641.001 12.017.001z"
-                      }
-                    ].map((social, index) => (
-                      <a 
-                        key={index} 
-                        href={social.href} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className={`w-8 h-8 bg-gray-800 ${social.color} rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2`}
-                        aria-label={`Follow us on ${social.label} (opens in new window)`}
-                      >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white" aria-hidden="true">
-                          <path d={social.path} />
-                        </svg>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Healthcare Providers & Researchers Section - Compact */}
-        <section className="py-8 sm:py-12 px-4 sm:px-6 bg-white" role="region" aria-labelledby="providers-title">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-12">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200 rounded-full px-4 py-2 mb-4">
-                <Shield className="w-4 h-4 text-emerald-600" aria-hidden="true" />
-                <span className="text-xs font-semibold text-gray-700">For Health Professionals</span>
-              </div>
-              
-              <h2 id="providers-title" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-                <span className="bg-gradient-to-r from-gray-900 to-emerald-600 bg-clip-text text-transparent">
-                  Providers and Research
-                </span>
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-                Physiotherapists, pain specialists, psychologists, and research teams for studies - monitor multiple patients, conduct studies, and gain insights into health patterns.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-              {[
-                {
-                  icon: Users,
-                  title: "Multi-Patient Monitoring",
-                  description: "Monitor multiple connected patients or research subjects with real-time health data and progress tracking.",
-                  gradient: "from-blue-50 to-blue-100",
-                  border: "border-blue-200",
-                  iconBg: "from-blue-600 to-blue-700"
-                },
-                {
-                  icon: MessageCircle,
-                  title: "Secure Communication",
-                  description: "Built-in messaging system with chat, file sharing, and consultation scheduling capabilities.",
-                  gradient: "from-emerald-50 to-emerald-100",
-                  border: "border-emerald-200",
-                  iconBg: "from-emerald-600 to-emerald-700"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Advanced Data Understanding",
-                  description: "Research-grade analytics for clinical insights, outcome predictions, and evidence generation.",
-                  gradient: "from-purple-50 to-purple-100",
-                  border: "border-purple-200",
-                  iconBg: "from-purple-600 to-purple-700"
-                }
-              ].map((feature, index) => (
-                <div key={index} className={`bg-gradient-to-br ${feature.gradient} rounded-xl p-4 sm:p-6 border ${feature.border} hover:shadow-lg transition-all duration-300`}>
-                  <div className={`w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r ${feature.iconBg} rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg`} aria-hidden="true">
-                    <feature.icon className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Partner Section */}
-        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-r from-slate-50 to-blue-50" role="region" aria-labelledby="partners-title">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
-              <Star className="w-4 sm:w-5 h-4 sm:h-5 text-purple-600" aria-hidden="true" />
-              <span className="text-xs sm:text-sm font-semibold text-gray-700">Partnership Opportunities</span>
-            </div>
-
-            <h2 id="partners-title" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-              <span className="bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-                Partner with Us
-              </span>
-            </h2>
             
-            <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
-              Join us in revolutionizing health and pain management. Whether you're a healthcare clinic, research institution, 
-              or investor, let's build the future of comprehensive health management together.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-              {[
-                { title: "Healthcare Clinics", description: "Partner with us to integrate comprehensive health management solutions", icon: Shield },
-                { title: "Research Collaborations", description: "Collaborate on groundbreaking health and pain management research studies", icon: BarChart3 },
-                { title: "Investors", description: "Join our mission to transform the future of health and pain management", icon: TrendingUp }
-              ].map((partner, index) => (
-                <div key={index} className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4" aria-hidden="true">
-                    <partner.icon className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">{partner.title}</h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">{partner.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <a 
-              href="mailto:info@recalibratepain.com" 
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 text-sm sm:text-base"
-              aria-label="Contact us via email"
-            >
-              <Mail className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-              <span>Contact Us</span>
-              <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4" aria-hidden="true" />
-            </a>
-          </div>
-        </section>
-
-        {/* Footer - Enhanced */}
-        <footer className="py-12 sm:py-16 px-4 sm:px-6 bg-gray-900 text-white" role="contentinfo">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row justify-between items-center mb-8 sm:mb-12">
-              <div className="flex items-center space-x-3 mb-6 sm:mb-0">
-                <img 
-                  src="/recalibrate-logo.png" 
-                  alt="Recalibrate logo" 
-                  className="w-10 sm:w-12 h-10 sm:h-12 object-contain"
-                />
-                <span className="text-2xl sm:text-3xl font-bold">Recalibrate</span>
-              </div>
-              
-              <div className="flex flex-col items-center sm:items-end space-y-2 text-center sm:text-right">
-                <p className="text-gray-300 text-sm sm:text-base">Ready to transform pain management?</p>
-                <a 
-                  href="mailto:info@recalibratepain.com"
-                  className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg px-2 py-1"
-                  aria-label="Send email to info@recalibratepain.com"
-                >
-                  <Mail className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                  <span className="text-sm sm:text-base">info@recalibratepain.com</span>
-                  <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4" aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-
-            <div className="border-t border-gray-800 pt-6 sm:pt-8">
-              <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-                <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-                  © 2025 Recalibrate. Smarter Health and Pain Management.
-                </p>
-                
-                {/* Social Links - Enhanced Accessibility */}
-                <div className="flex items-center space-x-3 sm:space-x-4" role="list" aria-label="Social media links">
-                  {[
-                    { 
-                      href: "https://www.instagram.com/recalibrateapp/", 
-                      color: "hover:bg-pink-600", 
-                      label: "Instagram",
-                      path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                    },
-                    { 
-                      href: "https://www.linkedin.com/company/recalibrate-app/", 
-                      color: "hover:bg-blue-700", 
-                      label: "LinkedIn",
-                      path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                    },
-                    { 
-                      href: "https://x.com/RecalibrateApp", 
-                      color: "hover:bg-gray-700", 
-                      label: "Twitter/X",
-                      path: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                    },
-                    { 
-                      href: "https://za.pinterest.com/Recalibratepain/", 
-                      color: "hover:bg-red-600", 
-                      label: "Pinterest",
-                      path: "M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.74.099.12.112.22.085.34-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.753 2.87c-.265 1.019-.985 2.304-1.477 3.079C9.26 23.641 10.618 24 12.017 24c6.624 0 11.99-5.367 11.99-12C24.007 5.367 18.641.001 12.017.001z"
-                    }
-                  ].map((social, index) => (
-                    <a 
-                      key={index} 
-                      href={social.href} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className={`w-8 sm:w-10 h-8 sm:h-10 bg-gray-800 ${social.color} rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900`}
-                      aria-label={`Follow us on ${social.label} (opens in new window)`}
-                      role="listitem"
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d={social.path} />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
-              </div>
+            <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+              <p className="text-gray-400 text-sm">© 2025 Recalibrate. Your intelligent health companion.</p>
+              <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                info@recalibratepain.com
+              </a>
             </div>
           </div>
         </footer>
+
+        {/* Contact Modal */}
+        {showContactModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={(e) => e.target === e.currentTarget && setShowContactModal(false)}>
+            <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-bold">Get in Touch</h3>
+                <button onClick={() => setShowContactModal(false)} className="p-2 hover:bg-gray-100 rounded-lg"><X className="w-5 h-5" /></button>
+              </div>
+              <a href="mailto:info@recalibratepain.com" className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Email Us</p>
+                  <p className="text-purple-600">info@recalibratepain.com</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </ErrorBoundary>
   );
