@@ -396,26 +396,26 @@ function App() {
                 </div>
               </div>
 
-              {/* Recalibrate AI & Care Team */}
+              {/* AI & Care Team */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-purple-500/5 border border-purple-100">
-                <div className="bg-gradient-to-r from-pink-500 to-rose-600 p-4 text-white">
+                <div className="bg-gradient-to-r from-gray-900 to-purple-900 p-4 text-white">
                   <div className="flex items-center gap-2">
-                    <span className="text-xl">👥</span>
-                    <span className="font-bold">Care Team</span>
+                    <span className="text-xl">🤖</span>
+                    <span className="font-bold">AI & Care Team</span>
                   </div>
                 </div>
                 <div className="p-4 space-y-2">
                   {[
+                    { icon: "💬", name: "AI Chat", desc: "Personalized insights" },
+                    { icon: "📊", name: "AI Analysis", desc: "Pattern detection" },
                     { icon: "🩺", name: "Clinicians", desc: "Patient dashboards" },
-                    { icon: "🔬", name: "Researchers", desc: "Data access" },
-                    { icon: "👨‍👩‍👧", name: "Family", desc: "Support network" },
-                    { icon: "🤝", name: "Friends", desc: "Care coordination" }
-                  ].map((member, i) => (
+                    { icon: "👨‍👩‍👧", name: "Family & Friends", desc: "Care coordination" }
+                  ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
-                      <span className="text-lg">{member.icon}</span>
+                      <span className="text-lg">{item.icon}</span>
                       <div>
-                        <p className="font-medium text-gray-900 text-sm">{member.name}</p>
-                        <p className="text-xs text-gray-500">{member.desc}</p>
+                        <p className="font-medium text-gray-900 text-sm">{item.name}</p>
+                        <p className="text-xs text-gray-500">{item.desc}</p>
                       </div>
                     </div>
                   ))}
