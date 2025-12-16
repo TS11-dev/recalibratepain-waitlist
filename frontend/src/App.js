@@ -34,7 +34,6 @@ function App() {
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(0);
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
