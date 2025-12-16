@@ -607,16 +607,15 @@ function App() {
           </div>
         </section>
 
-        {/* Free Resources Section - Expanded */}
+        {/* Recalibrate Resources Section */}
         <section id="resources" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-2">While You Wait</span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Free Resources
+                Recalibrate Resources
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Start your pain management journey today with our free content and community.
+                Start your pain management journey today with our content and community.
               </p>
             </div>
             
