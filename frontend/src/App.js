@@ -161,11 +161,8 @@ function App() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-200">
-                  <span className="text-white font-bold text-lg">R</span>
-                  <Sparkles className="w-2 h-2 text-yellow-300 absolute -top-0.5 -right-0.5" />
-                </div>
-                <span className="text-xl font-bold text-gray-900">Recalibrate</span>
+                <img src="/recalibrate-logo.png" alt="Recalibrate" className="w-10 h-10 object-contain" />
+                <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">Recalibrate</span>
               </div>
               
               <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-gray-600 hover:bg-purple-50 rounded-lg">
