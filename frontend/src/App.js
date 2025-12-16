@@ -676,7 +676,7 @@ function App() {
                 className="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl p-8 text-white hover:shadow-xl hover:shadow-purple-500/25 transition-all group"
               >
                 <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Newspaper className="w-7 h-7 text-white" />
+                  <span className="text-2xl">📬</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2">Pain Science Newsletter</h3>
                 <p className="text-white/80 mb-4">
