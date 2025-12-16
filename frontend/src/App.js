@@ -425,73 +425,61 @@ function App() {
           </div>
         </section>
 
-        {/* Subscription Plans Section - Compact */}
-        <section id="pricing" className="py-12 sm:py-16 px-4 sm:px-6 scroll-mt-20">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <span className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-2">Pricing</span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-                Simple, transparent pricing
-              </h2>
-              <p className="text-gray-600 max-w-xl mx-auto">
-                Early waitlist members get premium features free forever.
-              </p>
+        {/* Subscription Plans - Ultra Compact */}
+        <section id="pricing" className="py-10 sm:py-12 px-4 sm:px-6 scroll-mt-20">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Pricing</h2>
             </div>
             
-            <div className="grid md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {subscriptionPlans.map((plan, i) => (
                 <div
                   key={i}
-                  className={`relative bg-white rounded-xl p-4 border-2 transition-all ${
+                  className={`relative bg-white rounded-lg p-3 border-2 transition-all ${
                     plan.popular 
-                      ? 'border-purple-500 shadow-lg shadow-purple-500/15' 
+                      ? 'border-purple-500 shadow-md' 
                       : plan.isLifetime 
-                        ? 'border-amber-300 shadow-md'
-                        : 'border-purple-100/50 hover:border-purple-200'
+                        ? 'border-amber-300'
+                        : 'border-gray-200'
                   }`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
-                      <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-                        Popular
-                      </span>
-                    </div>
-                  )}
-                  {plan.isLifetime && (
-                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
-                      <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-                        Best Value
-                      </span>
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2">
+                      <span className="bg-purple-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Popular</span>
                     </div>
                   )}
                   
-                  <div className="text-center mb-3 pt-1">
-                    <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
-                    <div className="flex items-baseline justify-center gap-0.5 mt-1">
-                      <span className="text-xs text-gray-500">$</span>
-                      <span className="text-2xl font-extrabold text-gray-900">{plan.price}</span>
-                      <span className="text-xs text-gray-500">{plan.period}</span>
+                  <div className="text-center pt-1">
+                    <h3 className="text-sm font-bold text-gray-900">{plan.name}</h3>
+                    <div className="mt-1">
+                      <span className="text-lg font-bold text-gray-900">${plan.monthly}</span>
+                      {!plan.isLifetime && plan.monthly !== "0" && <span className="text-[10px] text-gray-500">/mo</span>}
+                      {plan.isLifetime && <span className="text-[10px] text-gray-500"> once</span>}
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">{plan.description}</p>
+                    {plan.yearly && (
+                      <p className="text-[10px] text-purple-600 font-medium">${plan.yearly}/yr</p>
+                    )}
+                    <p className="text-[10px] text-gray-500 mt-1">{plan.description}</p>
                   </div>
                   
-                  <ul className="space-y-1.5 mb-3">
+                  <div className="mt-2 space-y-1">
                     {plan.features.map((feature, fi) => (
-                      <li key={fi} className="flex items-start gap-1.5 text-xs text-gray-600">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
+                      <p key={fi} className="text-[10px] text-gray-600 flex items-center gap-1">
+                        <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                        {feature}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                   
                   <button 
                     onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-                    className={`w-full py-2 rounded-lg text-sm font-semibold transition-all ${
+                    className={`w-full mt-2 py-1.5 rounded text-xs font-semibold transition-all ${
                       plan.popular 
-                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-md' 
+                        ? 'bg-purple-600 text-white' 
                         : plan.isLifetime
-                          ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-md'
-                          : 'bg-purple-50 text-purple-700 hover:bg-purple-100'
+                          ? 'bg-amber-500 text-white'
+                          : 'bg-gray-100 text-gray-700'
                     }`}
                   >
                     {plan.cta}
@@ -499,10 +487,6 @@ function App() {
                 </div>
               ))}
             </div>
-            
-            <p className="text-center text-xs text-gray-500 mt-4">
-              💎 Join the waitlist now and lock in early adopter pricing!
-            </p>
           </div>
         </section>
 
