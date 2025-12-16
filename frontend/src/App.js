@@ -714,7 +714,7 @@ function App() {
                 className="bg-white rounded-2xl p-8 border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl transition-all group"
               >
                 <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Coffee className="w-7 h-7 text-white" />
+                  <span className="text-2xl">☕</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Support Our Mission</h3>
                 <p className="text-gray-600 mb-4">
