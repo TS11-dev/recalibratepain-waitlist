@@ -112,14 +112,7 @@ function App() {
     setMobileMenuOpen(false);
   };
 
-  const features = [
-    { icon: "📊", title: "Smart Tracker", desc: "Track pain, sleep, mood, energy & more across 8 health systems", color: "from-blue-500 to-indigo-600" },
-    { icon: "📈", title: "Stability Dashboard", desc: "Your overall health score from 18 variables across 8 systems", color: "from-purple-500 to-pink-600" },
-    { icon: "🧠", title: "Pain Academy", desc: "200+ lessons on pain science with XP, badges & streaks", color: "from-orange-500 to-amber-500" },
-    { icon: "🎯", title: "Therapeutic Tools", desc: "Breathing, movement, meditation & heat/cold therapy guides", color: "from-green-500 to-emerald-600" },
-    { icon: "🤖", title: "AI Insights", desc: "Chat with your AI companion powered by Gemini 2.0 Flash", color: "from-violet-500 to-purple-600" },
-    { icon: "👥", title: "Care Team", desc: "Share reports with doctors, physios & your support network", color: "from-pink-500 to-rose-600" }
-  ];
+  // Not using features array anymore - merged into comprehensive section
 
   const subscriptionPlans = [
     {
