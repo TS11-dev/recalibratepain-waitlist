@@ -543,43 +543,100 @@ function App() {
           </div>
         </section>
 
-        {/* Resources Section */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white/50">
+        {/* Resources Section - Expanded */}
+        <section className="py-20 sm:py-28 px-4 sm:px-6 bg-gradient-to-br from-white via-purple-50/30 to-indigo-50/30">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider">While You Wait</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
-                Free resources to help you today
+            <div className="text-center mb-16">
+              <span className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-100 to-purple-100 border border-purple-200 rounded-full px-4 py-2 mb-4">
+                <Sparkles className="w-4 h-4 text-purple-600" />
+                <span className="text-sm font-semibold text-purple-700">Resources & Community</span>
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-4 mb-4">
+                Start your journey today
               </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Free resources, courses, and community while you wait for the app
+              </p>
             </div>
             
-            <div className="grid sm:grid-cols-3 gap-6">
-              <a href="https://recalibrate.beehiiv.com" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-lg hover:shadow-purple-100 transition-all group">
-                <div className="text-3xl mb-4">📬</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Weekly Newsletter</h3>
-                <p className="text-gray-600 text-sm mb-4">Pain science insights, management tips, and app updates.</p>
-                <span className="text-indigo-600 text-sm font-medium inline-flex items-center">
-                  Subscribe free <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                </span>
-              </a>
-              
-              <a href="https://recalibratepain.gumroad.com/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-lg hover:shadow-purple-100 transition-all group">
-                <div className="text-3xl mb-4">📚</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Courses & Guides</h3>
+            {/* Newsletter - Featured */}
+            <div className="mb-12">
+              <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-700 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="relative">
+                  <div className="text-5xl mb-4">📬</div>
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-3">Weekly Pain Science Newsletter</h3>
+                  <p className="text-white/80 mb-6 max-w-lg mx-auto">Educational content, actionable tools, app updates, and community stories delivered to your inbox.</p>
+                  <a href="https://recalibrate.beehiiv.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-white text-purple-700 px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all hover:scale-105">
+                    <span>Subscribe Free</span>
+                    <ExternalLink className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            {/* Resources Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <a href="https://recalibratepain.gumroad.com/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-xl hover:shadow-purple-100 hover:border-purple-200 transition-all group hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">📚</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Gumroad Courses</h3>
                 <p className="text-gray-600 text-sm mb-4">Evidence-based courses and workbooks for pain education.</p>
-                <span className="text-indigo-600 text-sm font-medium inline-flex items-center">
-                  Browse courses <ExternalLink className="w-3.5 h-3.5 ml-1" />
+                <span className="text-indigo-600 text-sm font-semibold inline-flex items-center">
+                  Browse courses <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
               
-              <a href="https://ko-fi.com/N4N21O1R1W" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-lg hover:shadow-purple-100 transition-all group">
-                <div className="text-3xl mb-4">☕</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Support Development</h3>
-                <p className="text-gray-600 text-sm mb-4">Help us build the future of pain management.</p>
-                <span className="text-indigo-600 text-sm font-medium inline-flex items-center">
-                  Buy us a coffee <ExternalLink className="w-3.5 h-3.5 ml-1" />
+              <a href="https://www.etsy.com/shop/RecalibrateApp" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-xl hover:shadow-purple-100 hover:border-purple-200 transition-all group hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">🛒</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">Etsy Shop</h3>
+                <p className="text-gray-600 text-sm mb-4">Printable workbooks, trackers, and physical resources.</p>
+                <span className="text-orange-600 text-sm font-semibold inline-flex items-center">
+                  Visit shop <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
+              
+              <a href="https://ko-fi.com/N4N21O1R1W" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-xl hover:shadow-purple-100 hover:border-purple-200 transition-all group hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-pink-100 to-rose-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">☕</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors">Support Us</h3>
+                <p className="text-gray-600 text-sm mb-4">Help us build the future of pain management.</p>
+                <span className="text-pink-600 text-sm font-semibold inline-flex items-center">
+                  Buy us a coffee <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
+              
+              <div className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-xl hover:shadow-purple-100 hover:border-purple-200 transition-all group hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-100 to-green-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">👥</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Community</h3>
+                <p className="text-gray-600 text-sm mb-4">Patient support groups and community forums.</p>
+                <span className="text-emerald-600 text-sm font-semibold inline-flex items-center">
+                  Coming soon <Sparkles className="w-4 h-4 ml-1" />
+                </span>
+              </div>
+            </div>
+            
+            {/* Social Links */}
+            <div className="mt-12 text-center">
+              <p className="text-gray-600 mb-4">Follow us on social media</p>
+              <div className="flex justify-center space-x-4">
+                {[
+                  { href: "https://www.instagram.com/recalibrateapp/", icon: "📸", label: "Instagram", color: "hover:bg-pink-500" },
+                  { href: "https://www.linkedin.com/company/recalibrate-app/", icon: "💼", label: "LinkedIn", color: "hover:bg-blue-600" },
+                  { href: "https://x.com/RecalibrateApp", icon: "𝕏", label: "X", color: "hover:bg-gray-700" },
+                  { href: "https://za.pinterest.com/Recalibratepain/", icon: "📌", label: "Pinterest", color: "hover:bg-red-500" }
+                ].map((social, i) => (
+                  <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 bg-gray-100 ${social.color} hover:text-white rounded-xl flex items-center justify-center transition-all hover:scale-110 text-lg`} aria-label={social.label}>
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
