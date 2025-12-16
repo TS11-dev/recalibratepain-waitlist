@@ -538,7 +538,7 @@ function App() {
             </div>
 
             {/* Feature 5: Recalibrate AI */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20 p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div>
                 <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-4">PRO</span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Recalibrate AI</h3>
