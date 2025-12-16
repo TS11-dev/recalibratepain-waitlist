@@ -174,11 +174,14 @@ function App() {
               </button>
               
               <div className="hidden md:flex items-center space-x-1">
-                {['features', 'pricing', 'partners', 'resources', 'contact us'].map((item) => (
+                {['features', 'pricing', 'partners', 'resources'].map((item) => (
                   <button key={item} onClick={() => smoothScroll(item)} className="px-4 py-2 text-gray-600 hover:text-purple-600 text-sm font-medium rounded-lg hover:bg-purple-50 transition-all capitalize">
                     {item}
                   </button>
                 ))}
+                <button onClick={() => setShowContactModal(true)} className="px-4 py-2 text-gray-600 hover:text-purple-600 text-sm font-medium rounded-lg hover:bg-purple-50 transition-all">
+                  Contact Us
+                </button>
                 <button onClick={() => smoothScroll('waitlist')} className="ml-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5">
                   Join the Revolution
                 </button>
