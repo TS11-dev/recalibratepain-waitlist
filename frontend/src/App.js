@@ -298,167 +298,265 @@ function App() {
         {/* Features Section - 200+ Tools & Resources */}
         <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-white to-purple-50/30">
           <div className="max-w-7xl mx-auto">
-            {/* Header with Phone Mockup */}
-            <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
-              {/* Phone Mockup */}
-              <div className="relative flex-shrink-0">
-                <div className="relative mx-auto w-[280px] h-[580px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-10"></div>
-                  <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden">
-                    <img 
-                      src="/app-screenshot.png" 
-                      alt="Recalibrate App Dashboard" 
-                      className="w-full h-full object-cover object-top"
-                    />
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                200+ Tools & Resources
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+                Everything you need to understand, track, and manage your chronic pain journey.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">🆓 FREE — Tracker & Analytics</span>
+                <span className="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">🚀 GO — Academy & Tools</span>
+                <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">⭐ PRO — AI & Care Team</span>
+              </div>
+            </div>
+
+            {/* Feature 1: Smart Tracker - with visual */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+              <div>
+                <span className="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full mb-4">FREE</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Smart Tracker</h3>
+                <p className="text-gray-600 mb-6 text-lg">
+                  Log pain levels, sleep quality, mood, energy, and symptoms across 8 interconnected health systems. Build your personal health timeline with daily check-ins.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: "🎯", label: "Pain Levels", desc: "0-10 scale tracking" },
+                    { icon: "😴", label: "Sleep Quality", desc: "Duration & quality" },
+                    { icon: "💊", label: "Medications", desc: "Effectiveness tracking" },
+                    { icon: "⚡", label: "Energy & Mood", desc: "Daily patterns" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 p-3 bg-white rounded-xl border border-gray-100">
+                      <span className="text-2xl">{item.icon}</span>
+                      <div>
+                        <p className="font-semibold text-gray-900 text-sm">{item.label}</p>
+                        <p className="text-xs text-gray-500">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative">
+                <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 mx-auto mb-4 bg-white rounded-full shadow-lg flex items-center justify-center">
+                      <span className="text-6xl">📊</span>
+                    </div>
+                    <div className="bg-white rounded-2xl p-4 shadow-lg">
+                      <p className="text-3xl font-bold text-blue-600">8</p>
+                      <p className="text-sm text-gray-600">Health Systems</p>
+                    </div>
                   </div>
                 </div>
-                {/* Floating badges */}
-                <div className="absolute -right-4 top-20 bg-white rounded-xl shadow-lg p-3 animate-bounce">
-                  <span className="text-2xl">📊</span>
-                  <p className="text-xs font-bold text-gray-900">53% Stability</p>
-                </div>
-                <div className="absolute -left-4 bottom-32 bg-white rounded-xl shadow-lg p-3">
-                  <span className="text-2xl">🧠</span>
-                  <p className="text-xs font-bold text-gray-900">90+ Lessons</p>
-                </div>
-              </div>
-              
-              {/* Text Content */}
-              <div className="text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                  200+ Tools & Resources
-                </h2>
-                <p className="text-lg text-gray-600 max-w-xl mb-6">
-                  Everything you need to understand, track, and manage your chronic pain journey — all in one beautiful app.
-                </p>
-                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                  <span className="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">FREE — Smart Tracker & Analytics</span>
-                  <span className="bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-full text-sm font-medium">GO — Pain Academy & Tools</span>
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1.5 rounded-full text-sm font-medium">PRO — AI & Care Team</span>
-                </div>
               </div>
             </div>
-            
-            {/* 6 Feature Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              
-              {/* 1. Smart Tracker - FREE */}
-              <div className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all">
-                <div className="absolute top-4 right-4">
-                  <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
-                </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">📊</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Smart Tracker</h3>
-                <p className="text-gray-600 mb-4">
-                  Log pain levels, sleep quality, mood, energy, and symptoms across 8 interconnected health systems. Build your personal health timeline.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">Pain Logging</span>
-                  <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">Sleep</span>
-                  <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">Mood</span>
-                  <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">Medications</span>
+
+            {/* Feature 2: Analytics Dashboard - reversed */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+              <div className="order-2 lg:order-1 relative">
+                <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+                  <div className="w-full max-w-xs">
+                    <div className="bg-white rounded-2xl p-6 shadow-lg mb-4">
+                      <p className="text-sm text-gray-500 mb-1">Stability Score</p>
+                      <p className="text-4xl font-bold text-indigo-600">53%</p>
+                      <div className="w-full h-2 bg-gray-200 rounded-full mt-2">
+                        <div className="w-1/2 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-white rounded-xl p-3 shadow text-center">
+                        <p className="text-xl font-bold text-purple-600">18</p>
+                        <p className="text-xs text-gray-500">Variables</p>
+                      </div>
+                      <div className="bg-white rounded-xl p-3 shadow text-center">
+                        <p className="text-xl font-bold text-indigo-600">30+</p>
+                        <p className="text-xs text-gray-500">Days Data</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              {/* 2. Analytics Dashboard - FREE */}
-              <div className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all">
-                <div className="absolute top-4 right-4">
-                  <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
-                </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">📈</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Analytics Dashboard</h3>
-                <p className="text-gray-600 mb-4">
+              <div className="order-1 lg:order-2">
+                <span className="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full mb-4">FREE</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Analytics Dashboard</h3>
+                <p className="text-gray-600 mb-6 text-lg">
                   See your Stability Score calculated from 18 variables across 8 health systems. Visualize trends, patterns, and correlations over time.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded-full">Stability Score</span>
-                  <span className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded-full">Trends</span>
-                  <span className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded-full">8 Systems</span>
-                </div>
+                <ul className="space-y-3">
+                  {["Overall stability score from all your data", "Trend analysis over weeks and months", "Pattern detection across health systems", "Exportable reports for your doctor"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+            </div>
 
-              {/* 3. Pain Academy - GO */}
-              <div className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all">
-                <div className="absolute top-4 right-4">
-                  <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full">GO</span>
-                </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🧠</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Pain Academy</h3>
-                <p className="text-gray-600 mb-4">
+            {/* Feature 3: Pain Academy */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+              <div>
+                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-4">GO</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Pain Academy</h3>
+                <p className="text-gray-600 mb-6 text-lg">
                   90+ evidence-based lessons on pain science. Earn XP, unlock badges, and build streaks as you master the neurobiology of chronic pain.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full">90+ Lessons</span>
-                  <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full">XP System</span>
-                  <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full">Badges</span>
+                <div className="flex flex-wrap gap-3 mb-6">
+                  {["Foundations of Pain", "Neurobiology", "Management Strategies", "Mind-Body Connection"].map((topic, i) => (
+                    <span key={i} className="bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-full text-sm font-medium">{topic}</span>
+                  ))}
                 </div>
               </div>
+              <div className="relative">
+                <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="flex justify-center gap-4 mb-6">
+                      <div className="bg-white rounded-xl p-4 shadow-lg">
+                        <p className="text-2xl font-bold text-emerald-600">90+</p>
+                        <p className="text-xs text-gray-500">Lessons</p>
+                      </div>
+                      <div className="bg-white rounded-xl p-4 shadow-lg">
+                        <p className="text-2xl font-bold text-amber-500">835</p>
+                        <p className="text-xs text-gray-500">XP</p>
+                      </div>
+                    </div>
+                    <div className="flex justify-center gap-2">
+                      {["🏆", "🎯", "🔥", "⭐", "🧠"].map((badge, i) => (
+                        <div key={i} className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl">{badge}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-              {/* 4. Tools & Exercises - GO */}
-              <div className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all">
-                <div className="absolute top-4 right-4">
-                  <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full">GO</span>
+            {/* Feature 4: Tools & Exercises - reversed */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+              <div className="order-2 lg:order-1 relative">
+                <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+                  <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
+                    {[
+                      { icon: "📝", name: "Journal", color: "bg-orange-500" },
+                      { icon: "🎯", name: "Goals", color: "bg-amber-500" },
+                      { icon: "💡", name: "Inspiration", color: "bg-yellow-500" },
+                      { icon: "🏃", name: "Exercises", color: "bg-orange-600" }
+                    ].map((tool, i) => (
+                      <div key={i} className="bg-white rounded-2xl p-4 shadow-lg text-center hover:scale-105 transition-transform">
+                        <div className={`w-12 h-12 ${tool.color} rounded-xl mx-auto mb-2 flex items-center justify-center text-2xl text-white`}>
+                          {tool.icon}
+                        </div>
+                        <p className="font-semibold text-gray-900 text-sm">{tool.name}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🎯</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Tools & Exercises</h3>
-                <p className="text-gray-600 mb-4">
+              </div>
+              <div className="order-1 lg:order-2">
+                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-4">GO</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Tools & Exercises</h3>
+                <p className="text-gray-600 mb-6 text-lg">
                   Therapeutic tools including journal, goal setting, daily inspiration, and guided exercises for movement therapy, breathing, and relaxation.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded-full">Journal</span>
-                  <span className="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded-full">Goals</span>
-                  <span className="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded-full">Exercises</span>
-                  <span className="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded-full">Inspiration</span>
-                </div>
+                <ul className="space-y-3">
+                  {["Daily journaling with prompts", "Goal tracking and progress", "Curated daily inspiration", "Guided movement & breathing exercises"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+            </div>
 
-              {/* 5. Recalibrate AI - PRO */}
-              <div className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all">
-                <div className="absolute top-4 right-4">
-                  <span className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">PRO</span>
-                </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-violet-700 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🤖</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Recalibrate AI</h3>
-                <p className="text-gray-600 mb-4">
+            {/* Feature 5: Recalibrate AI */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+              <div>
+                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-4">PRO</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Recalibrate AI</h3>
+                <p className="text-gray-600 mb-6 text-lg">
                   Your AI companion powered by Gemini 2.0 Flash. Chat mode, research mode, and AI analysis that detects patterns in your health data.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-full">AI Chat</span>
-                  <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-full">Research Mode</span>
-                  <span className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-full">Pattern Analysis</span>
+                <div className="space-y-3">
+                  {[
+                    { mode: "💬 Chat Mode", desc: "Ask questions about your health data" },
+                    { mode: "🔬 Research Mode", desc: "Deep dive into pain science topics" },
+                    { mode: "📊 Analysis Mode", desc: "AI-powered pattern detection" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 p-3 bg-purple-50 rounded-xl">
+                      <span className="font-semibold text-purple-700">{item.mode}</span>
+                      <span className="text-gray-600 text-sm">{item.desc}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+              <div className="relative">
+                <div className="bg-gradient-to-br from-purple-100 to-violet-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+                  <div className="bg-white rounded-2xl p-6 shadow-xl w-full max-w-xs">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
+                        <Bot className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-gray-900">Recalibrate AI</p>
+                        <p className="text-xs text-gray-500">Powered by Gemini 2.0</p>
+                      </div>
+                    </div>
+                    <div className="bg-purple-50 rounded-xl p-3 mb-3">
+                      <p className="text-sm text-gray-700">Based on your data, I notice your pain increases after poor sleep. Want me to suggest some strategies?</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Yes, show me</span>
+                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">Tell me more</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-              {/* 6. Care Team - PRO */}
-              <div className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all">
-                <div className="absolute top-4 right-4">
-                  <span className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">PRO</span>
+            {/* Feature 6: Care Team - reversed */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1 relative">
+                <div className="bg-gradient-to-br from-pink-100 to-rose-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="flex justify-center mb-6">
+                      <div className="relative">
+                        <div className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-pink-200">👤</div>
+                        <div className="absolute -top-2 -right-2 w-24 h-24 flex items-center justify-center">
+                          <div className="absolute top-0 right-0 w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl border-2 border-blue-200">🩺</div>
+                        </div>
+                        <div className="absolute -bottom-2 -right-4 w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl border-2 border-green-200">👨‍👩‍👧</div>
+                        <div className="absolute -bottom-2 -left-4 w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl border-2 border-purple-200">🔬</div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 font-medium">Connected Care Network</p>
+                  </div>
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">👥</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Care Team</h3>
-                <p className="text-gray-600 mb-4">
+              </div>
+              <div className="order-1 lg:order-2">
+                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-4">PRO</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Care Team</h3>
+                <p className="text-gray-600 mb-6 text-lg">
                   Connect clinicians, researchers, family, and friends. Each gets their own dashboard with analytics to coordinate your care together.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-pink-50 text-pink-700 px-2 py-1 rounded-full">Clinician Dashboard</span>
-                  <span className="text-xs bg-pink-50 text-pink-700 px-2 py-1 rounded-full">Carer Dashboard</span>
-                  <span className="text-xs bg-pink-50 text-pink-700 px-2 py-1 rounded-full">Reports</span>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: "🩺", title: "Clinician Dashboard", desc: "Full patient analytics" },
+                    { icon: "🔬", title: "Researcher Access", desc: "Anonymized data sharing" },
+                    { icon: "👨‍👩‍👧", title: "Family Dashboard", desc: "Support & coordination" },
+                    { icon: "📋", title: "Shared Reports", desc: "Export & share progress" }
+                  ].map((item, i) => (
+                    <div key={i} className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                      <span className="text-2xl">{item.icon}</span>
+                      <p className="font-semibold text-gray-900 text-sm mt-1">{item.title}</p>
+                      <p className="text-xs text-gray-500">{item.desc}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-
             </div>
+
           </div>
         </section>
 
