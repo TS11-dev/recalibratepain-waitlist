@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { 
   Heart, Brain, Activity, Shield, Target, 
-  TrendingUp, Award, CheckCircle, ArrowRight, Sparkles,
+  TrendingUp, CheckCircle, ArrowRight, Sparkles,
   BarChart3, Calendar, Users, BookOpen, Bell,
   Zap, MessageCircle, Mail, ExternalLink,
-  Clock, ChevronDown, ChevronUp, Star, AlertTriangle, X, Menu
+  Clock, ChevronDown, ChevronUp, Star, AlertTriangle, X, Menu,
+  Flame, Moon, Coffee, Dumbbell
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -14,19 +15,17 @@ class ErrorBoundary extends React.Component {
     super(props);
     this.state = { hasError: false };
   }
-
   static getDerivedStateFromError(error) {
     return { hasError: true };
   }
-
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
           <div className="text-center p-8">
             <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Something went wrong</h2>
-            <button onClick={() => window.location.reload()} className="bg-violet-600 text-white px-6 py-3 rounded-lg">
+            <button onClick={() => window.location.reload()} className="bg-indigo-600 text-white px-6 py-3 rounded-xl">
               Reload Page
             </button>
           </div>
@@ -40,9 +39,8 @@ class ErrorBoundary extends React.Component {
 function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [subscribers, setSubscribers] = useState(188);
+  const [subscribers, setSubscribers] = useState(0);
   const [displayedCount, setDisplayedCount] = useState(0);
-  const [actualCount, setActualCount] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,8 +68,8 @@ function App() {
       });
       if (response.ok) {
         const data = await response.json();
-        setActualCount(data.count);
         setSubscribers(data.count);
+        setDisplayedCount(data.count);
       }
     } catch (error) {
       console.log('Error fetching count');
@@ -84,30 +82,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (actualCount > 0) setDisplayedCount(actualCount);
-  }, [actualCount]);
-
-  useEffect(() => {
-    const initializeCounter = async () => {
-      try {
-        const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
-          method: 'GET',
-          headers: { 'Cache-Control': 'no-cache' },
-          signal: AbortSignal.timeout(8000)
-        });
-        if (response.ok) {
-          const data = await response.json();
-          setActualCount(data.count);
-          setSubscribers(data.count);
-        }
-      } catch (error) {
-        console.log('API error');
-      }
-    };
-    initializeCounter();
+    fetchSubscriberCount();
     const countInterval = setInterval(() => fetchSubscriberCount(), 15000);
     return () => clearInterval(countInterval);
-  }, [BACKEND_URL, fetchSubscriberCount]);
+  }, [fetchSubscriberCount]);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
@@ -131,9 +109,9 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          toast.success('🚀 You\'re on the list! We\'ll notify you at launch.', { duration: 5000 });
+          toast.success('🎉 You\'re in! We\'ll let you know when we launch.', { duration: 5000 });
           setSubscribers(data.total_subscribers || subscribers + 1);
-          setActualCount(data.total_subscribers || actualCount + 1);
+          setDisplayedCount(data.total_subscribers || displayedCount + 1);
           setEmail('');
           setTimeout(() => fetchSubscriberCount(), 1000);
         } else {
@@ -150,11 +128,11 @@ function App() {
   };
 
   const faqs = [
-    { question: "When will Recalibrate launch?", answer: "We're launching on iOS, Android, and Web in Q4 2025. Join the waitlist to get exclusive early access before the public release." },
-    { question: "What devices will be supported?", answer: "Recalibrate will be available on iOS, Android, and as a web application - access your health data from any device, anywhere." },
-    { question: "How does AI-powered tracking work?", answer: "Our algorithms analyze your symptom patterns, activities, and health metrics to identify triggers, predict flare-ups, and suggest personalized management strategies." },
-    { question: "Is my health data secure?", answer: "Absolutely. We use enterprise-grade encryption and comply with healthcare privacy regulations. Your data belongs to you." },
-    { question: "What makes Recalibrate different?", answer: "We're the first platform combining multi-system health tracking, AI pattern recognition, evidence-based education, and clinical integration in one solution." }
+    { question: "When will Recalibrate launch?", answer: "We're launching on iOS, Android, and Web in Q4 2025. Join the waitlist to get early access and help shape the app!" },
+    { question: "What devices will be supported?", answer: "Recalibrate will be available everywhere - iPhone, Android phones, tablets, and web browsers. Track your health from any device." },
+    { question: "How does the AI-powered tracking work?", answer: "Our algorithms learn your unique patterns from daily check-ins. Over time, we can predict flare-ups and suggest what's helping or hurting your stability." },
+    { question: "Is my health data private and secure?", answer: "100%. Your data is encrypted and never shared. You own your data, and we're fully compliant with healthcare privacy standards." },
+    { question: "What makes Recalibrate different?", answer: "We combine symptom tracking, pain education, therapeutic tools, and AI insights in one app. Plus, you can share reports with your care team." }
   ];
 
   useEffect(() => {
@@ -175,78 +153,380 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-white overflow-x-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 overflow-x-hidden">
         <Toaster position="top-center" />
         
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-purple-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <img src="/recalibrate-logo.png" alt="Recalibrate" className="w-8 h-8 object-contain" />
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-200">
+                  <span className="text-white font-bold text-lg">R</span>
+                  <Sparkles className="w-2 h-2 text-yellow-300 absolute -top-0.5 -right-0.5" />
+                </div>
                 <span className="text-xl font-bold text-gray-900">Recalibrate</span>
               </div>
               
-              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-gray-600">
+              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-gray-600 hover:bg-purple-50 rounded-lg">
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
               
-              <div className="hidden md:flex items-center space-x-8">
-                <button onClick={() => smoothScroll('features')} className="text-gray-600 hover:text-gray-900 text-sm font-medium">Features</button>
-                <button onClick={() => smoothScroll('how-it-works')} className="text-gray-600 hover:text-gray-900 text-sm font-medium">How It Works</button>
-                <button onClick={() => smoothScroll('faq')} className="text-gray-600 hover:text-gray-900 text-sm font-medium">FAQ</button>
-                <button onClick={() => smoothScroll('waitlist')} className="bg-violet-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-violet-700 transition-all">
-                  Join Waitlist
+              <div className="hidden md:flex items-center space-x-6">
+                <button onClick={() => smoothScroll('features')} className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Features</button>
+                <button onClick={() => smoothScroll('preview')} className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">App Preview</button>
+                <button onClick={() => smoothScroll('faq')} className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">FAQ</button>
+                <button onClick={() => smoothScroll('waitlist')} className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-purple-200 transition-all">
+                  Get Early Access
                 </button>
               </div>
             </div>
           </div>
           
           {mobileMenuOpen && (
-            <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4 space-y-3">
-              <button onClick={() => { smoothScroll('features'); setMobileMenuOpen(false); }} className="block w-full text-left py-2 text-gray-600">Features</button>
-              <button onClick={() => { smoothScroll('how-it-works'); setMobileMenuOpen(false); }} className="block w-full text-left py-2 text-gray-600">How It Works</button>
-              <button onClick={() => { smoothScroll('faq'); setMobileMenuOpen(false); }} className="block w-full text-left py-2 text-gray-600">FAQ</button>
-              <button onClick={() => { smoothScroll('waitlist'); setMobileMenuOpen(false); }} className="w-full bg-violet-600 text-white py-3 rounded-full font-semibold">Join Waitlist</button>
+            <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-purple-100 py-4 px-4 space-y-2">
+              <button onClick={() => { smoothScroll('features'); setMobileMenuOpen(false); }} className="block w-full text-left py-3 px-4 text-gray-600 hover:bg-purple-50 rounded-xl">Features</button>
+              <button onClick={() => { smoothScroll('preview'); setMobileMenuOpen(false); }} className="block w-full text-left py-3 px-4 text-gray-600 hover:bg-purple-50 rounded-xl">App Preview</button>
+              <button onClick={() => { smoothScroll('faq'); setMobileMenuOpen(false); }} className="block w-full text-left py-3 px-4 text-gray-600 hover:bg-purple-50 rounded-xl">FAQ</button>
+              <button onClick={() => { smoothScroll('waitlist'); setMobileMenuOpen(false); }} className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold">Get Early Access</button>
             </div>
           )}
         </nav>
 
         {/* Hero Section */}
-        <section className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6 bg-gradient-to-b from-violet-50 via-white to-white">
+        <section className="pt-28 pb-12 sm:pt-36 sm:pb-20 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Left Content */}
-              <div className="text-center lg:text-left">
-                <div className="inline-flex items-center space-x-2 bg-violet-100 text-violet-700 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
-                  <Sparkles className="w-4 h-4" />
-                  <span>Launching Q4 2025</span>
-                </div>
-                
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                  Take control of your
-                  <span className="text-violet-600"> health journey</span>
-                </h1>
-                
-                <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
-                  The intelligent health companion that tracks symptoms, identifies patterns, and helps you live better with chronic pain.
-                </p>
-                
-                {/* Email Form - Hero */}
-                <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto lg:mx-0 mb-8">
-                  <div className="flex flex-col sm:flex-row gap-3">
+            <div className="text-center mb-12">
+              {/* Launch Badge */}
+              <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur border border-purple-200 rounded-full px-4 py-2 mb-8 shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="text-sm font-medium text-gray-700">Launching Q4 2025 on iOS, Android & Web</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                Your intelligent health and
+                <br />
+                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">pain management</span> companion
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Track symptoms, discover patterns, access therapeutic tools, and get AI-powered insights — all designed to help you live better with chronic pain.
+              </p>
+              
+              {/* Email Form */}
+              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto mb-8">
+                <div className="bg-white rounded-2xl p-2 shadow-xl shadow-purple-100 border border-purple-100">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="email"
                       placeholder="Enter your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 px-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-violet-500 text-gray-900 bg-white"
+                      className="flex-1 px-4 py-3 bg-gray-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-400"
                       required
                     />
                     <button
                       type="submit"
                       disabled={loading || !email.trim()}
-                      className="bg-violet-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-violet-700 transition-all disabled:opacity-50 flex items-center justify-center space-x-2 whitespace-nowrap"
+                      className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center space-x-2 whitespace-nowrap"
+                    >
+                      {loading ? (
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <span>Join Waitlist</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </form>
+              
+              {/* Social Proof */}
+              <div className="flex items-center justify-center gap-6 text-sm">
+                <div className="flex items-center space-x-2">
+                  <div className="flex -space-x-2">
+                    {['😊', '🙂', '😄', '🤗'].map((emoji, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-white flex items-center justify-center text-sm">
+                        {emoji}
+                      </div>
+                    ))}
+                  </div>
+                  <span className="font-semibold text-gray-700">{displayedCount > 0 ? `${displayedCount}+` : '...'} on the waitlist</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* App Preview Mockup */}
+            <div className="relative max-w-4xl mx-auto">
+              <div className="bg-white rounded-3xl shadow-2xl shadow-purple-200/50 border border-purple-100 overflow-hidden">
+                {/* App Header Bar */}
+                <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-700 px-6 py-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">R</span>
+                      </div>
+                      <span className="text-white font-semibold">Recalibrate</span>
+                    </div>
+                    <div className="flex items-center space-x-4 text-white/80 text-sm">
+                      <span className="hidden sm:inline">🏠 Home</span>
+                      <span className="hidden sm:inline">📊 Smart Tracker</span>
+                      <span className="hidden sm:inline">📈 Dashboard</span>
+                      <span className="hidden sm:inline">🧠 Pain Academy</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* App Content Preview */}
+                <div className="p-6 sm:p-8 bg-gradient-to-br from-indigo-50/50 via-purple-50/50 to-pink-50/50">
+                  <div className="text-center mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Welcome to <span className="text-indigo-600">Recalibrate</span></h2>
+                    <p className="text-gray-500">Your intelligent health and pain management companion</p>
+                  </div>
+                  
+                  {/* Stats Row */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                    {[
+                      { value: "53%", label: "Current Stability", color: "text-indigo-600" },
+                      { value: "50", label: "Lessons Completed", color: "text-purple-600" },
+                      { value: "10", label: "Days Tracked", color: "text-pink-600" },
+                      { value: "66%", label: "Data Quality", color: "text-green-600" }
+                    ].map((stat, i) => (
+                      <div key={i} className="bg-white rounded-2xl p-4 shadow-sm border border-purple-50 text-center">
+                        <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
+                        <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Feature Cards */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-white rounded-2xl p-5 shadow-sm border border-purple-50">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <span className="text-2xl">💊</span>
+                        <h3 className="font-semibold text-gray-900">My Medications</h3>
+                      </div>
+                      <p className="text-sm text-gray-500">Manage your schedule and track effectiveness</p>
+                    </div>
+                    <div className="bg-white rounded-2xl p-5 shadow-sm border border-purple-50">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <span className="text-2xl">🐉</span>
+                        <h3 className="font-semibold text-gray-900">Hey! I'm Calum</h3>
+                      </div>
+                      <p className="text-sm text-gray-500">Want a quick tour of Recalibrate's features?</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating Feature Badges */}
+              <div className="absolute -top-4 -right-4 sm:right-8 bg-white rounded-xl shadow-lg p-3 border border-purple-100 animate-bounce-slow hidden sm:block">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500">Pain Level</p>
+                    <p className="text-sm font-bold text-gray-900">-32% this week</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-4 -left-4 sm:left-8 bg-white rounded-xl shadow-lg p-3 border border-purple-100 animate-bounce-slow hidden sm:block" style={{ animationDelay: '1s' }}>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Brain className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500">AI Insight</p>
+                    <p className="text-sm font-bold text-gray-900">Pattern detected</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider">What You'll Get</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                Everything you need to manage your health
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Built with chronic pain warriors in mind. Real tools that actually help.
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: "📊", title: "Smart Tracker", description: "Log pain, sleep, mood, energy & more across 8 health systems. Takes just 2 mins daily.", color: "from-blue-50 to-indigo-50", border: "border-blue-100" },
+                { icon: "📈", title: "Stability Dashboard", description: "See your overall health stability score calculated from 18 health variables.", color: "from-purple-50 to-pink-50", border: "border-purple-100" },
+                { icon: "🧠", title: "Pain Academy", description: "200+ evidence-based lessons on pain science, management strategies, and more.", color: "from-orange-50 to-amber-50", border: "border-orange-100" },
+                { icon: "🎯", title: "Therapeutic Tools", description: "Guided exercises, breathing techniques, mindfulness sessions, and grounding tools.", color: "from-green-50 to-emerald-50", border: "border-green-100" },
+                { icon: "✨", title: "AI Insights", description: "Pattern recognition that learns your triggers and predicts flare-ups before they happen.", color: "from-indigo-50 to-violet-50", border: "border-indigo-100" },
+                { icon: "👥", title: "Care Team", description: "Share reports with your doctors, physios, and support network with one click.", color: "from-pink-50 to-rose-50", border: "border-pink-100" }
+              ].map((feature, index) => (
+                <div key={index} className={`bg-gradient-to-br ${feature.color} rounded-2xl p-6 border ${feature.border} hover:shadow-lg hover:shadow-purple-100 transition-all duration-300 group`}>
+                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{feature.icon}</div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* App Preview Section */}
+        <section id="preview" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider">App Preview</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                See what's inside
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                A sneak peek at the tools you'll have access to
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Smart Tracker Card */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl shadow-purple-100 border border-purple-100">
+                <div className="bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-3">
+                  <div className="flex items-center space-x-2 text-white">
+                    <span>📊</span>
+                    <span className="font-medium">Smart Tracker</span>
+                  </div>
+                </div>
+                <div className="p-5 bg-gradient-to-br from-indigo-50/50 to-purple-50/50">
+                  <p className="text-sm text-gray-600 mb-4">Track your health intelligently with personalized insights</p>
+                  <div className="space-y-3">
+                    {[
+                      { icon: "💪", label: "Physical Health", active: true },
+                      { icon: "🧠", label: "Mental & Cognitive", active: false },
+                      { icon: "🌍", label: "Lifestyle & Environment", active: false }
+                    ].map((item, i) => (
+                      <div key={i} className={`flex items-center space-x-3 p-3 rounded-xl ${item.active ? 'bg-indigo-100 border border-indigo-200' : 'bg-white border border-gray-100'}`}>
+                        <span className="text-lg">{item.icon}</span>
+                        <span className={`text-sm font-medium ${item.active ? 'text-indigo-700' : 'text-gray-600'}`}>{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Stability Dashboard Card */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl shadow-purple-100 border border-purple-100">
+                <div className="bg-gradient-to-r from-purple-500 to-pink-600 px-4 py-3">
+                  <div className="flex items-center space-x-2 text-white">
+                    <span>📈</span>
+                    <span className="font-medium">Stability Dashboard</span>
+                  </div>
+                </div>
+                <div className="p-5 bg-gradient-to-br from-purple-50/50 to-pink-50/50">
+                  <div className="text-center mb-4">
+                    <div className="relative inline-flex items-center justify-center w-24 h-24">
+                      <svg className="w-24 h-24 transform -rotate-90">
+                        <circle cx="48" cy="48" r="40" stroke="#e5e7eb" strokeWidth="8" fill="none" />
+                        <circle cx="48" cy="48" r="40" stroke="url(#gradient)" strokeWidth="8" fill="none" 
+                          strokeDasharray="251.2" strokeDashoffset="117.8" strokeLinecap="round" />
+                        <defs>
+                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#8b5cf6" />
+                            <stop offset="100%" stopColor="#ec4899" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <div className="absolute">
+                        <span className="text-2xl font-bold text-gray-900">53%</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-500 mt-2">Overall Stability Score</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="bg-white rounded-xl p-2 border border-gray-100">
+                      <p className="text-lg font-bold text-indigo-600">22</p>
+                      <p className="text-xs text-gray-500">Entries</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-2 border border-gray-100">
+                      <p className="text-lg font-bold text-purple-600">11</p>
+                      <p className="text-xs text-gray-500">Days</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Pain Academy Card */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl shadow-purple-100 border border-purple-100">
+                <div className="bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-3">
+                  <div className="flex items-center space-x-2 text-white">
+                    <span>🧠</span>
+                    <span className="font-medium">Pain Academy</span>
+                  </div>
+                </div>
+                <div className="p-5 bg-gradient-to-br from-orange-50/50 to-amber-50/50">
+                  <p className="text-sm text-gray-600 mb-4">Evidence-based education to understand your pain</p>
+                  <div className="space-y-2">
+                    {[
+                      { title: "Understanding Pain Science", xp: "50 XP" },
+                      { title: "Nervous System Basics", xp: "75 XP" },
+                      { title: "Pain Management Strategies", xp: "100 XP" }
+                    ].map((lesson, i) => (
+                      <div key={i} className="flex items-center justify-between p-3 bg-white rounded-xl border border-gray-100">
+                        <span className="text-sm font-medium text-gray-700">{lesson.title}</span>
+                        <span className="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full">{lesson.xp}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Waitlist CTA Section */}
+        <section id="waitlist" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl shadow-purple-200/50 border border-purple-100 text-center relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-br from-pink-100 to-purple-100 rounded-full blur-3xl opacity-50 translate-y-1/2 -translate-x-1/2"></div>
+              
+              <div className="relative">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full px-4 py-2 text-sm font-medium mb-6">
+                  <Bell className="w-4 h-4" />
+                  <span>Join {displayedCount > 0 ? displayedCount : '...'} others on the waitlist</span>
+                </div>
+                
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                  Be the first to try Recalibrate
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto">
+                  Get exclusive early access, founding member perks, and help shape the app that could change how you manage pain.
+                </p>
+                
+                <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto mb-6">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      placeholder="you@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading || !email.trim()}
+                      className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-200 transition-all disabled:opacity-50 flex items-center justify-center space-x-2"
                     >
                       {loading ? (
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -260,342 +540,46 @@ function App() {
                   </div>
                 </form>
                 
-                {/* Social Proof */}
-                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
-                  <div className="flex items-center space-x-2">
-                    <div className="flex -space-x-2">
-                      {[...Array(4)].map((_, i) => (
-                        <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
-                          {['A', 'M', 'S', 'J'][i]}
-                        </div>
-                      ))}
-                    </div>
-                    <span className="font-medium text-gray-700">{displayedCount}+ people waiting</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                    <span className="ml-1">Early reviews</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Right - App Preview */}
-              <div className="relative flex justify-center lg:justify-end">
-                <div className="relative">
-                  {/* Phone Mockup */}
-                  <div className="relative w-64 sm:w-72 mx-auto">
-                    <div className="bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
-                      <div className="bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 rounded-[2.5rem] overflow-hidden aspect-[9/19]">
-                        {/* Blurred App Preview */}
-                        <div className="h-full p-4 flex flex-col">
-                          {/* Status bar mock */}
-                          <div className="flex justify-between items-center mb-4 opacity-70">
-                            <span className="text-white text-xs">9:41</span>
-                            <div className="flex space-x-1">
-                              <div className="w-4 h-2 bg-white/50 rounded-sm"></div>
-                              <div className="w-4 h-2 bg-white/50 rounded-sm"></div>
-                            </div>
-                          </div>
-                          
-                          {/* Blurred content placeholder */}
-                          <div className="flex-1 space-y-4">
-                            <div className="text-center">
-                              <div className="w-16 h-16 mx-auto bg-white/20 rounded-2xl backdrop-blur-xl mb-3 flex items-center justify-center">
-                                <Heart className="w-8 h-8 text-white" />
-                              </div>
-                              <div className="h-4 bg-white/30 rounded-full w-24 mx-auto backdrop-blur-sm"></div>
-                            </div>
-                            
-                            <div className="space-y-3 mt-6">
-                              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3">
-                                <div className="h-3 bg-white/40 rounded-full w-20 mb-2"></div>
-                                <div className="h-8 bg-white/20 rounded-lg"></div>
-                              </div>
-                              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3">
-                                <div className="h-3 bg-white/40 rounded-full w-16 mb-2"></div>
-                                <div className="h-8 bg-white/20 rounded-lg"></div>
-                              </div>
-                              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3">
-                                <div className="h-3 bg-white/40 rounded-full w-24 mb-2"></div>
-                                <div className="flex space-x-2">
-                                  <div className="h-6 w-6 bg-white/30 rounded-full"></div>
-                                  <div className="h-6 w-6 bg-white/30 rounded-full"></div>
-                                  <div className="h-6 w-6 bg-white/30 rounded-full"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          {/* Bottom nav mock */}
-                          <div className="flex justify-around mt-4 pt-3 border-t border-white/10">
-                            <div className="w-6 h-6 bg-white/30 rounded-full"></div>
-                            <div className="w-6 h-6 bg-white/50 rounded-full"></div>
-                            <div className="w-6 h-6 bg-white/30 rounded-full"></div>
-                            <div className="w-6 h-6 bg-white/30 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Floating Elements */}
-                    <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-3 animate-bounce-slow">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                          <TrendingUp className="w-4 h-4 text-green-600" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500">Pain Level</p>
-                          <p className="text-sm font-bold text-gray-900">-32% this week</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="absolute -bottom-2 -left-4 bg-white rounded-2xl shadow-xl p-3 animate-bounce-slow" style={{ animationDelay: '0.5s' }}>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center">
-                          <Brain className="w-4 h-4 text-violet-600" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500">AI Insight</p>
-                          <p className="text-sm font-bold text-gray-900">Pattern found</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Platform Availability - Non-clickable badges */}
-            <div className="mt-16 text-center">
-              <p className="text-sm text-gray-500 mb-4">Coming soon to all platforms</p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <div className="flex items-center space-x-2 bg-gray-50 text-gray-600 rounded-lg px-4 py-2.5 border border-gray-200">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                  <span className="text-sm font-medium">iOS App</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-gray-50 text-gray-600 rounded-lg px-4 py-2.5 border border-gray-200">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2.047c-.293-.06-.587.06-.82.234l-6.593 4.66-3.347-1.893c-.233-.133-.527-.133-.76 0L3.17 6.608c-.467.273-.467.94 0 1.213l2.687 1.52-2.687 1.52c-.467.273-.467.94 0 1.213l2.833 1.56c.233.133.527.133.76 0l3.347-1.893 6.593 4.66c.233.173.527.293.82.234.587-.12.977-.647.977-1.24V3.287c0-.593-.39-1.12-.977-1.24zM7.003 10.341L5.15 9.28l1.853-1.06v2.12zm9.847 5.733l-5.167-3.647 5.167-3.647v7.294z"/></svg>
-                  <span className="text-sm font-medium">Android</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-gray-50 text-gray-600 rounded-lg px-4 py-2.5 border border-gray-200">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                  <span className="text-sm font-medium">Web App</span>
-                </div>
+                <p className="text-sm text-gray-500">Free forever for early adopters. No spam, ever.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Problem/Solution Section */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <span className="text-violet-600 font-semibold text-sm uppercase tracking-wider">The Problem</span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                  Managing chronic pain is overwhelming
-                </h2>
-                <div className="space-y-4">
-                  {[
-                    "Scattered health data across multiple apps and notes",
-                    "Difficulty identifying triggers and patterns",
-                    "Frustrating communication with healthcare providers",
-                    "Lack of personalized, actionable insights"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <X className="w-3.5 h-3.5 text-red-500" />
-                      </div>
-                      <p className="text-gray-600">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div>
-                <span className="text-violet-600 font-semibold text-sm uppercase tracking-wider">The Solution</span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                  Recalibrate brings it all together
-                </h2>
-                <div className="space-y-4">
-                  {[
-                    "One unified platform for all your health tracking",
-                    "AI-powered pattern recognition and predictions",
-                    "Shareable reports for your care team",
-                    "Evidence-based tools and education"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-500" />
-                      </div>
-                      <p className="text-gray-600">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-violet-600 font-semibold text-sm uppercase tracking-wider">Features</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
-                Everything you need to manage your health
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Powerful tools designed specifically for people living with chronic pain conditions.
-              </p>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                { icon: Activity, title: "Multi-System Tracking", description: "Monitor 8 interconnected health systems including pain, sleep, mood, energy, and more.", color: "violet" },
-                { icon: Brain, title: "AI Pattern Recognition", description: "Advanced algorithms identify your unique triggers and predict potential flare-ups.", color: "purple" },
-                { icon: BarChart3, title: "Smart Analytics", description: "Visual dashboards and insights that help you understand your health trends.", color: "indigo" },
-                { icon: BookOpen, title: "Pain Education", description: "Evidence-based learning resources to understand and manage your condition better.", color: "blue" },
-                { icon: Users, title: "Care Team Sharing", description: "Generate reports to share with your healthcare providers for better care.", color: "cyan" },
-                { icon: Shield, title: "Secure & Private", description: "Enterprise-grade encryption. Your health data stays yours, always.", color: "teal" }
-              ].map((feature, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-violet-200 hover:shadow-lg transition-all duration-300 group">
-                  <div className={`w-12 h-12 bg-${feature.color}-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <feature.icon className={`w-6 h-6 text-${feature.color}-600`} />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section id="how-it-works" className="py-16 sm:py-24 px-4 sm:px-6 bg-violet-600 scroll-mt-20">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-violet-200 font-semibold text-sm uppercase tracking-wider">How It Works</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
-                Simple steps to better health management
-              </h2>
-            </div>
-            
-            <div className="grid sm:grid-cols-3 gap-8">
-              {[
-                { step: "01", title: "Track Daily", description: "Log your symptoms, activities, and how you're feeling in just 2 minutes a day." },
-                { step: "02", title: "Discover Patterns", description: "Our AI analyzes your data to find correlations and predict what affects your health." },
-                { step: "03", title: "Take Action", description: "Get personalized recommendations and share insights with your care team." }
-              ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <span className="text-2xl font-bold text-white">{item.step}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                  <p className="text-violet-100">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Waitlist CTA Section */}
-        <section id="waitlist" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-3xl p-8 sm:p-12 border border-violet-100">
-              <div className="inline-flex items-center space-x-2 bg-violet-600 text-white rounded-full px-4 py-1.5 text-sm font-medium mb-6">
-                <Bell className="w-4 h-4" />
-                <span>Limited Early Access</span>
-              </div>
-              
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Be first to experience Recalibrate
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Join {displayedCount}+ others on the waitlist. Get exclusive early access, founding member benefits, and help shape the future of health management.
-              </p>
-              
-              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto mb-6">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    placeholder="you@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-violet-500 text-gray-900 bg-white"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading || !email.trim()}
-                    className="bg-violet-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-violet-700 transition-all disabled:opacity-50 flex items-center justify-center space-x-2"
-                  >
-                    {loading ? (
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    ) : (
-                      <>
-                        <span>Join Waitlist</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-              
-              <p className="text-sm text-gray-500">No spam, ever. Unsubscribe anytime.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Social Proof / Resources */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gray-50">
+        {/* Resources Section */}
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white/50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <span className="text-violet-600 font-semibold text-sm uppercase tracking-wider">Resources</span>
+              <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider">While You Wait</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
-                Start your journey today
+                Free resources to help you today
               </h2>
-              <p className="text-lg text-gray-600">
-                Free resources while you wait for the app
-              </p>
             </div>
             
             <div className="grid sm:grid-cols-3 gap-6">
-              {/* Newsletter */}
-              <a href="https://recalibrate.beehiiv.com" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-violet-200 hover:shadow-lg transition-all group">
-                <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-4">
-                  <Bell className="w-6 h-6 text-violet-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-violet-600 transition-colors">Weekly Newsletter</h3>
-                <p className="text-gray-600 text-sm mb-4">Pain science insights, management tips, and app updates delivered weekly.</p>
-                <span className="text-violet-600 text-sm font-medium inline-flex items-center">
+              <a href="https://recalibrate.beehiiv.com" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-lg hover:shadow-purple-100 transition-all group">
+                <div className="text-3xl mb-4">📬</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Weekly Newsletter</h3>
+                <p className="text-gray-600 text-sm mb-4">Pain science insights, management tips, and app updates.</p>
+                <span className="text-indigo-600 text-sm font-medium inline-flex items-center">
                   Subscribe free <ExternalLink className="w-3.5 h-3.5 ml-1" />
                 </span>
               </a>
               
-              {/* Courses */}
-              <a href="https://recalibratepain.gumroad.com/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-violet-200 hover:shadow-lg transition-all group">
-                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
-                  <BookOpen className="w-6 h-6 text-indigo-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-violet-600 transition-colors">Pain Education</h3>
-                <p className="text-gray-600 text-sm mb-4">Evidence-based courses and workbooks to understand your pain better.</p>
-                <span className="text-violet-600 text-sm font-medium inline-flex items-center">
+              <a href="https://recalibratepain.gumroad.com/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-lg hover:shadow-purple-100 transition-all group">
+                <div className="text-3xl mb-4">📚</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Courses & Guides</h3>
+                <p className="text-gray-600 text-sm mb-4">Evidence-based courses and workbooks for pain education.</p>
+                <span className="text-indigo-600 text-sm font-medium inline-flex items-center">
                   Browse courses <ExternalLink className="w-3.5 h-3.5 ml-1" />
                 </span>
               </a>
               
-              {/* Support */}
-              <a href="https://ko-fi.com/N4N21O1R1W" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-violet-200 hover:shadow-lg transition-all group">
-                <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-pink-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-violet-600 transition-colors">Support Us</h3>
-                <p className="text-gray-600 text-sm mb-4">Help us build the future of pain management. Every contribution helps.</p>
-                <span className="text-violet-600 text-sm font-medium inline-flex items-center">
+              <a href="https://ko-fi.com/N4N21O1R1W" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 border border-purple-100 hover:shadow-lg hover:shadow-purple-100 transition-all group">
+                <div className="text-3xl mb-4">☕</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Support Development</h3>
+                <p className="text-gray-600 text-sm mb-4">Help us build the future of pain management.</p>
+                <span className="text-indigo-600 text-sm font-medium inline-flex items-center">
                   Buy us a coffee <ExternalLink className="w-3.5 h-3.5 ml-1" />
                 </span>
               </a>
@@ -607,22 +591,22 @@ function App() {
         <section id="faq" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <span className="text-violet-600 font-semibold text-sm uppercase tracking-wider">FAQ</span>
+              <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider">FAQ</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">
-                Frequently asked questions
+                Common questions
               </h2>
             </div>
             
             <div className="space-y-3">
               {faqs.map((faq, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                <div key={index} className="bg-white border border-purple-100 rounded-2xl overflow-hidden shadow-sm">
                   <button
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
                   >
                     <span className="font-semibold text-gray-900 pr-4">{faq.question}</span>
                     {openFaq === index ? (
-                      <ChevronUp className="w-5 h-5 text-violet-600 flex-shrink-0" />
+                      <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
                     ) : (
                       <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
                     )}
@@ -637,9 +621,9 @@ function App() {
             </div>
             
             <div className="text-center mt-8">
-              <p className="text-gray-600 mb-2">Still have questions?</p>
-              <button onClick={() => setShowContactModal(true)} className="text-violet-600 font-semibold hover:text-violet-700">
-                Contact us →
+              <p className="text-gray-600 mb-2">Have another question?</p>
+              <button onClick={() => setShowContactModal(true)} className="text-indigo-600 font-semibold hover:text-indigo-700">
+                Get in touch →
               </button>
             </div>
           </div>
@@ -650,26 +634,28 @@ function App() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center mb-8">
               <div className="flex items-center space-x-2 mb-6 md:mb-0">
-                <img src="/recalibrate-logo.png" alt="Recalibrate" className="w-8 h-8 object-contain" />
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                  <span className="text-white font-bold">R</span>
+                </div>
                 <span className="text-xl font-bold">Recalibrate</span>
               </div>
               
               <div className="flex items-center space-x-4">
                 {[
-                  { href: "https://www.instagram.com/recalibrateapp/", label: "Instagram", path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" },
-                  { href: "https://www.linkedin.com/company/recalibrate-app/", label: "LinkedIn", path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
-                  { href: "https://x.com/RecalibrateApp", label: "X/Twitter", path: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" },
-                  { href: "https://za.pinterest.com/Recalibratepain/", label: "Pinterest", path: "M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.74.099.12.112.22.085.34-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.753 2.87c-.265 1.019-.985 2.304-1.477 3.079C9.26 23.641 10.618 24 12.017 24c6.624 0 11.99-5.367 11.99-12C24.007 5.367 18.641.001 12.017.001z" }
+                  { href: "https://www.instagram.com/recalibrateapp/", label: "Instagram" },
+                  { href: "https://www.linkedin.com/company/recalibrate-app/", label: "LinkedIn" },
+                  { href: "https://x.com/RecalibrateApp", label: "X" },
+                  { href: "https://za.pinterest.com/Recalibratepain/", label: "Pinterest" }
                 ].map((social, i) => (
-                  <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 hover:bg-violet-600 rounded-lg flex items-center justify-center transition-colors" aria-label={social.label}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d={social.path} /></svg>
+                  <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 hover:bg-indigo-600 rounded-xl flex items-center justify-center transition-colors" aria-label={social.label}>
+                    <span className="text-sm">{['📸', '💼', '𝕏', '📌'][i]}</span>
                   </a>
                 ))}
               </div>
             </div>
             
             <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 sm:mb-0">© 2025 Recalibrate. Smarter Health Management.</p>
+              <p className="text-gray-400 text-sm mb-4 sm:mb-0">© 2025 Recalibrate. Your intelligent health companion.</p>
               <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center space-x-2 transition-colors">
                 <Mail className="w-4 h-4" />
                 <span>info@recalibratepain.com</span>
@@ -685,19 +671,19 @@ function App() {
               <div className="p-6 sm:p-8">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-2xl font-bold text-gray-900">Get in Touch</h2>
-                  <button onClick={() => setShowContactModal(false)} className="text-gray-400 hover:text-gray-600 p-2">
+                  <button onClick={() => setShowContactModal(false)} className="text-gray-400 hover:text-gray-600 p-2 hover:bg-gray-100 rounded-lg">
                     <X className="w-6 h-6" />
                   </button>
                 </div>
                 
                 <div className="space-y-4">
-                  <a href="mailto:info@recalibratepain.com" className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                    <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-violet-600" />
+                  <a href="mailto:info@recalibratepain.com" className="flex items-center space-x-4 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl hover:shadow-md transition-all">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">Email Us</p>
-                      <p className="text-violet-600">info@recalibratepain.com</p>
+                      <p className="text-indigo-600">info@recalibratepain.com</p>
                     </div>
                   </a>
                   
@@ -707,14 +693,14 @@ function App() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">Response Time</p>
-                      <p className="text-gray-600">Within 24 hours</p>
+                      <p className="text-gray-600">Usually within 24 hours</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <p className="text-gray-600 text-sm">
-                    Have questions about Recalibrate? Partnership inquiries? We'd love to hear from you.
+                    Questions about Recalibrate? Partnership opportunities? We'd love to hear from you!
                   </p>
                 </div>
               </div>
