@@ -583,7 +583,7 @@ function App() {
             </div>
 
             {/* Feature 6: Care Team - reversed */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative">
                 <div className="bg-gradient-to-br from-pink-100 to-rose-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
                   <div className="text-center">
