@@ -6,7 +6,7 @@ import {
   Zap, MessageCircle, Mail, ExternalLink,
   Clock, ChevronDown, ChevronUp, Star, AlertTriangle, X, Menu,
   Play, Smartphone, Globe, Bot, Flame, Snowflake, Dumbbell,
-  Stethoscope, Building2, FlaskConical, Handshake, Crown, Infinity,
+  Stethoscope, Building2, FlaskConical, HandCoins, Crown, Infinity,
   Newspaper, GraduationCap, Coffee
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
