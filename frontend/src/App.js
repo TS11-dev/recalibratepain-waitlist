@@ -787,9 +787,7 @@ function App() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
-                  <span className="font-bold">R</span>
-                </div>
+                <img src="/recalibrate-logo.png" alt="Recalibrate" className="h-10 w-auto" />
                 <span className="font-bold text-lg">Recalibrate</span>
               </div>
               
