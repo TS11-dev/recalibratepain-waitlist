@@ -60,13 +60,7 @@ function App() {
     return () => clearInterval(interval);
   }, [fetchWaitlistCount]);
 
-  // Auto-rotate features
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveFeature((prev) => (prev + 1) % 6);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  // Placeholder for future feature hooks
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
