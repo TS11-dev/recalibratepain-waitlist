@@ -203,82 +203,149 @@ function App() {
         {/* Hero Section */}
         <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-4xl mx-auto">
-              {/* Status Badge */}
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200/50 rounded-full px-4 py-2 mb-6">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                </span>
-                <span className="text-sm font-semibold text-purple-900">Launching Q1 2026</span>
-                <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
+            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+              
+              {/* Left Content */}
+              <div className="flex-1 text-center lg:text-left">
+                {/* Status Badge */}
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200/50 rounded-full px-4 py-2 mb-6">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                  </span>
+                  <span className="text-sm font-semibold text-purple-900">Launching Q1 2026</span>
+                  <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
+                </div>
+                
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-6">
+                  Your Health and Pain
+                  <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
+                    Management Companion
+                  </span>
+                </h1>
+                
+                <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
+                  Track symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons.
+                </p>
+                
+                {/* Email Form */}
+                <form onSubmit={handleEmailSubmit} className="max-w-md mb-8" id="waitlist">
+                  <div className="relative bg-white rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1.5">
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="flex-1 px-5 py-3.5 bg-gray-50/50 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
+                        required
+                      />
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                      >
+                        {loading ? (
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        ) : (
+                          <>
+                            <span>Join Waitlist</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                
+                {/* Social Proof */}
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {['🧑‍⚕️', '👩‍💼', '👨‍🔬', '👩‍🎓'].map((emoji, i) => (
+                        <div key={i} className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-white flex items-center justify-center text-sm shadow-sm">
+                          {emoji}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-sm">
+                      <span className="font-bold text-gray-900">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
+                      <span className="text-gray-500"> on waitlist</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 text-sm text-gray-500">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <span className="ml-1">from beta testers</span>
+                  </div>
+                </div>
               </div>
-              
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-6">
-                Your Health and Pain
-                <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
-                  Management Companion
-                </span>
-              </h1>
-              
-              <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Track symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons — all in one intelligent companion built for people living with chronic pain.
-              </p>
-              
-              {/* Email Form */}
-              <form onSubmit={handleEmailSubmit} className="max-w-lg mx-auto mb-8" id="waitlist">
-                <div className="relative bg-white rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1.5">
-                  <div className="flex flex-col sm:flex-row gap-2">
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 px-5 py-3.5 bg-gray-50/50 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
-                      required
+
+              {/* Right - Phone Mockup */}
+              <div className="relative flex-shrink-0 hidden lg:block">
+                {/* Phone Frame */}
+                <div className="relative w-[300px] h-[620px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl shadow-purple-500/20">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-gray-900 rounded-b-2xl z-10"></div>
+                  <div className="w-full h-full bg-white rounded-[2.3rem] overflow-hidden">
+                    <img 
+                      src="/app-screenshot.png" 
+                      alt="Recalibrate App" 
+                      className="w-full h-full object-cover object-top"
                     />
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
-                    >
-                      {loading ? (
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      ) : (
-                        <>
-                          <span>Join the Revolution</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </>
-                      )}
-                    </button>
                   </div>
                 </div>
-              </form>
-              
-              {/* Social Proof */}
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-2">
-                    {['🧑‍⚕️', '👩‍💼', '👨‍🔬', '👩‍🎓'].map((emoji, i) => (
-                      <div key={i} className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-white flex items-center justify-center text-sm shadow-sm">
-                        {emoji}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-bold text-gray-900">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
-                    <span className="text-gray-500"> on waitlist</span>
+                
+                {/* Floating Notification Cards */}
+                <div className="absolute -left-20 top-16 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[200px] animate-float">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg">📊</span>
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm">Track 18 Variables</p>
+                      <p className="text-xs text-gray-500">Including pain, sleep & mood</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-gray-500">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
+                
+                <div className="absolute -right-16 top-40 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[180px] animate-float-delayed">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg">🔔</span>
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm">Smart Reminders</p>
+                      <p className="text-xs text-gray-500">Never miss a check-in</p>
+                    </div>
                   </div>
-                  <span className="ml-1">from beta testers</span>
+                </div>
+                
+                <div className="absolute -left-12 bottom-40 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[190px] animate-float">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg">🤖</span>
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm">AI Insights</p>
+                      <p className="text-xs text-gray-500">Patterns detected!</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="absolute -right-8 bottom-24 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl shadow-xl p-4 max-w-[170px] text-white animate-float-delayed">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">🧠</span>
+                    <div>
+                      <p className="font-bold text-sm">90+ Lessons</p>
+                      <p className="text-xs text-white/80">Pain Academy</p>
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
