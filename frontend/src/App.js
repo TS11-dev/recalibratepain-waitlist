@@ -234,9 +234,9 @@ function App() {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-6">
-                Take Control of Your
+                Your Health and Pain
                 <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
-                  Chronic Pain Journey
+                  Management Companion
                 </span>
               </h1>
               
