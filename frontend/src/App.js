@@ -639,7 +639,7 @@ function App() {
                 </span>
               </a>
               
-              {/* Recalibrate Resources */}
+              {/* Courses and Products */}
               <a 
                 href="https://www.etsy.com/shop/RecalibratePain" 
                 target="_blank" 
@@ -649,12 +649,12 @@ function App() {
                 <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <span className="text-2xl">📚</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Recalibrate Resources</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Courses and Other Products</h3>
                 <p className="text-gray-600 mb-4">
                   Explore our pain education resources, worksheets, and guides to start your journey.
                 </p>
                 <span className="inline-flex items-center gap-2 text-purple-600 font-semibold">
-                  Browse resources <ExternalLink className="w-4 h-4" />
+                  Browse products <ExternalLink className="w-4 h-4" />
                 </span>
               </a>
               
