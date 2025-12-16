@@ -298,13 +298,45 @@ function App() {
         {/* Features Section - 200+ Tools & Resources */}
         <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-white to-purple-50/30">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                200+ Tools & Resources
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Everything you need to understand, track, and manage your chronic pain journey.
-              </p>
+            {/* Header with Phone Mockup */}
+            <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
+              {/* Phone Mockup */}
+              <div className="relative flex-shrink-0">
+                <div className="relative mx-auto w-[280px] h-[580px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-10"></div>
+                  <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden">
+                    <img 
+                      src="/app-screenshot.png" 
+                      alt="Recalibrate App Dashboard" 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+                {/* Floating badges */}
+                <div className="absolute -right-4 top-20 bg-white rounded-xl shadow-lg p-3 animate-bounce">
+                  <span className="text-2xl">📊</span>
+                  <p className="text-xs font-bold text-gray-900">53% Stability</p>
+                </div>
+                <div className="absolute -left-4 bottom-32 bg-white rounded-xl shadow-lg p-3">
+                  <span className="text-2xl">🧠</span>
+                  <p className="text-xs font-bold text-gray-900">90+ Lessons</p>
+                </div>
+              </div>
+              
+              {/* Text Content */}
+              <div className="text-center lg:text-left">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  200+ Tools & Resources
+                </h2>
+                <p className="text-lg text-gray-600 max-w-xl mb-6">
+                  Everything you need to understand, track, and manage your chronic pain journey — all in one beautiful app.
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">FREE — Smart Tracker & Analytics</span>
+                  <span className="bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-full text-sm font-medium">GO — Pain Academy & Tools</span>
+                  <span className="bg-purple-100 text-purple-700 px-3 py-1.5 rounded-full text-sm font-medium">PRO — AI & Care Team</span>
+                </div>
+              </div>
             </div>
             
             {/* 6 Feature Cards */}
