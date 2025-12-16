@@ -308,30 +308,9 @@ function App() {
               </p>
             </div>
             
-            {/* Feature Categories Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-              {[
-                { icon: "📊", title: "Smart Tracking", desc: "Pain, sleep, mood, energy across 8 health systems", stat: "18+ variables" },
-                { icon: "🧠", title: "Pain Academy", desc: "Learn pain science with XP, badges & streaks", stat: "90+ lessons" },
-                { icon: "💊", title: "Medications", desc: "Track meds, effectiveness & side effects", stat: "Full tracking" },
-                { icon: "🔔", title: "Notifications", desc: "Smart reminders for tracking & exercises", stat: "Customizable" },
-                { icon: "📈", title: "Analytics", desc: "Stability dashboard with health scores", stat: "8 systems" },
-                { icon: "🎯", title: "Therapeutic Tools", desc: "Journal, goals, inspiration, guided exercises", stat: "20+ tools" },
-                { icon: "🤖", title: "Recalibrate AI", desc: "Multiple AI modes for personalized insights", stat: "Powered by Gemini" },
-                { icon: "👥", title: "Care Team", desc: "Connect clinicians, researchers, family & friends", stat: "Built-in dashboards" }
-              ].map((item, i) => (
-                <div key={i} className="bg-white rounded-xl p-5 border border-purple-100 hover:border-purple-300 hover:shadow-lg transition-all group">
-                  <span className="text-3xl mb-3 block">{item.icon}</span>
-                  <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                  <p className="text-sm text-gray-600 mb-2">{item.desc}</p>
-                  <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">{item.stat}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Inside The App - 4 Cards */}
+            {/* All Tools - Clean Card Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {/* Pain Academy Preview */}
+              {/* Pain Academy */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-purple-500/5 border border-purple-100">
                 <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-4 text-white">
                   <div className="flex items-center gap-2">
@@ -364,13 +343,39 @@ function App() {
                   </div>
                 </div>
               </div>
-              
-              {/* Therapeutic Tools Preview */}
+
+              {/* Tracking & Analytics */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-purple-500/5 border border-purple-100">
-                <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 text-white">
+                <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 text-white">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">📊</span>
+                    <span className="font-bold">Tracking & Analytics</span>
+                  </div>
+                </div>
+                <div className="p-4 space-y-2">
+                  {[
+                    { icon: "📈", name: "Stability Dashboard", desc: "8 health systems" },
+                    { icon: "💊", name: "Medications", desc: "Track effectiveness" },
+                    { icon: "😴", name: "Sleep & Energy", desc: "Daily patterns" },
+                    { icon: "🔔", name: "Notifications", desc: "Smart reminders" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
+                      <span className="text-lg">{item.icon}</span>
+                      <div>
+                        <p className="font-medium text-gray-900 text-sm">{item.name}</p>
+                        <p className="text-xs text-gray-500">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tools & Exercises */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-purple-500/5 border border-purple-100">
+                <div className="bg-gradient-to-r from-purple-600 to-violet-600 p-4 text-white">
                   <div className="flex items-center gap-2">
                     <span className="text-xl">🎯</span>
-                    <span className="font-bold">Therapeutic Tools</span>
+                    <span className="font-bold">Tools & Exercises</span>
                   </div>
                 </div>
                 <div className="p-4 space-y-2">
@@ -378,9 +383,9 @@ function App() {
                     { icon: "📝", name: "Journal", desc: "Daily reflections" },
                     { icon: "🎯", name: "Goals", desc: "Track progress" },
                     { icon: "💡", name: "Inspiration", desc: "Daily motivation" },
-                    { icon: "🏃", name: "Exercises", desc: "Guided movement" }
+                    { icon: "🏃", name: "Guided Exercises", desc: "Movement therapy" }
                   ].map((tool, i) => (
-                    <div key={i} className="flex items-center gap-3 p-2 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors">
+                    <div key={i} className="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
                       <span className="text-lg">{tool.icon}</span>
                       <div>
                         <p className="font-medium text-gray-900 text-sm">{tool.name}</p>
@@ -390,33 +395,8 @@ function App() {
                   ))}
                 </div>
               </div>
-              
-              {/* AI Insights Preview */}
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-purple-500/5 border border-purple-100">
-                <div className="bg-gradient-to-r from-gray-900 to-purple-900 p-4 text-white">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xl">🤖</span>
-                    <span className="font-bold">Recalibrate AI</span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="bg-gradient-to-br from-gray-50 to-purple-50 rounded-xl p-3 border border-purple-100 mb-3">
-                    <div className="flex items-start gap-2">
-                      <Bot className="w-6 h-6 text-purple-600" />
-                      <p className="text-sm text-gray-700">Hey! 👋 I analyze your patterns and provide insights.</p>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {['💬 Chat', '🔬 Research', '📊 Insights'].map((tab, i) => (
-                      <span key={i} className={`text-xs px-2 py-1 rounded-full ${i === 0 ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-600'}`}>
-                        {tab}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
 
-              {/* Care Team Preview */}
+              {/* Recalibrate AI & Care Team */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-purple-500/5 border border-purple-100">
                 <div className="bg-gradient-to-r from-pink-500 to-rose-600 p-4 text-white">
                   <div className="flex items-center gap-2">
