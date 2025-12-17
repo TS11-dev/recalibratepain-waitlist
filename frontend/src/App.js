@@ -926,33 +926,79 @@ function App() {
         </section>
 
         {/* Recalibrate Resources Section */}
-        <section id="resources" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+        <section id="resources" className="py-10 lg:py-24 px-4 sm:px-6 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-6 lg:mb-12">
+              <h2 className="text-2xl lg:text-5xl font-bold text-gray-900 mb-2 lg:mb-4">
                 Recalibrate Resources
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Start your pain management journey today with our content and community.
+              <p className="text-sm lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                Start your pain management journey today.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6">
+            {/* Mobile: Compact 3-column grid */}
+            <div className="grid grid-cols-3 gap-2 lg:hidden">
+              <a 
+                href="https://recalibrate.beehiiv.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all"
+              >
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <span className="text-xl">📬</span>
+                </div>
+                <h3 className="text-xs font-bold text-gray-900 mb-0.5">Newsletter</h3>
+                <p className="text-[8px] text-gray-500 mb-1">Weekly insights</p>
+                <span className="text-[9px] text-purple-600 font-medium">Subscribe →</span>
+              </a>
+              
+              <a 
+                href="https://www.etsy.com/shop/RecalibratePain" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all"
+              >
+                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <span className="text-xl">📚</span>
+                </div>
+                <h3 className="text-xs font-bold text-gray-900 mb-0.5">Products</h3>
+                <p className="text-[8px] text-gray-500 mb-1">Courses & guides</p>
+                <span className="text-[9px] text-purple-600 font-medium">Browse →</span>
+              </a>
+              
+              <a 
+                href="https://ko-fi.com/N4N21O1R1W" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all"
+              >
+                <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <span className="text-xl">☕</span>
+                </div>
+                <h3 className="text-xs font-bold text-gray-900 mb-0.5">Support</h3>
+                <p className="text-[8px] text-gray-500 mb-1">Help our mission</p>
+                <span className="text-[9px] text-purple-600 font-medium">Donate →</span>
+              </a>
+            </div>
+
+            {/* Desktop: Full cards - all same white style */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-6">
               {/* Newsletter */}
               <a 
                 href="https://recalibrate.beehiiv.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl p-8 text-white hover:shadow-xl hover:shadow-purple-500/25 transition-all group"
+                className="bg-white rounded-2xl p-8 border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl transition-all group"
               >
-                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <span className="text-2xl">📬</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Pain Science Newsletter</h3>
-                <p className="text-white/80 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Recalibrate Newsletter</h3>
+                <p className="text-gray-600 mb-4">
                   Weekly insights on chronic pain management, research updates, and practical tips delivered to your inbox.
                 </p>
-                <span className="inline-flex items-center gap-2 text-white font-semibold">
+                <span className="inline-flex items-center gap-2 text-purple-600 font-semibold">
                   Subscribe free <ExternalLink className="w-4 h-4" />
                 </span>
               </a>
