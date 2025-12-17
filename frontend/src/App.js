@@ -886,61 +886,82 @@ function App() {
           </div>
         </section>
 
-        {/* Subscription Plans - Ultra Compact */}
-        <section id="pricing" className="py-10 sm:py-12 px-4 sm:px-6 scroll-mt-20">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Pricing</h2>
+        {/* Subscription Plans - Expanded with Toggle */}
+        <section id="pricing" className="py-12 sm:py-16 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-purple-50/50 to-white">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">Simple, Transparent Pricing</h2>
+              <p className="text-gray-600 mb-6">Choose the plan that fits your journey</p>
+              
+              {/* Monthly/Yearly Toggle */}
+              <div className="inline-flex items-center gap-3 bg-gray-100 p-1 rounded-xl">
+                <button 
+                  onClick={() => setIsYearly(false)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${!isYearly ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-600'}`}
+                >
+                  Monthly
+                </button>
+                <button 
+                  onClick={() => setIsYearly(true)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${isYearly ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-600'}`}
+                >
+                  Yearly <span className="text-xs text-green-600 font-semibold ml-1">Save 35%</span>
+                </button>
+              </div>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
               {subscriptionPlans.map((plan, i) => (
                 <div
                   key={i}
-                  className={`relative bg-white rounded-lg p-3 border-2 transition-all ${
+                  className={`relative bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 border-2 transition-all hover:shadow-lg ${
                     plan.popular 
-                      ? 'border-purple-500 shadow-md' 
+                      ? 'border-purple-500 shadow-lg shadow-purple-500/10' 
                       : plan.isLifetime 
-                        ? 'border-amber-300'
+                        ? 'border-amber-400'
                         : 'border-gray-200'
                   }`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2">
-                      <span className="bg-purple-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Popular</span>
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
                     </div>
                   )}
                   
-                  <div className="text-center pt-1">
-                    <h3 className="text-sm font-bold text-gray-900">{plan.name}</h3>
-                    <div className="mt-1">
-                      <span className="text-lg font-bold text-gray-900">${plan.monthly}</span>
-                      {!plan.isLifetime && plan.monthly !== "0" && <span className="text-[10px] text-gray-500">/mo</span>}
-                      {plan.isLifetime && <span className="text-[10px] text-gray-500"> once</span>}
+                  <div className="text-center pt-2">
+                    <h3 className="text-base lg:text-lg font-bold text-gray-900">{plan.name}</h3>
+                    <div className="mt-2 mb-1">
+                      <span className="text-2xl lg:text-3xl font-bold text-gray-900">
+                        ${plan.isLifetime ? plan.monthly : (isYearly && plan.yearly ? plan.yearly : plan.monthly)}
+                      </span>
+                      {!plan.isLifetime && plan.monthly !== "0" && (
+                        <span className="text-sm text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
+                      )}
+                      {plan.isLifetime && <span className="text-sm text-gray-500"> once</span>}
                     </div>
-                    {plan.yearly && (
-                      <p className="text-[10px] text-purple-600 font-medium">${plan.yearly}/yr</p>
+                    {!isYearly && plan.yearly && plan.monthly !== "0" && (
+                      <p className="text-xs text-green-600 font-medium">${plan.yearly}/yr if billed yearly</p>
                     )}
-                    <p className="text-[10px] text-gray-500 mt-1">{plan.description}</p>
+                    <p className="text-xs lg:text-sm text-gray-500 mt-1">{plan.description}</p>
                   </div>
                   
-                  <div className="mt-2 space-y-1">
+                  <div className="mt-4 space-y-2">
                     {plan.features.map((feature, fi) => (
-                      <p key={fi} className="text-[10px] text-gray-600 flex items-center gap-1">
-                        <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
-                        {feature}
+                      <p key={fi} className="text-xs lg:text-sm text-gray-600 flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span>{feature}</span>
                       </p>
                     ))}
                   </div>
                   
                   <button 
                     onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-                    className={`w-full mt-2 py-1.5 rounded text-xs font-semibold transition-all ${
+                    className={`w-full mt-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                       plan.popular 
-                        ? 'bg-purple-600 text-white' 
+                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-purple-500/25' 
                         : plan.isLifetime
-                          ? 'bg-amber-500 text-white'
-                          : 'bg-gray-100 text-gray-700'
+                          ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     {plan.cta}
