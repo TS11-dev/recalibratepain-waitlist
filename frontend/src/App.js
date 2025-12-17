@@ -264,34 +264,24 @@ function App() {
                   </div>
                 </form>
                 
-                {/* Social Proof */}
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6">
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-2">
-                      {['🧑‍⚕️', '👩‍💼', '👨‍🔬', '👩‍🎓'].map((emoji, i) => (
-                        <div key={i} className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-white flex items-center justify-center text-sm shadow-sm">
-                          {emoji}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="text-sm">
-                      <span className="font-bold text-gray-900">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
-                      <span className="text-gray-500"> on waitlist</span>
-                    </div>
+                {/* Waitlist Count */}
+                <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-full px-5 py-2.5">
+                  <div className="flex -space-x-2">
+                    {['🧑‍⚕️', '👩‍💼', '👨‍🔬'].map((emoji, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-white border-2 border-purple-100 flex items-center justify-center text-sm shadow-sm">
+                        {emoji}
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex items-center gap-1 text-sm text-gray-500">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <span className="ml-1">from beta testers</span>
+                  <div className="text-sm">
+                    <span className="font-bold text-purple-700 text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
+                    <span className="text-gray-600 ml-1">people waiting</span>
                   </div>
                 </div>
               </div>
 
               {/* Right - Phone Mockup */}
-              <div className="relative flex-shrink-0 hidden lg:block">
+              <div className="relative flex-shrink-0">
                 {/* Phone Frame */}
                 <div className="relative w-[300px] h-[620px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl shadow-purple-500/20">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-gray-900 rounded-b-2xl z-10"></div>
