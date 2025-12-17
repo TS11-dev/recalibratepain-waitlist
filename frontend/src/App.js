@@ -681,15 +681,15 @@ function App() {
                 </div>
               </div>
               <div className="relative hidden lg:block">
-                <div className="bg-gradient-to-br from-purple-100 to-violet-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                  <div className="bg-white rounded-2xl p-6 shadow-xl w-full max-w-xs">
-                    <div className="flex items-center gap-3 mb-4">
+                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-purple-200">
+                  <div className="bg-white rounded-2xl p-5 shadow-xl w-full max-w-xs mb-3">
+                    <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
                         <Bot className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="font-bold text-gray-900">Recalibrate AI</p>
-                        <p className="text-xs text-gray-500">Powered by Gemini 2.0</p>
+                        <p className="text-xs text-gray-500">Powered by Gemini 2.0 Flash</p>
                       </div>
                     </div>
                     <div className="bg-purple-50 rounded-xl p-3 mb-3">
@@ -700,6 +700,19 @@ function App() {
                       <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">Tell me more</span>
                     </div>
                   </div>
+                  <div className="flex gap-2 mb-2">
+                    {[
+                      { icon: "💬", label: "Chat" },
+                      { icon: "🔬", label: "Research" },
+                      { icon: "📊", label: "Analysis" }
+                    ].map((mode, i) => (
+                      <div key={i} className="bg-white rounded-lg px-3 py-2 shadow text-center">
+                        <span className="text-lg">{mode.icon}</span>
+                        <p className="text-xs text-gray-600">{mode.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-purple-600 font-medium">AI-powered health insights</p>
                 </div>
               </div>
             </div>
