@@ -456,35 +456,35 @@ function App() {
             </div>
 
             {/* Feature 3: Pain Academy */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20 p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-8 sm:mb-20 p-4 sm:p-8 bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div>
-                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-4">GO</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Pain Academy</h3>
-                <p className="text-gray-600 mb-6 text-lg">
-                  90+ evidence-based lessons on pain science. Earn XP, unlock badges, and build streaks as you master the neurobiology of chronic pain.
+                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 sm:px-3 py-1 rounded-full mb-2 sm:mb-4">GO</span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Pain Academy</h3>
+                <p className="text-gray-600 mb-3 sm:mb-6 text-sm sm:text-lg">
+                  90+ lessons on pain science. Earn XP and badges.
                 </p>
-                <div className="flex flex-wrap gap-3 mb-6">
-                  {["Foundations of Pain", "Neurobiology", "Management Strategies", "Mind-Body Connection"].map((topic, i) => (
-                    <span key={i} className="bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-full text-sm font-medium">{topic}</span>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  {["Foundations", "Neurobiology", "Strategies"].map((topic, i) => (
+                    <span key={i} className="bg-emerald-50 text-emerald-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">{topic}</span>
                   ))}
                 </div>
               </div>
-              <div className="relative">
-                <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+              <div className="relative hidden sm:block">
+                <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 aspect-square flex items-center justify-center">
                   <div className="text-center">
-                    <div className="flex justify-center gap-4 mb-6">
-                      <div className="bg-white rounded-xl p-4 shadow-lg">
-                        <p className="text-2xl font-bold text-emerald-600">90+</p>
-                        <p className="text-xs text-gray-500">Lessons</p>
+                    <div className="flex justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg">
+                        <p className="text-xl sm:text-2xl font-bold text-emerald-600">90+</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500">Lessons</p>
                       </div>
-                      <div className="bg-white rounded-xl p-4 shadow-lg">
-                        <p className="text-2xl font-bold text-amber-500">835</p>
-                        <p className="text-xs text-gray-500">XP</p>
+                      <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg">
+                        <p className="text-xl sm:text-2xl font-bold text-amber-500">835</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500">XP</p>
                       </div>
                     </div>
-                    <div className="flex justify-center gap-2">
+                    <div className="flex justify-center gap-1 sm:gap-2">
                       {["🏆", "🎯", "🔥", "⭐", "🧠"].map((badge, i) => (
-                        <div key={i} className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl">{badge}</div>
+                        <div key={i} className="w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-full shadow flex items-center justify-center text-sm sm:text-xl">{badge}</div>
                       ))}
                     </div>
                   </div>
