@@ -414,37 +414,37 @@ function App() {
             </div>
 
             {/* Feature 2: Analytics Dashboard - reversed */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20 p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative">
-                <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-8 sm:mb-20 p-4 sm:p-8 bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="order-2 lg:order-1 relative hidden sm:block">
+                <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 aspect-square flex items-center justify-center">
                   <div className="w-full max-w-xs">
-                    <div className="bg-white rounded-2xl p-6 shadow-lg mb-4">
-                      <p className="text-sm text-gray-500 mb-1">Stability Score</p>
-                      <p className="text-4xl font-bold text-indigo-600">53%</p>
+                    <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg mb-3 sm:mb-4">
+                      <p className="text-xs sm:text-sm text-gray-500 mb-1">Stability Score</p>
+                      <p className="text-3xl sm:text-4xl font-bold text-indigo-600">53%</p>
                       <div className="w-full h-2 bg-gray-200 rounded-full mt-2">
                         <div className="w-1/2 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
                       </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-white rounded-xl p-3 shadow text-center">
-                        <p className="text-xl font-bold text-purple-600">18</p>
-                        <p className="text-xs text-gray-500">Variables</p>
+                    <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                      <div className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow text-center">
+                        <p className="text-lg sm:text-xl font-bold text-purple-600">18</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500">Variables</p>
                       </div>
-                      <div className="bg-white rounded-xl p-3 shadow text-center">
-                        <p className="text-xl font-bold text-indigo-600">30+</p>
-                        <p className="text-xs text-gray-500">Days Data</p>
+                      <div className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow text-center">
+                        <p className="text-lg sm:text-xl font-bold text-indigo-600">30+</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500">Days Data</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <span className="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full mb-4">FREE</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Analytics Dashboard</h3>
-                <p className="text-gray-600 mb-6 text-lg">
-                  See your Stability Score calculated from 18 variables across 8 health systems. Visualize trends, patterns, and correlations over time.
+                <span className="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-2 sm:px-3 py-1 rounded-full mb-2 sm:mb-4">FREE</span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Analytics Dashboard</h3>
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-lg">
+                  Stability Score from 18 variables. Visualize trends and patterns.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {["Overall stability score from all your data", "Trend analysis over weeks and months", "Pattern detection across health systems", "Exportable reports for your doctor"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
