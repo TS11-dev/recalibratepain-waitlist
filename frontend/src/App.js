@@ -807,19 +807,37 @@ function App() {
         </section>
 
         {/* Clinician & Partnership Section */}
-        <section id="partners" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-purple-50/30 scroll-mt-20">
+        <section id="partners" className="py-10 lg:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-purple-50/30 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="inline-block text-purple-600 font-semibold text-sm uppercase tracking-wider mb-2">For Professionals</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-6 lg:mb-12">
+              <span className="inline-block text-purple-600 font-semibold text-xs lg:text-sm uppercase tracking-wider mb-1 lg:mb-2">For Professionals</span>
+              <h2 className="text-2xl lg:text-5xl font-bold text-gray-900 mb-2 lg:mb-4">
                 Clinicians & Partners
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Join us in revolutionizing chronic pain management. We're looking for healthcare professionals, researchers, and investors.
+              <p className="text-sm lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                Join us in revolutionizing chronic pain management.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6">
+            {/* Mobile: Compact 3-column grid */}
+            <div className="grid grid-cols-3 gap-2 lg:hidden">
+              {[
+                { icon: "🩺", title: "Clinics", color: "from-blue-500 to-cyan-500", email: "clinics@recalibratepain.com" },
+                { icon: "🔬", title: "Research", color: "from-purple-500 to-violet-500", email: "research@recalibratepain.com" },
+                { icon: "🤝", title: "Investors", color: "from-emerald-500 to-green-500", email: "investors@recalibratepain.com" }
+              ].map((item, i) => (
+                <a key={i} href={`mailto:${item.email}`} className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all">
+                  <div className={`w-10 h-10 bg-gradient-to-br ${item.color} rounded-lg flex items-center justify-center mx-auto mb-2`}>
+                    <span className="text-xl">{item.icon}</span>
+                  </div>
+                  <h3 className="text-xs font-bold text-gray-900 mb-1">{item.title}</h3>
+                  <span className="text-[9px] text-purple-600 font-medium">Contact →</span>
+                </a>
+              ))}
+            </div>
+
+            {/* Desktop: Full cards */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-6">
               {/* Healthcare Clinics */}
               <div className="bg-white rounded-2xl p-8 border border-purple-100 shadow-lg shadow-purple-500/5 hover:shadow-xl transition-all group">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
