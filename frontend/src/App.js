@@ -963,18 +963,19 @@ function App() {
               </p>
             </div>
             
-            {/* Mobile: Compact 3-column grid */}
+            {/* Mobile: Compact 3-column grid with more info */}
             <div className="grid grid-cols-3 gap-2 lg:hidden">
               {[
-                { icon: "🩺", title: "Clinics", color: "from-blue-500 to-cyan-500", email: "clinics@recalibratepain.com" },
-                { icon: "🔬", title: "Research", color: "from-purple-500 to-violet-500", email: "research@recalibratepain.com" },
-                { icon: "🤝", title: "Investors", color: "from-emerald-500 to-green-500", email: "investors@recalibratepain.com" }
+                { icon: "🩺", title: "Clinics", desc: "Integrate into your practice for patient tracking", color: "from-blue-500 to-cyan-500", email: "clinics@recalibratepain.com" },
+                { icon: "🔬", title: "Research", desc: "Access anonymized data for pain research", color: "from-purple-500 to-violet-500", email: "research@recalibratepain.com" },
+                { icon: "🤝", title: "Investors", desc: "Join us building the future of pain management", color: "from-emerald-500 to-green-500", email: "investors@recalibratepain.com" }
               ].map((item, i) => (
                 <a key={i} href={`mailto:${item.email}`} className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all">
                   <div className={`w-10 h-10 bg-gradient-to-br ${item.color} rounded-lg flex items-center justify-center mx-auto mb-2`}>
                     <span className="text-xl">{item.icon}</span>
                   </div>
                   <h3 className="text-xs font-bold text-gray-900 mb-1">{item.title}</h3>
+                  <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">{item.desc}</p>
                   <span className="text-[9px] text-purple-600 font-medium">Contact →</span>
                 </a>
               ))}
