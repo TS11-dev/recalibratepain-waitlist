@@ -235,28 +235,28 @@ function App() {
                 </p>
                 
                 {/* Email Form */}
-                <form onSubmit={handleEmailSubmit} className="max-w-md mb-8" id="waitlist">
-                  <div className="relative bg-white rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1.5">
-                    <div className="flex flex-col sm:flex-row gap-2">
+                <form onSubmit={handleEmailSubmit} className="max-w-md mb-4 sm:mb-8" id="waitlist">
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1 sm:p-1.5">
+                    <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-2">
                       <input
                         type="email"
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="flex-1 px-5 py-3.5 bg-gray-50/50 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
+                        className="flex-1 px-3 sm:px-5 py-2.5 sm:py-3.5 bg-gray-50/50 rounded-lg sm:rounded-xl text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
                         required
                       />
                       <button
                         type="submit"
                         disabled={loading}
-                        className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                        className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-1.5 sm:gap-2 hover:-translate-y-0.5"
                       >
                         {loading ? (
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                         ) : (
                           <>
                             <span>Join Waitlist</span>
-                            <ArrowRight className="w-4 h-4" />
+                            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                           </>
                         )}
                       </button>
