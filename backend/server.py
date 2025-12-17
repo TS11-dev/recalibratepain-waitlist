@@ -115,6 +115,13 @@ app.add_middleware(
 class WaitlistEntry(BaseModel):
     name: str
     email: EmailStr
+
+class PartnerContactForm(BaseModel):
+    type: str  # 'clinic', 'research', 'investor'
+    name: str
+    email: EmailStr
+    organization: str
+    message: str
     timestamp: str = None
     
     @validator('name')
