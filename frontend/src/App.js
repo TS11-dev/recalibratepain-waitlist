@@ -263,18 +263,10 @@ function App() {
               </form>
               
               {/* Waitlist Count */}
-              <div className="inline-flex items-center gap-4 bg-white border border-gray-200 rounded-full px-5 py-3 shadow-lg shadow-purple-500/10">
-                <div className="flex -space-x-3">
-                  {['🧑‍⚕️', '👩‍💼', '👨‍🔬', '👩‍🔬'].map((emoji, i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-100 to-indigo-100 border-2 border-white flex items-center justify-center text-lg shadow-md">
-                      {emoji}
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent text-xl">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
-                  <span className="text-gray-500 text-xs">people on waitlist</span>
-                </div>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full px-6 py-2.5 shadow-lg shadow-purple-500/25">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="font-bold text-white text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}+</span>
+                <span className="text-white/80 text-sm">joined</span>
               </div>
             </div>
 
