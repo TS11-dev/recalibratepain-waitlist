@@ -468,24 +468,28 @@ function App() {
                 </ul>
               </div>
               <div className="col-span-2 lg:hidden order-2">
-                <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl p-3 aspect-square flex items-center justify-center">
-                  <div className="w-full">
-                    <div className="bg-white rounded-lg p-2 shadow mb-2">
-                      <p className="text-[8px] text-gray-500">Stability</p>
-                      <p className="text-xl font-bold text-indigo-600">53%</p>
-                      <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
-                        <div className="w-1/2 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                      </div>
+                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-2 aspect-square flex flex-col items-center justify-center border-2 border-indigo-200">
+                  <div className="bg-white rounded-lg p-1.5 shadow mb-1.5 w-full">
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-[7px] text-gray-500">Stability Score</p>
+                      <p className="text-xs font-bold text-indigo-600">53%</p>
                     </div>
-                    <div className="grid grid-cols-2 gap-1">
-                      <div className="bg-white rounded p-1 shadow text-center">
-                        <p className="text-sm font-bold text-purple-600">18</p>
-                        <p className="text-[7px] text-gray-500">Vars</p>
-                      </div>
-                      <div className="bg-white rounded p-1 shadow text-center">
-                        <p className="text-sm font-bold text-indigo-600">30+</p>
-                        <p className="text-[7px] text-gray-500">Days</p>
-                      </div>
+                    <div className="w-full h-1.5 bg-gray-200 rounded-full">
+                      <div className="w-1/2 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-1 w-full">
+                    <div className="bg-white rounded p-1 shadow text-center">
+                      <p className="text-[10px] font-bold text-purple-600">18</p>
+                      <p className="text-[6px] text-gray-500">Vars</p>
+                    </div>
+                    <div className="bg-white rounded p-1 shadow text-center">
+                      <p className="text-[10px] font-bold text-indigo-600">30+</p>
+                      <p className="text-[6px] text-gray-500">Days</p>
+                    </div>
+                    <div className="bg-white rounded p-1 shadow text-center">
+                      <p className="text-[10px]">📈</p>
+                      <p className="text-[6px] text-gray-500">Trends</p>
                     </div>
                   </div>
                 </div>
