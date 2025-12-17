@@ -861,23 +861,23 @@ function App() {
                 </div>
               </div>
               <div className="col-span-2 lg:hidden order-2">
-                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-2 aspect-square flex flex-col items-center justify-center border-2 border-pink-200">
-                  <div className="flex justify-center mb-1.5">
+                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-pink-200">
+                  <div className="flex justify-center mb-2">
                     <div className="relative">
-                      <div className="w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-base border-2 border-pink-200">👤</div>
-                      <div className="absolute -top-1 -right-2 w-5 h-5 bg-white rounded-full shadow flex items-center justify-center text-[10px] border border-blue-200">🩺</div>
-                      <div className="absolute -bottom-0.5 -right-2.5 w-5 h-5 bg-white rounded-full shadow flex items-center justify-center text-[10px] border border-green-200">👨‍👩‍👧</div>
-                      <div className="absolute -bottom-0.5 -left-2.5 w-5 h-5 bg-white rounded-full shadow flex items-center justify-center text-[10px] border border-purple-200">🔬</div>
+                      <div className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-pink-200">👤</div>
+                      <div className="absolute -top-1 -right-3 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-blue-200">🩺</div>
+                      <div className="absolute -bottom-0.5 -right-3.5 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-green-200">👨‍👩‍👧</div>
+                      <div className="absolute -bottom-0.5 -left-3.5 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-purple-200">🔬</div>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-1 w-full">
+                  <div className="grid grid-cols-2 gap-1.5 w-full">
                     {["Clinicians", "Family", "Research", "Reports"].map((item, i) => (
-                      <div key={i} className="bg-white rounded px-1 py-0.5 shadow-sm text-center">
-                        <p className="text-[6px] text-gray-600">{item}</p>
+                      <div key={i} className="bg-white rounded-lg px-1.5 py-1 shadow-sm text-center">
+                        <p className="text-[8px] text-gray-600">{item}</p>
                       </div>
                     ))}
                   </div>
-                  <p className="text-[7px] text-pink-600 font-medium mt-1">Connected Care</p>
+                  <p className="text-[8px] text-pink-600 font-medium mt-1.5">Connected Care</p>
                 </div>
               </div>
             </div>
