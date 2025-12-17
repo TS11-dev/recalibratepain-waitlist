@@ -30,5 +30,21 @@
     "organization": "Test Corp 587",
     "message": "Testing SMTP 587",
     "timestamp": "2025-12-17T23:23:26.081475"
+  },
+  {
+    "type": "clinic",
+    "name": "Dr. Test Partner 1766013953",
+    "email": "partner.test.1766013953@testclinic.com",
+    "organization": "Test Medical Clinic 1766013953",
+    "message": "We are interested in partnering with RecalibratePain for our chronic pain management program.",
+    "timestamp": "2025-12-17T23:25:53.828839"
+  },
+  {
+    "type": "test",
+    "name": "Test",
+    "email": "test@test.com",
+    "organization": "Test Org",
+    "message": "Test message",
+    "timestamp": "2025-12-17T23:26:17.289823"
   }
 ]
