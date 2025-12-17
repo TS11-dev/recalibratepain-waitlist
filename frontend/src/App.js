@@ -113,8 +113,8 @@ function App() {
       name: "Free",
       monthly: "0",
       yearly: "0",
-      description: "Get started",
-      features: ["Limited tracking", "Community access"],
+      description: "Full tracking forever",
+      features: ["Smart Tracking (18+ variables)", "Analytics Dashboard", "Medication tracking", "Exported Reports", "Limited Support"],
       popular: false,
       cta: "Start Free"
     },
@@ -122,8 +122,8 @@ function App() {
       name: "Go",
       monthly: "12.99",
       yearly: "99.99",
-      description: "Full tracking & education",
-      features: ["Smart Tracker (18 vars)", "Analytics Dashboard", "Daily journal", "Pain Academy (90+ lessons)", "Therapeutic tools"],
+      description: "Education & tools",
+      features: ["Everything in Free", "Pain Academy (90+ lessons)", "Therapeutic Tools & Exercises", "Daily inspiration", "Goal tracking"],
       popular: false,
       cta: "Get Go"
     },
@@ -131,8 +131,8 @@ function App() {
       name: "Pro",
       monthly: "34.99",
       yearly: "299.99",
-      description: "Everything + AI & Team",
-      features: ["All Go features", "Recalibrate AI", "Care Team dashboards", "Priority support", "Advanced analytics"],
+      description: "AI & Care Team",
+      features: ["Everything in Go", "Recalibrate AI companion", "Care Team dashboards", "Priority support", "Advanced analytics"],
       popular: true,
       cta: "Go Pro"
     },
