@@ -15,6 +15,7 @@ import asyncio
 import os
 import resend
 from dotenv import load_dotenv
+from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
 
 # Load environment variables
 load_dotenv()
@@ -23,11 +24,18 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Initialize Resend
-if os.environ.get("RESEND_API_KEY"):
-    resend.api_key = os.environ.get("RESEND_API_KEY")
-else:
-    logger.warning("⚠️ RESEND_API_KEY not found. Emails will not be sent.")
+# SMTP Configuration
+conf = ConnectionConfig(
+    MAIL_USERNAME=os.environ.get("MAIL_USERNAME", "info@recalibratepain.com"),
+    MAIL_PASSWORD=os.environ.get("MAIL_PASSWORD", ""),
+    MAIL_FROM=os.environ.get("MAIL_FROM", "info@recalibratepain.com"),
+    MAIL_PORT=int(os.environ.get("MAIL_PORT", 465)),
+    MAIL_SERVER=os.environ.get("MAIL_SERVER", "mail.spacemail.com"), # Default to Spacemail/Spaceship
+    MAIL_STARTTLS=False,
+    MAIL_SSL_TLS=True,
+    USE_CREDENTIALS=True,
+    VALIDATE_CERTS=True
+)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
