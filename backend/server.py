@@ -534,6 +534,49 @@ async def get_waitlist_stats():
         logger.error(f"Error getting stats: {e}")
         raise HTTPException(status_code=500, detail="Failed to get statistics")
 
+# Partner contact form endpoint
+@app.post("/api/partner/contact")
+async def partner_contact(form: PartnerContactForm):
+    """Handle partner contact form submissions"""
+    try:
+        # Store in a partners collection or JSON file
+        partner_entry = {
+            "type": form.type,
+            "name": form.name.strip(),
+            "email": form.email.lower().strip(),
+            "organization": form.organization.strip(),
+            "message": form.message.strip(),
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        # Save to partners JSON file
+        partners_file = "/app/backend/data/partners.json"
+        os.makedirs(os.path.dirname(partners_file), exist_ok=True)
+        
+        partners = []
+        if os.path.exists(partners_file):
+            try:
+                with open(partners_file, 'r') as f:
+                    partners = json.load(f)
+            except:
+                partners = []
+        
+        partners.append(partner_entry)
+        
+        with open(partners_file, 'w') as f:
+            json.dump(partners, f, indent=2)
+        
+        logger.info(f"✅ New partner inquiry: {form.type} from {form.email}")
+        
+        return {
+            "success": True,
+            "message": f"Thank you for your interest! We'll contact you at {form.email} soon.",
+            "type": form.type
+        }
+    except Exception as e:
+        logger.error(f"Partner contact error: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit inquiry")
+
 # Root endpoint for testing
 @app.get("/")
 async def root():
