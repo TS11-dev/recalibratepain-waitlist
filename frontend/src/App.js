@@ -734,24 +734,24 @@ function App() {
             {/* Feature 5: Recalibrate AI - visual LEFT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="col-span-2 lg:hidden">
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-2 aspect-square flex flex-col items-center justify-center border-2 border-purple-200">
-                  <div className="bg-white rounded-lg p-1.5 shadow w-full mb-1">
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <div className="w-5 h-5 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
-                        <Bot className="w-3 h-3 text-white" />
+                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-purple-200">
+                  <div className="bg-white rounded-lg p-2 shadow w-full mb-1.5">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <div className="w-7 h-7 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
+                        <Bot className="w-4 h-4 text-white" />
                       </div>
-                      <p className="font-bold text-gray-900 text-[9px]">Recalibrate AI</p>
+                      <p className="font-bold text-gray-900 text-[10px]">Recalibrate AI</p>
                     </div>
-                    <div className="bg-purple-50 rounded p-1">
-                      <p className="text-[7px] text-gray-700 leading-tight">I noticed a pattern...</p>
+                    <div className="bg-purple-50 rounded-lg p-1.5">
+                      <p className="text-[8px] text-gray-700 leading-tight">I noticed a pattern in your data...</p>
                     </div>
                   </div>
-                  <div className="flex gap-1">
+                  <div className="flex gap-1.5">
                     {["💬", "🔬", "📊"].map((icon, i) => (
-                      <div key={i} className="w-5 h-5 bg-white rounded shadow-sm flex items-center justify-center text-[10px]">{icon}</div>
+                      <div key={i} className="w-7 h-7 bg-white rounded-lg shadow-sm flex items-center justify-center text-sm">{icon}</div>
                     ))}
                   </div>
-                  <p className="text-[7px] text-purple-600 font-medium mt-1">Gemini 2.0 Powered</p>
+                  <p className="text-[8px] text-purple-600 font-medium mt-1">Gemini 2.0 Powered</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1">
