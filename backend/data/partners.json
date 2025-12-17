@@ -6,5 +6,13 @@
     "organization": "Test Corp",
     "message": "Testing endpoint",
     "timestamp": "2025-12-17T23:02:47.724395"
+  },
+  {
+    "type": "investor",
+    "name": "tristan",
+    "email": "testinvestor@email.com",
+    "organization": "test investots",
+    "message": "hi there, 1 mil or what?",
+    "timestamp": "2025-12-17T23:03:34.788895"
   }
 ]
