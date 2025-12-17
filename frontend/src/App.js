@@ -223,7 +223,7 @@ function App() {
                 <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
               </div>
               
-              <h1 className="text-2xl sm:text-4xl lg:text-[3.2rem] font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6 whitespace-normal lg:whitespace-nowrap">
+              <h1 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6 whitespace-normal lg:whitespace-nowrap">
                 Your Intelligent <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Health</span> and <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Pain Management</span> Companion
               </h1>
               
