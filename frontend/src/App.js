@@ -1006,18 +1006,18 @@ function App() {
             {/* Mobile: Compact 3-column grid with more info */}
             <div className="grid grid-cols-3 gap-2 lg:hidden">
               {[
-                { icon: "🩺", title: "Clinics", desc: "Integrate Recalibrate App into your practice", color: "from-blue-500 to-cyan-500", email: "clinics@recalibratepain.com" },
-                { icon: "🔬", title: "Research", desc: "Access anonymized chronic pain data", color: "from-purple-500 to-violet-500", email: "research@recalibratepain.com" },
-                { icon: "🤝", title: "Become an Investor", desc: "Join us building Recalibrate App", color: "from-emerald-500 to-green-500", email: "investors@recalibratepain.com" }
+                { icon: "🩺", title: "Clinics", desc: "Multi-patient dashboard for your practice", color: "from-blue-500 to-cyan-500", formType: "clinic" },
+                { icon: "🔬", title: "Research", desc: "Anonymized chronic pain datasets", color: "from-purple-500 to-violet-500", formType: "research" },
+                { icon: "🤝", title: "Investors", desc: "Join us building Recalibrate", color: "from-emerald-500 to-green-500", formType: "investor" }
               ].map((item, i) => (
-                <a key={i} href={`mailto:${item.email}`} className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all">
+                <button key={i} onClick={() => setPartnerFormOpen(item.formType)} className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all">
                   <div className={`w-10 h-10 bg-gradient-to-br ${item.color} rounded-lg flex items-center justify-center mx-auto mb-2`}>
                     <span className="text-xl">{item.icon}</span>
                   </div>
                   <h3 className="text-xs font-bold text-gray-900 mb-1">{item.title}</h3>
                   <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">{item.desc}</p>
-                  <span className="text-[9px] text-purple-600 font-medium">Contact →</span>
-                </a>
+                  <span className="text-[9px] text-purple-600 font-medium">Inquire →</span>
+                </button>
               ))}
             </div>
 
