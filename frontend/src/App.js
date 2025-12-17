@@ -1095,16 +1095,16 @@ function App() {
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>{waitlistCount > 0 ? `${waitlistCount}+` : '190+'} waitlist signups</span>
+                    <span>AI-powered health insights</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>First-mover advantage in AI</span>
+                    <span>Scalable B2B & B2C model</span>
                   </li>
                 </ul>
-                <a href="mailto:investors@recalibratepain.com" className="text-purple-600 font-semibold hover:text-purple-700 flex items-center gap-2">
+                <button onClick={() => setPartnerFormOpen('investor')} className="text-purple-600 font-semibold hover:text-purple-700 flex items-center gap-2">
                   Investor Prospectus <ArrowRight className="w-4 h-4" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
