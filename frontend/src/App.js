@@ -464,7 +464,7 @@ function App() {
             </div>
 
             {/* Feature 1: Smart Tracker - visual LEFT */}
-            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-blue-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="col-span-2 lg:hidden">
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-blue-200">
                   <div className="grid grid-cols-3 gap-1.5 mb-2">
