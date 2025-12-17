@@ -574,9 +574,9 @@ async def partner_contact(form: PartnerContactForm):
         with open(partners_file, 'w') as f:
             json.dump(partners, f, indent=2)
             
-        # 2. Send Email via Resend
+        # 2. Send Email via SMTP
         email_sent = False
-        if os.environ.get("RESEND_API_KEY"):
+        if os.environ.get("MAIL_PASSWORD"):
             try:
                 # Prepare email content
                 html_content = f"""
@@ -590,27 +590,27 @@ async def partner_contact(form: PartnerContactForm):
                     <div style="background-color: #f9fafb; padding: 15px; border-radius: 8px;">
                         {form.message}
                     </div>
-                    <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">Sent from Recalibrate Landing Page</p>
+                    <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">Sent from Recalibrate Landing Page via SMTP</p>
                 </div>
                 """
                 
-                params = {
-                    "from": "Recalibrate Partner <onboarding@resend.dev>",
-                    "to": ["info@recalibratepain.com"],
-                    "subject": f"New Partner Inquiry: {form.organization}",
-                    "html": html_content,
-                    "reply_to": form.email
-                }
+                message = MessageSchema(
+                    subject=f"New Partner Inquiry: {form.organization}",
+                    recipients=["info@recalibratepain.com"],
+                    body=html_content,
+                    subtype=MessageType.html
+                )
                 
-                # Send asynchronously
-                await asyncio.to_thread(resend.Emails.send, params)
+                fm = FastMail(conf)
+                await fm.send_message(message)
+                
                 email_sent = True
-                logger.info(f"📧 Email sent to info@recalibratepain.com regarding {form.email}")
+                logger.info(f"📧 SMTP Email sent to info@recalibratepain.com regarding {form.email}")
             except Exception as email_error:
-                logger.error(f"❌ Failed to send email: {email_error}")
+                logger.error(f"❌ Failed to send SMTP email: {email_error}")
                 # Don't fail the request if email fails, just log it
         else:
-            logger.info("ℹ️ Skipped email sending (RESEND_API_KEY missing)")
+            logger.info("ℹ️ Skipped email sending (MAIL_PASSWORD missing)")
 
         logger.info(f"✅ New partner inquiry processed: {form.type} from {form.email}")
         
