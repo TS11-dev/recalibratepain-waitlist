@@ -493,37 +493,37 @@ function App() {
             </div>
 
             {/* Feature 4: Tools & Exercises - reversed */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20 p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative">
-                <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-8 sm:mb-20 p-4 sm:p-8 bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="order-2 lg:order-1 relative hidden sm:block">
+                <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 aspect-square flex items-center justify-center">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-xs">
                     {[
                       { icon: "📝", name: "Journal", color: "bg-orange-500" },
                       { icon: "🎯", name: "Goals", color: "bg-amber-500" },
                       { icon: "💡", name: "Inspiration", color: "bg-yellow-500" },
                       { icon: "🏃", name: "Exercises", color: "bg-orange-600" }
                     ].map((tool, i) => (
-                      <div key={i} className="bg-white rounded-2xl p-4 shadow-lg text-center hover:scale-105 transition-transform">
-                        <div className={`w-12 h-12 ${tool.color} rounded-xl mx-auto mb-2 flex items-center justify-center text-2xl text-white`}>
+                      <div key={i} className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg text-center">
+                        <div className={`w-10 h-10 sm:w-12 sm:h-12 ${tool.color} rounded-lg sm:rounded-xl mx-auto mb-1 sm:mb-2 flex items-center justify-center text-xl sm:text-2xl text-white`}>
                           {tool.icon}
                         </div>
-                        <p className="font-semibold text-gray-900 text-sm">{tool.name}</p>
+                        <p className="font-semibold text-gray-900 text-xs sm:text-sm">{tool.name}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-4">GO</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Tools & Exercises</h3>
-                <p className="text-gray-600 mb-6 text-lg">
-                  Therapeutic tools including journal, goal setting, daily inspiration, and guided exercises for movement therapy, breathing, and relaxation.
+                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 sm:px-3 py-1 rounded-full mb-2 sm:mb-4">GO</span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Tools & Exercises</h3>
+                <p className="text-gray-600 mb-3 sm:mb-6 text-sm sm:text-lg">
+                  Journal, goals, inspiration, and guided exercises.
                 </p>
-                <ul className="space-y-3">
-                  {["Daily journaling with prompts", "Goal tracking and progress", "Curated daily inspiration", "Guided movement & breathing exercises"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
+                <ul className="space-y-2 sm:space-y-3">
+                  {["Daily journaling", "Goal tracking", "Daily inspiration", "Guided exercises"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 sm:gap-3">
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm sm:text-base">{item}</span>
                     </li>
                   ))}
                 </ul>
