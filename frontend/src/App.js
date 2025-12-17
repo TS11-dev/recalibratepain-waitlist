@@ -436,26 +436,32 @@ function App() {
             {/* Feature 2: Analytics Dashboard - visual RIGHT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative hidden lg:block">
-                <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                  <div className="w-full max-w-xs">
-                    <div className="bg-white rounded-2xl p-6 shadow-lg mb-4">
-                      <p className="text-sm text-gray-500 mb-1">Stability Score</p>
-                      <p className="text-4xl font-bold text-indigo-600">53%</p>
-                      <div className="w-full h-2 bg-gray-200 rounded-full mt-2">
-                        <div className="w-1/2 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                      </div>
+                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-indigo-200">
+                  <div className="bg-white rounded-2xl p-5 shadow-lg mb-3 w-full max-w-xs">
+                    <div className="flex justify-between items-center mb-2">
+                      <p className="text-sm text-gray-500">Stability Score</p>
+                      <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">↑ 12%</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-white rounded-xl p-3 shadow text-center">
-                        <p className="text-xl font-bold text-purple-600">18</p>
-                        <p className="text-xs text-gray-500">Variables</p>
-                      </div>
-                      <div className="bg-white rounded-xl p-3 shadow text-center">
-                        <p className="text-xl font-bold text-indigo-600">30+</p>
-                        <p className="text-xs text-gray-500">Days Data</p>
-                      </div>
+                    <p className="text-5xl font-bold text-indigo-600">53%</p>
+                    <div className="w-full h-3 bg-gray-200 rounded-full mt-3">
+                      <div className="w-1/2 h-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
                     </div>
                   </div>
+                  <div className="grid grid-cols-3 gap-2 w-full max-w-xs">
+                    <div className="bg-white rounded-xl p-3 shadow text-center">
+                      <p className="text-2xl font-bold text-purple-600">18</p>
+                      <p className="text-xs text-gray-500">Variables</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-3 shadow text-center">
+                      <p className="text-2xl font-bold text-indigo-600">30+</p>
+                      <p className="text-xs text-gray-500">Days</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-3 shadow text-center">
+                      <p className="text-2xl">📈</p>
+                      <p className="text-xs text-gray-500">Trends</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-indigo-600 font-medium mt-3">Real-time pattern detection</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
