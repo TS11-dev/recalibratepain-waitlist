@@ -1331,10 +1331,10 @@ function App() {
               </div>
             </div>
             
-            <div className="border-t border-gray-800 mt-8 pt-8">
-              <p className="text-gray-500 text-xs text-center mb-4">Recalibrate App — The complete chronic pain app and chronic illness management companion for tracking symptoms, pain science education, and AI-powered insights.</p>
+            <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+              <p className="text-gray-400 text-sm mb-4">Recalibrate Inc. Smarter Health and Pain Technology</p>
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p className="text-gray-400 text-sm">© 2025 Recalibrate App. Your intelligent health companion.</p>
+                <p className="text-gray-500 text-xs">© 2025 Recalibrate App. Your intelligent health companion.</p>
                 <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center gap-2">
                   <Mail className="w-4 h-4" />
                   info@recalibratepain.com
@@ -1421,19 +1421,19 @@ function App() {
               }} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
-                  <input type="text" required value={partnerForm.name} onChange={(e) => setPartnerForm({...partnerForm, name: e.target.value})} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="John Doe" />
+                  <input type="text" required value={partnerForm.name} onChange={(e) => setPartnerForm({...partnerForm, name: e.target.value})} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="John Doe" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                  <input type="email" required value={partnerForm.email} onChange={(e) => setPartnerForm({...partnerForm, email: e.target.value})} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="john@example.com" />
+                  <input type="email" required value={partnerForm.email} onChange={(e) => setPartnerForm({...partnerForm, email: e.target.value})} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="john@example.com" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Organization *</label>
-                  <input type="text" required value={partnerForm.organization} onChange={(e) => setPartnerForm({...partnerForm, organization: e.target.value})} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your clinic, university, or company" />
+                  <input type="text" required value={partnerForm.organization} onChange={(e) => setPartnerForm({...partnerForm, organization: e.target.value})} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your clinic, university, or company" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
-                  <textarea required value={partnerForm.message} onChange={(e) => setPartnerForm({...partnerForm, message: e.target.value})} rows={4} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none" placeholder="Tell us about your interest in partnering with Recalibrate..." />
+                  <textarea required value={partnerForm.message} onChange={(e) => setPartnerForm({...partnerForm, message: e.target.value})} rows={4} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none" placeholder="Tell us about your interest in partnering with Recalibrate..." />
                 </div>
                 <button type="submit" disabled={partnerSubmitting} className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50">
                   {partnerSubmitting ? 'Submitting...' : 'Submit Inquiry'}
