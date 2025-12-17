@@ -491,17 +491,38 @@ function App() {
               </div>
             </div>
 
-            {/* Feature 3: Pain Academy */}
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div>
+            {/* Feature 3: Pain Academy - visual LEFT */}
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="col-span-2 lg:hidden">
+                <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl p-3 aspect-square flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="flex justify-center gap-2 mb-2">
+                      <div className="bg-white rounded-lg p-1.5 shadow">
+                        <p className="text-base font-bold text-emerald-600">90+</p>
+                        <p className="text-[7px] text-gray-500">Lessons</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-1.5 shadow">
+                        <p className="text-base font-bold text-amber-500">835</p>
+                        <p className="text-[7px] text-gray-500">XP</p>
+                      </div>
+                    </div>
+                    <div className="flex justify-center gap-1">
+                      {["🏆", "🎯", "🔥"].map((badge, i) => (
+                        <div key={i} className="w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs">{badge}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-3 lg:col-span-1">
                 <span className="inline-block bg-emerald-100 text-emerald-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">GO</span>
-                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Pain Academy</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
+                <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Pain Academy</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-[11px] lg:text-lg leading-tight">
                   90+ lessons on pain science. Earn XP and badges.
                 </p>
-                <div className="flex flex-wrap gap-1.5 lg:gap-3">
-                  {["Foundations", "Neurobiology", "Strategies"].map((topic, i) => (
-                    <span key={i} className="bg-emerald-50 text-emerald-700 px-2 py-0.5 lg:py-1 rounded-full text-[10px] lg:text-sm font-medium">{topic}</span>
+                <div className="flex flex-wrap gap-1 lg:gap-3">
+                  {["Foundations", "Neuro", "Strategies"].map((topic, i) => (
+                    <span key={i} className="bg-emerald-50 text-emerald-700 px-1.5 py-0.5 lg:px-3 lg:py-1 rounded-full text-[9px] lg:text-sm font-medium">{topic}</span>
                   ))}
                 </div>
               </div>
