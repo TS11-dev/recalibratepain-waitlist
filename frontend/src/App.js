@@ -346,14 +346,15 @@ function App() {
               </div>
 
               {/* Desktop Floating Cards - More labels */}
-              <div className="absolute left-[18%] top-8 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[200px] animate-float hidden lg:block">
+              {/* Track 18 Variables - BLUE background */}
+              <div className="absolute left-[18%] top-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl shadow-xl p-4 max-w-[200px] animate-float hidden lg:block text-white">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-lg">📊</span>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-sm">Track 18 Variables</p>
-                    <p className="text-xs text-gray-500">Pain, sleep, mood & energy</p>
+                    <p className="font-bold text-sm">Track 18 Variables</p>
+                    <p className="text-xs text-white/80">Pain, sleep, mood & energy</p>
                   </div>
                 </div>
               </div>
@@ -370,14 +371,15 @@ function App() {
                 </div>
               </div>
 
-              <div className="absolute left-[12%] top-44 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[180px] animate-float-delayed hidden lg:block">
+              {/* Care Team - PINK background - moved above Goal Tracking */}
+              <div className="absolute left-[12%] top-44 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl shadow-xl p-4 max-w-[170px] animate-float-delayed hidden lg:block text-white">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">📈</span>
+                  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">👥</span>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-sm">Stability Score</p>
-                    <p className="text-xs text-gray-500">Real-time analytics</p>
+                    <p className="font-bold text-sm">Care Team</p>
+                    <p className="text-xs text-white/80">Share with doctors</p>
                   </div>
                 </div>
               </div>
@@ -406,14 +408,14 @@ function App() {
                 </div>
               </div>
 
-              <div className="absolute right-[16%] bottom-40 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[170px] animate-float-delayed hidden lg:block">
+              <div className="absolute right-[16%] bottom-40 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[180px] animate-float-delayed hidden lg:block">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">👥</span>
+                  <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">📈</span>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-sm">Care Team</p>
-                    <p className="text-xs text-gray-500">Share with doctors</p>
+                    <p className="font-bold text-gray-900 text-sm">Stability Score</p>
+                    <p className="text-xs text-gray-500">Real-time analytics</p>
                   </div>
                 </div>
               </div>
