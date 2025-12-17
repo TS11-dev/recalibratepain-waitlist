@@ -112,9 +112,9 @@ function App() {
     {
       name: "Free",
       monthly: "0",
-      yearly: null,
-      description: "Essential tracking",
-      features: ["Basic tracking", "Daily journal"],
+      yearly: "0",
+      description: "Get started",
+      features: ["Limited tracking", "Community access"],
       popular: false,
       cta: "Start Free"
     },
@@ -122,8 +122,8 @@ function App() {
       name: "Go",
       monthly: "12.99",
       yearly: "99.99",
-      description: "Pain Academy & tools",
-      features: ["Pain Academy", "Therapeutic tools"],
+      description: "Full tracking & education",
+      features: ["Smart Tracker (18 vars)", "Analytics Dashboard", "Daily journal", "Pain Academy (90+ lessons)", "Therapeutic tools"],
       popular: false,
       cta: "Get Go"
     },
@@ -131,8 +131,8 @@ function App() {
       name: "Pro",
       monthly: "34.99",
       yearly: "299.99",
-      description: "AI & Care Team",
-      features: ["Recalibrate AI", "Care Team"],
+      description: "Everything + AI & Team",
+      features: ["All Go features", "Recalibrate AI", "Care Team dashboards", "Priority support", "Advanced analytics"],
       popular: true,
       cta: "Go Pro"
     },
@@ -141,7 +141,7 @@ function App() {
       monthly: "499.99",
       yearly: null,
       description: "Pro forever",
-      features: ["All Pro features", "Lifetime updates"],
+      features: ["All Pro features", "Lifetime updates", "Early access to new features"],
       popular: false,
       cta: "Get Lifetime",
       isLifetime: true
