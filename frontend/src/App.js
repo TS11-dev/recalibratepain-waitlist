@@ -223,14 +223,14 @@ function App() {
                   <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-6">
+                <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-3 sm:mb-6">
                   Your Health and Pain
                   <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
                     Management Companion
                   </span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
+                <p className="text-sm sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-8 max-w-xl leading-relaxed">
                   Track symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons.
                 </p>
                 
