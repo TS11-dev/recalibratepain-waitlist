@@ -224,14 +224,14 @@ function App() {
               </div>
               
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
-                Your Health and Pain
-                <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
+                Your <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent">Health</span> and <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 bg-clip-text text-transparent">Pain</span>
+                <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent">
                   Management Companion
                 </span>
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-                Track symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons.
+                <strong className="text-gray-800">Recalibrate App</strong> — Track chronic pain symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons. The complete chronic illness management app.
               </p>
               
               {/* Email Form */}
