@@ -376,24 +376,37 @@ function App() {
               </div>
             </div>
 
-            {/* Feature 1: Smart Tracker - with visual */}
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div>
+            {/* Feature 1: Smart Tracker - visual LEFT */}
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="col-span-2 lg:hidden">
+                <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl p-3 aspect-square flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-2 bg-white rounded-full shadow flex items-center justify-center">
+                      <span className="text-2xl">📊</span>
+                    </div>
+                    <div className="bg-white rounded-lg p-1.5 shadow">
+                      <p className="text-lg font-bold text-blue-600">8</p>
+                      <p className="text-[8px] text-gray-600">Systems</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-3 lg:col-span-1">
                 <span className="inline-block bg-gray-100 text-gray-600 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">FREE</span>
-                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Smart Tracker</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
+                <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Smart Tracker</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-[11px] lg:text-lg leading-tight">
                   Log pain, sleep, mood & energy across 8 health systems.
                 </p>
-                <div className="grid grid-cols-2 gap-1.5 lg:gap-4">
+                <div className="grid grid-cols-2 gap-1 lg:gap-4">
                   {[
-                    { icon: "🎯", label: "Pain Levels" },
+                    { icon: "🎯", label: "Pain" },
                     { icon: "😴", label: "Sleep" },
-                    { icon: "💊", label: "Medications" },
+                    { icon: "💊", label: "Meds" },
                     { icon: "⚡", label: "Energy" }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-1.5 lg:gap-2 p-1.5 lg:p-3 bg-gray-50 rounded-lg">
-                      <span className="text-sm lg:text-2xl">{item.icon}</span>
-                      <p className="font-medium text-gray-900 text-[10px] lg:text-sm">{item.label}</p>
+                    <div key={i} className="flex items-center gap-1 lg:gap-2 p-1 lg:p-3 bg-gray-50 rounded">
+                      <span className="text-xs lg:text-2xl">{item.icon}</span>
+                      <p className="font-medium text-gray-900 text-[9px] lg:text-sm">{item.label}</p>
                     </div>
                   ))}
                 </div>
