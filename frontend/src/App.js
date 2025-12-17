@@ -281,10 +281,10 @@ function App() {
 
             {/* Phone Mockup - Centered Below */}
             <div className="relative flex justify-center">
-              {/* Phone Frame */}
-              <div className="relative w-[260px] h-[540px] sm:w-[300px] sm:h-[620px] bg-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl shadow-purple-500/20">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-6 sm:h-7 bg-gray-900 rounded-b-2xl z-10"></div>
-                <div className="w-full h-full bg-white rounded-[2rem] sm:rounded-[2.3rem] overflow-hidden">
+              {/* Phone Frame - smaller on mobile */}
+              <div className="relative w-[180px] h-[380px] sm:w-[220px] sm:h-[460px] lg:w-[280px] lg:h-[580px] bg-gray-900 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-1.5 sm:p-2 lg:p-3 shadow-2xl shadow-purple-500/20">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-28 h-4 sm:h-5 lg:h-7 bg-gray-900 rounded-b-xl lg:rounded-b-2xl z-10"></div>
+                <div className="w-full h-full bg-white rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.3rem] overflow-hidden">
                   <img 
                     src="/app-screenshot.png" 
                     alt="Recalibrate App" 
@@ -293,20 +293,67 @@ function App() {
                 </div>
               </div>
               
-              {/* Floating Notification Cards */}
-              <div className="absolute -left-4 sm:left-[10%] lg:left-[20%] top-8 sm:top-12 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 p-3 sm:p-4 max-w-[180px] sm:max-w-[200px] animate-float">
+              {/* Floating Notification Cards - Mobile (smaller, tighter) */}
+              <div className="absolute left-0 top-4 bg-white rounded-lg shadow-lg border border-gray-100 p-2 max-w-[100px] animate-float lg:hidden">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs">📊</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-[9px]">18 Variables</p>
+                    <p className="text-[7px] text-gray-500">Pain & mood</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute right-0 top-16 bg-white rounded-lg shadow-lg border border-gray-100 p-2 max-w-[95px] animate-float-delayed lg:hidden">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs">🔔</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-[9px]">Reminders</p>
+                    <p className="text-[7px] text-gray-500">Stay on track</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute left-0 bottom-24 bg-white rounded-lg shadow-lg border border-gray-100 p-2 max-w-[90px] animate-float lg:hidden">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs">🤖</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-[9px]">AI Insights</p>
+                    <p className="text-[7px] text-gray-500">Patterns</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute right-0 bottom-8 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg shadow-lg p-2 max-w-[85px] text-white animate-float-delayed lg:hidden">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs">🧠</span>
+                  <div>
+                    <p className="font-bold text-[9px]">90+ Lessons</p>
+                    <p className="text-[7px] text-white/80">Academy</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Floating Cards - More labels */}
+              <div className="absolute left-[18%] top-8 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[200px] animate-float hidden lg:block">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-lg">📊</span>
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 text-sm">Track 18 Variables</p>
-                    <p className="text-xs text-gray-500">Pain, sleep & mood</p>
+                    <p className="text-xs text-gray-500">Pain, sleep, mood & energy</p>
                   </div>
                 </div>
               </div>
               
-              <div className="absolute -right-4 sm:right-[10%] lg:right-[20%] top-28 sm:top-36 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 p-3 sm:p-4 max-w-[170px] sm:max-w-[180px] animate-float-delayed">
+              <div className="absolute right-[18%] top-16 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[190px] animate-float-delayed hidden lg:block">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-lg">🔔</span>
@@ -317,8 +364,32 @@ function App() {
                   </div>
                 </div>
               </div>
+
+              <div className="absolute left-[12%] top-44 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[180px] animate-float-delayed hidden lg:block">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">📈</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">Stability Score</p>
+                    <p className="text-xs text-gray-500">Real-time analytics</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute right-[12%] top-56 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[180px] animate-float hidden lg:block">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">🎯</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">Goal Tracking</p>
+                    <p className="text-xs text-gray-500">Set & achieve targets</p>
+                  </div>
+                </div>
+              </div>
               
-              <div className="absolute -left-4 sm:left-[8%] lg:left-[18%] bottom-28 sm:bottom-36 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 p-3 sm:p-4 max-w-[160px] sm:max-w-[190px] animate-float">
+              <div className="absolute left-[16%] bottom-32 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[190px] animate-float hidden lg:block">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-lg">🤖</span>
@@ -329,13 +400,35 @@ function App() {
                   </div>
                 </div>
               </div>
+
+              <div className="absolute right-[16%] bottom-40 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[170px] animate-float-delayed hidden lg:block">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">👥</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">Care Team</p>
+                    <p className="text-xs text-gray-500">Share with doctors</p>
+                  </div>
+                </div>
+              </div>
               
-              <div className="absolute -right-4 sm:right-[8%] lg:right-[18%] bottom-12 sm:bottom-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl sm:rounded-2xl shadow-xl p-3 sm:p-4 max-w-[150px] sm:max-w-[170px] text-white animate-float-delayed">
+              <div className="absolute right-[20%] bottom-12 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl shadow-xl p-4 max-w-[170px] text-white animate-float-delayed hidden lg:block">
                 <div className="flex items-center gap-2">
                   <span className="text-lg">🧠</span>
                   <div>
                     <p className="font-bold text-sm">90+ Lessons</p>
                     <p className="text-xs text-white/80">Pain Academy</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute left-[20%] bottom-8 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl shadow-xl p-4 max-w-[160px] text-white animate-float hidden lg:block">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">✨</span>
+                  <div>
+                    <p className="font-bold text-sm">200+ Tools</p>
+                    <p className="text-xs text-white/80">& Resources</p>
                   </div>
                 </div>
               </div>
