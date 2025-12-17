@@ -162,28 +162,28 @@ function App() {
         <Toaster position="top-center" toastOptions={{ style: { borderRadius: '12px', background: '#1f2937', color: '#fff' } }} />
         
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-purple-100/50">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <img src="/recalibrate-logo.png" alt="Recalibrate" className="h-10 w-auto" />
-                <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent">Recalibrate</span>
+                <span className="text-xl font-bold text-white">Recalibrate</span>
               </div>
               
-              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 hover:bg-purple-50 rounded-xl">
-                {mobileMenuOpen ? <X className="w-6 h-6 text-gray-700" /> : <Menu className="w-6 h-6 text-gray-700" />}
+              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 hover:bg-white/10 rounded-xl">
+                {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
               </button>
               
               <div className="hidden md:flex items-center space-x-1">
                 {['features', 'pricing', 'partners', 'resources'].map((item) => (
-                  <button key={item} onClick={() => smoothScroll(item)} className="px-4 py-2 text-gray-600 hover:text-purple-600 text-sm font-medium rounded-lg hover:bg-purple-50 transition-all capitalize">
+                  <button key={item} onClick={() => smoothScroll(item)} className="px-4 py-2 text-white/80 hover:text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all capitalize">
                     {item}
                   </button>
                 ))}
-                <button onClick={() => setShowContactModal(true)} className="px-4 py-2 text-gray-600 hover:text-purple-600 text-sm font-medium rounded-lg hover:bg-purple-50 transition-all">
+                <button onClick={() => setShowContactModal(true)} className="px-4 py-2 text-white/80 hover:text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all">
                   Contact Us
                 </button>
-                <button onClick={() => smoothScroll('waitlist')} className="ml-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5">
+                <button onClick={() => smoothScroll('waitlist')} className="ml-2 bg-white text-purple-600 px-5 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:bg-purple-50 transition-all hover:-translate-y-0.5">
                   Join the Revolution
                 </button>
               </div>
@@ -191,13 +191,13 @@ function App() {
           </div>
           
           {mobileMenuOpen && (
-            <div className="md:hidden bg-white border-t border-purple-100 py-3 px-4 space-y-1">
+            <div className="md:hidden bg-indigo-700/95 border-t border-white/10 py-3 px-4 space-y-1">
               {['features', 'pricing', 'partners', 'resources'].map((item) => (
-                <button key={item} onClick={() => smoothScroll(item)} className="block w-full text-left py-3 px-4 text-gray-700 hover:bg-purple-50 rounded-xl capitalize">
+                <button key={item} onClick={() => smoothScroll(item)} className="block w-full text-left py-3 px-4 text-white/90 hover:bg-white/10 rounded-xl capitalize">
                   {item}
                 </button>
               ))}
-              <button onClick={() => { setShowContactModal(true); setMobileMenuOpen(false); }} className="block w-full text-left py-3 px-4 text-gray-700 hover:bg-purple-50 rounded-xl">
+              <button onClick={() => { setShowContactModal(true); setMobileMenuOpen(false); }} className="block w-full text-left py-3 px-4 text-white/90 hover:bg-white/10 rounded-xl">
                 Contact Us
               </button>
               <button onClick={() => smoothScroll('waitlist')} className="w-full mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold">
