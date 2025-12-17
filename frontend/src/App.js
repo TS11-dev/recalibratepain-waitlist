@@ -1352,15 +1352,94 @@ function App() {
                 <h3 className="text-xl font-bold">Get in Touch</h3>
                 <button onClick={() => setShowContactModal(false)} className="p-2 hover:bg-gray-100 rounded-lg"><X className="w-5 h-5" /></button>
               </div>
-              <a href="mailto:info@recalibratepain.com" className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white" />
+              
+              <div className="space-y-3 mb-4">
+                <a href="mailto:info@recalibratepain.com" className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Email Us</p>
+                    <p className="text-purple-600 text-sm">info@recalibratepain.com</p>
+                  </div>
+                </a>
+                
+                <div className="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-purple-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg">📅</span>
+                    <p className="font-semibold text-gray-900">Expected Release</p>
+                  </div>
+                  <p className="text-gray-600 text-sm">Q2 2025 - Join our waitlist to be first in line!</p>
+                </div>
+              </div>
+              
+              <div className="border-t pt-4">
+                <p className="text-xs text-gray-500 mb-3">Quick Links</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('clinic'); }} className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">🏥 For Clinics</button>
+                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('research'); }} className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">🔬 For Researchers</button>
+                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('investor'); }} className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">💼 For Investors</button>
+                  <a href="https://recalibrate.beehiiv.com" target="_blank" rel="noopener noreferrer" className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">📬 Newsletter</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Partner Form Modal */}
+        {partnerFormOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={(e) => e.target === e.currentTarget && setPartnerFormOpen(null)}>
+            <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-bold">
+                  {partnerFormOpen === 'clinic' && '🏥 Healthcare Clinic Inquiry'}
+                  {partnerFormOpen === 'research' && '🔬 Research Collaboration'}
+                  {partnerFormOpen === 'investor' && '💼 Investor Inquiry'}
+                </h3>
+                <button onClick={() => setPartnerFormOpen(null)} className="p-2 hover:bg-gray-100 rounded-lg"><X className="w-5 h-5" /></button>
+              </div>
+              
+              <form onSubmit={async (e) => {
+                e.preventDefault();
+                setPartnerSubmitting(true);
+                try {
+                  const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partner/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...partnerForm, type: partnerFormOpen })
+                  });
+                  const data = await response.json();
+                  if (data.success) {
+                    alert('Thank you! We will contact you soon.');
+                    setPartnerFormOpen(null);
+                    setPartnerForm({ type: '', name: '', email: '', organization: '', message: '' });
+                  }
+                } catch (err) {
+                  alert('Error submitting form. Please try again.');
+                }
+                setPartnerSubmitting(false);
+              }} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
+                  <input type="text" required value={partnerForm.name} onChange={(e) => setPartnerForm({...partnerForm, name: e.target.value})} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="John Doe" />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Email Us</p>
-                  <p className="text-purple-600">info@recalibratepain.com</p>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                  <input type="email" required value={partnerForm.email} onChange={(e) => setPartnerForm({...partnerForm, email: e.target.value})} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="john@example.com" />
                 </div>
-              </a>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Organization *</label>
+                  <input type="text" required value={partnerForm.organization} onChange={(e) => setPartnerForm({...partnerForm, organization: e.target.value})} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your clinic, university, or company" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                  <textarea required value={partnerForm.message} onChange={(e) => setPartnerForm({...partnerForm, message: e.target.value})} rows={4} className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none" placeholder="Tell us about your interest in partnering with Recalibrate..." />
+                </div>
+                <button type="submit" disabled={partnerSubmitting} className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50">
+                  {partnerSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                </button>
+                <p className="text-xs text-gray-500 text-center">We'll respond to info@recalibratepain.com inquiries within 48 hours</p>
+              </form>
             </div>
           </div>
         )}
