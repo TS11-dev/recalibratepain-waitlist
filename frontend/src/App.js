@@ -432,12 +432,34 @@ function App() {
         </section>
 
         {/* Evidence-Based Approaches */}
-        <section className="py-10 sm:py-12 px-4 sm:px-6 bg-gray-900">
-          <div className="max-w-5xl mx-auto">
-            <p className="text-center text-sm text-gray-400 mb-6 uppercase tracking-wider">Recalibrate App — Built with evidence-based chronic pain approaches</p>
-            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
-              {['Pain Science', 'Cognitive Behavioral', 'Mindfulness', 'Movement Therapy', 'Graded Exposure'].map((item, i) => (
-                <span key={i} className="bg-purple-600/20 text-purple-300 border border-purple-500/30 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-600/30 transition-colors">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Built on Evidence-Based Science</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Recalibrate App integrates proven approaches from leading pain research</p>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-6">
+              {[
+                { icon: "🧠", label: "Pain Neuroscience", color: "from-blue-500 to-indigo-500" },
+                { icon: "💭", label: "CBT Therapy", color: "from-purple-500 to-violet-500" },
+                { icon: "🧘", label: "Mindfulness", color: "from-emerald-500 to-teal-500" },
+                { icon: "🏃", label: "Movement Therapy", color: "from-orange-500 to-amber-500" },
+                { icon: "📈", label: "Graded Exposure", color: "from-pink-500 to-rose-500" },
+                { icon: "😴", label: "Sleep Science", color: "from-indigo-500 to-blue-500" }
+              ].map((item, i) => (
+                <div key={i} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 text-center hover:shadow-md transition-all hover:-translate-y-1">
+                  <div className={`w-12 h-12 mx-auto mb-2 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-xl shadow-lg`}>
+                    {item.icon}
+                  </div>
+                  <p className="text-xs sm:text-sm font-semibold text-gray-800">{item.label}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {['Acceptance & Commitment', 'Pacing Strategies', 'Nutrition Science', 'Stress Management', 'Biofeedback', 'Goal Setting', 'Self-Compassion', 'Activity Tracking'].map((item, i) => (
+                <span key={i} className="bg-white/80 backdrop-blur text-gray-700 border border-gray-200 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-white hover:border-purple-300 transition-all">
                   {item}
                 </span>
               ))}
