@@ -710,23 +710,23 @@ function App() {
                 </ul>
               </div>
               <div className="col-span-2 lg:hidden order-2">
-                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-2 aspect-square flex flex-col items-center justify-center border-2 border-orange-200">
-                  <div className="grid grid-cols-2 gap-1 w-full mb-1">
+                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-orange-200">
+                  <div className="grid grid-cols-2 gap-1.5 w-full mb-1.5">
                     {[
                       { icon: "📝", label: "Journal", color: "bg-orange-500" },
                       { icon: "🎯", label: "Goals", color: "bg-amber-500" },
                       { icon: "💡", label: "Tips", color: "bg-yellow-500" },
                       { icon: "🏃", label: "Exercise", color: "bg-orange-600" }
                     ].map((tool, i) => (
-                      <div key={i} className="bg-white rounded p-1 shadow-sm text-center">
-                        <div className={`w-6 h-6 ${tool.color} rounded mx-auto flex items-center justify-center text-xs text-white mb-0.5`}>
+                      <div key={i} className="bg-white rounded-lg p-1.5 shadow-sm text-center">
+                        <div className={`w-8 h-8 ${tool.color} rounded-lg mx-auto flex items-center justify-center text-base text-white mb-0.5`}>
                           {tool.icon}
                         </div>
-                        <p className="text-[6px] text-gray-600">{tool.label}</p>
+                        <p className="text-[8px] text-gray-600">{tool.label}</p>
                       </div>
                     ))}
                   </div>
-                  <p className="text-[7px] text-orange-600 font-medium">Therapeutic Tools</p>
+                  <p className="text-[8px] text-orange-600 font-medium">Therapeutic Tools</p>
                 </div>
               </div>
             </div>
