@@ -12,10 +12,18 @@ import logging
 from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 import asyncio
+import os
+import resend
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
+
+# Initialize Resend
+if os.environ.get("RESEND_API_KEY"):
+    resend.api_key = os.environ.get("RESEND_API_KEY")
+else:
+    logger.warning("⚠️ RESEND_API_KEY not found. Emails will not be sent.")
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -539,7 +547,7 @@ async def get_waitlist_stats():
 async def partner_contact(form: PartnerContactForm):
     """Handle partner contact form submissions"""
     try:
-        # Store in a partners collection or JSON file
+        # 1. Log the inquiry (keep existing logic)
         partner_entry = {
             "type": form.type,
             "name": form.name.strip(),
@@ -565,13 +573,52 @@ async def partner_contact(form: PartnerContactForm):
         
         with open(partners_file, 'w') as f:
             json.dump(partners, f, indent=2)
-        
-        logger.info(f"✅ New partner inquiry: {form.type} from {form.email}")
+            
+        # 2. Send Email via Resend
+        email_sent = False
+        if os.environ.get("RESEND_API_KEY"):
+            try:
+                # Prepare email content
+                html_content = f"""
+                <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #4f46e5;">New Partner Inquiry: {form.type.title()}</h2>
+                    <p><strong>Name:</strong> {form.name}</p>
+                    <p><strong>Email:</strong> {form.email}</p>
+                    <p><strong>Organization:</strong> {form.organization}</p>
+                    <hr style="border: 1px solid #e5e7eb; margin: 20px 0;">
+                    <p><strong>Message:</strong></p>
+                    <div style="background-color: #f9fafb; padding: 15px; border-radius: 8px;">
+                        {form.message}
+                    </div>
+                    <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">Sent from Recalibrate Landing Page</p>
+                </div>
+                """
+                
+                params = {
+                    "from": "Recalibrate Partner <onboarding@resend.dev>",
+                    "to": ["info@recalibratepain.com"],
+                    "subject": f"New Partner Inquiry: {form.organization}",
+                    "html": html_content,
+                    "reply_to": form.email
+                }
+                
+                # Send asynchronously
+                await asyncio.to_thread(resend.Emails.send, params)
+                email_sent = True
+                logger.info(f"📧 Email sent to info@recalibratepain.com regarding {form.email}")
+            except Exception as email_error:
+                logger.error(f"❌ Failed to send email: {email_error}")
+                # Don't fail the request if email fails, just log it
+        else:
+            logger.info("ℹ️ Skipped email sending (RESEND_API_KEY missing)")
+
+        logger.info(f"✅ New partner inquiry processed: {form.type} from {form.email}")
         
         return {
             "success": True,
             "message": f"Thank you for your interest! We'll contact you at {form.email} soon.",
-            "type": form.type
+            "type": form.type,
+            "email_sent": email_sent
         }
     except Exception as e:
         logger.error(f"Partner contact error: {e}")

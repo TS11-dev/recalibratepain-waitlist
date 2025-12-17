@@ -1398,6 +1398,21 @@ function App() {
                 </h3>
                 <button onClick={() => setPartnerFormOpen(null)} className="p-2 hover:bg-gray-100 rounded-lg"><X className="w-5 h-5" /></button>
               </div>
+              {partnerFormOpen === 'investor' && (
+                <div className="mb-6 p-5 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-purple-100">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xl">📊</span>
+                    <h4 className="font-bold text-gray-900">Investor Prospectus Summary</h4>
+                  </div>
+                  <div className="space-y-2 text-sm text-gray-700">
+                    <p><strong className="text-purple-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven pain management.</p>
+                    <p><strong className="text-purple-700">Market:</strong> $600B+ Chronic Pain Market | 1.5B Sufferers Globally.</p>
+                    <p><strong className="text-purple-700">Traction:</strong> 191+ Pre-launch waitlist, HIPAA-compliant architecture.</p>
+                    <p><strong className="text-purple-700">Opportunity:</strong> Raising Seed Round to accelerate AI R&D and clinical partnerships.</p>
+                    <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
+                  </div>
+                </div>
+              )}
               
               <form onSubmit={async (e) => {
                 e.preventDefault();
