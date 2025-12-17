@@ -880,7 +880,7 @@ function App() {
                   Ready to recalibrate your health?
                 </h2>
                 <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-                  Join the revolution. Early adopters get premium features free forever.
+                  Join the revolution. Be the first to experience the future of pain management.
                 </p>
                 
                 <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
