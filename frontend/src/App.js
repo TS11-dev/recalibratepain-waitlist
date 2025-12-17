@@ -549,8 +549,8 @@ function App() {
               </div>
             </div>
 
-            {/* Feature 4: Tools & Exercises - reversed */}
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            {/* Feature 4: Tools & Exercises - visual RIGHT */}
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative hidden lg:block">
                 <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
                   <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
@@ -570,20 +570,38 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 lg:order-2">
+              <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
                 <span className="inline-block bg-emerald-100 text-emerald-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">GO</span>
-                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Tools & Exercises</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
+                <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Tools & Exercises</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-[11px] lg:text-lg leading-tight">
                   Journal, goals, inspiration, and guided exercises.
                 </p>
-                <ul className="space-y-1 lg:space-y-3">
-                  {["Daily journaling", "Goal tracking", "Daily inspiration", "Guided exercises"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 lg:gap-3">
-                      <CheckCircle className="w-3.5 h-3.5 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700 text-[11px] lg:text-base">{item}</span>
+                <ul className="space-y-0.5 lg:space-y-3">
+                  {["Journaling", "Goal tracking", "Inspiration", "Exercises"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-1.5 lg:gap-3">
+                      <CheckCircle className="w-3 h-3 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700 text-[10px] lg:text-base">{item}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div className="col-span-2 lg:hidden order-2">
+                <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl p-2 aspect-square flex items-center justify-center">
+                  <div className="grid grid-cols-2 gap-1.5 w-full">
+                    {[
+                      { icon: "📝", color: "bg-orange-500" },
+                      { icon: "🎯", color: "bg-amber-500" },
+                      { icon: "💡", color: "bg-yellow-500" },
+                      { icon: "🏃", color: "bg-orange-600" }
+                    ].map((tool, i) => (
+                      <div key={i} className="bg-white rounded-lg p-1.5 shadow text-center">
+                        <div className={`w-7 h-7 ${tool.color} rounded mx-auto flex items-center justify-center text-sm text-white`}>
+                          {tool.icon}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
