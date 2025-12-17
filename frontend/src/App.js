@@ -308,35 +308,35 @@ function App() {
                 </div>
                 
                 <div className="absolute -right-1 sm:-right-4 lg:-right-16 top-16 sm:top-24 lg:top-40 bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-1.5 sm:p-2 lg:p-4 max-w-[90px] sm:max-w-[130px] lg:max-w-[180px] animate-float-delayed">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg">🔔</span>
+                  <div className="flex items-start gap-1.5 sm:gap-2 lg:gap-3">
+                    <div className="w-6 sm:w-7 lg:w-10 h-6 sm:h-7 lg:h-10 bg-green-100 rounded-md sm:rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs sm:text-sm lg:text-lg">🔔</span>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 text-sm">Smart Reminders</p>
-                      <p className="text-xs text-gray-500">Never miss a check-in</p>
+                      <p className="font-bold text-gray-900 text-[9px] sm:text-[10px] lg:text-sm leading-tight">Smart Reminders</p>
+                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-gray-500 hidden sm:block">Never miss a check-in</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="hidden sm:block absolute -left-4 lg:-left-12 bottom-28 lg:bottom-40 bg-white rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-2 sm:p-3 lg:p-4 max-w-[150px] lg:max-w-[190px] animate-float">
-                  <div className="flex items-start gap-2 lg:gap-3">
-                    <div className="w-8 lg:w-10 h-8 lg:h-10 bg-purple-100 rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-sm lg:text-lg">🤖</span>
+                <div className="absolute -left-1 sm:-left-4 lg:-left-12 bottom-16 sm:bottom-24 lg:bottom-40 bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-1.5 sm:p-2 lg:p-4 max-w-[90px] sm:max-w-[130px] lg:max-w-[190px] animate-float">
+                  <div className="flex items-start gap-1.5 sm:gap-2 lg:gap-3">
+                    <div className="w-6 sm:w-7 lg:w-10 h-6 sm:h-7 lg:h-10 bg-purple-100 rounded-md sm:rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs sm:text-sm lg:text-lg">🤖</span>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 text-xs lg:text-sm">AI Insights</p>
-                      <p className="text-[10px] lg:text-xs text-gray-500">Patterns detected!</p>
+                      <p className="font-bold text-gray-900 text-[9px] sm:text-[10px] lg:text-sm leading-tight">AI Insights</p>
+                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-gray-500 hidden sm:block">Patterns detected!</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="hidden sm:block absolute -right-2 lg:-right-8 bottom-16 lg:bottom-24 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl lg:rounded-2xl shadow-xl p-2 sm:p-3 lg:p-4 max-w-[140px] lg:max-w-[170px] text-white animate-float-delayed">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm lg:text-lg">🧠</span>
+                <div className="absolute -right-1 sm:-right-2 lg:-right-8 bottom-4 sm:bottom-12 lg:bottom-24 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl p-1.5 sm:p-2 lg:p-4 max-w-[85px] sm:max-w-[120px] lg:max-w-[170px] text-white animate-float-delayed">
+                  <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-2">
+                    <span className="text-xs sm:text-sm lg:text-lg">🧠</span>
                     <div>
-                      <p className="font-bold text-xs lg:text-sm">90+ Lessons</p>
-                      <p className="text-[10px] lg:text-xs text-white/80">Pain Academy</p>
+                      <p className="font-bold text-[9px] sm:text-[10px] lg:text-sm leading-tight">90+ Lessons</p>
+                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-white/80 hidden sm:block">Pain Academy</p>
                     </div>
                   </div>
                 </div>
