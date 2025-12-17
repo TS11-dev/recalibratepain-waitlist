@@ -319,24 +319,24 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -left-12 bottom-40 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[190px] animate-float">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg">🤖</span>
+                <div className="hidden sm:block absolute -left-4 lg:-left-12 bottom-28 lg:bottom-40 bg-white rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-2 sm:p-3 lg:p-4 max-w-[150px] lg:max-w-[190px] animate-float">
+                  <div className="flex items-start gap-2 lg:gap-3">
+                    <div className="w-8 lg:w-10 h-8 lg:h-10 bg-purple-100 rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm lg:text-lg">🤖</span>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 text-sm">AI Insights</p>
-                      <p className="text-xs text-gray-500">Patterns detected!</p>
+                      <p className="font-bold text-gray-900 text-xs lg:text-sm">AI Insights</p>
+                      <p className="text-[10px] lg:text-xs text-gray-500">Patterns detected!</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute -right-8 bottom-24 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl shadow-xl p-4 max-w-[170px] text-white animate-float-delayed">
+                <div className="hidden sm:block absolute -right-2 lg:-right-8 bottom-16 lg:bottom-24 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl lg:rounded-2xl shadow-xl p-2 sm:p-3 lg:p-4 max-w-[140px] lg:max-w-[170px] text-white animate-float-delayed">
                   <div className="flex items-center gap-2">
-                    <span className="text-lg">🧠</span>
+                    <span className="text-sm lg:text-lg">🧠</span>
                     <div>
-                      <p className="font-bold text-sm">90+ Lessons</p>
-                      <p className="text-xs text-white/80">Pain Academy</p>
+                      <p className="font-bold text-xs lg:text-sm">90+ Lessons</p>
+                      <p className="text-[10px] lg:text-xs text-white/80">Pain Academy</p>
                     </div>
                   </div>
                 </div>
