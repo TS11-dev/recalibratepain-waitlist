@@ -35,6 +35,9 @@ function App() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isYearly, setIsYearly] = useState(false);
+  const [partnerForm, setPartnerForm] = useState({ type: '', name: '', email: '', organization: '', message: '' });
+  const [partnerFormOpen, setPartnerFormOpen] = useState(null); // 'clinic', 'research', 'investor'
+  const [partnerSubmitting, setPartnerSubmitting] = useState(false);
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
