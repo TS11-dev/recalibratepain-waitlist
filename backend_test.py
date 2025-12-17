@@ -5,8 +5,8 @@ import time
 import os
 from datetime import datetime
 
-# Use local backend since Railway production is down
-BACKEND_URL = 'http://localhost:8001'
+# Use production backend URL from frontend .env
+BACKEND_URL = 'https://recalipain-1.preview.emergentagent.com'
 WAITLIST_FILE = "/app/backend/waitlist.json"
 
 print(f"Using backend URL: {BACKEND_URL}")
