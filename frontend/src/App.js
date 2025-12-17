@@ -661,7 +661,7 @@ function App() {
             </div>
 
             {/* Feature 4: Tools & Exercises - visual RIGHT */}
-            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-orange-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative hidden lg:block">
                 <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-orange-200">
                   <div className="grid grid-cols-2 gap-3 w-full max-w-xs mb-3">
