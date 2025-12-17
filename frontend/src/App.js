@@ -472,16 +472,16 @@ function App() {
             {/* Feature 1: Smart Tracker - visual LEFT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="col-span-2 lg:hidden">
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-2 aspect-square flex flex-col items-center justify-center border-2 border-blue-200">
-                  <div className="grid grid-cols-3 gap-1 mb-1.5">
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-blue-200">
+                  <div className="grid grid-cols-3 gap-1.5 mb-2">
                     {["🎯", "😴", "💊", "⚡", "🧠", "❤️"].map((icon, i) => (
-                      <div key={i} className="w-6 h-6 bg-white rounded shadow-sm flex items-center justify-center text-xs">{icon}</div>
+                      <div key={i} className="w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center text-base">{icon}</div>
                     ))}
                   </div>
-                  <div className="bg-white rounded-lg px-2 py-1 shadow text-center">
-                    <p className="text-sm font-bold text-blue-600">18</p>
-                    <p className="text-[7px] text-gray-600 leading-tight">variables across</p>
-                    <p className="text-[7px] font-semibold text-blue-500">8 systems</p>
+                  <div className="bg-white rounded-lg px-3 py-1.5 shadow text-center">
+                    <p className="text-lg font-bold text-blue-600">18</p>
+                    <p className="text-[8px] text-gray-600 leading-tight">variables across</p>
+                    <p className="text-[8px] font-semibold text-blue-500">8 systems</p>
                   </div>
                 </div>
               </div>
