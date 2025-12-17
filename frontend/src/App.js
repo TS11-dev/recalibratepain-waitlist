@@ -533,25 +533,25 @@ function App() {
             {/* Feature 5: Recalibrate AI */}
             <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div>
-                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-4">PRO</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Recalibrate AI</h3>
-                <p className="text-gray-600 mb-6 text-lg">
-                  Your AI companion powered by Gemini 2.0 Flash. Chat mode, research mode, and AI analysis that detects patterns in your health data.
+                <span className="inline-block bg-purple-100 text-purple-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">PRO</span>
+                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Recalibrate AI</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
+                  Your AI companion powered by Gemini 2.0 Flash. Chat mode, research mode, and AI analysis.
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-1.5 lg:space-y-3">
                   {[
-                    { mode: "💬 Chat Mode", desc: "Ask questions about your health data" },
-                    { mode: "🔬 Research Mode", desc: "Deep dive into pain science topics" },
-                    { mode: "📊 Analysis Mode", desc: "AI-powered pattern detection" }
+                    { mode: "💬 Chat", desc: "Ask about your health data" },
+                    { mode: "🔬 Research", desc: "Pain science topics" },
+                    { mode: "📊 Analysis", desc: "Pattern detection" }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 bg-purple-50 rounded-xl">
-                      <span className="font-semibold text-purple-700">{item.mode}</span>
-                      <span className="text-gray-600 text-sm">{item.desc}</span>
+                    <div key={i} className="flex items-center gap-2 lg:gap-3 p-1.5 lg:p-3 bg-purple-50 rounded-lg lg:rounded-xl">
+                      <span className="font-semibold text-purple-700 text-[11px] lg:text-base">{item.mode}</span>
+                      <span className="text-gray-600 text-[10px] lg:text-sm">{item.desc}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative hidden lg:block">
                 <div className="bg-gradient-to-br from-purple-100 to-violet-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
                   <div className="bg-white rounded-2xl p-6 shadow-xl w-full max-w-xs">
                     <div className="flex items-center gap-3 mb-4">
@@ -576,8 +576,8 @@ function App() {
             </div>
 
             {/* Feature 6: Care Team - reversed */}
-            <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative">
+            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="order-2 lg:order-1 relative hidden lg:block">
                 <div className="bg-gradient-to-br from-pink-100 to-rose-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
                   <div className="text-center">
                     <div className="flex justify-center mb-6">
@@ -595,22 +595,22 @@ function App() {
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-4">PRO</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Care Team</h3>
-                <p className="text-gray-600 mb-6 text-lg">
-                  Connect clinicians, researchers, family, and friends. Each gets their own dashboard with analytics to coordinate your care together.
+                <span className="inline-block bg-purple-100 text-purple-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">PRO</span>
+                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Care Team</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
+                  Connect clinicians, researchers, family, and friends with their own dashboards.
                 </p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-1.5 lg:gap-4">
                   {[
-                    { icon: "🩺", title: "Clinician Dashboard", desc: "Full patient analytics" },
-                    { icon: "🔬", title: "Researcher Access", desc: "Anonymized data sharing" },
-                    { icon: "👨‍👩‍👧", title: "Family Dashboard", desc: "Support & coordination" },
-                    { icon: "📋", title: "Shared Reports", desc: "Export & share progress" }
+                    { icon: "🩺", title: "Clinician", desc: "Patient analytics" },
+                    { icon: "🔬", title: "Researcher", desc: "Data sharing" },
+                    { icon: "👨‍👩‍👧", title: "Family", desc: "Coordination" },
+                    { icon: "📋", title: "Reports", desc: "Share progress" }
                   ].map((item, i) => (
-                    <div key={i} className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
-                      <span className="text-2xl">{item.icon}</span>
-                      <p className="font-semibold text-gray-900 text-sm mt-1">{item.title}</p>
-                      <p className="text-xs text-gray-500">{item.desc}</p>
+                    <div key={i} className="p-1.5 lg:p-3 bg-white rounded-lg lg:rounded-xl border border-gray-100 shadow-sm">
+                      <span className="text-base lg:text-2xl">{item.icon}</span>
+                      <p className="font-semibold text-gray-900 text-[10px] lg:text-sm mt-0.5 lg:mt-1">{item.title}</p>
+                      <p className="text-[9px] lg:text-xs text-gray-500">{item.desc}</p>
                     </div>
                   ))}
                 </div>
