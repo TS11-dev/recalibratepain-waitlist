@@ -1061,12 +1061,12 @@ function App() {
                 </a>
               </div>
               
-              {/* Investors */}
+              {/* Investor Prospectus */}
               <div className="bg-white rounded-2xl p-8 border border-purple-100 shadow-lg shadow-purple-500/5 hover:shadow-xl transition-all group">
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <span className="text-3xl">🤝</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Investors</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Investor Prospectus</h3>
                 <p className="text-gray-600 mb-6">
                   Join us in building the future of pain management. We're raising a seed round to accelerate development.
                 </p>
