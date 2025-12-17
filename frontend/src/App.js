@@ -214,13 +214,13 @@ function App() {
               {/* Left Content */}
               <div className="flex-1 text-left">
                 {/* Status Badge */}
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200/50 rounded-full px-4 py-2 mb-6">
-                  <span className="relative flex h-2.5 w-2.5">
+                <div className="inline-flex items-center space-x-1.5 sm:space-x-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200/50 rounded-full px-2.5 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-6">
+                  <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-green-500"></span>
                   </span>
-                  <span className="text-sm font-semibold text-purple-900">Launching Q1 2026</span>
-                  <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
+                  <span className="text-xs sm:text-sm font-semibold text-purple-900">Q1 2026</span>
+                  <span className="text-[10px] sm:text-xs bg-purple-600 text-white px-1.5 sm:px-2 py-0.5 rounded-full">iOS • Android • Web</span>
                 </div>
                 
                 <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-3 sm:mb-6">
