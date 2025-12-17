@@ -1252,8 +1252,6 @@ function App() {
                     </button>
                   </div>
                 </form>
-                
-                <p className="text-white/60 text-sm mt-4">No spam, ever. Unsubscribe anytime.</p>
               </div>
             </div>
           </div>
