@@ -576,22 +576,29 @@ function App() {
             {/* Feature 4: Tools & Exercises - visual RIGHT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative hidden lg:block">
-                <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
+                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-orange-200">
+                  <div className="grid grid-cols-2 gap-3 w-full max-w-xs mb-3">
                     {[
-                      { icon: "📝", name: "Journal", color: "bg-orange-500" },
-                      { icon: "🎯", name: "Goals", color: "bg-amber-500" },
-                      { icon: "💡", name: "Inspiration", color: "bg-yellow-500" },
-                      { icon: "🏃", name: "Exercises", color: "bg-orange-600" }
+                      { icon: "📝", name: "Journal", desc: "Daily reflections", color: "bg-orange-500" },
+                      { icon: "🎯", name: "Goals", desc: "Track progress", color: "bg-amber-500" },
+                      { icon: "💡", name: "Inspiration", desc: "Daily quotes", color: "bg-yellow-500" },
+                      { icon: "🏃", name: "Exercises", desc: "Guided movement", color: "bg-orange-600" }
                     ].map((tool, i) => (
-                      <div key={i} className="bg-white rounded-2xl p-4 shadow-lg text-center">
-                        <div className={`w-12 h-12 ${tool.color} rounded-xl mx-auto mb-2 flex items-center justify-center text-2xl text-white`}>
+                      <div key={i} className="bg-white rounded-xl p-3 shadow-lg text-center">
+                        <div className={`w-10 h-10 ${tool.color} rounded-lg mx-auto mb-2 flex items-center justify-center text-xl text-white`}>
                           {tool.icon}
                         </div>
                         <p className="font-semibold text-gray-900 text-sm">{tool.name}</p>
+                        <p className="text-xs text-gray-500">{tool.desc}</p>
                       </div>
                     ))}
                   </div>
+                  <div className="flex gap-2">
+                    {["CBT", "Mindfulness", "Graded Exposure"].map((therapy, i) => (
+                      <span key={i} className="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">{therapy}</span>
+                    ))}
+                  </div>
+                  <p className="text-xs text-orange-600 font-medium mt-2">Therapeutic interventions</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
