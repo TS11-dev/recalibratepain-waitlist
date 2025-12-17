@@ -665,8 +665,8 @@ function App() {
               </div>
             </div>
 
-            {/* Feature 6: Care Team - reversed */}
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            {/* Feature 6: Care Team - visual RIGHT */}
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative hidden lg:block">
                 <div className="bg-gradient-to-br from-pink-100 to-rose-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
                   <div className="text-center">
@@ -684,25 +684,39 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 lg:order-2">
+              <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
                 <span className="inline-block bg-purple-100 text-purple-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">PRO</span>
-                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Care Team</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
-                  Connect clinicians, researchers, family, and friends with their own dashboards.
+                <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Care Team</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-[11px] lg:text-lg leading-tight">
+                  Connect clinicians, family, and friends with dashboards.
                 </p>
-                <div className="grid grid-cols-2 gap-1.5 lg:gap-4">
+                <div className="grid grid-cols-2 gap-1 lg:gap-4">
                   {[
-                    { icon: "🩺", title: "Clinician", desc: "Patient analytics" },
-                    { icon: "🔬", title: "Researcher", desc: "Data sharing" },
-                    { icon: "👨‍👩‍👧", title: "Family", desc: "Coordination" },
-                    { icon: "📋", title: "Reports", desc: "Share progress" }
+                    { icon: "🩺", title: "Clinician" },
+                    { icon: "🔬", title: "Research" },
+                    { icon: "👨‍👩‍👧", title: "Family" },
+                    { icon: "📋", title: "Reports" }
                   ].map((item, i) => (
-                    <div key={i} className="p-1.5 lg:p-3 bg-white rounded-lg lg:rounded-xl border border-gray-100 shadow-sm">
-                      <span className="text-base lg:text-2xl">{item.icon}</span>
-                      <p className="font-semibold text-gray-900 text-[10px] lg:text-sm mt-0.5 lg:mt-1">{item.title}</p>
-                      <p className="text-[9px] lg:text-xs text-gray-500">{item.desc}</p>
+                    <div key={i} className="p-1 lg:p-3 bg-white rounded lg:rounded-xl border border-gray-100 shadow-sm flex items-center gap-1 lg:block">
+                      <span className="text-sm lg:text-2xl">{item.icon}</span>
+                      <p className="font-semibold text-gray-900 text-[9px] lg:text-sm lg:mt-1">{item.title}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+              <div className="col-span-2 lg:hidden order-2">
+                <div className="bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl p-3 aspect-square flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <div className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-xl border-2 border-pink-200">👤</div>
+                        <div className="absolute -top-1 -right-3 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-blue-200">🩺</div>
+                        <div className="absolute -bottom-1 -right-3 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-green-200">👨‍👩‍👧</div>
+                        <div className="absolute -bottom-1 -left-3 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-purple-200">🔬</div>
+                      </div>
+                    </div>
+                    <p className="text-[8px] text-gray-600 font-medium mt-3">Care Network</p>
+                  </div>
                 </div>
               </div>
             </div>
