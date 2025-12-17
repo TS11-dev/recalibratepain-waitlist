@@ -19,15 +19,15 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Initialize Resend
 if os.environ.get("RESEND_API_KEY"):
     resend.api_key = os.environ.get("RESEND_API_KEY")
 else:
     logger.warning("⚠️ RESEND_API_KEY not found. Emails will not be sent.")
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
