@@ -371,20 +371,8 @@ function App() {
                 </div>
               </div>
 
-              {/* Care Team - PINK background - moved above Goal Tracking */}
-              <div className="absolute left-[12%] top-44 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl shadow-xl p-4 max-w-[170px] animate-float-delayed hidden lg:block text-white">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">👥</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm">Care Team</p>
-                    <p className="text-xs text-white/80">Share with doctors</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute right-[12%] top-56 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[180px] animate-float hidden lg:block">
+              {/* Goal Tracking - now on left */}
+              <div className="absolute left-[12%] top-44 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[180px] animate-float-delayed hidden lg:block">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-lg">🎯</span>
@@ -392,6 +380,19 @@ function App() {
                   <div>
                     <p className="font-bold text-gray-900 text-sm">Goal Tracking</p>
                     <p className="text-xs text-gray-500">Set & achieve targets</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Care Team - PINK background - now on right */}
+              <div className="absolute right-[12%] top-56 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl shadow-xl p-4 max-w-[170px] animate-float hidden lg:block text-white">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">👥</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm">Care Team</p>
+                    <p className="text-xs text-white/80">Share with doctors</p>
                   </div>
                 </div>
               </div>
