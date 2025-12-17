@@ -720,20 +720,31 @@ function App() {
             {/* Feature 6: Care Team - visual RIGHT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative hidden lg:block">
-                <div className="bg-gradient-to-br from-pink-100 to-rose-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="flex justify-center mb-6">
-                      <div className="relative">
-                        <div className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-pink-200">👤</div>
-                        <div className="absolute -top-2 -right-2 w-24 h-24 flex items-center justify-center">
-                          <div className="absolute top-0 right-0 w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl border-2 border-blue-200">🩺</div>
-                        </div>
-                        <div className="absolute -bottom-2 -right-4 w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl border-2 border-green-200">👨‍👩‍👧</div>
-                        <div className="absolute -bottom-2 -left-4 w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl border-2 border-purple-200">🔬</div>
-                      </div>
+                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-pink-200">
+                  <div className="flex justify-center mb-4">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center text-2xl border-4 border-pink-200">👤</div>
+                      <div className="absolute -top-1 -right-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-blue-200">🩺</div>
+                      <div className="absolute -bottom-1 -right-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-green-200">👨‍👩‍👧</div>
+                      <div className="absolute -bottom-1 -left-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-purple-200">🔬</div>
+                      <div className="absolute -top-1 -left-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-amber-200">📋</div>
                     </div>
-                    <p className="text-sm text-gray-600 font-medium">Connected Care Network</p>
                   </div>
+                  <div className="grid grid-cols-2 gap-2 w-full max-w-xs mb-3">
+                    {[
+                      { icon: "🩺", title: "Clinician", desc: "Full analytics" },
+                      { icon: "🔬", title: "Researcher", desc: "Data access" },
+                      { icon: "👨‍👩‍👧", title: "Family", desc: "Support tools" },
+                      { icon: "📋", title: "Reports", desc: "Share progress" }
+                    ].map((item, i) => (
+                      <div key={i} className="bg-white rounded-lg p-2 shadow text-center">
+                        <span className="text-lg">{item.icon}</span>
+                        <p className="font-semibold text-gray-900 text-xs">{item.title}</p>
+                        <p className="text-[10px] text-gray-500">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-pink-600 font-medium">Collaborative care coordination</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
