@@ -346,13 +346,15 @@ function App() {
           </div>
         </section>
 
-        {/* Trusted By */}
-        <section className="py-8 px-4 sm:px-6 border-y border-purple-100/50 bg-white/50">
+        {/* Evidence-Based Approaches */}
+        <section className="py-10 sm:py-12 px-4 sm:px-6 bg-gray-900">
           <div className="max-w-5xl mx-auto">
-            <p className="text-center text-sm text-gray-400 mb-4">Built with evidence-based approaches from</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            <p className="text-center text-sm text-gray-400 mb-6 uppercase tracking-wider">Built with evidence-based approaches from</p>
+            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
               {['Pain Science', 'Cognitive Behavioral', 'Mindfulness', 'Movement Therapy', 'Graded Exposure'].map((item, i) => (
-                <span key={i} className="text-gray-600 font-medium text-sm">{item}</span>
+                <span key={i} className="bg-purple-600/20 text-purple-300 border border-purple-500/30 px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-600/30 transition-colors">
+                  {item}
+                </span>
               ))}
             </div>
           </div>
