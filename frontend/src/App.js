@@ -376,72 +376,8 @@ function App() {
               </div>
             </div>
 
-            {/* Mobile: Compact 2-column grid for all features */}
-            <div className="grid grid-cols-2 gap-3 lg:hidden mb-8">
-              {/* Smart Tracker - Mobile Card */}
-              <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
-                <span className="inline-block bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">FREE</span>
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-xl">📊</span>
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">Smart Tracker</h3>
-                <p className="text-[10px] text-gray-600 leading-tight">Log pain, sleep, mood & energy across 8 health systems.</p>
-              </div>
-
-              {/* Analytics Dashboard - Mobile Card */}
-              <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
-                <span className="inline-block bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">FREE</span>
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-xl">📈</span>
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">Analytics</h3>
-                <p className="text-[10px] text-gray-600 leading-tight">Stability Score from 18 variables. Visualize trends.</p>
-              </div>
-
-              {/* Pain Academy - Mobile Card */}
-              <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
-                <span className="inline-block bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">GO</span>
-                <div className="w-10 h-10 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-xl">🎓</span>
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">Pain Academy</h3>
-                <p className="text-[10px] text-gray-600 leading-tight">90+ lessons on pain science. Earn XP and badges.</p>
-              </div>
-
-              {/* Tools & Exercises - Mobile Card */}
-              <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
-                <span className="inline-block bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">GO</span>
-                <div className="w-10 h-10 bg-gradient-to-br from-orange-100 to-amber-100 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-xl">🛠️</span>
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">Tools & Exercises</h3>
-                <p className="text-[10px] text-gray-600 leading-tight">Journal, goals, inspiration, and guided exercises.</p>
-              </div>
-
-              {/* Recalibrate AI - Mobile Card */}
-              <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
-                <span className="inline-block bg-purple-100 text-purple-700 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">PRO</span>
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-100 to-violet-100 rounded-lg flex items-center justify-center mb-2">
-                  <Bot className="w-5 h-5 text-purple-600" />
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">Recalibrate AI</h3>
-                <p className="text-[10px] text-gray-600 leading-tight">AI companion powered by Gemini 2.0 Flash.</p>
-              </div>
-
-              {/* Care Team - Mobile Card */}
-              <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-sm">
-                <span className="inline-block bg-purple-100 text-purple-700 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">PRO</span>
-                <div className="w-10 h-10 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center mb-2">
-                  <span className="text-xl">👥</span>
-                </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">Care Team</h3>
-                <p className="text-[10px] text-gray-600 leading-tight">Connect clinicians, family, and friends.</p>
-              </div>
-            </div>
-
-            {/* Desktop: Full feature cards (hidden on mobile) */}
             {/* Feature 1: Smart Tracker - with visual */}
-            <div className="hidden lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-8 sm:mb-20 p-4 sm:p-8 bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div>
                 <span className="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-2 sm:px-3 py-1 rounded-full mb-2 sm:mb-4">FREE</span>
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Smart Tracker</h3>
