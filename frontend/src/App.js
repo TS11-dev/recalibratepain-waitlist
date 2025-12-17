@@ -605,23 +605,38 @@ function App() {
               </div>
             </div>
 
-            {/* Feature 5: Recalibrate AI */}
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div>
+            {/* Feature 5: Recalibrate AI - visual LEFT */}
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="col-span-2 lg:hidden">
+                <div className="bg-gradient-to-br from-purple-100 to-violet-100 rounded-xl p-2 aspect-square flex items-center justify-center">
+                  <div className="bg-white rounded-lg p-2 shadow w-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
+                        <Bot className="w-3 h-3 text-white" />
+                      </div>
+                      <p className="font-bold text-gray-900 text-[10px]">AI</p>
+                    </div>
+                    <div className="bg-purple-50 rounded p-1.5">
+                      <p className="text-[8px] text-gray-700 leading-tight">Pain increases after poor sleep...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-3 lg:col-span-1">
                 <span className="inline-block bg-purple-100 text-purple-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">PRO</span>
-                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Recalibrate AI</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
-                  Your AI companion powered by Gemini 2.0 Flash. Chat mode, research mode, and AI analysis.
+                <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Recalibrate AI</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-[11px] lg:text-lg leading-tight">
+                  AI companion powered by Gemini 2.0 Flash.
                 </p>
-                <div className="space-y-1.5 lg:space-y-3">
+                <div className="space-y-1 lg:space-y-3">
                   {[
-                    { mode: "💬 Chat", desc: "Ask about your health data" },
-                    { mode: "🔬 Research", desc: "Pain science topics" },
-                    { mode: "📊 Analysis", desc: "Pattern detection" }
+                    { mode: "💬 Chat", desc: "Health data" },
+                    { mode: "🔬 Research", desc: "Pain science" },
+                    { mode: "📊 Analysis", desc: "Patterns" }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 lg:gap-3 p-1.5 lg:p-3 bg-purple-50 rounded-lg lg:rounded-xl">
-                      <span className="font-semibold text-purple-700 text-[11px] lg:text-base">{item.mode}</span>
-                      <span className="text-gray-600 text-[10px] lg:text-sm">{item.desc}</span>
+                    <div key={i} className="flex items-center gap-1.5 lg:gap-3 p-1 lg:p-3 bg-purple-50 rounded lg:rounded-xl">
+                      <span className="font-semibold text-purple-700 text-[10px] lg:text-base">{item.mode}</span>
+                      <span className="text-gray-600 text-[9px] lg:text-sm">{item.desc}</span>
                     </div>
                   ))}
                 </div>
