@@ -458,10 +458,10 @@ function App() {
             {/* Section Header */}
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                200+ Tools & Resources
+                200+ Tools & Resources in Recalibrate App
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                Everything you need to understand, track, and manage your chronic pain journey.
+                Everything you need to understand, track, and manage your chronic pain and chronic illness journey with our comprehensive pain management app.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">🆓 FREE — Tracker & Analytics</span>
