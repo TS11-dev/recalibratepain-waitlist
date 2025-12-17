@@ -265,27 +265,27 @@ function App() {
                 </form>
                 
                 {/* Waitlist Count */}
-                <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-full px-5 py-2.5">
-                  <div className="flex -space-x-2">
+                <div className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-full px-3 sm:px-5 py-2">
+                  <div className="hidden sm:flex -space-x-2">
                     {['🧑‍⚕️', '👩‍💼', '👨‍🔬'].map((emoji, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-white border-2 border-purple-100 flex items-center justify-center text-sm shadow-sm">
+                      <div key={i} className="w-7 h-7 rounded-full bg-white border-2 border-purple-100 flex items-center justify-center text-xs shadow-sm">
                         {emoji}
                       </div>
                     ))}
                   </div>
-                  <div className="text-sm">
-                    <span className="font-bold text-purple-700 text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
-                    <span className="text-gray-600 ml-1">people waiting</span>
+                  <div className="text-xs sm:text-sm">
+                    <span className="font-bold text-purple-700 text-sm sm:text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
+                    <span className="text-gray-600 ml-1">waiting</span>
                   </div>
                 </div>
               </div>
 
               {/* Right - Phone Mockup */}
-              <div className="relative flex-shrink-0 mt-8 lg:mt-0">
+              <div className="relative flex-shrink-0">
                 {/* Phone Frame - responsive sizes */}
-                <div className="relative w-[220px] h-[460px] sm:w-[260px] sm:h-[540px] lg:w-[300px] lg:h-[620px] bg-gray-900 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-2 sm:p-3 shadow-2xl shadow-purple-500/20 mx-auto">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 sm:w-24 lg:w-28 h-5 sm:h-6 lg:h-7 bg-gray-900 rounded-b-xl sm:rounded-b-2xl z-10"></div>
-                  <div className="w-full h-full bg-white rounded-[1.7rem] sm:rounded-[2rem] lg:rounded-[2.3rem] overflow-hidden">
+                <div className="relative w-[140px] h-[290px] sm:w-[200px] sm:h-[420px] lg:w-[300px] lg:h-[620px] bg-gray-900 rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[3rem] p-1.5 sm:p-2 lg:p-3 shadow-2xl shadow-purple-500/20">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 sm:w-16 lg:w-28 h-3 sm:h-4 lg:h-7 bg-gray-900 rounded-b-lg sm:rounded-b-xl lg:rounded-b-2xl z-10"></div>
+                  <div className="w-full h-full bg-white rounded-[1.2rem] sm:rounded-[1.6rem] lg:rounded-[2.3rem] overflow-hidden">
                     <img 
                       src="/app-screenshot.png" 
                       alt="Recalibrate App" 
@@ -294,20 +294,20 @@ function App() {
                   </div>
                 </div>
                 
-                {/* Floating Notification Cards - hidden on small mobile, shown on sm+ */}
-                <div className="hidden sm:block absolute -left-8 lg:-left-20 top-8 lg:top-16 bg-white rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-2 sm:p-3 lg:p-4 max-w-[160px] lg:max-w-[200px] animate-float">
-                  <div className="flex items-start gap-2 lg:gap-3">
-                    <div className="w-8 lg:w-10 h-8 lg:h-10 bg-blue-100 rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-sm lg:text-lg">📊</span>
+                {/* Floating Notification Cards */}
+                <div className="absolute -left-2 sm:-left-6 lg:-left-20 top-4 sm:top-8 lg:top-16 bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-1.5 sm:p-2 lg:p-4 max-w-[100px] sm:max-w-[140px] lg:max-w-[200px] animate-float">
+                  <div className="flex items-start gap-1.5 sm:gap-2 lg:gap-3">
+                    <div className="w-6 sm:w-7 lg:w-10 h-6 sm:h-7 lg:h-10 bg-blue-100 rounded-md sm:rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs sm:text-sm lg:text-lg">📊</span>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 text-xs lg:text-sm">Track 18 Variables</p>
-                      <p className="text-[10px] lg:text-xs text-gray-500">Pain, sleep & mood</p>
+                      <p className="font-bold text-gray-900 text-[9px] sm:text-[10px] lg:text-sm leading-tight">Track 18 Variables</p>
+                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-gray-500 hidden sm:block">Pain, sleep & mood</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="hidden sm:block absolute -right-4 lg:-right-16 top-28 lg:top-40 bg-white rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-2 sm:p-3 lg:p-4 max-w-[150px] lg:max-w-[180px] animate-float-delayed">
+                <div className="absolute -right-1 sm:-right-4 lg:-right-16 top-16 sm:top-24 lg:top-40 bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-1.5 sm:p-2 lg:p-4 max-w-[90px] sm:max-w-[130px] lg:max-w-[180px] animate-float-delayed">
                   <div className="flex items-start gap-3">
                     <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
                       <span className="text-lg">🔔</span>
