@@ -543,24 +543,32 @@ function App() {
                 </div>
               </div>
               <div className="relative hidden lg:block">
-                <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="flex justify-center gap-4 mb-6">
-                      <div className="bg-white rounded-xl p-4 shadow-lg">
-                        <p className="text-2xl font-bold text-emerald-600">90+</p>
-                        <p className="text-xs text-gray-500">Lessons</p>
-                      </div>
-                      <div className="bg-white rounded-xl p-4 shadow-lg">
-                        <p className="text-2xl font-bold text-amber-500">835</p>
-                        <p className="text-xs text-gray-500">XP</p>
-                      </div>
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-emerald-200">
+                  <div className="flex gap-3 mb-4">
+                    <div className="bg-white rounded-xl p-4 shadow-lg text-center">
+                      <p className="text-3xl font-bold text-emerald-600">90+</p>
+                      <p className="text-xs text-gray-500">Lessons</p>
                     </div>
-                    <div className="flex justify-center gap-2">
-                      {["🏆", "🎯", "🔥", "⭐", "🧠"].map((badge, i) => (
-                        <div key={i} className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center text-xl">{badge}</div>
-                      ))}
+                    <div className="bg-white rounded-xl p-4 shadow-lg text-center">
+                      <p className="text-3xl font-bold text-amber-500">835</p>
+                      <p className="text-xs text-gray-500">XP Earned</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-4 shadow-lg text-center">
+                      <p className="text-3xl font-bold text-teal-600">12</p>
+                      <p className="text-xs text-gray-500">Badges</p>
                     </div>
                   </div>
+                  <div className="flex gap-2 mb-3">
+                    {["🏆", "🎯", "🔥", "⭐", "🧠", "💪", "🎓"].map((badge, i) => (
+                      <div key={i} className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg">{badge}</div>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    {["Foundations", "Neurobiology", "Strategies", "Advanced"].map((topic, i) => (
+                      <span key={i} className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium">{topic}</span>
+                    ))}
+                  </div>
+                  <p className="text-xs text-emerald-600 font-medium mt-3">Evidence-based pain education</p>
                 </div>
               </div>
             </div>
