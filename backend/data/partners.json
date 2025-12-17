@@ -46,5 +46,13 @@
     "organization": "Test Org",
     "message": "Test message",
     "timestamp": "2025-12-17T23:26:17.289823"
+  },
+  {
+    "type": "clinic",
+    "name": "Dr. Test Clinic Partner",
+    "email": "test.clinic@example.com",
+    "organization": "Test Medical Center",
+    "message": "We are interested in partnering with RecalibratePain for our chronic pain management program. Please contact us to discuss partnership opportunities.",
+    "timestamp": "2025-12-17T23:26:32.004215"
   }
 ]
