@@ -604,23 +604,23 @@ function App() {
             {/* Feature 3: Pain Academy - visual LEFT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="col-span-2 lg:hidden">
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-2 aspect-square flex flex-col items-center justify-center border-2 border-emerald-200">
-                  <div className="flex gap-1.5 mb-1.5">
-                    <div className="bg-white rounded-lg px-2 py-1 shadow text-center">
-                      <p className="text-sm font-bold text-emerald-600">90+</p>
-                      <p className="text-[6px] text-gray-500">Lessons</p>
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-emerald-200">
+                  <div className="flex gap-2 mb-2">
+                    <div className="bg-white rounded-lg px-2.5 py-1.5 shadow text-center">
+                      <p className="text-base font-bold text-emerald-600">90+</p>
+                      <p className="text-[7px] text-gray-500">Lessons</p>
                     </div>
-                    <div className="bg-white rounded-lg px-2 py-1 shadow text-center">
-                      <p className="text-sm font-bold text-amber-500">835</p>
-                      <p className="text-[6px] text-gray-500">XP</p>
+                    <div className="bg-white rounded-lg px-2.5 py-1.5 shadow text-center">
+                      <p className="text-base font-bold text-amber-500">835</p>
+                      <p className="text-[7px] text-gray-500">XP</p>
                     </div>
                   </div>
-                  <div className="flex gap-1 mb-1">
+                  <div className="flex gap-1.5 mb-1.5">
                     {["🏆", "🎯", "🔥", "⭐", "🧠"].map((badge, i) => (
-                      <div key={i} className="w-5 h-5 bg-white rounded-full shadow-sm flex items-center justify-center text-[10px]">{badge}</div>
+                      <div key={i} className="w-7 h-7 bg-white rounded-full shadow-sm flex items-center justify-center text-sm">{badge}</div>
                     ))}
                   </div>
-                  <p className="text-[7px] text-emerald-600 font-medium">Pain Science Education</p>
+                  <p className="text-[8px] text-emerald-600 font-medium">Pain Science Education</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1">
