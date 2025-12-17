@@ -169,7 +169,7 @@ DB_NAME = "RecalibrateWebsite"  # Exact case from Atlas
 COLLECTION_NAME = "Emails"  # Capital E as shown in Atlas
 
 # Social proof base count - always add this to actual MongoDB count
-BASE_SUBSCRIBER_COUNT = 188  # Base count for social proof
+BASE_SUBSCRIBER_COUNT = 191  # Base count for social proof
 
 # MongoDB client
 mongo_client = None
