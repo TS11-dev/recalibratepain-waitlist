@@ -413,15 +413,21 @@ function App() {
                 </div>
               </div>
               <div className="relative hidden lg:block">
-                <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 bg-white rounded-full shadow-lg flex items-center justify-center">
-                      <span className="text-6xl">📊</span>
-                    </div>
-                    <div className="bg-white rounded-2xl p-4 shadow-lg">
-                      <p className="text-3xl font-bold text-blue-600">8</p>
-                      <p className="text-sm text-gray-600">Health Systems</p>
-                    </div>
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-blue-200">
+                  <div className="grid grid-cols-4 gap-2 mb-4">
+                    {["🎯", "😴", "💊", "⚡", "🧠", "❤️", "🦴", "🫁"].map((icon, i) => (
+                      <div key={i} className="w-12 h-12 bg-white rounded-xl shadow flex items-center justify-center text-2xl">{icon}</div>
+                    ))}
+                  </div>
+                  <div className="bg-white rounded-2xl p-4 shadow-lg text-center w-full max-w-xs">
+                    <p className="text-4xl font-bold text-blue-600">18</p>
+                    <p className="text-sm text-gray-600">Health Variables</p>
+                    <p className="text-xs text-blue-500 mt-1">across 8 biological systems</p>
+                  </div>
+                  <div className="flex gap-2 mt-3">
+                    {["Pain", "Sleep", "Mood", "Energy"].map((label, i) => (
+                      <span key={i} className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">{label}</span>
+                    ))}
                   </div>
                 </div>
               </div>
