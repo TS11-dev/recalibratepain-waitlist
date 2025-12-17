@@ -1035,7 +1035,7 @@ function App() {
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2 text-sm text-gray-600">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Patient progress reports</span>
+                    <span>Multi-Patient Clinician Dashboard</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
                     <CheckCircle className="w-4 h-4 text-green-500" />
@@ -1046,9 +1046,9 @@ function App() {
                     <span>HIPAA-compliant sharing</span>
                   </li>
                 </ul>
-                <a href="mailto:clinics@recalibratepain.com" className="text-purple-600 font-semibold hover:text-purple-700 flex items-center gap-2">
+                <button onClick={() => setPartnerFormOpen('clinic')} className="text-purple-600 font-semibold hover:text-purple-700 flex items-center gap-2">
                   Partner with us <ArrowRight className="w-4 h-4" />
-                </a>
+                </button>
               </div>
               
               {/* Research Collaborations */}
