@@ -1082,7 +1082,7 @@ function App() {
               </p>
             </div>
             
-            {/* Mobile: Compact 3-column grid */}
+            {/* Mobile: Compact 3-column grid with more info */}
             <div className="grid grid-cols-3 gap-2 lg:hidden">
               <a 
                 href="https://recalibrate.beehiiv.com" 
@@ -1093,8 +1093,8 @@ function App() {
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                   <span className="text-xl">📬</span>
                 </div>
-                <h3 className="text-xs font-bold text-gray-900 mb-0.5">Newsletter</h3>
-                <p className="text-[8px] text-gray-500 mb-1">Weekly insights</p>
+                <h3 className="text-xs font-bold text-gray-900 mb-1">Newsletter</h3>
+                <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">Weekly pain science tips & research updates</p>
                 <span className="text-[9px] text-purple-600 font-medium">Subscribe →</span>
               </a>
               
@@ -1107,8 +1107,8 @@ function App() {
                 <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                   <span className="text-xl">📚</span>
                 </div>
-                <h3 className="text-xs font-bold text-gray-900 mb-0.5">Products</h3>
-                <p className="text-[8px] text-gray-500 mb-1">Courses & guides</p>
+                <h3 className="text-xs font-bold text-gray-900 mb-1">Products</h3>
+                <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">Courses, worksheets & educational guides</p>
                 <span className="text-[9px] text-purple-600 font-medium">Browse →</span>
               </a>
               
@@ -1121,8 +1121,8 @@ function App() {
                 <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                   <span className="text-xl">☕</span>
                 </div>
-                <h3 className="text-xs font-bold text-gray-900 mb-0.5">Support</h3>
-                <p className="text-[8px] text-gray-500 mb-1">Help our mission</p>
+                <h3 className="text-xs font-bold text-gray-900 mb-1">Support</h3>
+                <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">Help keep our free resources available</p>
                 <span className="text-[9px] text-purple-600 font-medium">Donate →</span>
               </a>
             </div>
