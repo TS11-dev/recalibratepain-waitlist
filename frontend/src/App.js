@@ -377,39 +377,36 @@ function App() {
             </div>
 
             {/* Feature 1: Smart Tracker - with visual */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20 p-8 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-8 sm:mb-20 p-4 sm:p-8 bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div>
-                <span className="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full mb-4">FREE</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Smart Tracker</h3>
-                <p className="text-gray-600 mb-6 text-lg">
-                  Log pain levels, sleep quality, mood, energy, and symptoms across 8 interconnected health systems. Build your personal health timeline with daily check-ins.
+                <span className="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-2 sm:px-3 py-1 rounded-full mb-2 sm:mb-4">FREE</span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Smart Tracker</h3>
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-lg">
+                  Log pain, sleep, mood & energy across 8 health systems.
                 </p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4">
                   {[
-                    { icon: "🎯", label: "Pain Levels", desc: "0-10 scale tracking" },
-                    { icon: "😴", label: "Sleep Quality", desc: "Duration & quality" },
-                    { icon: "💊", label: "Medications", desc: "Effectiveness tracking" },
-                    { icon: "⚡", label: "Energy & Mood", desc: "Daily patterns" }
+                    { icon: "🎯", label: "Pain Levels" },
+                    { icon: "😴", label: "Sleep" },
+                    { icon: "💊", label: "Medications" },
+                    { icon: "⚡", label: "Energy" }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 bg-white rounded-xl border border-gray-100">
-                      <span className="text-2xl">{item.icon}</span>
-                      <div>
-                        <p className="font-semibold text-gray-900 text-sm">{item.label}</p>
-                        <p className="text-xs text-gray-500">{item.desc}</p>
-                      </div>
+                    <div key={i} className="flex items-center gap-2 p-2 sm:p-3 bg-gray-50 rounded-lg sm:rounded-xl">
+                      <span className="text-lg sm:text-2xl">{item.icon}</span>
+                      <p className="font-medium text-gray-900 text-xs sm:text-sm">{item.label}</p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="relative">
-                <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+              <div className="relative hidden sm:block">
+                <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 aspect-square flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 bg-white rounded-full shadow-lg flex items-center justify-center">
-                      <span className="text-6xl">📊</span>
+                    <div className="w-20 h-20 sm:w-32 sm:h-32 mx-auto mb-3 sm:mb-4 bg-white rounded-full shadow-lg flex items-center justify-center">
+                      <span className="text-4xl sm:text-6xl">📊</span>
                     </div>
-                    <div className="bg-white rounded-2xl p-4 shadow-lg">
-                      <p className="text-3xl font-bold text-blue-600">8</p>
-                      <p className="text-sm text-gray-600">Health Systems</p>
+                    <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg">
+                      <p className="text-2xl sm:text-3xl font-bold text-blue-600">8</p>
+                      <p className="text-xs sm:text-sm text-gray-600">Health Systems</p>
                     </div>
                   </div>
                 </div>
