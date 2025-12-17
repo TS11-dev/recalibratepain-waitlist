@@ -263,17 +263,17 @@ function App() {
               </form>
               
               {/* Waitlist Count */}
-              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-full px-5 py-2.5">
-                <div className="flex -space-x-2">
-                  {['🧑‍⚕️', '👩‍💼', '👨‍🔬'].map((emoji, i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-white border-2 border-purple-100 flex items-center justify-center text-sm shadow-sm">
+              <div className="inline-flex items-center gap-4 bg-white border border-gray-200 rounded-full px-5 py-3 shadow-lg shadow-purple-500/10">
+                <div className="flex -space-x-3">
+                  {['🧑‍⚕️', '👩‍💼', '👨‍🔬', '👩‍🔬'].map((emoji, i) => (
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-100 to-indigo-100 border-2 border-white flex items-center justify-center text-lg shadow-md">
                       {emoji}
                     </div>
                   ))}
                 </div>
-                <div className="text-sm">
-                  <span className="font-bold text-purple-700 text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
-                  <span className="text-gray-600 ml-1">people waiting</span>
+                <div className="flex flex-col">
+                  <span className="font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent text-xl">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
+                  <span className="text-gray-500 text-xs">people on waitlist</span>
                 </div>
               </div>
             </div>
