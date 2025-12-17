@@ -426,8 +426,8 @@ function App() {
               </div>
             </div>
 
-            {/* Feature 2: Analytics Dashboard - reversed */}
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+            {/* Feature 2: Analytics Dashboard - visual RIGHT */}
+            <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="order-2 lg:order-1 relative hidden lg:block">
                 <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
                   <div className="w-full max-w-xs">
@@ -451,20 +451,43 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 lg:order-2">
+              <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
                 <span className="inline-block bg-gray-100 text-gray-600 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">FREE</span>
-                <h3 className="text-base lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Analytics Dashboard</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-xs lg:text-lg">
-                  Stability Score from 18 variables. Visualize trends and patterns.
+                <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Analytics Dashboard</h3>
+                <p className="text-gray-600 mb-2 lg:mb-6 text-[11px] lg:text-lg leading-tight">
+                  Stability Score from 18 variables. Visualize trends.
                 </p>
-                <ul className="space-y-1 lg:space-y-3">
-                  {["Overall stability score from all your data", "Trend analysis over weeks and months", "Pattern detection across health systems", "Exportable reports for your doctor"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 lg:gap-3">
-                      <CheckCircle className="w-3.5 h-3.5 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700 text-[11px] lg:text-base">{item}</span>
+                <ul className="space-y-0.5 lg:space-y-3">
+                  {["Stability score", "Trend analysis", "Pattern detection", "Doctor reports"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-1.5 lg:gap-3">
+                      <CheckCircle className="w-3 h-3 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700 text-[10px] lg:text-base">{item}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div className="col-span-2 lg:hidden order-2">
+                <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl p-3 aspect-square flex items-center justify-center">
+                  <div className="w-full">
+                    <div className="bg-white rounded-lg p-2 shadow mb-2">
+                      <p className="text-[8px] text-gray-500">Stability</p>
+                      <p className="text-xl font-bold text-indigo-600">53%</p>
+                      <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
+                        <div className="w-1/2 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1">
+                      <div className="bg-white rounded p-1 shadow text-center">
+                        <p className="text-sm font-bold text-purple-600">18</p>
+                        <p className="text-[7px] text-gray-500">Vars</p>
+                      </div>
+                      <div className="bg-white rounded p-1 shadow text-center">
+                        <p className="text-sm font-bold text-indigo-600">30+</p>
+                        <p className="text-[7px] text-gray-500">Days</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
