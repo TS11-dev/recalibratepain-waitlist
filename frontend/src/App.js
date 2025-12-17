@@ -1314,12 +1314,15 @@ function App() {
               </div>
             </div>
             
-            <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-sm">© 2025 Recalibrate. Your intelligent health companion.</p>
-              <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                info@recalibratepain.com
-              </a>
+            <div className="border-t border-gray-800 mt-8 pt-8">
+              <p className="text-gray-500 text-xs text-center mb-4">Recalibrate App — The complete chronic pain app and chronic illness management companion for tracking symptoms, pain science education, and AI-powered insights.</p>
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p className="text-gray-400 text-sm">© 2025 Recalibrate App. Your intelligent health companion.</p>
+                <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  info@recalibratepain.com
+                </a>
+              </div>
             </div>
           </div>
         </footer>
