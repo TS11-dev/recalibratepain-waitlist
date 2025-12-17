@@ -223,15 +223,19 @@ function App() {
                 <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
               </div>
               
+              <p className="text-lg sm:text-2xl lg:text-3xl font-black tracking-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent mb-2 sm:mb-3">
+                RECALIBRATE
+              </p>
+              
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
                 Your <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent">Health</span> and <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 bg-clip-text text-transparent">Pain</span>
-                <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent">
-                  Management Companion
+                <span className="block">
+                  <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent">Management</span> Companion
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-                <strong className="text-gray-800">Recalibrate App</strong> — Track chronic pain symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons. The complete chronic illness management app.
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+                <strong className="text-gray-800">Recalibrate App</strong> — Track 18 Health Variables including Pain, Exercise, Nutrition, Anxiety, Sleep and much more across 8 biological systems. Discover patterns with Analytics and AI insights, access recommended exercises and tools, learn from our Pain Academy with over 90 lessons on Chronic Illness and Chronic Pain. <strong className="text-purple-600">The Complete Chronic Pain App.</strong>
               </p>
               
               {/* Email Form */}
