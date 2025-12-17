@@ -990,7 +990,7 @@ function App() {
               {[
                 { icon: "🩺", title: "Clinics", desc: "Integrate into your practice for patient tracking", color: "from-blue-500 to-cyan-500", email: "clinics@recalibratepain.com" },
                 { icon: "🔬", title: "Research", desc: "Access anonymized data for pain research", color: "from-purple-500 to-violet-500", email: "research@recalibratepain.com" },
-                { icon: "🤝", title: "Investors", desc: "Join us building the future of pain management", color: "from-emerald-500 to-green-500", email: "investors@recalibratepain.com" }
+                { icon: "🤝", title: "Investor Prospectus", desc: "Join us building the future of pain management", color: "from-emerald-500 to-green-500", email: "investors@recalibratepain.com" }
               ].map((item, i) => (
                 <a key={i} href={`mailto:${item.email}`} className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all">
                   <div className={`w-10 h-10 bg-gradient-to-br ${item.color} rounded-lg flex items-center justify-center mx-auto mb-2`}>
