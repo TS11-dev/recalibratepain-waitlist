@@ -595,6 +595,12 @@ def test_subscriber_count_accuracy():
 def run_all_tests():
     """Run all tests and print summary"""
     print("\n🧪 STARTING BACKEND API TESTS 🧪\n")
+    print("\n🔍 TESTING SPECIFIC REVIEW REQUIREMENTS 🔍\n")
+    
+    # Priority tests from review request
+    run_test("Partner Contact Form Endpoint", test_partner_contact_form)
+    run_test("Health Endpoint - Waitlist Count Verification (194)", test_health_endpoint_waitlist_count)
+    
     print("\n🔍 TESTING DUAL STORAGE SYSTEM (MongoDB + JSON) 🔍\n")
     
     # Basic endpoint tests
