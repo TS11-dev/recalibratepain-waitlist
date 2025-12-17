@@ -207,142 +207,140 @@ function App() {
         </nav>
 
         {/* Hero Section */}
-        <section className="pt-24 sm:pt-28 pb-12 sm:pb-20 px-4 sm:px-6 overflow-hidden">
+        <section className="pt-24 sm:pt-28 pb-8 sm:pb-16 px-4 sm:px-6 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-row items-center gap-4 sm:gap-8 lg:gap-16">
+            
+            {/* Top Row - Text + Form */}
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+              {/* Status Badge */}
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200/50 rounded-full px-4 py-2 mb-6">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span className="text-sm font-semibold text-purple-900">Launching Q1 2026</span>
+                <span className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">iOS • Android • Web</span>
+              </div>
               
-              {/* Left Content */}
-              <div className="flex-1 text-left">
-                {/* Status Badge */}
-                <div className="inline-flex items-center space-x-1.5 sm:space-x-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200/50 rounded-full px-2.5 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-6">
-                  <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-green-500"></span>
-                  </span>
-                  <span className="text-xs sm:text-sm font-semibold text-purple-900">Q1 2026</span>
-                  <span className="text-[10px] sm:text-xs bg-purple-600 text-white px-1.5 sm:px-2 py-0.5 rounded-full">iOS • Android • Web</span>
-                </div>
-                
-                <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-3 sm:mb-6">
-                  Your Health and Pain
-                  <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
-                    Management Companion
-                  </span>
-                </h1>
-                
-                <p className="text-sm sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-8 max-w-xl leading-relaxed">
-                  Track symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons.
-                </p>
-                
-                {/* Email Form */}
-                <form onSubmit={handleEmailSubmit} className="max-w-md mb-4 sm:mb-8" id="waitlist">
-                  <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1 sm:p-1.5">
-                    <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-2">
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="flex-1 px-3 sm:px-5 py-2.5 sm:py-3.5 bg-gray-50/50 rounded-lg sm:rounded-xl text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
-                        required
-                      />
-                      <button
-                        type="submit"
-                        disabled={loading}
-                        className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-1.5 sm:gap-2 hover:-translate-y-0.5"
-                      >
-                        {loading ? (
-                          <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        ) : (
-                          <>
-                            <span>Join Waitlist</span>
-                            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                </form>
-                
-                {/* Waitlist Count */}
-                <div className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-full px-3 sm:px-5 py-2">
-                  <div className="hidden sm:flex -space-x-2">
-                    {['🧑‍⚕️', '👩‍💼', '👨‍🔬'].map((emoji, i) => (
-                      <div key={i} className="w-7 h-7 rounded-full bg-white border-2 border-purple-100 flex items-center justify-center text-xs shadow-sm">
-                        {emoji}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="text-xs sm:text-sm">
-                    <span className="font-bold text-purple-700 text-sm sm:text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
-                    <span className="text-gray-600 ml-1">waiting</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right - Phone Mockup */}
-              <div className="relative flex-shrink-0">
-                {/* Phone Frame - responsive sizes */}
-                <div className="relative w-[140px] h-[290px] sm:w-[200px] sm:h-[420px] lg:w-[300px] lg:h-[620px] bg-gray-900 rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[3rem] p-1.5 sm:p-2 lg:p-3 shadow-2xl shadow-purple-500/20">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 sm:w-16 lg:w-28 h-3 sm:h-4 lg:h-7 bg-gray-900 rounded-b-lg sm:rounded-b-xl lg:rounded-b-2xl z-10"></div>
-                  <div className="w-full h-full bg-white rounded-[1.2rem] sm:rounded-[1.6rem] lg:rounded-[2.3rem] overflow-hidden">
-                    <img 
-                      src="/app-screenshot.png" 
-                      alt="Recalibrate App" 
-                      className="w-full h-full object-cover object-top"
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
+                Your Health and Pain
+                <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
+                  Management Companion
+                </span>
+              </h1>
+              
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
+                Track symptoms, discover patterns with AI, access therapeutic tools, and learn from 200+ pain science lessons.
+              </p>
+              
+              {/* Email Form */}
+              <form onSubmit={handleEmailSubmit} className="max-w-lg mx-auto mb-6" id="waitlist">
+                <div className="relative bg-white rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1.5">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 px-5 py-3.5 bg-gray-50/50 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
+                      required
                     />
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                    >
+                      {loading ? (
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <span>Join Waitlist</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </>
+                      )}
+                    </button>
                   </div>
                 </div>
-                
-                {/* Floating Notification Cards */}
-                <div className="absolute -left-2 sm:-left-6 lg:-left-20 top-4 sm:top-8 lg:top-16 bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-1.5 sm:p-2 lg:p-4 max-w-[100px] sm:max-w-[140px] lg:max-w-[200px] animate-float">
-                  <div className="flex items-start gap-1.5 sm:gap-2 lg:gap-3">
-                    <div className="w-6 sm:w-7 lg:w-10 h-6 sm:h-7 lg:h-10 bg-blue-100 rounded-md sm:rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs sm:text-sm lg:text-lg">📊</span>
+              </form>
+              
+              {/* Waitlist Count */}
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 rounded-full px-5 py-2.5">
+                <div className="flex -space-x-2">
+                  {['🧑‍⚕️', '👩‍💼', '👨‍🔬'].map((emoji, i) => (
+                    <div key={i} className="w-8 h-8 rounded-full bg-white border-2 border-purple-100 flex items-center justify-center text-sm shadow-sm">
+                      {emoji}
                     </div>
-                    <div>
-                      <p className="font-bold text-gray-900 text-[9px] sm:text-[10px] lg:text-sm leading-tight">Track 18 Variables</p>
-                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-gray-500 hidden sm:block">Pain, sleep & mood</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-                
-                <div className="absolute -right-1 sm:-right-4 lg:-right-16 top-16 sm:top-24 lg:top-40 bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-1.5 sm:p-2 lg:p-4 max-w-[90px] sm:max-w-[130px] lg:max-w-[180px] animate-float-delayed">
-                  <div className="flex items-start gap-1.5 sm:gap-2 lg:gap-3">
-                    <div className="w-6 sm:w-7 lg:w-10 h-6 sm:h-7 lg:h-10 bg-green-100 rounded-md sm:rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs sm:text-sm lg:text-lg">🔔</span>
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-900 text-[9px] sm:text-[10px] lg:text-sm leading-tight">Smart Reminders</p>
-                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-gray-500 hidden sm:block">Never miss a check-in</p>
-                    </div>
-                  </div>
+                <div className="text-sm">
+                  <span className="font-bold text-purple-700 text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}</span>
+                  <span className="text-gray-600 ml-1">people waiting</span>
                 </div>
-                
-                <div className="absolute -left-1 sm:-left-4 lg:-left-12 bottom-16 sm:bottom-24 lg:bottom-40 bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-1.5 sm:p-2 lg:p-4 max-w-[90px] sm:max-w-[130px] lg:max-w-[190px] animate-float">
-                  <div className="flex items-start gap-1.5 sm:gap-2 lg:gap-3">
-                    <div className="w-6 sm:w-7 lg:w-10 h-6 sm:h-7 lg:h-10 bg-purple-100 rounded-md sm:rounded-lg lg:rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs sm:text-sm lg:text-lg">🤖</span>
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-900 text-[9px] sm:text-[10px] lg:text-sm leading-tight">AI Insights</p>
-                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-gray-500 hidden sm:block">Patterns detected!</p>
-                    </div>
-                  </div>
+              </div>
+            </div>
+
+            {/* Phone Mockup - Centered Below */}
+            <div className="relative flex justify-center">
+              {/* Phone Frame */}
+              <div className="relative w-[260px] h-[540px] sm:w-[300px] sm:h-[620px] bg-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl shadow-purple-500/20">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-6 sm:h-7 bg-gray-900 rounded-b-2xl z-10"></div>
+                <div className="w-full h-full bg-white rounded-[2rem] sm:rounded-[2.3rem] overflow-hidden">
+                  <img 
+                    src="/app-screenshot.png" 
+                    alt="Recalibrate App" 
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
-                
-                <div className="absolute -right-1 sm:-right-2 lg:-right-8 bottom-4 sm:bottom-12 lg:bottom-24 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg sm:rounded-xl lg:rounded-2xl shadow-xl p-1.5 sm:p-2 lg:p-4 max-w-[85px] sm:max-w-[120px] lg:max-w-[170px] text-white animate-float-delayed">
-                  <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-2">
-                    <span className="text-xs sm:text-sm lg:text-lg">🧠</span>
-                    <div>
-                      <p className="font-bold text-[9px] sm:text-[10px] lg:text-sm leading-tight">90+ Lessons</p>
-                      <p className="text-[8px] sm:text-[9px] lg:text-xs text-white/80 hidden sm:block">Pain Academy</p>
-                    </div>
+              </div>
+              
+              {/* Floating Notification Cards */}
+              <div className="absolute -left-4 sm:left-[10%] lg:left-[20%] top-8 sm:top-12 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 p-3 sm:p-4 max-w-[180px] sm:max-w-[200px] animate-float">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">📊</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">Track 18 Variables</p>
+                    <p className="text-xs text-gray-500">Pain, sleep & mood</p>
                   </div>
                 </div>
               </div>
-
+              
+              <div className="absolute -right-4 sm:right-[10%] lg:right-[20%] top-28 sm:top-36 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 p-3 sm:p-4 max-w-[170px] sm:max-w-[180px] animate-float-delayed">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">🔔</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">Smart Reminders</p>
+                    <p className="text-xs text-gray-500">Never miss a check-in</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute -left-4 sm:left-[8%] lg:left-[18%] bottom-28 sm:bottom-36 bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 p-3 sm:p-4 max-w-[160px] sm:max-w-[190px] animate-float">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">🤖</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">AI Insights</p>
+                    <p className="text-xs text-gray-500">Patterns detected!</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute -right-4 sm:right-[8%] lg:right-[18%] bottom-12 sm:bottom-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl sm:rounded-2xl shadow-xl p-3 sm:p-4 max-w-[150px] sm:max-w-[170px] text-white animate-float-delayed">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">🧠</span>
+                  <div>
+                    <p className="font-bold text-sm">90+ Lessons</p>
+                    <p className="text-xs text-white/80">Pain Academy</p>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
         </section>
 
