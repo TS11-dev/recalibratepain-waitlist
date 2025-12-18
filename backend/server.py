@@ -431,7 +431,8 @@ async def send_welcome_email(to_email: str, name: str):
         welcome_html = f"""
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
             <div style="text-align: center; margin-bottom: 24px;">
-                <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold;">Welcome to the Revolution! 🚀</h1>
+                <img src="https://recalibratepain.com/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto; margin-bottom: 16px;">
+                <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold; margin-top: 0;">Welcome to the Revolution! 🚀</h1>
             </div>
             
             <p>Hi {name},</p>
@@ -440,7 +441,7 @@ async def send_welcome_email(to_email: str, name: str):
             
             <div style="background-color: #f3e8ff; padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid #d8b4fe;">
                 <h3 style="margin-top: 0; color: #6b21a8;">🎁 Your Free Gift is Inside</h3>
-                <p style="margin-bottom: 0;">We've attached your copy of <strong>"Chronic Pain: Self-Management 1"</strong> to this email. This course covers the 8 Lifelines to help you build stability starting today.</p>
+                <p style="margin-bottom: 0;">We've attached your copy of <strong>"Course - Self-Management 101"</strong> to this email. This course covers the 8 Lifelines to help you build stability starting today.</p>
             </div>
             
             <p><strong>What happens next?</strong></p>
@@ -455,12 +456,14 @@ async def send_welcome_email(to_email: str, name: str):
             <p style="margin-top: 24px;">Warmly,<br><strong>The Recalibrate Team</strong></p>
             
             <div style="text-align: center; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
-                <p>© 2025 Recalibrate Inc. Smarter Health and Pain Technology.</p>
+                <p style="font-weight: bold; color: #4b5563;">Recalibrate Inc.</p>
+                <p>Smarter Health and Pain Technology</p>
+                <p>© 2025 Recalibrate App. Your intelligent health companion.</p>
             </div>
         </div>
         """
         
-        course_path = "/app/backend/data/RecalibrateCourse1.pdf"
+        course_path = "/app/backend/data/Recalibrate_Self_Management_101.pdf"
         attachments = [course_path] if os.path.exists(course_path) else []
         
         message = MessageSchema(
@@ -653,6 +656,9 @@ async def partner_contact(form: PartnerContactForm):
                 # Prepare email content
                 html_content = f"""
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <img src="https://recalibratepain.com/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto;">
+                    </div>
                     <h2 style="color: #4f46e5;">New Partner Inquiry: {form.type.title()}</h2>
                     <p><strong>Name:</strong> {form.name}</p>
                     <p><strong>Email:</strong> {form.email}</p>
@@ -662,7 +668,11 @@ async def partner_contact(form: PartnerContactForm):
                     <div style="background-color: #f9fafb; padding: 15px; border-radius: 8px;">
                         {form.message}
                     </div>
-                    <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">Sent from Recalibrate Landing Page via SMTP</p>
+                    <div style="text-align: center; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
+                        <p style="font-weight: bold; color: #4b5563;">Recalibrate Inc.</p>
+                        <p>Smarter Health and Pain Technology</p>
+                        <p>© 2025 Recalibrate App. Your intelligent health companion.</p>
+                    </div>
                 </div>
                 """
                 
