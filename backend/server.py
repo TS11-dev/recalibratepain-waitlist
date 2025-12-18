@@ -16,7 +16,10 @@ import asyncio
 import os
 import resend
 from dotenv import load_dotenv
-from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
+from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
+from fastapi.responses import FileResponse
+from pydantic import BaseModel, EmailStr, validator
+# Removed fastapi_mail imports
 
 # Load environment variables
 load_dotenv()
@@ -25,26 +28,15 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# SMTP Configuration
-# Force Port 587 for Spacemail on Railway to avoid blocks
-mail_server = os.environ.get("MAIL_SERVER", "mail.spacemail.com")
-mail_port = int(os.environ.get("MAIL_PORT", 587))
+# Resend Configuration
+if os.environ.get("RESEND_API_KEY"):
+    resend.api_key = os.environ.get("RESEND_API_KEY")
+else:
+    logger.warning("⚠️ RESEND_API_KEY not found. Emails will not send.")
 
-if "spacemail" in mail_server:
-    logger.info("📧 Detected Spacemail - Forcing Port 587 (STARTTLS) for reliability")
-    mail_port = 587
+# Default sender
+SENDER_EMAIL = os.environ.get("MAIL_FROM", "info@recalibratepain.com")
 
-conf = ConnectionConfig(
-    MAIL_USERNAME=os.environ.get("MAIL_USERNAME", "info@recalibratepain.com"),
-    MAIL_PASSWORD=os.environ.get("MAIL_PASSWORD", ""),
-    MAIL_FROM=os.environ.get("MAIL_FROM", "info@recalibratepain.com"),
-    MAIL_PORT=mail_port,
-    MAIL_SERVER=mail_server,
-    MAIL_STARTTLS=True,  # Always use STARTTLS for 587 which we are forcing
-    MAIL_SSL_TLS=False,  # Disable implicit SSL
-    USE_CREDENTIALS=True,
-    VALIDATE_CERTS=True
-)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -686,9 +678,9 @@ async def partner_contact(form: PartnerContactForm):
         with open(partners_file, 'w') as f:
             json.dump(partners, f, indent=2)
             
-        # 2. Send Email via SMTP
+        # 2. Send Email via Resend
         email_sent = False
-        if os.environ.get("MAIL_PASSWORD"):
+        if os.environ.get("RESEND_API_KEY"):
             try:
                 # Prepare email content
                 html_content = f"""
@@ -713,23 +705,24 @@ async def partner_contact(form: PartnerContactForm):
                 </div>
                 """
                 
-                message = MessageSchema(
-                    subject=f"New Partner Inquiry: {form.organization}",
-                    recipients=["info@recalibratepain.com"],
-                    body=html_content,
-                    subtype=MessageType.html
-                )
+                params = {
+                    "from": SENDER_EMAIL,
+                    "to": ["info@recalibratepain.com"],
+                    "subject": f"New Partner Inquiry: {form.organization}",
+                    "html": html_content,
+                    "reply_to": form.email
+                }
                 
-                fm = FastMail(conf)
-                await fm.send_message(message)
+                # Send asynchronously
+                await asyncio.to_thread(resend.Emails.send, params)
                 
                 email_sent = True
-                logger.info(f"📧 SMTP Email sent to info@recalibratepain.com regarding {form.email}")
+                logger.info(f"📧 Email sent to info@recalibratepain.com regarding {form.email} via Resend")
             except Exception as email_error:
-                logger.error(f"❌ Failed to send SMTP email: {email_error}")
+                logger.error(f"❌ Failed to send email via Resend: {email_error}")
                 # Don't fail the request if email fails, just log it
         else:
-            logger.info("ℹ️ Skipped email sending (MAIL_PASSWORD missing)")
+            logger.info("ℹ️ Skipped email sending (RESEND_API_KEY missing)")
 
         logger.info(f"✅ New partner inquiry processed: {form.type} from {form.email}")
         
