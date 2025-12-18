@@ -133,5 +133,35 @@
     "name": "Link Based Test User",
     "email": "test_link_based_email_1766055377@test.com",
     "timestamp": "2025-12-18T10:56:17.626981"
+  },
+  {
+    "name": "Email Verification Test User",
+    "email": "email_verification_test_1766056316@test.com",
+    "timestamp": "2025-12-18T11:11:56.901364"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1766056335@example.com",
+    "timestamp": "2025-12-18T11:12:15.772005"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1766056336@example.com",
+    "timestamp": "2025-12-18T11:12:16.800556"
+  },
+  {
+    "name": "Persistence Test 1766056338",
+    "email": "persistence.test.1766056338@example.com",
+    "timestamp": "2025-12-18T11:12:18.369994"
+  },
+  {
+    "name": "Dual Storage Test 1766056339",
+    "email": "dual.storage.test.1766056339@example.com",
+    "timestamp": "2025-12-18T11:12:19.396528"
+  },
+  {
+    "name": "Count Test 1766056341",
+    "email": "count.test.1766056341@example.com",
+    "timestamp": "2025-12-18T11:12:21.873181"
   }
 ]
