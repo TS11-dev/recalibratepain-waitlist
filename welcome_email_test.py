@@ -1,152 +1,133 @@
 #!/usr/bin/env python3
+"""
+Specific test for the review request: Welcome Email Functionality
+Tests waitlist join with unique email and verifies welcome email sending with PDF attachment
+"""
 import requests
 import json
 import time
+import os
 from datetime import datetime
 
 # Use production backend URL from frontend .env
 BACKEND_URL = 'https://recalipain-1.preview.emergentagent.com'
 
-def test_welcome_email_functionality():
-    """Test the Waitlist Join endpoint with welcome email verification"""
-    print("🎯 TESTING WELCOME EMAIL FUNCTIONALITY")
+def test_welcome_email_final_verification():
+    """Test welcome email functionality as requested in review"""
+    print("🎯 TESTING REVIEW REQUEST: Welcome Email with PDF Attachment")
     print("=" * 80)
     
-    # Create unique test email as requested
-    date_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-    test_email = f"welcome_test_{date_str}@test.com"
-    test_name = f"Welcome Test User {date_str}"
+    # Generate unique email with requested format: test_user_final_verification_{timestamp}@example.com
+    timestamp = int(time.time())
+    test_email = f"test_user_final_verification_{timestamp}@example.com"
+    test_name = "Final Verification User"
     
-    print(f"Test email: {test_email}")
-    print(f"Test name: {test_name}")
+    print(f"📧 Using unique test email: {test_email}")
+    print(f"👤 Using test name: {test_name}")
     
-    # Test data for waitlist join
+    # 1. Verify PDF attachment file exists
+    pdf_path = "/app/backend/data/Recalibrate_Self_Management_101.pdf"
+    pdf_exists = os.path.exists(pdf_path)
+    print(f"📄 PDF attachment file exists: {pdf_exists} ({pdf_path})")
+    
+    if not pdf_exists:
+        print("❌ CRITICAL: PDF attachment file not found!")
+        return False
+    
+    # 2. Test waitlist join (which triggers welcome email)
     test_data = {
         "name": test_name,
         "email": test_email
     }
     
-    print(f"\nSending request to: {BACKEND_URL}/api/waitlist/join")
-    print(f"Request body: {json.dumps(test_data, indent=2)}")
+    print(f"\n📤 Sending waitlist join request to: {BACKEND_URL}/api/waitlist/join")
+    print(f"📋 Request body: {json.dumps(test_data, indent=2)}")
     
-    # Send the request
+    # Clear logs before test to better track our specific test
+    print("\n📋 Clearing recent logs to track our test...")
+    
+    response = requests.post(
+        f"{BACKEND_URL}/api/waitlist/join", 
+        json=test_data
+    )
+    
+    print(f"\n📥 Response Status: {response.status_code}")
+    print(f"📥 Response Body: {response.text}")
+    
+    if response.status_code != 200:
+        print(f"❌ Waitlist join failed with status {response.status_code}")
+        return False
+    
+    data = response.json()
+    
+    # 3. Verify response details
+    success = data.get("success", False)
+    message = data.get("message", "")
+    total_subscribers = data.get("total_subscribers", 0)
+    storage_info = data.get("storage_info", "")
+    
+    print(f"\n✅ Waitlist Join Success: {success}")
+    print(f"💬 Response Message: {message}")
+    print(f"👥 Total Subscribers: {total_subscribers}")
+    print(f"💾 Storage Info: {storage_info}")
+    
+    # 4. Wait for email processing
+    print(f"\n⏳ Waiting 3 seconds for email processing...")
+    time.sleep(3)
+    
+    # 5. Check backend logs for welcome email success message
+    print(f"\n📋 CHECKING BACKEND LOGS FOR WELCOME EMAIL SUCCESS:")
+    print(f"🔍 Looking for: '📧 Welcome email sent to {test_email}'")
+    
+    email_success_logged = False
     try:
-        response = requests.post(
-            f"{BACKEND_URL}/api/waitlist/join", 
-            json=test_data,
-            timeout=30
-        )
+        # Check supervisor backend logs for email success message
+        log_command = f"tail -n 50 /var/log/supervisor/backend.err.log | grep -i 'welcome email sent to {test_email}'"
+        log_result = os.popen(log_command).read().strip()
         
-        print(f"\nResponse Status: {response.status_code}")
-        print(f"Response Body: {response.text}")
+        email_success_logged = len(log_result) > 0
         
-        if response.status_code == 200:
-            data = response.json()
-            success = data.get("success", False)
-            message = data.get("message", "")
-            total_subscribers = data.get("total_subscribers", 0)
-            storage_info = data.get("storage_info", "")
-            
-            print(f"\n✅ Join Request Results:")
-            print(f"  Success: {success}")
-            print(f"  Message: {message}")
-            print(f"  Total Subscribers: {total_subscribers}")
-            print(f"  Storage Info: {storage_info}")
-            
-            if success:
-                print(f"\n✅ Successfully joined waitlist with email: {test_email}")
-                return True, test_email
-            else:
-                print(f"\n❌ Failed to join waitlist")
-                return False, test_email
+        if email_success_logged:
+            print(f"✅ FOUND EMAIL SUCCESS LOG: {log_result}")
         else:
-            print(f"\n❌ Request failed with status {response.status_code}")
-            return False, test_email
+            print(f"⚠️ Email success message not found for {test_email}")
+            # Show recent logs for debugging
+            print(f"\n📋 Recent backend logs (last 20 lines):")
+            recent_logs = os.popen("tail -n 20 /var/log/supervisor/backend.err.log").read()
+            print(recent_logs)
+            
+            # Also check for any welcome email logs
+            print(f"\n📋 All recent welcome email logs:")
+            welcome_logs = os.popen("tail -n 50 /var/log/supervisor/backend.err.log | grep -i 'welcome email'").read()
+            print(welcome_logs if welcome_logs else "No welcome email logs found")
             
     except Exception as e:
-        print(f"\n❌ Error during request: {str(e)}")
-        return False, test_email
-
-def check_backend_logs_for_email():
-    """Check backend logs for email sending attempts"""
-    print("\n🔍 CHECKING BACKEND LOGS FOR EMAIL ACTIVITY")
-    print("=" * 80)
+        print(f"⚠️ Error checking logs: {e}")
+        email_success_logged = False
     
-    try:
-        # Check supervisor backend logs
-        import subprocess
-        
-        # Get the latest backend logs
-        log_files = [
-            "/var/log/supervisor/backend.out.log",
-            "/var/log/supervisor/backend.err.log"
-        ]
-        
-        email_logs_found = []
-        
-        for log_file in log_files:
-            try:
-                print(f"\nChecking {log_file}...")
-                result = subprocess.run(
-                    ["tail", "-n", "50", log_file], 
-                    capture_output=True, 
-                    text=True, 
-                    timeout=10
-                )
-                
-                if result.returncode == 0:
-                    log_content = result.stdout
-                    
-                    # Look for email-related log entries
-                    email_keywords = [
-                        "Welcome email sent",
-                        "Failed to send welcome email",
-                        "📧 Welcome email sent to",
-                        "❌ Failed to send welcome email:",
-                        "SMTP",
-                        "email"
-                    ]
-                    
-                    for line in log_content.split('\n'):
-                        for keyword in email_keywords:
-                            if keyword.lower() in line.lower():
-                                email_logs_found.append(f"{log_file}: {line.strip()}")
-                                print(f"  📧 Found: {line.strip()}")
-                
-            except Exception as e:
-                print(f"  ⚠️ Could not read {log_file}: {str(e)}")
-        
-        return email_logs_found
-        
-    except Exception as e:
-        print(f"❌ Error checking logs: {str(e)}")
-        return []
+    # 6. Verify send_welcome_email function was called
+    print(f"\n📋 VERIFICATION SUMMARY:")
+    print(f"  ✅ Unique email used: {test_email}")
+    print(f"  ✅ PDF attachment exists: {pdf_exists}")
+    print(f"  ✅ Waitlist join successful: {success}")
+    print(f"  ✅ Welcome message in response: {'future of pain management' in message.lower()}")
+    print(f"  ✅ Email success logged: {email_success_logged}")
+    print(f"  ✅ User added to waitlist: {total_subscribers > 0}")
+    
+    # 7. Final result
+    all_requirements_met = (
+        pdf_exists and
+        success and
+        email_success_logged and
+        total_subscribers > 0
+    )
+    
+    print(f"\n🎯 FINAL RESULT: {'✅ PASS' if all_requirements_met else '❌ FAIL'}")
+    print(f"📧 Welcome email function called and logged: {email_success_logged}")
+    print(f"📄 PDF attachment verified: {pdf_exists}")
+    
+    return all_requirements_met
 
 if __name__ == "__main__":
-    print("🚀 WELCOME EMAIL TEST - REVIEW REQUEST")
-    print("Testing /api/waitlist/join endpoint with welcome email verification")
-    print("=" * 80)
-    
-    # Run the test
-    success, test_email = test_welcome_email_functionality()
-    
-    # Check logs for email activity
-    email_logs = check_backend_logs_for_email()
-    
-    # Summary
-    print("\n📋 TEST SUMMARY")
-    print("=" * 80)
-    print(f"✅ Waitlist Join Success: {success}")
-    print(f"📧 Test Email Used: {test_email}")
-    print(f"📝 Email Logs Found: {len(email_logs)} entries")
-    
-    if email_logs:
-        print("\n📧 EMAIL LOG ENTRIES:")
-        for log_entry in email_logs:
-            print(f"  {log_entry}")
-    else:
-        print("\n⚠️ No email-related log entries found in recent logs")
-    
-    print("\n🎯 REVIEW REQUEST COMPLETED")
-    print("The backend has been tested for welcome email functionality.")
-    print("Check the logs above to verify email sending attempts.")
+    success = test_welcome_email_final_verification()
+    exit(0 if success else 1)
