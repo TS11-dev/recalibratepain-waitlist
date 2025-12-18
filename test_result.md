@@ -244,6 +244,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ FINAL CONFIRMATION TESTING INITIATED: Started testing the specific review request for 'Loading Forever' fix verification using unique email format test_final_confirmation_v2_{timestamp}@example.com. Created comprehensive test to verify: 1) NEW unique email address usage, 2) INSTANT response (background task), 3) Backend logs show '📧 Welcome email sent to...' with NO error messages. Test execution was initiated but timed out during comprehensive backend testing suite. The backend system shows 18/22 tests passing, indicating overall system health. The 'Loading Forever' issue appears to be resolved based on previous background task verifications, but specific confirmation test for this review request needs completion."
+      - working: false
+        agent: "testing"
+        comment: "❌ RESEND LOGIC TESTING COMPLETED: Tested the new Resend logic for welcome emails using unique email 'resend_test_1766060319@test.com'. CRITICAL FINDINGS: 1) Resend configuration correctly shows startup warning '⚠️ RESEND_API_KEY not found. Emails will not send.', 2) Background task executes and attempts to send welcome email, 3) BUT send_welcome_email function still uses old fastapi_mail code causing error: 'name MessageSchema is not defined', 4) Function needs to be updated to use Resend API and show 'ℹ️ Skipped welcome email (RESEND_API_KEY missing)' message. ISSUE: Welcome email function not yet migrated to Resend - still uses removed fastapi_mail imports. Main agent needs to update send_welcome_email function to use Resend API instead of fastapi_mail."
 
 frontend:
   - task: "Email Collection Form"
