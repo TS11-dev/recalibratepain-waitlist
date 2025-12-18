@@ -93,5 +93,30 @@
     "name": "RecalibratePain Team",
     "email": "info@recalibratepain.com",
     "timestamp": "2025-12-18T10:09:50.601052"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1766052610@example.com",
+    "timestamp": "2025-12-18T10:10:10.478909"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1766052611@example.com",
+    "timestamp": "2025-12-18T10:10:11.530490"
+  },
+  {
+    "name": "Persistence Test 1766052612",
+    "email": "persistence.test.1766052612@example.com",
+    "timestamp": "2025-12-18T10:10:13.053169"
+  },
+  {
+    "name": "Dual Storage Test 1766052613",
+    "email": "dual.storage.test.1766052613@example.com",
+    "timestamp": "2025-12-18T10:10:14.103002"
+  },
+  {
+    "name": "Count Test 1766052616",
+    "email": "count.test.1766052616@example.com",
+    "timestamp": "2025-12-18T10:10:16.628939"
   }
 ]
