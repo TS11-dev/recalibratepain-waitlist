@@ -803,6 +803,10 @@ async def cleanup_test_data():
             "timestamp": datetime.now().isoformat()
         }
         
+    except Exception as e:
+        logger.error(f"Error during cleanup: {e}")
+        raise HTTPException(status_code=500, detail=f"Cleanup failed: {str(e)}")
+
 @app.get("/api/debug/send-welcome")
 async def debug_send_welcome(email: str):
     """Debug endpoint to force send a welcome email and see the result"""
@@ -811,10 +815,6 @@ async def debug_send_welcome(email: str):
         return {"status": "Attempted send", "email": email, "check_logs": "Check server logs for success/failure"}
     except Exception as e:
         return {"status": "Error", "error": str(e)}
-
-    except Exception as e:
-        logger.error(f"Error during cleanup: {e}")
-        raise HTTPException(status_code=500, detail=f"Cleanup failed: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn
