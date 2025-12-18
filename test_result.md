@@ -251,6 +251,18 @@ backend:
         agent: "testing"
         comment: "✅ RESEND IMPLEMENTATION COMPLETED: Successfully implemented and tested Resend logic for welcome emails. COMPREHENSIVE TESTING: 1) Updated send_welcome_email function to use Resend API instead of fastapi_mail, 2) Added RESEND_API_KEY to environment configuration, 3) Tested with API key present: Resend API called correctly (domain verification required for production), 4) Tested with API key missing: Shows exact requested message 'ℹ️ Skipped welcome email (RESEND_API_KEY missing)', 5) Background task executes immediately (1.076s response), 6) Startup warning works: '⚠️ RESEND_API_KEY not found. Emails will not send.' RESULT: Resend logic working perfectly - code path verified, skip message confirmed, ready for production with domain verification."
 
+  - task: "Partner Contact Form Resend Logic"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ PARTNER CONTACT RESEND LOGIC VERIFIED: Successfully tested the specific review request for partner contact form with Resend logic. COMPREHENSIVE TESTING: 1) Sent test partner inquiry with type='investor' using unique email 'investor.resend.test.1766078384@testfund.com', 2) Backend correctly processes form data and saves to partners.json, 3) Code attempts to send email via Resend API (lines 669-714 in server.py), 4) Backend logs show '❌ Failed to send email via Resend: The recalibratepain.com domain is not verified' - confirming Resend logic is active, 5) RESEND_API_KEY is properly configured (36 characters), 6) Partner form submission returns success=true with proper response format. CONCLUSION: Partner contact form IS ALSO updated to use Resend logic (not just welcome email). The domain verification error is expected in testing environment - code will work correctly in production once recalibratepain.com domain is verified in Resend dashboard. All review requirements met successfully."
+
 frontend:
   - task: "Email Collection Form"
     implemented: true
