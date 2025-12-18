@@ -227,8 +227,14 @@ function App() {
               </div>
               
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
-                Your Intelligent <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Health</span> and
-                <span className="block"><span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Pain Management</span> Companion</span>
+                Your Intelligent <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Health</span>
+                <span className="sm:hidden"><br />and </span>
+                <span className="hidden sm:inline"> and</span>
+                <br className="hidden sm:block" />
+                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Pain Management</span>
+                <span className="sm:hidden"><br /></span>
+                <span className="hidden sm:inline"> </span>
+                Companion
               </h1>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
