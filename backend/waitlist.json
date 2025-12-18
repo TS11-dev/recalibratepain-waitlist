@@ -48,5 +48,35 @@
     "name": "Welcome Test User 20251218_004651",
     "email": "welcome_test_20251218_004651@test.com",
     "timestamp": "2025-12-18T00:46:52.130051"
+  },
+  {
+    "name": "PDF Test User",
+    "email": "updated_pdf_test_20251218_011326@test.com",
+    "timestamp": "2025-12-18T01:13:26.901448"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1766020415@example.com",
+    "timestamp": "2025-12-18T01:13:35.981170"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1766020419@example.com",
+    "timestamp": "2025-12-18T01:13:40.779513"
+  },
+  {
+    "name": "Persistence Test 1766020426",
+    "email": "persistence.test.1766020426@example.com",
+    "timestamp": "2025-12-18T01:13:47.128006"
+  },
+  {
+    "name": "Dual Storage Test 1766020430",
+    "email": "dual.storage.test.1766020430@example.com",
+    "timestamp": "2025-12-18T01:13:50.330137"
+  },
+  {
+    "name": "Count Test 1766020434",
+    "email": "count.test.1766020434@example.com",
+    "timestamp": "2025-12-18T01:13:55.051272"
   }
 ]
