@@ -232,6 +232,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ BACKGROUND TASK VERIFICATION COMPLETED: Successfully tested the specific review request using unique email 'test_bg_task_verification_1766052649@example.com'. CONFIRMED: 1) join_waitlist endpoint returns 200 SUCCESS response IMMEDIATELY (1.081s - no blocking), 2) Background task executes successfully with welcome email sent confirmation in logs: '📧 Welcome email sent to test_bg_task_verification_1766052649@example.com', 3) PDF attachment verified at /app/backend/data/Recalibrate_Self_Management_101.pdf. The 'loading forever' issue has been SOLVED - endpoint responds immediately while background task handles email sending asynchronously. All review requirements met successfully."
+      - working: true
+        agent: "testing"
+        comment: "✅ LINK-BASED WELCOME EMAIL FLOW VERIFIED: Successfully tested the new Link-Based welcome email flow as requested in review using unique email 'test_link_based_email_1766055377@test.com'. ALL REQUIREMENTS MET: 1) PDF accessible at /api/resources/course returns binary data (2.8MB PDF file), 2) join_waitlist triggered with unique email format test_link_based_email_{timestamp}@test.com, 3) Response is instant (1.034s - background task working), 4) Backend logs confirm '📧 Welcome email sent to test_link_based_email_1766055377@test.com (Link based)'. CONFIRMED: Successfully switched from 'Attachment' (Timeout Prone) to 'Link' (Reliable) approach. Welcome email now uses download link instead of attachment to prevent SMTP timeouts. All review requirements verified successfully."
 
 frontend:
   - task: "Email Collection Form"
