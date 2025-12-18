@@ -238,5 +238,13 @@
     "organization": "Test Org",
     "message": "Test message",
     "timestamp": "2025-12-18T17:19:00.026033"
+  },
+  {
+    "type": "investor",
+    "name": "Test Investor 1766078384",
+    "email": "investor.resend.test.1766078384@testfund.com",
+    "organization": "Test Investment Fund 1766078384",
+    "message": "We are interested in investing in RecalibratePain platform.",
+    "timestamp": "2025-12-18T17:19:44.462944"
   }
 ]
