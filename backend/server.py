@@ -842,13 +842,6 @@ async def debug_network_test():
     except Exception as e:
         return {"status": "FAILURE", "error": str(e), "details": f"Could not connect to {target}:{port}"}
 
-    """Debug endpoint to force send a welcome email and see the result"""
-    try:
-        await send_welcome_email(email, "Debug User")
-        return {"status": "Attempted send", "email": email, "check_logs": "Check server logs for success/failure"}
-    except Exception as e:
-        return {"status": "Error", "error": str(e)}
-
 if __name__ == "__main__":
     import uvicorn
     # Railway provides PORT, fallback to API_PORT from .env, then default to 8001
