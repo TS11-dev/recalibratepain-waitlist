@@ -173,5 +173,45 @@
     "name": "Final Port 587 Test",
     "email": "final_port_587_test_1766057757@test.com",
     "timestamp": "2025-12-18T11:35:57.848983"
+  },
+  {
+    "name": "Final Confirmation Test User",
+    "email": "test_final_confirmation_v2_1766059015@example.com",
+    "timestamp": "2025-12-18T11:56:55.397042"
+  },
+  {
+    "name": "Force Port 587 Test User",
+    "email": "force_port_587_test_1766059024@test.com",
+    "timestamp": "2025-12-18T11:57:04.510850"
+  },
+  {
+    "name": "Email Verification Test User",
+    "email": "email_verification_test_1766059033@test.com",
+    "timestamp": "2025-12-18T11:57:13.613017"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1766059170@example.com",
+    "timestamp": "2025-12-18T11:59:30.536714"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1766059171@example.com",
+    "timestamp": "2025-12-18T11:59:31.617283"
+  },
+  {
+    "name": "Persistence Test 1766059172",
+    "email": "persistence.test.1766059172@example.com",
+    "timestamp": "2025-12-18T11:59:33.100573"
+  },
+  {
+    "name": "Dual Storage Test 1766059173",
+    "email": "dual.storage.test.1766059173@example.com",
+    "timestamp": "2025-12-18T11:59:34.198758"
+  },
+  {
+    "name": "Count Test 1766059176",
+    "email": "count.test.1766059176@example.com",
+    "timestamp": "2025-12-18T11:59:36.750611"
   }
 ]
