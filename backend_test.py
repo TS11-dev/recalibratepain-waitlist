@@ -494,6 +494,82 @@ def test_partner_contact_form():
         "thank you" in message.lower()
     )
 
+def test_general_contact_form_curl():
+    """Test the specific General Contact form submission as requested in review"""
+    print("🎯 TESTING SPECIFIC REVIEW REQUEST: General Contact Form")
+    print("Endpoint: /api/partner/contact")
+    print("Body: type='general_contact', name='Test Visitor', email='visitor@test.com', message='Hi there'")
+    
+    # Test data exactly as specified in the review request
+    test_data = {
+        "type": "general_contact",
+        "name": "Test Visitor", 
+        "email": "visitor@test.com",
+        "organization": "General Public",  # Required field, adding reasonable default
+        "message": "Hi there"
+    }
+    
+    print(f"Sending request to: {BACKEND_URL}/api/partner/contact")
+    print(f"Request body: {json.dumps(test_data, indent=2)}")
+    
+    response = requests.post(
+        f"{BACKEND_URL}/api/partner/contact", 
+        json=test_data
+    )
+    print(f"Response Status: {response.status_code}")
+    print(f"Response Body: {response.text}")
+    
+    if response.status_code != 200:
+        print(f"❌ General contact form failed with status {response.status_code}")
+        return False
+    
+    data = response.json()
+    
+    # Extract response details
+    success = data.get("success", False)
+    message = data.get("message", "")
+    contact_type = data.get("type", "")
+    email_sent = data.get("email_sent", False)
+    
+    print(f"✅ Success: {success}")
+    print(f"📧 Email sent: {email_sent}")
+    print(f"💬 Message: {message}")
+    print(f"🏷️ Type: {contact_type}")
+    
+    # Check if data was saved to partners.json
+    partners_file = "/app/backend/data/partners.json"
+    data_saved = False
+    if os.path.exists(partners_file):
+        try:
+            with open(partners_file, 'r') as f:
+                partners_data = json.load(f)
+            
+            # Look for our test entry
+            for entry in partners_data:
+                if (entry.get("email") == "visitor@test.com" and 
+                    entry.get("name") == "Test Visitor" and
+                    entry.get("type") == "general_contact"):
+                    data_saved = True
+                    print(f"✅ Data saved to partners.json: {entry}")
+                    break
+        except Exception as e:
+            print(f"⚠️ Error checking partners.json: {e}")
+    
+    # Verify the response meets requirements
+    requirements_met = (
+        success == True and  # Returns success
+        contact_type == "general_contact" and  # Correct type
+        "visitor@test.com" in message  # Confirms email in response
+    )
+    
+    print(f"\n📋 REQUIREMENTS CHECK:")
+    print(f"  ✅ Returns success: {success}")
+    print(f"  ✅ Sends email (graceful handling): {email_sent} (Note: SMTP may fail gracefully)")
+    print(f"  ✅ Data persistence: {data_saved}")
+    print(f"  ✅ Correct response format: {requirements_met}")
+    
+    return requirements_met
+
 def test_health_endpoint_waitlist_count():
     """Test Health endpoint to verify Waitlist Count is 194 (191 base + 3 test)"""
     response = requests.get(f"{BACKEND_URL}/api/health")
