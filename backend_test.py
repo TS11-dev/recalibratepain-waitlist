@@ -674,6 +674,143 @@ def test_background_task_welcome_email():
     # Test passes if waitlist join was successful, response was immediate, and PDF exists
     return requirements_met
 
+def test_link_based_welcome_email_flow():
+    """Test the new Link-Based welcome email flow as requested in review"""
+    print("🎯 TESTING NEW LINK-BASED WELCOME EMAIL FLOW")
+    print("Review Requirements:")
+    print("1. Verify PDF is accessible at /api/resources/course (binary data)")
+    print("2. Trigger join_waitlist with unique email test_link_based_email_{timestamp}@test.com")
+    print("3. Confirm response is instant (background task)")
+    print("4. Check logs for '📧 Welcome email sent to... (Link based)'")
+    
+    # Step 1: Verify PDF is accessible at /api/resources/course
+    print("\n📄 STEP 1: Testing PDF accessibility at /api/resources/course")
+    pdf_response = requests.get(f"{BACKEND_URL}/api/resources/course")
+    print(f"PDF endpoint status: {pdf_response.status_code}")
+    print(f"Content-Type: {pdf_response.headers.get('Content-Type', 'Not set')}")
+    print(f"Content-Length: {pdf_response.headers.get('Content-Length', 'Not set')} bytes")
+    
+    pdf_accessible = (
+        pdf_response.status_code == 200 and
+        pdf_response.headers.get('Content-Type') == 'application/pdf' and
+        len(pdf_response.content) > 1000  # Should be a substantial PDF file
+    )
+    
+    if pdf_accessible:
+        print("✅ PDF is accessible and returns binary data")
+    else:
+        print("❌ PDF is not accessible or not returning proper binary data")
+        return False
+    
+    # Step 2: Trigger join_waitlist with unique email
+    timestamp = int(time.time())
+    test_email = f"test_link_based_email_{timestamp}@test.com"
+    test_name = "Link Based Test User"
+    
+    print(f"\n📧 STEP 2: Triggering join_waitlist with unique email: {test_email}")
+    
+    test_data = {
+        "name": test_name,
+        "email": test_email
+    }
+    
+    print(f"Request body: {json.dumps(test_data, indent=2)}")
+    
+    # Step 3: Confirm response is instant (background task)
+    print(f"\n⏱️ STEP 3: Measuring response time for instant response")
+    start_time = time.time()
+    
+    response = requests.post(
+        f"{BACKEND_URL}/api/waitlist/join", 
+        json=test_data
+    )
+    
+    response_time = time.time() - start_time
+    
+    print(f"Response Status: {response.status_code}")
+    print(f"Response Time: {response_time:.3f} seconds")
+    print(f"Response Body: {response.text}")
+    
+    # Response should be instant (under 2 seconds for background task)
+    is_instant = response_time < 2.0
+    
+    if response.status_code != 200:
+        print(f"❌ Join waitlist failed with status {response.status_code}")
+        return False
+    
+    data = response.json()
+    success = data.get("success", False)
+    
+    if is_instant:
+        print("✅ Response is instant - background task working correctly")
+    else:
+        print(f"❌ Response took too long ({response_time:.3f}s) - may not be using background task")
+    
+    # Step 4: Check logs for "📧 Welcome email sent to... (Link based)"
+    print(f"\n📋 STEP 4: Checking logs for Link-based email confirmation")
+    print("Waiting 5 seconds for background task to complete...")
+    time.sleep(5)
+    
+    # Check backend logs for the specific "Link based" message
+    email_success_logged = False
+    link_based_confirmed = False
+    
+    try:
+        # Check both stdout and stderr logs for the specific message
+        log_commands = [
+            f"tail -n 100 /var/log/supervisor/backend.out.log | grep '{test_email}'",
+            f"tail -n 100 /var/log/supervisor/backend.err.log | grep '{test_email}'"
+        ]
+        
+        for cmd in log_commands:
+            log_result = os.popen(cmd).read()
+            if test_email in log_result:
+                email_success_logged = True
+                print(f"✅ Found email log entry: {log_result.strip()}")
+                
+                # Check specifically for "Link based" in the log message
+                if "(Link based)" in log_result:
+                    link_based_confirmed = True
+                    print("✅ CONFIRMED: Email uses Link-based approach (not attachment)")
+                else:
+                    print("⚠️ Email sent but 'Link based' not found in log message")
+                break
+        
+        if not email_success_logged:
+            print("❌ Email success message not found in recent logs")
+            # Show recent logs for debugging
+            print("\n📋 RECENT BACKEND LOGS (last 20 lines):")
+            recent_logs = os.popen("tail -n 20 /var/log/supervisor/backend.out.log").read()
+            print(recent_logs)
+            
+    except Exception as e:
+        print(f"⚠️ Error checking logs: {e}")
+    
+    # Verify all requirements are met
+    requirements_met = (
+        pdf_accessible and          # PDF accessible at /api/resources/course
+        success and                 # Join waitlist successful
+        is_instant and             # Response is instant (background task)
+        email_success_logged and   # Email sent confirmation in logs
+        link_based_confirmed       # Specifically "Link based" approach confirmed
+    )
+    
+    print(f"\n📋 LINK-BASED EMAIL FLOW REQUIREMENTS CHECK:")
+    print(f"  ✅ PDF accessible at /api/resources/course: {pdf_accessible}")
+    print(f"  ✅ Join waitlist successful: {success}")
+    print(f"  ✅ Response is instant (background task): {is_instant} ({response_time:.3f}s)")
+    print(f"  ✅ Email sent confirmation in logs: {email_success_logged}")
+    print(f"  ✅ Link-based approach confirmed: {link_based_confirmed}")
+    print(f"  ✅ Overall requirements met: {requirements_met}")
+    
+    if requirements_met:
+        print("\n🎉 SUCCESS: Link-based welcome email flow is working correctly!")
+        print("✅ Switched from 'Attachment' (Timeout Prone) to 'Link' (Reliable)")
+    else:
+        print("\n❌ FAILURE: Link-based welcome email flow has issues")
+    
+    return requirements_met
+
 def test_general_contact_form_curl():
     """Test the specific General Contact form submission as requested in review"""
     print("🎯 TESTING SPECIFIC REVIEW REQUEST: General Contact Form")
