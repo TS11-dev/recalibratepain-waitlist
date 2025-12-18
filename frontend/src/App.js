@@ -380,7 +380,7 @@ function App() {
               </div>
 
               {/* Care Team - PINK background - now on right */}
-              <div className="absolute right-[12%] top-56 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl shadow-xl p-4 max-w-[170px] animate-float hidden lg:block text-white">
+              <div className="absolute right-[12%] top-48 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl shadow-xl p-4 max-w-[170px] animate-float hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-lg">👥</span>
@@ -463,20 +463,6 @@ function App() {
 
             {/* Feature 1: Smart Tracker - visual LEFT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-blue-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="col-span-2 lg:hidden">
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-blue-200">
-                  <div className="grid grid-cols-3 gap-1.5 mb-2">
-                    {["🎯", "😴", "💊", "⚡", "🧠", "❤️"].map((icon, i) => (
-                      <div key={i} className="w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center text-base">{icon}</div>
-                    ))}
-                  </div>
-                  <div className="bg-white rounded-lg px-3 py-1.5 shadow text-center">
-                    <p className="text-lg font-bold text-blue-600">18</p>
-                    <p className="text-[8px] text-gray-600 leading-tight">variables across</p>
-                    <p className="text-[8px] font-semibold text-blue-500">8 systems</p>
-                  </div>
-                </div>
-              </div>
               <div className="col-span-3 lg:col-span-1">
                 <span className="inline-block bg-gray-100 text-gray-600 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">FREE</span>
                 <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Smart Tracker</h3>
@@ -497,21 +483,21 @@ function App() {
                   ))}
                 </div>
               </div>
-              <div className="relative hidden lg:block">
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-blue-200">
-                  <div className="grid grid-cols-4 gap-2 mb-4">
+              <div className="relative col-span-2 lg:col-span-1 block">
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl lg:rounded-3xl p-2 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-blue-200">
+                  <div className="grid grid-cols-4 gap-1 lg:gap-2 mb-2 lg:mb-4">
                     {["🎯", "😴", "💊", "⚡", "🧠", "❤️", "🦴", "🫁"].map((icon, i) => (
-                      <div key={i} className="w-12 h-12 bg-white rounded-xl shadow flex items-center justify-center text-2xl">{icon}</div>
+                      <div key={i} className="w-6 h-6 lg:w-12 lg:h-12 bg-white rounded-lg lg:rounded-xl shadow flex items-center justify-center text-xs lg:text-2xl">{icon}</div>
                     ))}
                   </div>
-                  <div className="bg-white rounded-2xl p-4 shadow-lg text-center w-full max-w-xs">
-                    <p className="text-4xl font-bold text-blue-600">18</p>
-                    <p className="text-sm text-gray-600">Health Variables</p>
-                    <p className="text-xs text-blue-500 mt-1">across 8 biological systems</p>
+                  <div className="bg-white rounded-lg lg:rounded-2xl p-2 lg:p-4 shadow-lg text-center w-full max-w-xs">
+                    <p className="text-xl lg:text-4xl font-bold text-blue-600">18</p>
+                    <p className="text-[10px] lg:text-sm text-gray-600">Health Variables</p>
+                    <p className="text-[8px] lg:text-xs text-blue-500 mt-0.5 lg:mt-1">across 8 biological systems</p>
                   </div>
-                  <div className="flex gap-2 mt-3">
+                  <div className="flex gap-1 lg:gap-2 mt-2 lg:mt-3">
                     {["Pain", "Sleep", "Mood", "Energy"].map((label, i) => (
-                      <span key={i} className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">{label}</span>
+                      <span key={i} className="bg-blue-100 text-blue-700 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-full text-[8px] lg:text-xs font-medium">{label}</span>
                     ))}
                   </div>
                 </div>
@@ -520,33 +506,33 @@ function App() {
 
             {/* Feature 2: Analytics Dashboard - visual RIGHT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-indigo-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative hidden lg:block">
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-indigo-200">
-                  <div className="bg-white rounded-2xl p-5 shadow-lg mb-3 w-full max-w-xs">
-                    <div className="flex justify-between items-center mb-2">
-                      <p className="text-sm text-gray-500">Stability Score</p>
-                      <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">↑ 12%</span>
+              <div className="order-2 lg:order-1 relative col-span-2 lg:col-span-1 block">
+                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl lg:rounded-3xl p-2 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-indigo-200">
+                  <div className="bg-white rounded-lg lg:rounded-2xl p-2 lg:p-5 shadow-lg mb-2 lg:mb-3 w-full max-w-xs">
+                    <div className="flex justify-between items-center mb-1 lg:mb-2">
+                      <p className="text-[10px] lg:text-sm text-gray-500">Stability Score</p>
+                      <span className="text-[8px] lg:text-xs bg-green-100 text-green-700 px-1.5 py-0.5 lg:px-2 lg:py-0.5 rounded-full">↑ 12%</span>
                     </div>
-                    <p className="text-5xl font-bold text-indigo-600">53%</p>
-                    <div className="w-full h-3 bg-gray-200 rounded-full mt-3">
-                      <div className="w-1/2 h-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2 w-full max-w-xs">
-                    <div className="bg-white rounded-xl p-3 shadow text-center">
-                      <p className="text-2xl font-bold text-purple-600">18</p>
-                      <p className="text-xs text-gray-500">Variables</p>
-                    </div>
-                    <div className="bg-white rounded-xl p-3 shadow text-center">
-                      <p className="text-2xl font-bold text-indigo-600">30+</p>
-                      <p className="text-xs text-gray-500">Days</p>
-                    </div>
-                    <div className="bg-white rounded-xl p-3 shadow text-center">
-                      <p className="text-2xl">📈</p>
-                      <p className="text-xs text-gray-500">Trends</p>
+                    <p className="text-2xl lg:text-5xl font-bold text-indigo-600">53%</p>
+                    <div className="w-full h-1.5 lg:h-3 bg-gray-200 rounded-full mt-1.5 lg:mt-3">
+                      <div className="w-1/2 h-1.5 lg:h-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
                     </div>
                   </div>
-                  <p className="text-xs text-indigo-600 font-medium mt-3">Real-time pattern detection</p>
+                  <div className="grid grid-cols-3 gap-1 lg:gap-2 w-full max-w-xs">
+                    <div className="bg-white rounded-lg lg:rounded-xl p-1.5 lg:p-3 shadow text-center">
+                      <p className="text-sm lg:text-2xl font-bold text-purple-600">18</p>
+                      <p className="text-[8px] lg:text-xs text-gray-500">Variables</p>
+                    </div>
+                    <div className="bg-white rounded-lg lg:rounded-xl p-1.5 lg:p-3 shadow text-center">
+                      <p className="text-sm lg:text-2xl font-bold text-indigo-600">30+</p>
+                      <p className="text-[8px] lg:text-xs text-gray-500">Days</p>
+                    </div>
+                    <div className="bg-white rounded-lg lg:rounded-xl p-1.5 lg:p-3 shadow text-center">
+                      <p className="text-sm lg:text-2xl">📈</p>
+                      <p className="text-[8px] lg:text-xs text-gray-500">Trends</p>
+                    </div>
+                  </div>
+                  <p className="text-[8px] lg:text-xs text-indigo-600 font-medium mt-1.5 lg:mt-3">Real-time pattern detection</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
@@ -564,57 +550,10 @@ function App() {
                   ))}
                 </ul>
               </div>
-              <div className="col-span-2 lg:hidden order-2">
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-indigo-200">
-                  <div className="bg-white rounded-lg p-2 shadow mb-2 w-full">
-                    <div className="flex items-center justify-between mb-1">
-                      <p className="text-[8px] text-gray-500">Stability Score</p>
-                      <p className="text-sm font-bold text-indigo-600">53%</p>
-                    </div>
-                    <div className="w-full h-2 bg-gray-200 rounded-full">
-                      <div className="w-1/2 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-1.5 w-full">
-                    <div className="bg-white rounded-lg p-1.5 shadow text-center">
-                      <p className="text-sm font-bold text-purple-600">18</p>
-                      <p className="text-[7px] text-gray-500">Vars</p>
-                    </div>
-                    <div className="bg-white rounded-lg p-1.5 shadow text-center">
-                      <p className="text-sm font-bold text-indigo-600">30+</p>
-                      <p className="text-[7px] text-gray-500">Days</p>
-                    </div>
-                    <div className="bg-white rounded-lg p-1.5 shadow text-center">
-                      <p className="text-sm">📈</p>
-                      <p className="text-[7px] text-gray-500">Trends</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Feature 3: Pain Academy - visual LEFT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="col-span-2 lg:hidden">
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-emerald-200">
-                  <div className="flex gap-2 mb-2">
-                    <div className="bg-white rounded-lg px-2.5 py-1.5 shadow text-center">
-                      <p className="text-base font-bold text-emerald-600">90+</p>
-                      <p className="text-[7px] text-gray-500">Lessons</p>
-                    </div>
-                    <div className="bg-white rounded-lg px-2.5 py-1.5 shadow text-center">
-                      <p className="text-base font-bold text-amber-500">835</p>
-                      <p className="text-[7px] text-gray-500">XP</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-1.5 mb-1.5">
-                    {["🏆", "🎯", "🔥", "⭐", "🧠"].map((badge, i) => (
-                      <div key={i} className="w-7 h-7 bg-white rounded-full shadow-sm flex items-center justify-center text-sm">{badge}</div>
-                    ))}
-                  </div>
-                  <p className="text-[8px] text-emerald-600 font-medium">Pain Science Education</p>
-                </div>
-              </div>
               <div className="col-span-3 lg:col-span-1">
                 <span className="inline-block bg-emerald-100 text-emerald-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">GO</span>
                 <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Pain Academy</h3>
@@ -627,63 +566,63 @@ function App() {
                   ))}
                 </div>
               </div>
-              <div className="relative hidden lg:block">
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-emerald-200">
-                  <div className="flex gap-3 mb-4">
-                    <div className="bg-white rounded-xl p-4 shadow-lg text-center">
-                      <p className="text-3xl font-bold text-emerald-600">90+</p>
-                      <p className="text-xs text-gray-500">Lessons</p>
+              <div className="relative col-span-2 lg:col-span-1 block">
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl lg:rounded-3xl p-2 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-emerald-200">
+                  <div className="flex gap-1 lg:gap-3 mb-2 lg:mb-4">
+                    <div className="bg-white rounded-lg lg:rounded-xl p-1.5 lg:p-4 shadow-lg text-center">
+                      <p className="text-xl lg:text-3xl font-bold text-emerald-600">90+</p>
+                      <p className="text-[8px] lg:text-xs text-gray-500">Lessons</p>
                     </div>
-                    <div className="bg-white rounded-xl p-4 shadow-lg text-center">
-                      <p className="text-3xl font-bold text-amber-500">835</p>
-                      <p className="text-xs text-gray-500">XP Earned</p>
+                    <div className="bg-white rounded-lg lg:rounded-xl p-1.5 lg:p-4 shadow-lg text-center">
+                      <p className="text-xl lg:text-3xl font-bold text-amber-500">835</p>
+                      <p className="text-[8px] lg:text-xs text-gray-500">XP Earned</p>
                     </div>
-                    <div className="bg-white rounded-xl p-4 shadow-lg text-center">
-                      <p className="text-3xl font-bold text-teal-600">12</p>
-                      <p className="text-xs text-gray-500">Badges</p>
+                    <div className="bg-white rounded-lg lg:rounded-xl p-1.5 lg:p-4 shadow-lg text-center">
+                      <p className="text-xl lg:text-3xl font-bold text-teal-600">12</p>
+                      <p className="text-[8px] lg:text-xs text-gray-500">Badges</p>
                     </div>
                   </div>
-                  <div className="flex gap-2 mb-3">
+                  <div className="flex gap-1 lg:gap-2 mb-1.5 lg:mb-3">
                     {["🏆", "🎯", "🔥", "⭐", "🧠", "💪", "🎓"].map((badge, i) => (
-                      <div key={i} className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg">{badge}</div>
+                      <div key={i} className="w-5 h-5 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-[10px] lg:text-lg">{badge}</div>
                     ))}
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-1 lg:gap-2">
                     {["Foundations", "Neurobiology", "Strategies", "Advanced"].map((topic, i) => (
-                      <span key={i} className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium">{topic}</span>
+                      <span key={i} className="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-full text-[8px] lg:text-xs font-medium">{topic}</span>
                     ))}
                   </div>
-                  <p className="text-xs text-emerald-600 font-medium mt-3">Evidence-based pain education</p>
+                  <p className="text-[8px] lg:text-xs text-emerald-600 font-medium mt-1.5 lg:mt-3">Evidence-based pain education</p>
                 </div>
               </div>
             </div>
 
             {/* Feature 4: Tools & Exercises - visual RIGHT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-orange-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative hidden lg:block">
-                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-orange-200">
-                  <div className="grid grid-cols-2 gap-3 w-full max-w-xs mb-3">
+              <div className="order-2 lg:order-1 relative col-span-2 lg:col-span-1 block">
+                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl lg:rounded-3xl p-2 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-orange-200">
+                  <div className="grid grid-cols-2 gap-1 lg:gap-3 w-full max-w-xs mb-1.5 lg:mb-3">
                     {[
                       { icon: "📝", name: "Journal", desc: "Daily reflections", color: "bg-orange-500" },
                       { icon: "🎯", name: "Goals", desc: "Track progress", color: "bg-amber-500" },
                       { icon: "💡", name: "Inspiration", desc: "Daily quotes", color: "bg-yellow-500" },
                       { icon: "🏃", name: "Exercises", desc: "Guided movement", color: "bg-orange-600" }
                     ].map((tool, i) => (
-                      <div key={i} className="bg-white rounded-xl p-3 shadow-lg text-center">
-                        <div className={`w-10 h-10 ${tool.color} rounded-lg mx-auto mb-2 flex items-center justify-center text-xl text-white`}>
+                      <div key={i} className="bg-white rounded-lg lg:rounded-xl p-1.5 lg:p-3 shadow-lg text-center">
+                        <div className={`w-6 h-6 lg:w-10 lg:h-10 ${tool.color} rounded-md lg:rounded-lg mx-auto mb-1 lg:mb-2 flex items-center justify-center text-xs lg:text-xl text-white`}>
                           {tool.icon}
                         </div>
-                        <p className="font-semibold text-gray-900 text-sm">{tool.name}</p>
-                        <p className="text-xs text-gray-500">{tool.desc}</p>
+                        <p className="font-semibold text-gray-900 text-[9px] lg:text-sm">{tool.name}</p>
+                        <p className="text-[7px] lg:text-xs text-gray-500">{tool.desc}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-1 lg:gap-2">
                     {["CBT", "Mindfulness", "Graded Exposure"].map((therapy, i) => (
-                      <span key={i} className="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">{therapy}</span>
+                      <span key={i} className="bg-orange-100 text-orange-700 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-full text-[8px] lg:text-xs font-medium">{therapy}</span>
                     ))}
                   </div>
-                  <p className="text-xs text-orange-600 font-medium mt-2">Therapeutic interventions</p>
+                  <p className="text-[8px] lg:text-xs text-orange-600 font-medium mt-1 lg:mt-2">Therapeutic interventions</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
@@ -701,51 +640,10 @@ function App() {
                   ))}
                 </ul>
               </div>
-              <div className="col-span-2 lg:hidden order-2">
-                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-orange-200">
-                  <div className="grid grid-cols-2 gap-1.5 w-full mb-1.5">
-                    {[
-                      { icon: "📝", label: "Journal", color: "bg-orange-500" },
-                      { icon: "🎯", label: "Goals", color: "bg-amber-500" },
-                      { icon: "💡", label: "Tips", color: "bg-yellow-500" },
-                      { icon: "🏃", label: "Exercise", color: "bg-orange-600" }
-                    ].map((tool, i) => (
-                      <div key={i} className="bg-white rounded-lg p-1.5 shadow-sm text-center">
-                        <div className={`w-8 h-8 ${tool.color} rounded-lg mx-auto flex items-center justify-center text-base text-white mb-0.5`}>
-                          {tool.icon}
-                        </div>
-                        <p className="text-[8px] text-gray-600">{tool.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-[8px] text-orange-600 font-medium">Therapeutic Tools</p>
-                </div>
-              </div>
             </div>
 
             {/* Feature 5: Recalibrate AI - visual LEFT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center mb-4 lg:mb-20 p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="col-span-2 lg:hidden">
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-purple-200">
-                  <div className="bg-white rounded-lg p-2 shadow w-full mb-1.5">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <div className="w-7 h-7 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
-                        <Bot className="w-4 h-4 text-white" />
-                      </div>
-                      <p className="font-bold text-gray-900 text-[10px]">Recalibrate AI</p>
-                    </div>
-                    <div className="bg-purple-50 rounded-lg p-1.5">
-                      <p className="text-[8px] text-gray-700 leading-tight">I noticed a pattern in your data...</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-1.5">
-                    {["💬", "🔬", "📊"].map((icon, i) => (
-                      <div key={i} className="w-7 h-7 bg-white rounded-lg shadow-sm flex items-center justify-center text-sm">{icon}</div>
-                    ))}
-                  </div>
-                  <p className="text-[8px] text-purple-600 font-medium mt-1">Gemini 2.0 Powered</p>
-                </div>
-              </div>
               <div className="col-span-3 lg:col-span-1">
                 <span className="inline-block bg-purple-100 text-purple-700 text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">PRO</span>
                 <h3 className="text-sm lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Recalibrate AI</h3>
@@ -765,71 +663,71 @@ function App() {
                   ))}
                 </div>
               </div>
-              <div className="relative hidden lg:block">
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-purple-200">
-                  <div className="bg-white rounded-2xl p-5 shadow-xl w-full max-w-xs mb-3">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
-                        <Bot className="w-5 h-5 text-white" />
+              <div className="relative col-span-2 lg:col-span-1 block">
+                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl lg:rounded-3xl p-2 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-purple-200">
+                  <div className="bg-white rounded-lg lg:rounded-2xl p-2 lg:p-5 shadow-xl w-full max-w-xs mb-1.5 lg:mb-3">
+                    <div className="flex items-center gap-1.5 lg:gap-3 mb-1.5 lg:mb-3">
+                      <div className="w-6 h-6 lg:w-10 lg:h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
+                        <Bot className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
                       </div>
                       <div>
-                        <p className="font-bold text-gray-900">Recalibrate AI</p>
-                        <p className="text-xs text-gray-500">Powered by Gemini 2.0 Flash</p>
+                        <p className="font-bold text-gray-900 text-[10px] lg:text-base">Recalibrate AI</p>
+                        <p className="text-[8px] lg:text-xs text-gray-500">Gemini 2.0 Flash</p>
                       </div>
                     </div>
-                    <div className="bg-purple-50 rounded-xl p-3 mb-3">
-                      <p className="text-sm text-gray-700">Based on your data, I notice your pain increases after poor sleep. Want me to suggest some strategies?</p>
+                    <div className="bg-purple-50 rounded-lg lg:rounded-xl p-1.5 lg:p-3 mb-1.5 lg:mb-3">
+                      <p className="text-[9px] lg:text-sm text-gray-700">I notice your pain increases after poor sleep. Want suggestions?</p>
                     </div>
-                    <div className="flex gap-2">
-                      <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Yes, show me</span>
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">Tell me more</span>
+                    <div className="flex gap-1 lg:gap-2">
+                      <span className="text-[8px] lg:text-xs bg-purple-100 text-purple-700 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-full">Yes, show me</span>
+                      <span className="text-[8px] lg:text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 lg:px-2 lg:py-1 rounded-full">Tell me more</span>
                     </div>
                   </div>
-                  <div className="flex gap-2 mb-2">
+                  <div className="flex gap-1 lg:gap-2 mb-1 lg:mb-2">
                     {[
                       { icon: "💬", label: "Chat" },
                       { icon: "🔬", label: "Research" },
                       { icon: "📊", label: "Analysis" }
                     ].map((mode, i) => (
-                      <div key={i} className="bg-white rounded-lg px-3 py-2 shadow text-center">
-                        <span className="text-lg">{mode.icon}</span>
-                        <p className="text-xs text-gray-600">{mode.label}</p>
+                      <div key={i} className="bg-white rounded-lg px-1.5 py-1 lg:px-3 lg:py-2 shadow text-center">
+                        <span className="text-xs lg:text-lg">{mode.icon}</span>
+                        <p className="text-[8px] lg:text-xs text-gray-600">{mode.label}</p>
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-purple-600 font-medium">AI-powered health insights</p>
+                  <p className="text-[8px] lg:text-xs text-purple-600 font-medium">AI-powered health insights</p>
                 </div>
               </div>
             </div>
 
             {/* Feature 6: Care Team - visual RIGHT */}
             <div className="grid grid-cols-5 lg:grid-cols-2 gap-3 lg:gap-12 items-center p-3 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-pink-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative hidden lg:block">
-                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-6 aspect-square flex flex-col items-center justify-center border-2 border-pink-200">
-                  <div className="flex justify-center mb-4">
+              <div className="order-2 lg:order-1 relative col-span-2 lg:col-span-1 block">
+                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl lg:rounded-3xl p-2 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-pink-200">
+                  <div className="flex justify-center mb-2 lg:mb-4">
                     <div className="relative">
-                      <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center text-2xl border-4 border-pink-200">👤</div>
-                      <div className="absolute -top-1 -right-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-blue-200">🩺</div>
-                      <div className="absolute -bottom-1 -right-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-green-200">👨‍👩‍👧</div>
-                      <div className="absolute -bottom-1 -left-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-purple-200">🔬</div>
-                      <div className="absolute -top-1 -left-6 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-amber-200">📋</div>
+                      <div className="w-10 h-10 lg:w-16 lg:h-16 bg-white rounded-full shadow-lg flex items-center justify-center text-lg lg:text-2xl border-2 lg:border-4 border-pink-200">👤</div>
+                      <div className="absolute -top-1 -right-3 lg:-right-6 w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-xs lg:text-lg border lg:border-2 border-blue-200">🩺</div>
+                      <div className="absolute -bottom-1 -right-3 lg:-right-6 w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-xs lg:text-lg border lg:border-2 border-green-200">👨‍👩‍👧</div>
+                      <div className="absolute -bottom-1 -left-3 lg:-left-6 w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-xs lg:text-lg border lg:border-2 border-purple-200">🔬</div>
+                      <div className="absolute -top-1 -left-3 lg:-left-6 w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-xs lg:text-lg border lg:border-2 border-amber-200">📋</div>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 w-full max-w-xs mb-3">
+                  <div className="grid grid-cols-2 gap-1 lg:gap-2 w-full max-w-xs mb-1.5 lg:mb-3">
                     {[
                       { icon: "🩺", title: "Clinician", desc: "Full analytics" },
                       { icon: "🔬", title: "Researcher", desc: "Data access" },
                       { icon: "👨‍👩‍👧", title: "Family", desc: "Support tools" },
                       { icon: "📋", title: "Reports", desc: "Share progress" }
                     ].map((item, i) => (
-                      <div key={i} className="bg-white rounded-lg p-2 shadow text-center">
-                        <span className="text-lg">{item.icon}</span>
-                        <p className="font-semibold text-gray-900 text-xs">{item.title}</p>
-                        <p className="text-[10px] text-gray-500">{item.desc}</p>
+                      <div key={i} className="bg-white rounded-lg p-1 lg:p-2 shadow text-center">
+                        <span className="text-xs lg:text-lg">{item.icon}</span>
+                        <p className="font-semibold text-gray-900 text-[8px] lg:text-xs">{item.title}</p>
+                        <p className="text-[7px] lg:text-[10px] text-gray-500">{item.desc}</p>
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-pink-600 font-medium">Collaborative care coordination</p>
+                  <p className="text-[8px] lg:text-xs text-pink-600 font-medium">Collaborative care coordination</p>
                 </div>
               </div>
               <div className="col-span-3 lg:col-span-1 order-1 lg:order-2">
@@ -850,26 +748,6 @@ function App() {
                       <p className="font-semibold text-gray-900 text-[9px] lg:text-sm lg:mt-1">{item.title}</p>
                     </div>
                   ))}
-                </div>
-              </div>
-              <div className="col-span-2 lg:hidden order-2">
-                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center border-2 border-pink-200">
-                  <div className="flex justify-center mb-2">
-                    <div className="relative">
-                      <div className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-lg border-2 border-pink-200">👤</div>
-                      <div className="absolute -top-1 -right-3 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-blue-200">🩺</div>
-                      <div className="absolute -bottom-0.5 -right-3.5 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-green-200">👨‍👩‍👧</div>
-                      <div className="absolute -bottom-0.5 -left-3.5 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center text-xs border border-purple-200">🔬</div>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-1.5 w-full">
-                    {["Clinicians", "Family", "Research", "Reports"].map((item, i) => (
-                      <div key={i} className="bg-white rounded-lg px-1.5 py-1 shadow-sm text-center">
-                        <p className="text-[8px] text-gray-600">{item}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-[8px] text-pink-600 font-medium mt-1.5">Connected Care</p>
                 </div>
               </div>
             </div>
