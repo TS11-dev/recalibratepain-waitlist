@@ -102,5 +102,13 @@
     "organization": "Test Org",
     "message": "Test message",
     "timestamp": "2025-12-18T00:38:25.573474"
+  },
+  {
+    "type": "general_contact",
+    "name": "Test Visitor",
+    "email": "visitor@test.com",
+    "organization": "General Public",
+    "message": "Hi there",
+    "timestamp": "2025-12-18T00:38:32.968808"
   }
 ]
