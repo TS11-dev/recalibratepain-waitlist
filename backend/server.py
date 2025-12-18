@@ -26,14 +26,15 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # SMTP Configuration
+mail_port = int(os.environ.get("MAIL_PORT", 465))
 conf = ConnectionConfig(
     MAIL_USERNAME=os.environ.get("MAIL_USERNAME", "info@recalibratepain.com"),
     MAIL_PASSWORD=os.environ.get("MAIL_PASSWORD", ""),
     MAIL_FROM=os.environ.get("MAIL_FROM", "info@recalibratepain.com"),
-    MAIL_PORT=int(os.environ.get("MAIL_PORT", 465)),
+    MAIL_PORT=mail_port,
     MAIL_SERVER=os.environ.get("MAIL_SERVER", "mail.spacemail.com"), # Default to Spacemail/Spaceship
-    MAIL_STARTTLS=False,
-    MAIL_SSL_TLS=True,
+    MAIL_STARTTLS=(mail_port == 587),  # True if 587
+    MAIL_SSL_TLS=(mail_port == 465),   # True if 465
     USE_CREDENTIALS=True,
     VALIDATE_CERTS=True
 )
