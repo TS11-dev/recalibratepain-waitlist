@@ -1280,6 +1280,9 @@ function App() {
                       )}
                     </button>
                   </div>
+                  <p className="text-white/60 text-sm mt-4">
+                    🎁 Get the <span className="text-white font-semibold">Self-Management Course</span> free instantly.
+                  </p>
                 </form>
               </div>
             </div>
