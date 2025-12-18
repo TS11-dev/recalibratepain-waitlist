@@ -990,7 +990,10 @@ def run_all_tests():
     print("\n🧪 STARTING BACKEND API TESTS 🧪\n")
     print("\n🔍 TESTING SPECIFIC REVIEW REQUIREMENTS 🔍\n")
     
-    # Priority tests from review request
+    # Priority test from current review request - Link-Based Welcome Email Flow
+    run_test("🎯 REVIEW REQUEST: Link-Based Welcome Email Flow", test_link_based_welcome_email_flow)
+    
+    # Other priority tests from previous reviews
     run_test("BACKGROUND TASK: Welcome Email (No Blocking)", test_background_task_welcome_email)
     run_test("REVIEW REQUEST: General Contact Form via curl", test_general_contact_form_curl)
     run_test("Partner Contact Form Endpoint", test_partner_contact_form)
