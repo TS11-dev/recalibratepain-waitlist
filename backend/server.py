@@ -26,15 +26,22 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # SMTP Configuration
-mail_port = int(os.environ.get("MAIL_PORT", 465))
+# Force Port 587 for Spacemail on Railway to avoid blocks
+mail_server = os.environ.get("MAIL_SERVER", "mail.spacemail.com")
+mail_port = int(os.environ.get("MAIL_PORT", 587))
+
+if "spacemail" in mail_server:
+    logger.info("📧 Detected Spacemail - Forcing Port 587 (STARTTLS) for reliability")
+    mail_port = 587
+
 conf = ConnectionConfig(
     MAIL_USERNAME=os.environ.get("MAIL_USERNAME", "info@recalibratepain.com"),
     MAIL_PASSWORD=os.environ.get("MAIL_PASSWORD", ""),
     MAIL_FROM=os.environ.get("MAIL_FROM", "info@recalibratepain.com"),
     MAIL_PORT=mail_port,
-    MAIL_SERVER=os.environ.get("MAIL_SERVER", "mail.spacemail.com"), # Default to Spacemail/Spaceship
-    MAIL_STARTTLS=(mail_port == 587),  # True if 587
-    MAIL_SSL_TLS=(mail_port == 465),   # True if 465
+    MAIL_SERVER=mail_server,
+    MAIL_STARTTLS=True,  # Always use STARTTLS for 587 which we are forcing
+    MAIL_SSL_TLS=False,  # Disable implicit SSL
     USE_CREDENTIALS=True,
     VALIDATE_CERTS=True
 )
@@ -117,7 +124,7 @@ async def add_security_headers(request: Request, call_next):
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["X-XSS-Protection"] = "1; mode=block"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
+    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com"
     return response
 
 # Enhanced CORS configuration for your actual production domains
