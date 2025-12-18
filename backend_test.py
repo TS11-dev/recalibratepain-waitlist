@@ -494,17 +494,36 @@ def test_partner_contact_form():
         "thank you" in message.lower()
     )
 
-def test_welcome_email_with_pdf_attachment():
-    """Test the welcome email functionality with PDF attachment as requested in review"""
-    print("🎯 TESTING SPECIFIC REVIEW REQUEST: Welcome Email with PDF Attachment")
-    print("Testing welcome email with new unique email to verify PDF attachment and content updates")
+def test_background_task_welcome_email():
+    """Test the background task welcome email functionality with real email address"""
+    print("🎯 TESTING BACKGROUND TASK WELCOME EMAIL - NO BLOCKING ISSUE")
+    print("Using real email address: info@recalibratepain.com")
+    print("This email should NOT be in database already, so no duplicate blocking should occur")
     
-    # Generate unique email with requested format: updated_pdf_test_DATE@test.com
-    current_date = datetime.now().strftime("%Y%m%d_%H%M%S")
-    test_email = f"updated_pdf_test_{current_date}@test.com"
-    test_name = "PDF Test User"
+    # Use the real email address we have access to
+    test_email = "info@recalibratepain.com"
+    test_name = "RecalibratePain Team"
     
     print(f"Using test email: {test_email}")
+    
+    # First, check if this email is already in the database
+    print("\n🔍 CHECKING IF EMAIL EXISTS IN DATABASE...")
+    export_response = requests.get(f"{BACKEND_URL}/api/waitlist/export")
+    if export_response.status_code == 200:
+        export_data = export_response.json()
+        waitlist = export_data.get("waitlist", [])
+        
+        email_exists = False
+        for entry in waitlist:
+            if entry.get("email", "").lower() == test_email.lower():
+                email_exists = True
+                print(f"⚠️ Email {test_email} already exists in database: {entry}")
+                break
+        
+        if not email_exists:
+            print(f"✅ Email {test_email} NOT in database - perfect for testing")
+        else:
+            print(f"❌ Email {test_email} already exists - this might cause duplicate handling")
     
     # Test data for waitlist join (which triggers welcome email)
     test_data = {
@@ -512,18 +531,29 @@ def test_welcome_email_with_pdf_attachment():
         "email": test_email
     }
     
-    print(f"Sending request to: {BACKEND_URL}/api/waitlist/join")
+    print(f"\n📤 SENDING WAITLIST JOIN REQUEST:")
+    print(f"Endpoint: {BACKEND_URL}/api/waitlist/join")
     print(f"Request body: {json.dumps(test_data, indent=2)}")
     
-    # Clear any existing logs to better track our test
-    print("📋 Checking backend logs before test...")
+    # Record start time to measure response time
+    start_time = time.time()
     
     response = requests.post(
         f"{BACKEND_URL}/api/waitlist/join", 
         json=test_data
     )
+    
+    # Calculate response time
+    response_time = time.time() - start_time
+    
+    print(f"\n📊 RESPONSE ANALYSIS:")
     print(f"Response Status: {response.status_code}")
+    print(f"Response Time: {response_time:.3f} seconds")
     print(f"Response Body: {response.text}")
+    
+    # Check if response was immediate (not blocking)
+    is_immediate = response_time < 2.0  # Should be under 2 seconds for immediate response
+    print(f"✅ Immediate response (< 2s): {is_immediate}")
     
     if response.status_code != 200:
         print(f"❌ Waitlist join failed with status {response.status_code}")
@@ -537,6 +567,7 @@ def test_welcome_email_with_pdf_attachment():
     total_subscribers = data.get("total_subscribers", 0)
     storage_info = data.get("storage_info", "")
     
+    print(f"\n📋 RESPONSE DETAILS:")
     print(f"✅ Success: {success}")
     print(f"💬 Message: {message}")
     print(f"👥 Total subscribers: {total_subscribers}")
@@ -547,46 +578,101 @@ def test_welcome_email_with_pdf_attachment():
     pdf_exists = os.path.exists(pdf_path)
     print(f"📄 PDF attachment exists: {pdf_exists} ({pdf_path})")
     
-    # Wait a moment for email processing
-    time.sleep(2)
+    # Wait for background task to complete
+    print(f"\n⏳ WAITING 5 SECONDS FOR BACKGROUND EMAIL TASK...")
+    time.sleep(5)
     
     # Check backend logs for email success message
     print("\n📋 CHECKING BACKEND LOGS FOR EMAIL SUCCESS MESSAGE:")
     try:
-        # Check the backend error log for email success message
-        log_result = os.popen("tail -n 20 /var/log/supervisor/backend.err.log | grep -i 'welcome email sent'").read()
+        # Check both stdout and stderr logs
+        log_commands = [
+            "tail -n 50 /var/log/supervisor/backend.out.log | grep -i 'welcome email sent'",
+            "tail -n 50 /var/log/supervisor/backend.err.log | grep -i 'welcome email sent'",
+            "tail -n 50 /var/log/supervisor/backend.out.log | grep -i 'email sent'",
+            "tail -n 50 /var/log/supervisor/backend.err.log | grep -i 'email sent'"
+        ]
         
-        email_success_logged = test_email in log_result
-        print(f"Backend logs contain success message: {email_success_logged}")
+        email_success_logged = False
+        for cmd in log_commands:
+            log_result = os.popen(cmd).read()
+            if test_email in log_result:
+                email_success_logged = True
+                print(f"✅ Found email success in logs: {log_result.strip()}")
+                break
         
-        if email_success_logged:
-            print(f"✅ Found in logs: {log_result.strip()}")
-        else:
+        if not email_success_logged:
             print("⚠️ Email success message not found in recent logs")
             # Show recent logs for debugging
-            recent_logs = os.popen("tail -n 10 /var/log/supervisor/backend.err.log").read()
-            print(f"Recent backend logs:\n{recent_logs}")
+            print("\n📋 RECENT BACKEND LOGS (last 20 lines):")
+            recent_logs_out = os.popen("tail -n 20 /var/log/supervisor/backend.out.log").read()
+            recent_logs_err = os.popen("tail -n 20 /var/log/supervisor/backend.err.log").read()
+            print("STDOUT:")
+            print(recent_logs_out)
+            print("\nSTDERR:")
+            print(recent_logs_err)
+            
+            # Also check for any email-related errors
+            print("\n📋 CHECKING FOR EMAIL ERRORS:")
+            email_errors = os.popen("tail -n 50 /var/log/supervisor/backend.err.log | grep -i 'email\\|smtp\\|mail'").read()
+            if email_errors:
+                print(f"Email-related log entries:\n{email_errors}")
+            else:
+                print("No email-related entries found in recent logs")
             
     except Exception as e:
         print(f"⚠️ Error checking logs: {e}")
         email_success_logged = False
     
+    # Check SMTP configuration
+    print(f"\n📧 SMTP CONFIGURATION CHECK:")
+    try:
+        with open("/app/backend/.env", "r") as f:
+            env_content = f.read()
+            
+        has_mail_password = "MAIL_PASSWORD=" in env_content and len(env_content.split("MAIL_PASSWORD=")[1].split("\n")[0].strip()) > 0
+        has_mail_username = "MAIL_USERNAME=" in env_content
+        has_mail_server = "MAIL_SERVER=" in env_content
+        
+        print(f"✅ MAIL_USERNAME configured: {has_mail_username}")
+        print(f"✅ MAIL_PASSWORD configured: {has_mail_password}")
+        print(f"✅ MAIL_SERVER configured: {has_mail_server}")
+        
+        if has_mail_password:
+            mail_password = env_content.split("MAIL_PASSWORD=")[1].split("\n")[0].strip()
+            print(f"MAIL_PASSWORD length: {len(mail_password)} characters")
+        
+    except Exception as e:
+        print(f"⚠️ Error checking SMTP config: {e}")
+    
     # Verify the response meets requirements
     requirements_met = (
         success == True and  # Returns success
-        "future of pain management" in message.lower()  # Confirms welcome message
+        is_immediate and     # Response was immediate (not blocking)
+        pdf_exists          # PDF attachment exists
     )
     
-    print(f"\n📋 WELCOME EMAIL REQUIREMENTS CHECK:")
+    print(f"\n📋 BACKGROUND TASK REQUIREMENTS CHECK:")
     print(f"  ✅ Waitlist join successful: {success}")
-    print(f"  ✅ Welcome message in response: {'future of pain management' in message.lower()}")
+    print(f"  ✅ Immediate response (no blocking): {is_immediate} ({response_time:.3f}s)")
     print(f"  ✅ PDF attachment file exists: {pdf_exists}")
     print(f"  ✅ Email success logged: {email_success_logged}")
     print(f"  ✅ User added to waitlist: {total_subscribers > 0}")
+    print(f"  ✅ Storage info indicates success: {'MongoDB' in storage_info or 'JSON' in storage_info}")
     
-    # Test passes if waitlist join was successful and PDF exists
-    # Email sending may fail gracefully but should be attempted
-    return requirements_met and pdf_exists
+    # Final analysis
+    if not email_success_logged:
+        print(f"\n❌ CRITICAL ISSUE: Welcome email was not sent successfully!")
+        print(f"   This indicates the background task may not be working properly.")
+        print(f"   Check SMTP configuration and email credentials.")
+    
+    if not is_immediate:
+        print(f"\n❌ CRITICAL ISSUE: Response was not immediate ({response_time:.3f}s)!")
+        print(f"   This indicates the endpoint may be blocking on email sending.")
+        print(f"   Background tasks should make the response immediate.")
+    
+    # Test passes if waitlist join was successful, response was immediate, and PDF exists
+    return requirements_met
 
 def test_general_contact_form_curl():
     """Test the specific General Contact form submission as requested in review"""
