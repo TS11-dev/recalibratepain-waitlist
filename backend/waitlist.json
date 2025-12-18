@@ -78,5 +78,10 @@
     "name": "Count Test 1766020434",
     "email": "count.test.1766020434@example.com",
     "timestamp": "2025-12-18T01:13:55.051272"
+  },
+  {
+    "name": "Final Verification User",
+    "email": "test_user_final_verification_1766025019@example.com",
+    "timestamp": "2025-12-18T02:30:20.065248"
   }
 ]
