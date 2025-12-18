@@ -263,6 +263,10 @@ function App() {
                     </button>
                   </div>
                 </div>
+                <p className="text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
+                  <span className="bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">FREE GIFT</span>
+                  Receive our "Chronic Pain: Self-Management 1" course instantly
+                </p>
               </form>
               
               {/* Waitlist Count */}
@@ -1347,39 +1351,78 @@ function App() {
         {/* Contact Modal */}
         {showContactModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={(e) => e.target === e.currentTarget && setShowContactModal(false)}>
-            <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-bold">Get in Touch</h3>
+            <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Contact Us</h3>
+                  <p className="text-sm text-gray-500">We'd love to hear from you</p>
+                </div>
                 <button onClick={() => setShowContactModal(false)} className="p-2 hover:bg-gray-100 rounded-lg"><X className="w-5 h-5" /></button>
               </div>
               
-              <div className="space-y-3 mb-4">
-                <a href="mailto:info@recalibratepain.com" className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                 <div className="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-purple-100">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-lg">📅</span>
+                      <p className="font-bold text-gray-900 text-sm">Launch Date</p>
+                    </div>
+                    <p className="text-purple-700 font-semibold">Q1 2026</p>
+                    <p className="text-xs text-gray-500">iOS • Android • Web</p>
+                 </div>
+                 <a href="mailto:info@recalibratepain.com" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-purple-200 transition-colors">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-lg">📧</span>
+                      <p className="font-bold text-gray-900 text-sm">Direct Email</p>
+                    </div>
+                    <p className="text-indigo-600 text-sm break-all">info@recalibratepain.com</p>
+                 </a>
+              </div>
+
+              <form onSubmit={async (e) => {
+                e.preventDefault();
+                setPartnerSubmitting(true);
+                try {
+                  const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partner/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...partnerForm, type: 'general_contact', organization: 'General Inquiry' })
+                  });
+                  const data = await response.json();
+                  if (data.success) {
+                    alert('Message sent! We will get back to you soon.');
+                    setShowContactModal(false);
+                    setPartnerForm({ type: '', name: '', email: '', organization: '', message: '' });
+                  }
+                } catch (err) {
+                  alert('Error submitting form. Please try again.');
+                }
+                setPartnerSubmitting(false);
+              }} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" required value={partnerForm.name} onChange={(e) => setPartnerForm({...partnerForm, name: e.target.value})} className="w-full px-4 py-2 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm text-gray-900" placeholder="Your name" />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Email Us</p>
-                    <p className="text-purple-600 text-sm">info@recalibratepain.com</p>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" required value={partnerForm.email} onChange={(e) => setPartnerForm({...partnerForm, email: e.target.value})} className="w-full px-4 py-2 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm text-gray-900" placeholder="you@example.com" />
                   </div>
-                </a>
-                
-                <div className="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-purple-100">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-lg">📅</span>
-                    <p className="font-semibold text-gray-900">Expected Release</p>
-                  </div>
-                  <p className="text-gray-600 text-sm">Q2 2025 - Join our waitlist to be first in line!</p>
                 </div>
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <textarea required value={partnerForm.message} onChange={(e) => setPartnerForm({...partnerForm, message: e.target.value})} rows={4} className="w-full px-4 py-2 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none text-sm text-gray-900" placeholder="How can we help you?" />
+                </div>
+                <button type="submit" disabled={partnerSubmitting} className="w-full bg-black text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition-all disabled:opacity-50">
+                  {partnerSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
               
-              <div className="border-t pt-4">
-                <p className="text-xs text-gray-500 mb-3">Quick Links</p>
-                <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('clinic'); }} className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">🏥 For Clinics</button>
-                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('research'); }} className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">🔬 For Researchers</button>
-                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('investor'); }} className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">💼 For Investors</button>
-                  <a href="https://recalibrate.beehiiv.com" target="_blank" rel="noopener noreferrer" className="text-left p-2 rounded-lg hover:bg-gray-50 text-sm text-gray-700">📬 Newsletter</a>
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <p className="text-xs text-gray-500 mb-3 font-medium uppercase tracking-wider">Partnerships</p>
+                <div className="grid grid-cols-3 gap-2">
+                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('clinic'); }} className="text-center p-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-xs text-blue-700 font-medium">For Clinics</button>
+                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('research'); }} className="text-center p-2 rounded-lg bg-purple-50 hover:bg-purple-100 text-xs text-purple-700 font-medium">Research</button>
+                  <button onClick={() => { setShowContactModal(false); setPartnerFormOpen('investor'); }} className="text-center p-2 rounded-lg bg-green-50 hover:bg-green-100 text-xs text-green-700 font-medium">Investors</button>
                 </div>
               </div>
             </div>
