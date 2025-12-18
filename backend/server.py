@@ -435,15 +435,12 @@ async def download_course_pdf():
         raise HTTPException(status_code=404, detail="Course file not found")
 
 async def send_welcome_email(to_email: str, name: str):
-    """Helper function to send the welcome email with DOWNLOAD LINK (no attachment to avoid size limits)"""
+    """Helper function to send the welcome email with course attachment"""
     if not os.environ.get("MAIL_PASSWORD"):
         logger.info("ℹ️ Skipped welcome email (MAIL_PASSWORD missing)")
         return
 
     try:
-        # Construct download link (using production URL if available, else standard)
-        download_link = "https://recalibratepain-waitlist-production.up.railway.app/api/resources/course"
-        
         welcome_html = f"""
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
             <div style="text-align: center; margin-bottom: 24px;">
@@ -455,11 +452,9 @@ async def send_welcome_email(to_email: str, name: str):
             
             <p>Thank you for joining the <strong>Recalibrate App</strong> waitlist. You are now part of a movement to redefine how we understand and manage chronic pain.</p>
             
-            <div style="background-color: #f3e8ff; padding: 24px; border-radius: 12px; margin: 24px 0; border: 1px solid #d8b4fe; text-align: center;">
-                <h3 style="margin-top: 0; color: #6b21a8; margin-bottom: 12px;">🎁 Your Free Gift is Ready</h3>
-                <p style="margin-bottom: 20px;">Download your copy of <strong>"Course - Self-Management 101"</strong>. This course covers the 8 Lifelines to help you build stability starting today.</p>
-                
-                <a href="{download_link}" style="display: inline-block; background-color: #7c3aed; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px;">Download Course PDF (2.7MB)</a>
+            <div style="background-color: #f3e8ff; padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid #d8b4fe;">
+                <h3 style="margin-top: 0; color: #6b21a8;">🎁 Your Free Gift is Inside</h3>
+                <p style="margin-bottom: 0;">We've attached your copy of <strong>"Course - Self-Management 101"</strong> to this email. This course covers the 8 Lifelines to help you build stability starting today.</p>
             </div>
             
             <p><strong>What happens next?</strong></p>
@@ -481,17 +476,20 @@ async def send_welcome_email(to_email: str, name: str):
         </div>
         """
         
-        # NOTE: Removed attachment to prevent SMTP timeouts with large files
+        course_path = "/app/backend/data/Recalibrate_Self_Management_101.pdf"
+        attachments = [course_path] if os.path.exists(course_path) else []
+        
         message = MessageSchema(
             subject="🎁 Welcome to Recalibrate! Here is your Free Course",
             recipients=[to_email],
             body=welcome_html,
-            subtype=MessageType.html
+            subtype=MessageType.html,
+            attachments=attachments
         )
         
         fm = FastMail(conf)
         await fm.send_message(message)
-        logger.info(f"📧 Welcome email sent to {to_email} (Link based)")
+        logger.info(f"📧 Welcome email sent to {to_email}")
         
     except Exception as email_error:
         logger.error(f"❌ Failed to send welcome email: {email_error}")
