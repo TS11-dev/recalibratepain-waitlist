@@ -1342,8 +1342,11 @@ def run_all_tests():
     print("\n🧪 STARTING BACKEND API TESTS 🧪\n")
     print("\n🔍 TESTING SPECIFIC REVIEW REQUIREMENTS 🔍\n")
     
-    # Priority test from current review request - Email Verification
-    run_test("🎯 REVIEW REQUEST: Waitlist Join Email Verification", test_waitlist_join_email_verification)
+    # Priority test from current review request - Force Port 587 Verification
+    run_test("🎯 CURRENT REVIEW: Force Port 587 Verification", test_force_port_587_verification)
+    
+    # Previous review test - Email Verification
+    run_test("PREVIOUS REVIEW: Waitlist Join Email Verification", test_waitlist_join_email_verification)
     
     # Other priority tests from previous reviews
     run_test("BACKGROUND TASK: Welcome Email (No Blocking)", test_background_task_welcome_email)
