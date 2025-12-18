@@ -123,5 +123,10 @@
     "name": "BG Task Test User",
     "email": "test_bg_task_verification_1766052649@example.com",
     "timestamp": "2025-12-18T10:10:50.106411"
+  },
+  {
+    "name": "Link Based Test User",
+    "email": "test_link_based_email_1766055330@test.com",
+    "timestamp": "2025-12-18T10:55:30.691238"
   }
 ]
