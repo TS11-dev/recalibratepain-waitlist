@@ -820,6 +820,13 @@ async def cleanup_test_data():
 
 @app.get("/api/debug/send-welcome")
 async def debug_send_welcome(email: str):
+    """Debug endpoint to force send a welcome email and see the result"""
+    try:
+        await send_welcome_email(email, "Debug User")
+        return {"status": "Attempted send", "email": email, "check_logs": "Check server logs for success/failure"}
+    except Exception as e:
+        return {"status": "Error", "error": str(e)}
+
 @app.get("/api/debug/network-test")
 async def debug_network_test():
     """Test TCP connection to email server from Railway"""
