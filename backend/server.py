@@ -496,6 +496,17 @@ async def send_welcome_email(to_email: str, name: str):
         )
         
         # SMTP Configuration check
+        # SMTP Configuration check
+        if not os.environ.get("MAIL_PASSWORD"):
+            logger.error("❌ MAIL_PASSWORD not set in environment variables")
+            return
+
+        fm = FastMail(conf)
+        await fm.send_message(message)
+        logger.info(f"📧 Welcome email sent to {to_email}")
+        
+    except Exception as email_error:
+        logger.error(f"❌ Failed to send welcome email to {to_email}. Error: {str(email_error)}")
         if not os.environ.get("MAIL_PASSWORD"):
             logger.error("❌ MAIL_PASSWORD not set in environment variables")
             return
