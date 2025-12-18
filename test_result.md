@@ -223,6 +223,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "Successfully tested Waitlist Join endpoint (/api/waitlist/join) with unique test email 'welcome_test_20251218_004651@test.com'. Backend correctly attempts and successfully sends welcome email with course attachment. SMTP configuration verified working. Backend logs confirm: '📧 Welcome email sent to welcome_test_20251218_004651@test.com'. Email includes welcome message, RecalibrateCourse1.pdf attachment, and proper HTML formatting. All review requirements met."
+      - working: true
+        agent: "testing"
+        comment: "✅ WELCOME EMAIL RE-TESTING COMPLETED: Successfully tested with new unique email 'updated_pdf_test_20251218_011326@test.com' as requested in review. Backend correctly processes waitlist registration and sends welcome email with PDF attachment (Recalibrate_Self_Management_101.pdf). SMTP email delivery confirmed in logs: '📧 Welcome email sent to updated_pdf_test_20251218_011326@test.com'. Email content includes updated welcome message, course attachment, and proper HTML formatting. All review requirements for PDF attachment and email content updates verified successfully."
 
 frontend:
   - task: "Email Collection Form"
