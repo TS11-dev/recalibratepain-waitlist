@@ -421,6 +421,63 @@ async def get_subscriber_count():
             "source": "fallback"
         }
 
+async def send_welcome_email(to_email: str, name: str):
+    """Helper function to send the welcome email with course attachment"""
+    if not os.environ.get("MAIL_PASSWORD"):
+        logger.info("ℹ️ Skipped welcome email (MAIL_PASSWORD missing)")
+        return
+
+    try:
+        welcome_html = f"""
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
+            <div style="text-align: center; margin-bottom: 24px;">
+                <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold;">Welcome to the Revolution! 🚀</h1>
+            </div>
+            
+            <p>Hi {name},</p>
+            
+            <p>Thank you for joining the <strong>Recalibrate App</strong> waitlist. You are now part of a movement to redefine how we understand and manage chronic pain.</p>
+            
+            <div style="background-color: #f3e8ff; padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid #d8b4fe;">
+                <h3 style="margin-top: 0; color: #6b21a8;">🎁 Your Free Gift is Inside</h3>
+                <p style="margin-bottom: 0;">We've attached your copy of <strong>"Chronic Pain: Self-Management 1"</strong> to this email. This course covers the 8 Lifelines to help you build stability starting today.</p>
+            </div>
+            
+            <p><strong>What happens next?</strong></p>
+            <ul>
+                <li>We will keep you updated on our launch progress (Q1 2026).</li>
+                <li>You'll get exclusive early access when we go live.</li>
+                <li>We'll share more evidence-based tips and tools along the way.</li>
+            </ul>
+            
+            <p>We are honored to be part of your journey.</p>
+            
+            <p style="margin-top: 24px;">Warmly,<br><strong>The Recalibrate Team</strong></p>
+            
+            <div style="text-align: center; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
+                <p>© 2025 Recalibrate Inc. Smarter Health and Pain Technology.</p>
+            </div>
+        </div>
+        """
+        
+        course_path = "/app/backend/data/RecalibrateCourse1.pdf"
+        attachments = [course_path] if os.path.exists(course_path) else []
+        
+        message = MessageSchema(
+            subject="🎁 Welcome to Recalibrate! Here is your Free Course",
+            recipients=[to_email],
+            body=welcome_html,
+            subtype=MessageType.html,
+            attachments=attachments
+        )
+        
+        fm = FastMail(conf)
+        await fm.send_message(message)
+        logger.info(f"📧 Welcome email sent to {to_email}")
+        
+    except Exception as email_error:
+        logger.error(f"❌ Failed to send welcome email: {email_error}")
+
 @app.post("/api/waitlist/join", response_model=WaitlistResponse)
 async def join_waitlist(entry: WaitlistEntry):
     """Add email to waitlist with dual storage"""
@@ -438,10 +495,14 @@ async def join_waitlist(entry: WaitlistEntry):
         
         for existing_entry in existing_waitlist:
             if existing_entry.get("email", "").lower() == email_lower:
-                logger.info(f"📧 Existing email attempted to register: {email_lower}")
+                logger.info(f"📧 Existing email re-registered: {email_lower}")
+                
+                # Send welcome email again for duplicates (so they get the course)
+                await send_welcome_email(email_lower, entry.name.strip())
+                
                 return WaitlistResponse(
                     success=True,
-                    message="Welcome back! You're already on our waitlist.",
+                    message="Welcome back! We've sent you the course again.",
                     total_subscribers=len(existing_waitlist) + BASE_SUBSCRIBER_COUNT,  # Base + actual count
                     storage_info="Already exists in database"
                 )
@@ -461,59 +522,8 @@ async def join_waitlist(entry: WaitlistEntry):
             updated_waitlist = await get_combined_waitlist()
             logger.info(f"✅ New subscriber added: {email_lower}")
             
-            # Send Welcome Email with Course Attachment
-            if os.environ.get("MAIL_PASSWORD"):
-                try:
-                    welcome_html = f"""
-                    <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
-                        <div style="text-align: center; margin-bottom: 24px;">
-                            <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold;">Welcome to the Revolution! 🚀</h1>
-                        </div>
-                        
-                        <p>Hi {entry.name.strip()},</p>
-                        
-                        <p>Thank you for joining the <strong>Recalibrate App</strong> waitlist. You are now part of a movement to redefine how we understand and manage chronic pain.</p>
-                        
-                        <div style="background-color: #f3e8ff; padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid #d8b4fe;">
-                            <h3 style="margin-top: 0; color: #6b21a8;">🎁 Your Free Gift is Inside</h3>
-                            <p style="margin-bottom: 0;">We've attached your copy of <strong>"Chronic Pain: Self-Management 1"</strong> to this email. This course covers the 8 Lifelines to help you build stability starting today.</p>
-                        </div>
-                        
-                        <p><strong>What happens next?</strong></p>
-                        <ul>
-                            <li>We will keep you updated on our launch progress (Q1 2026).</li>
-                            <li>You'll get exclusive early access when we go live.</li>
-                            <li>We'll share more evidence-based tips and tools along the way.</li>
-                        </ul>
-                        
-                        <p>We are honored to be part of your journey.</p>
-                        
-                        <p style="margin-top: 24px;">Warmly,<br><strong>The Recalibrate Team</strong></p>
-                        
-                        <div style="text-align: center; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
-                            <p>© 2025 Recalibrate Inc. Smarter Health and Pain Technology.</p>
-                        </div>
-                    </div>
-                    """
-                    
-                    course_path = "/app/backend/data/RecalibrateCourse1.pdf"
-                    attachments = [course_path] if os.path.exists(course_path) else []
-                    
-                    message = MessageSchema(
-                        subject="🎁 Welcome to Recalibrate! Here is your Free Course",
-                        recipients=[email_lower],
-                        body=welcome_html,
-                        subtype=MessageType.html,
-                        attachments=attachments
-                    )
-                    
-                    fm = FastMail(conf)
-                    await fm.send_message(message)
-                    logger.info(f"📧 Welcome email sent to {email_lower}")
-                    
-                except Exception as email_error:
-                    logger.error(f"❌ Failed to send welcome email: {email_error}")
-                    # Don't fail the registration, just log the error
+            # Send Welcome Email
+            await send_welcome_email(email_lower, entry.name.strip())
 
             return WaitlistResponse(
                 success=True,
