@@ -985,13 +985,171 @@ def test_subscriber_count_accuracy():
     # Count should have increased by 1
     return updated_count == initial_count + 1
 
+def test_waitlist_join_email_verification():
+    """Test the Waitlist Join endpoint with unique email and verify email logs as requested in review"""
+    print("🎯 TESTING REVIEW REQUEST: Waitlist Join Email Verification")
+    print("Requirements:")
+    print("1. Test /api/waitlist/join with new unique email")
+    print("2. Check logs for specific messages:")
+    print("   - Success: '📧 Welcome email sent to...'")
+    print("   - Failure: '❌ Failed to send welcome email to...'")
+    print("3. Confirm if we get false positives or real errors")
+    
+    # Generate unique email for this test
+    timestamp = int(time.time())
+    test_email = f"email_verification_test_{timestamp}@test.com"
+    test_name = "Email Verification Test User"
+    
+    print(f"\n📧 Using unique test email: {test_email}")
+    
+    # Test data for waitlist join
+    test_data = {
+        "name": test_name,
+        "email": test_email
+    }
+    
+    print(f"📤 Sending request to: {BACKEND_URL}/api/waitlist/join")
+    print(f"Request body: {json.dumps(test_data, indent=2)}")
+    
+    # Record start time
+    start_time = time.time()
+    
+    # Send the request
+    response = requests.post(
+        f"{BACKEND_URL}/api/waitlist/join", 
+        json=test_data
+    )
+    
+    response_time = time.time() - start_time
+    
+    print(f"\n📊 RESPONSE ANALYSIS:")
+    print(f"Response Status: {response.status_code}")
+    print(f"Response Time: {response_time:.3f} seconds")
+    print(f"Response Body: {response.text}")
+    
+    if response.status_code != 200:
+        print(f"❌ Waitlist join failed with status {response.status_code}")
+        return False
+    
+    data = response.json()
+    success = data.get("success", False)
+    message = data.get("message", "")
+    
+    print(f"✅ Join Success: {success}")
+    print(f"💬 Message: {message}")
+    
+    # Wait for background task to complete
+    print(f"\n⏳ WAITING 8 SECONDS FOR BACKGROUND EMAIL TASK...")
+    time.sleep(8)
+    
+    # Check backend logs for the specific email messages
+    print(f"\n📋 CHECKING BACKEND LOGS FOR EMAIL SUCCESS/FAILURE MESSAGES:")
+    
+    email_success_found = False
+    email_failure_found = False
+    log_messages = []
+    
+    try:
+        # Check both stdout and stderr logs for email-related messages
+        log_commands = [
+            f"tail -n 100 /var/log/supervisor/backend.out.log | grep -E '(📧 Welcome email sent to|❌ Failed to send welcome email to)' | grep '{test_email}'",
+            f"tail -n 100 /var/log/supervisor/backend.err.log | grep -E '(📧 Welcome email sent to|❌ Failed to send welcome email to)' | grep '{test_email}'"
+        ]
+        
+        for cmd in log_commands:
+            log_result = os.popen(cmd).read().strip()
+            if log_result and test_email in log_result:
+                log_messages.append(log_result)
+                
+                if "📧 Welcome email sent to" in log_result:
+                    email_success_found = True
+                    print(f"✅ SUCCESS MESSAGE FOUND: {log_result}")
+                elif "❌ Failed to send welcome email to" in log_result:
+                    email_failure_found = True
+                    print(f"❌ FAILURE MESSAGE FOUND: {log_result}")
+        
+        # If no specific messages found, check for any email-related logs
+        if not email_success_found and not email_failure_found:
+            print(f"⚠️ No specific success/failure messages found for {test_email}")
+            
+            # Check for any email-related activity in recent logs
+            print(f"\n📋 CHECKING FOR ANY EMAIL-RELATED ACTIVITY:")
+            general_email_logs = os.popen("tail -n 50 /var/log/supervisor/backend.out.log | grep -i 'email\\|smtp\\|mail'").read()
+            if general_email_logs:
+                print(f"Recent email activity:\n{general_email_logs}")
+            else:
+                print("No recent email activity found in logs")
+                
+            # Show recent logs around our request time
+            print(f"\n📋 RECENT BACKEND LOGS (last 30 lines):")
+            recent_logs = os.popen("tail -n 30 /var/log/supervisor/backend.out.log").read()
+            print(recent_logs)
+            
+    except Exception as e:
+        print(f"⚠️ Error checking logs: {e}")
+    
+    # Check SMTP configuration status
+    print(f"\n📧 SMTP CONFIGURATION STATUS:")
+    try:
+        with open("/app/backend/.env", "r") as f:
+            env_content = f.read()
+            
+        has_mail_password = "MAIL_PASSWORD=" in env_content and len(env_content.split("MAIL_PASSWORD=")[1].split("\n")[0].strip()) > 0
+        has_mail_username = "MAIL_USERNAME=" in env_content
+        
+        print(f"✅ MAIL_USERNAME configured: {has_mail_username}")
+        print(f"✅ MAIL_PASSWORD configured: {has_mail_password}")
+        
+        if has_mail_password:
+            mail_password = env_content.split("MAIL_PASSWORD=")[1].split("\n")[0].strip()
+            print(f"MAIL_PASSWORD length: {len(mail_password)} characters")
+            
+    except Exception as e:
+        print(f"⚠️ Error checking SMTP config: {e}")
+    
+    # Analyze results
+    print(f"\n📋 EMAIL VERIFICATION ANALYSIS:")
+    print(f"  📧 Email success message found: {email_success_found}")
+    print(f"  ❌ Email failure message found: {email_failure_found}")
+    print(f"  📝 Total log messages found: {len(log_messages)}")
+    
+    if email_success_found:
+        print(f"\n✅ RESULT: Welcome email was SUCCESSFULLY sent!")
+        print(f"   The logs explicitly confirm: '📧 Welcome email sent to {test_email}'")
+        print(f"   This indicates the email system is working correctly.")
+        
+    elif email_failure_found:
+        print(f"\n❌ RESULT: Welcome email FAILED to send!")
+        print(f"   The logs explicitly confirm: '❌ Failed to send welcome email to {test_email}'")
+        print(f"   This indicates a real email sending issue, not a false positive.")
+        
+    else:
+        print(f"\n⚠️ RESULT: No explicit success/failure message found!")
+        print(f"   This could indicate:")
+        print(f"   - Email sending is not being attempted")
+        print(f"   - Logging is not working properly")
+        print(f"   - Background task is not executing")
+        
+    # Test passes if we successfully joined waitlist and found clear email status
+    test_passed = (
+        success and  # Waitlist join was successful
+        (email_success_found or email_failure_found)  # We found clear email status
+    )
+    
+    print(f"\n📋 FINAL VERIFICATION:")
+    print(f"  ✅ Waitlist join successful: {success}")
+    print(f"  ✅ Clear email status found: {email_success_found or email_failure_found}")
+    print(f"  ✅ Test requirements met: {test_passed}")
+    
+    return test_passed
+
 def run_all_tests():
     """Run all tests and print summary"""
     print("\n🧪 STARTING BACKEND API TESTS 🧪\n")
     print("\n🔍 TESTING SPECIFIC REVIEW REQUIREMENTS 🔍\n")
     
-    # Priority test from current review request - Link-Based Welcome Email Flow
-    run_test("🎯 REVIEW REQUEST: Link-Based Welcome Email Flow", test_link_based_welcome_email_flow)
+    # Priority test from current review request - Email Verification
+    run_test("🎯 REVIEW REQUEST: Waitlist Join Email Verification", test_waitlist_join_email_verification)
     
     # Other priority tests from previous reviews
     run_test("BACKGROUND TASK: Welcome Email (No Blocking)", test_background_task_welcome_email)
