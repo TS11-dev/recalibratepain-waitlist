@@ -1,5 +1,5 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
@@ -482,7 +482,7 @@ async def send_welcome_email(to_email: str, name: str):
         logger.error(f"❌ Failed to send welcome email: {email_error}")
 
 @app.post("/api/waitlist/join", response_model=WaitlistResponse)
-async def join_waitlist(entry: WaitlistEntry):
+async def join_waitlist(entry: WaitlistEntry, background_tasks: BackgroundTasks):
     """Add email to waitlist with dual storage"""
     try:
         # Validate input
@@ -500,8 +500,8 @@ async def join_waitlist(entry: WaitlistEntry):
             if existing_entry.get("email", "").lower() == email_lower:
                 logger.info(f"📧 Existing email re-registered: {email_lower}")
                 
-                # Send welcome email again for duplicates (so they get the course)
-                await send_welcome_email(email_lower, entry.name.strip())
+                # Send welcome email again for duplicates (background task)
+                background_tasks.add_task(send_welcome_email, email_lower, entry.name.strip())
                 
                 return WaitlistResponse(
                     success=True,
@@ -525,8 +525,8 @@ async def join_waitlist(entry: WaitlistEntry):
             updated_waitlist = await get_combined_waitlist()
             logger.info(f"✅ New subscriber added: {email_lower}")
             
-            # Send Welcome Email
-            await send_welcome_email(email_lower, entry.name.strip())
+            # Send Welcome Email (background task)
+            background_tasks.add_task(send_welcome_email, email_lower, entry.name.strip())
 
             return WaitlistResponse(
                 success=True,
