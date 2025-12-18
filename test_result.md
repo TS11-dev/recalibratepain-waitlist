@@ -212,6 +212,18 @@ backend:
         agent: "testing"
         comment: "Successfully tested General Contact form submission via /api/partner/contact endpoint with type='general_contact'. Endpoint correctly processes form data, saves to partners.json, sends email notifications via SMTP, and returns proper success response. Email delivery confirmed in backend logs. All review requirements met."
 
+  - task: "Welcome Email Functionality"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested Waitlist Join endpoint (/api/waitlist/join) with unique test email 'welcome_test_20251218_004651@test.com'. Backend correctly attempts and successfully sends welcome email with course attachment. SMTP configuration verified working. Backend logs confirm: '📧 Welcome email sent to welcome_test_20251218_004651@test.com'. Email includes welcome message, RecalibrateCourse1.pdf attachment, and proper HTML formatting. All review requirements met."
+
 frontend:
   - task: "Email Collection Form"
     implemented: true
