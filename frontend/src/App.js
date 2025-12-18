@@ -1453,8 +1453,8 @@ function App() {
                   <div className="space-y-2 text-sm text-gray-700">
                     <p><strong className="text-purple-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven pain management.</p>
                     <p><strong className="text-purple-700">Market:</strong> $600B+ Chronic Pain Market | 1.5B Sufferers Globally.</p>
-                    <p><strong className="text-purple-700">Traction:</strong> 191+ Pre-launch waitlist, HIPAA-compliant architecture.</p>
-                    <p><strong className="text-purple-700">Opportunity:</strong> Raising Seed Round to accelerate AI R&D and clinical partnerships.</p>
+                    <p><strong className="text-purple-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, HIPAA-compliant architecture.</p>
+                    <p><strong className="text-purple-700">Opportunity:</strong> Raising $1.5 Million Seed Round to accelerate Development Testing, Clinical and Research Partnerships, AI R&D and Marketing.</p>
                     <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
                   </div>
                 </div>
