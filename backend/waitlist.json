@@ -228,5 +228,40 @@
     "name": "Resend Skip Test User",
     "email": "resend_skip_test_1766060826@test.com",
     "timestamp": "2025-12-18T12:27:06.694362"
+  },
+  {
+    "name": "Force Port 587 Test User",
+    "email": "force_port_587_test_1766078302@test.com",
+    "timestamp": "2025-12-18T17:18:23.250133"
+  },
+  {
+    "name": "Email Verification Test User",
+    "email": "email_verification_test_1766078312@test.com",
+    "timestamp": "2025-12-18T17:18:32.385763"
+  },
+  {
+    "name": "Test User",
+    "email": "test.user.1766078330@example.com",
+    "timestamp": "2025-12-18T17:18:50.513312"
+  },
+  {
+    "name": "Duplicate Test",
+    "email": "duplicate.test.1766078331@example.com",
+    "timestamp": "2025-12-18T17:18:51.599434"
+  },
+  {
+    "name": "Persistence Test 1766078332",
+    "email": "persistence.test.1766078332@example.com",
+    "timestamp": "2025-12-18T17:18:53.121902"
+  },
+  {
+    "name": "Dual Storage Test 1766078333",
+    "email": "dual.storage.test.1766078333@example.com",
+    "timestamp": "2025-12-18T17:18:54.206674"
+  },
+  {
+    "name": "Count Test 1766078336",
+    "email": "count.test.1766078336@example.com",
+    "timestamp": "2025-12-18T17:18:56.786610"
   }
 ]

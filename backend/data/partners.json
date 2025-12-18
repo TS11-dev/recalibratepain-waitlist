@@ -206,5 +206,37 @@
     "organization": "Test Org",
     "message": "Test message",
     "timestamp": "2025-12-18T11:59:39.980375"
+  },
+  {
+    "type": "investor",
+    "name": "Test Investor 1766078297",
+    "email": "investor.test.1766078297@testfund.com",
+    "organization": "Test Investment Fund 1766078297",
+    "message": "We are interested in investing in RecalibratePain's innovative chronic pain management platform.",
+    "timestamp": "2025-12-18T17:18:17.551197"
+  },
+  {
+    "type": "general_contact",
+    "name": "Test Visitor",
+    "email": "visitor@test.com",
+    "organization": "General Public",
+    "message": "Hi there",
+    "timestamp": "2025-12-18T17:18:47.712219"
+  },
+  {
+    "type": "clinic",
+    "name": "Dr. Test Partner 1766078327",
+    "email": "partner.test.1766078327@testclinic.com",
+    "organization": "Test Medical Clinic 1766078327",
+    "message": "We are interested in partnering with RecalibratePain for our chronic pain management program.",
+    "timestamp": "2025-12-18T17:18:47.966530"
+  },
+  {
+    "type": "test",
+    "name": "Test",
+    "email": "test@test.com",
+    "organization": "Test Org",
+    "message": "Test message",
+    "timestamp": "2025-12-18T17:19:00.026033"
   }
 ]
