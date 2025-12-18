@@ -232,7 +232,7 @@ function App() {
               </h1>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-                <strong className="text-gray-800">Recalibrate App</strong> — Track 18 Health Variables including Pain, Exercise, Nutrition, Anxiety, Sleep and much more across 8 biological systems. Discover patterns with Analytics and AI insights, access recommended exercises and tools, learn from our Pain Academy with over 90 lessons on Chronic Illness and Chronic Pain. <strong className="text-purple-600">The Complete Chronic Pain App.</strong>
+                <strong className="text-gray-800">Recalibrate App</strong> — Track over 18 Health Variables including Pain, Exercise, Nutrition, Anxiety and Sleep. Discover patterns with Analytics and Recalibrate AI, access guided tools and exercises, learn from our Pain Academy and connect to clinicians, researchers and carers easily.
               </p>
               
               {/* Email Form */}
