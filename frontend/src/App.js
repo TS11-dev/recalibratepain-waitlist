@@ -263,10 +263,6 @@ function App() {
                     </button>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
-                  <span className="bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">FREE GIFT</span>
-                  Receive our "Chronic Pain: Self-Management 1" course instantly
-                </p>
               </form>
               
               {/* Waitlist Count */}
@@ -1255,34 +1251,24 @@ function App() {
                   Join the revolution. Be the first to experience the future of pain management.
                 </p>
                 
-                <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
-                  <div className="flex flex-col sm:flex-row gap-3">
+                <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto mb-6">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="email"
-                      placeholder="your@email.com"
+                      placeholder="Enter your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 px-5 py-4 bg-white/10 backdrop-blur border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:bg-white/20 focus:border-white/40 transition-all"
+                      className="flex-1 px-5 py-3.5 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:bg-white/20 focus:border-white/40 transition-all backdrop-blur-sm"
                       required
                     />
                     <button
                       type="submit"
                       disabled={loading}
-                      className="bg-white text-purple-700 px-8 py-4 rounded-xl font-bold hover:bg-purple-50 transition-all disabled:opacity-60 flex items-center justify-center gap-2"
+                      className="bg-white text-gray-900 px-6 py-3.5 rounded-xl font-semibold hover:bg-gray-50 transition-all disabled:opacity-60"
                     >
-                      {loading ? (
-                        <div className="w-5 h-5 border-2 border-purple-300 border-t-purple-700 rounded-full animate-spin" />
-                      ) : (
-                        <>
-                          <span>Join Waitlist</span>
-                          <ArrowRight className="w-5 h-5" />
-                        </>
-                      )}
+                      {loading ? 'Joining...' : 'Join Waitlist'}
                     </button>
                   </div>
-                  <p className="text-white/60 text-sm mt-4">
-                    🎁 Get the <span className="text-white font-semibold">Self-Management Course</span> free instantly.
-                  </p>
                 </form>
               </div>
             </div>
