@@ -218,5 +218,10 @@
     "name": "Resend Test User",
     "email": "resend_test_1766060319@test.com",
     "timestamp": "2025-12-18T12:18:39.474415"
+  },
+  {
+    "name": "Resend Welcome Test User",
+    "email": "resend_welcome_test_1766060762@test.com",
+    "timestamp": "2025-12-18T12:26:02.442275"
   }
 ]
