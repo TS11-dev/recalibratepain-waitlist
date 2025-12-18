@@ -813,6 +813,21 @@ async def cleanup_test_data():
 
 @app.get("/api/debug/send-welcome")
 async def debug_send_welcome(email: str):
+@app.get("/api/debug/network-test")
+async def debug_network_test():
+    """Test TCP connection to email server from Railway"""
+    import socket
+    
+    target = os.environ.get("MAIL_SERVER", "mail.spacemail.com")
+    port = int(os.environ.get("MAIL_PORT", 465))
+    
+    try:
+        s = socket.create_connection((target, port), timeout=10)
+        s.close()
+        return {"status": "SUCCESS", "message": f"Successfully connected to {target}:{port}"}
+    except Exception as e:
+        return {"status": "FAILURE", "error": str(e), "details": f"Could not connect to {target}:{port}"}
+
     """Debug endpoint to force send a welcome email and see the result"""
     try:
         await send_welcome_email(email, "Debug User")
