@@ -495,13 +495,15 @@ async def send_welcome_email(to_email: str, name: str):
         
         # Add PDF attachment if file exists
         if os.path.exists(pdf_path):
+            import base64
             with open(pdf_path, "rb") as pdf_file:
-                pdf_content = pdf_file.read()
+                pdf_bytes = pdf_file.read()
+                pdf_base64 = base64.b64encode(pdf_bytes).decode("ascii")
             
             params["attachments"] = [
                 {
                     "filename": "Recalibrate_Self_Management_101.pdf",
-                    "content": pdf_content
+                    "content": pdf_base64
                 }
             ]
             
