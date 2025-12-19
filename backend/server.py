@@ -435,7 +435,7 @@ async def download_course_pdf():
         raise HTTPException(status_code=404, detail="Course file not found")
 
 async def send_welcome_email(to_email: str, name: str):
-    """Helper function to send the welcome email using Resend API"""
+    """Helper function to send the welcome email using Resend API with PDF attachment"""
     if not os.environ.get("RESEND_API_KEY"):
         logger.info("ℹ️ Skipped welcome email (RESEND_API_KEY missing)")
         return
@@ -453,13 +453,10 @@ async def send_welcome_email(to_email: str, name: str):
             <p>Thank you for joining the <strong>Recalibrate App</strong> waitlist. You are now part of a movement to redefine how we understand and manage chronic pain.</p>
             
             <div style="background-color: #f3e8ff; padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid #d8b4fe;">
-                <h3 style="margin-top: 0; color: #6b21a8;">🎁 Your Free Gift Available</h3>
-                <p style="margin-bottom: 0;">Download your copy of <strong>"Course - Self-Management 101"</strong> using the link below. This course covers the 8 Lifelines to help you build stability starting today.</p>
-                <p style="text-align: center; margin-top: 16px;">
-                    <a href="https://recalipain-1.preview.emergentagent.com/api/resources/course" 
-                       style="background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
-                       📄 Download Course PDF
-                    </a>
+                <h3 style="margin-top: 0; color: #6b21a8;">🎁 Your Free Gift Attached</h3>
+                <p style="margin-bottom: 0;">Please find attached your copy of <strong>"Course - Self-Management 101"</strong>. This course covers the 8 Lifelines to help you build stability starting today.</p>
+                <p style="text-align: center; margin-top: 16px; font-weight: bold; color: #4f46e5;">
+                    📎 Recalibrate_Self_Management_101.pdf (attached)
                 </p>
             </div>
             
@@ -482,7 +479,10 @@ async def send_welcome_email(to_email: str, name: str):
         </div>
         """
         
-        # Prepare email parameters for Resend
+        # Read the PDF file for attachment
+        pdf_path = "/app/backend/data/Recalibrate_Self_Management_101.pdf"
+        
+        # Prepare email parameters for Resend with attachment
         params = {
             "from": SENDER_EMAIL,
             "to": [to_email],
@@ -490,10 +490,29 @@ async def send_welcome_email(to_email: str, name: str):
             "html": welcome_html
         }
         
-        # Send email using Resend API
-        await asyncio.to_thread(resend.Emails.send, params)
-        
-        logger.info(f"📧 Welcome email sent to {to_email} via Resend")
+        # Add PDF attachment if file exists
+        if os.path.exists(pdf_path):
+            import base64
+            with open(pdf_path, "rb") as pdf_file:
+                pdf_content = pdf_file.read()
+                pdf_base64 = base64.b64encode(pdf_content).decode()
+            
+            params["attachments"] = [
+                {
+                    "filename": "Recalibrate_Self_Management_101.pdf",
+                    "content": pdf_base64,
+                    "content_type": "application/pdf"
+                }
+            ]
+            
+            # Send email using Resend API with attachment
+            await asyncio.to_thread(resend.Emails.send, params)
+            
+            logger.info(f"📧 Welcome email sent to {to_email} via Resend (With Attachment)")
+        else:
+            # Fallback: send without attachment if PDF not found
+            await asyncio.to_thread(resend.Emails.send, params)
+            logger.info(f"📧 Welcome email sent to {to_email} via Resend (No Attachment - PDF not found)")
         
     except Exception as email_error:
         logger.error(f"❌ Failed to send welcome email to {to_email} via Resend. Error: {str(email_error)}")
