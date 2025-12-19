@@ -441,80 +441,48 @@ async def send_welcome_email(to_email: str, name: str):
         return
 
     try:
-        # Get preview/production URL for logo
-        frontend_url = os.environ.get("REACT_APP_BACKEND_URL", "https://recalibratepain.com").replace("/api", "")
+        # Use production URL for resources
+        download_url = "https://recalibratepain.com/Recalibrate_Self_Management_101.pdf"
         
         welcome_html = f"""
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
-            <div style="text-align: center; margin-bottom: 24px;">
-                <img src="{frontend_url}/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto; margin-bottom: 16px;">
-                <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold; margin-top: 0;">Welcome to Recalibrate! 🚀</h1>
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
+            <div style="text-align: center; margin-bottom: 32px;">
+                <img src="https://recalibratepain.com/recalibrate-logo.png" alt="Recalibrate" style="height: 48px; width: auto; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto;">
+                <h1 style="color: #4f46e5; font-size: 28px; font-weight: bold; margin: 16px 0 8px 0;">Welcome to Recalibrate! 🚀</h1>
+                <p style="color: #6b7280; font-size: 16px; margin: 0;">Thank you for joining our waitlist.</p>
             </div>
             
-            <p>Thank you for joining the <strong>Recalibrate App</strong> waitlist. You are now part of a movement to redefine how we understand and manage chronic pain.</p>
-            
-            <div style="background-color: #f3e8ff; padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid #d8b4fe;">
-                <h3 style="margin-top: 0; color: #6b21a8;">🎁 Your Free Gift Attached</h3>
-                <p style="margin-bottom: 0;">Please find attached your copy of <strong>"Course - Self-Management 101"</strong>. This course covers the 8 Lifelines to help you build stability starting today.</p>
-                <p style="text-align: center; margin-top: 16px; font-weight: bold; color: #4f46e5;">
-                    📎 Recalibrate_Self_Management_101.pdf (attached)
-                </p>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 32px; border-radius: 16px; text-align: center; margin: 24px 0;">
+                <h2 style="color: #ffffff; font-size: 20px; margin: 0 0 8px 0;">🎁 Your Free Course is Ready!</h2>
+                <p style="color: #e9d5ff; font-size: 14px; margin: 0 0 24px 0;">Self-Management 101: The 8 Lifelines</p>
+                <a href="{download_url}" style="display: inline-block; background-color: #ffffff; color: #764ba2; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    📥 Download Your Course
+                </a>
             </div>
             
-            <p><strong>What happens next?</strong></p>
-            <ul>
-                <li>We will keep you updated on our launch progress (Q1 2026).</li>
-                <li>You'll get exclusive early access when we go live.</li>
-                <li>We'll share more evidence-based tips and tools along the way.</li>
-            </ul>
+            <p style="font-size: 15px; line-height: 1.6; color: #374151;">You're now part of a movement to redefine chronic pain management. We'll keep you updated on our Q1 2026 launch and give you exclusive early access.</p>
             
-            <p>We are honored to be part of your journey.</p>
+            <p style="margin-top: 32px; font-size: 15px; color: #6b7280;">Warmly,<br><strong style="color: #1f2937;">The Recalibrate Team</strong></p>
             
-            <p style="margin-top: 24px;">Warmly,<br><strong>The Recalibrate Team</strong></p>
-            
-            <div style="text-align: center; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
-                <p style="font-weight: bold; color: #4b5563;">Recalibrate Inc.</p>
-                <p>Smarter Health and Pain Technology</p>
-                <p>© 2025 Recalibrate App. Your intelligent health companion.</p>
+            <div style="text-align: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #9ca3af;">
+                <p style="margin: 4px 0; color: #6b7280; font-weight: 600;">Recalibrate Inc.</p>
+                <p style="margin: 4px 0;">Smarter Health and Pain Technology</p>
             </div>
         </div>
         """
         
-        # Read the PDF file for attachment
-        pdf_path = "/app/backend/data/Recalibrate_Self_Management_101.pdf"
-        
-        # Prepare email parameters for Resend with attachment
+        # Prepare email parameters for Resend (NO attachment, just download link)
         params = {
             "from": "Recalibrate <info@recalibratepain.com>",
             "to": [to_email],
-            "subject": "🎁 Welcome to Recalibrate! Here is your Free Course",
+            "subject": "🎁 Welcome to Recalibrate! Download Your Free Course",
             "html": welcome_html
         }
         
-        # Add PDF attachment if file exists
-        if os.path.exists(pdf_path):
-            import base64
-            with open(pdf_path, "rb") as pdf_file:
-                pdf_bytes = pdf_file.read()
-                pdf_base64 = base64.b64encode(pdf_bytes).decode("utf-8")
-            
-            params["attachments"] = [
-                {
-                    "filename": "Recalibrate_Self_Management_101.pdf",
-                    "content": pdf_base64,
-                    "content_type": "application/pdf"
-                }
-            ]
-            
-            # Send email using Resend API with attachment
-            response = await asyncio.to_thread(resend.Emails.send, params)
-            
-            logger.info(f"📧 Welcome email sent to {to_email} via Resend (With Attachment)")
-            logger.info(f"📧 Resend Response: {response}")
-        else:
-            # Fallback: send without attachment if PDF not found
-            await asyncio.to_thread(resend.Emails.send, params)
-            logger.info(f"📧 Welcome email sent to {to_email} via Resend (No Attachment - PDF not found)")
+        # Send email using Resend API
+        response = await asyncio.to_thread(resend.Emails.send, params)
+        logger.info(f"📧 Welcome email sent to {to_email} via Resend (Download link)")
+        logger.info(f"📧 Resend Response: {response}")
         
     except Exception as email_error:
         logger.error(f"❌ Failed to send welcome email to {to_email} via Resend. Error: {str(email_error)}")
