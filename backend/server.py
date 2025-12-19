@@ -441,10 +441,13 @@ async def send_welcome_email(to_email: str, name: str):
         return
 
     try:
+        # Get preview/production URL for logo
+        frontend_url = os.environ.get("REACT_APP_BACKEND_URL", "https://recalibratepain.com").replace("/api", "")
+        
         welcome_html = f"""
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
             <div style="text-align: center; margin-bottom: 24px;">
-                <img src="https://recalibratepain.com/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto; margin-bottom: 16px;">
+                <img src="{frontend_url}/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto; margin-bottom: 16px;">
                 <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold; margin-top: 0;">Welcome to the Revolution! 🚀</h1>
             </div>
             
@@ -484,7 +487,7 @@ async def send_welcome_email(to_email: str, name: str):
         
         # Prepare email parameters for Resend with attachment
         params = {
-            "from": SENDER_EMAIL,
+            "from": "Recalibrate <info@recalibratepain.com>",
             "to": [to_email],
             "subject": "🎁 Welcome to Recalibrate! Here is your Free Course",
             "html": welcome_html
@@ -492,15 +495,13 @@ async def send_welcome_email(to_email: str, name: str):
         
         # Add PDF attachment if file exists
         if os.path.exists(pdf_path):
-            import base64
             with open(pdf_path, "rb") as pdf_file:
                 pdf_content = pdf_file.read()
-                pdf_base64 = base64.b64encode(pdf_content).decode("utf-8")
             
             params["attachments"] = [
                 {
                     "filename": "Recalibrate_Self_Management_101.pdf",
-                    "content": pdf_base64
+                    "content": pdf_content
                 }
             ]
             
