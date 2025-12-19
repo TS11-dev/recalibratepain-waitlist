@@ -1526,6 +1526,193 @@ def test_final_confirmation_loading_forever_fix():
     
     return test_passed
 
+def test_resend_attachment_based_welcome_email():
+    """Test the new Attachment-Based welcome email flow using Resend as requested in review"""
+    print("🎯 TESTING SPECIFIC REVIEW REQUEST: Attachment-Based Welcome Email Flow using Resend")
+    print("Requirements:")
+    print("1. Verify the PDF is still on disk at /app/backend/data/Recalibrate_Self_Management_101.pdf")
+    print("2. Trigger join_waitlist with a new unique email (test_resend_attachment_{timestamp}@test.com)")
+    print("3. Confirm response is instant (background task)")
+    print("4. Check logs for '📧 Welcome email sent to... via Resend (With Attachment)'")
+    
+    # Step 1: Verify PDF exists on disk
+    pdf_path = "/app/backend/data/Recalibrate_Self_Management_101.pdf"
+    pdf_exists = os.path.exists(pdf_path)
+    
+    print(f"\n📄 STEP 1: Verifying PDF exists on disk")
+    print(f"PDF path: {pdf_path}")
+    print(f"PDF exists: {pdf_exists}")
+    
+    if pdf_exists:
+        # Get file size for verification
+        pdf_size = os.path.getsize(pdf_path)
+        print(f"PDF size: {pdf_size:,} bytes ({pdf_size/1024/1024:.2f} MB)")
+    else:
+        print(f"❌ PDF file not found at {pdf_path}")
+        return False
+    
+    # Step 2: Trigger join_waitlist with unique email
+    timestamp = int(time.time())
+    test_email = f"test_resend_attachment_{timestamp}@test.com"
+    test_name = "Resend Attachment Test User"
+    
+    print(f"\n📧 STEP 2: Triggering join_waitlist with unique email")
+    print(f"Test email: {test_email}")
+    print(f"Test name: {test_name}")
+    
+    test_data = {
+        "name": test_name,
+        "email": test_email
+    }
+    
+    print(f"📤 Sending request to: {BACKEND_URL}/api/waitlist/join")
+    print(f"Request body: {json.dumps(test_data, indent=2)}")
+    
+    # Step 3: Confirm response is instant (background task)
+    print(f"\n⏱️ STEP 3: Measuring response time for instant response")
+    start_time = time.time()
+    
+    response = requests.post(
+        f"{BACKEND_URL}/api/waitlist/join", 
+        json=test_data
+    )
+    
+    response_time = time.time() - start_time
+    
+    print(f"Response Status: {response.status_code}")
+    print(f"Response Time: {response_time:.3f} seconds")
+    print(f"Response Body: {response.text}")
+    
+    if response.status_code != 200:
+        print(f"❌ Join waitlist failed with status {response.status_code}")
+        return False
+    
+    data = response.json()
+    success = data.get("success", False)
+    message = data.get("message", "")
+    
+    # Verify response is instant (background task working)
+    is_instant = response_time < 2.0
+    
+    print(f"✅ Join Success: {success}")
+    print(f"💬 Message: {message}")
+    print(f"⚡ Instant Response: {is_instant} ({response_time:.3f}s)")
+    
+    if not is_instant:
+        print(f"❌ Response was not instant - may indicate blocking issue")
+        return False
+    
+    # Step 4: Check logs for "📧 Welcome email sent to... via Resend (With Attachment)"
+    print(f"\n📋 STEP 4: Checking logs for Resend attachment confirmation")
+    print("Waiting 8 seconds for background task to complete...")
+    time.sleep(8)
+    
+    attachment_email_found = False
+    resend_email_found = False
+    log_messages = []
+    
+    try:
+        # Check for the specific "via Resend (With Attachment)" message
+        attachment_commands = [
+            f"tail -n 100 /var/log/supervisor/backend.out.log | grep '{test_email}' | grep 'via Resend (With Attachment)'",
+            f"tail -n 100 /var/log/supervisor/backend.err.log | grep '{test_email}' | grep 'via Resend (With Attachment)'"
+        ]
+        
+        for cmd in attachment_commands:
+            log_result = os.popen(cmd).read().strip()
+            if log_result and test_email in log_result and "via Resend (With Attachment)" in log_result:
+                attachment_email_found = True
+                log_messages.append(log_result)
+                print(f"✅ ATTACHMENT EMAIL CONFIRMATION FOUND: {log_result}")
+        
+        # Also check for general Resend email confirmation
+        resend_commands = [
+            f"tail -n 100 /var/log/supervisor/backend.out.log | grep '{test_email}' | grep 'via Resend'",
+            f"tail -n 100 /var/log/supervisor/backend.err.log | grep '{test_email}' | grep 'via Resend'"
+        ]
+        
+        for cmd in resend_commands:
+            log_result = os.popen(cmd).read().strip()
+            if log_result and test_email in log_result and "via Resend" in log_result:
+                resend_email_found = True
+                if log_result not in log_messages:
+                    log_messages.append(log_result)
+                print(f"✅ RESEND EMAIL CONFIRMATION FOUND: {log_result}")
+        
+        # If no specific messages found, check for any email activity related to our test
+        if not attachment_email_found and not resend_email_found:
+            print(f"⚠️ No Resend-specific email messages found for {test_email}")
+            
+            # Check for any email activity related to our test email
+            general_commands = [
+                f"tail -n 100 /var/log/supervisor/backend.out.log | grep '{test_email}'",
+                f"tail -n 100 /var/log/supervisor/backend.err.log | grep '{test_email}'"
+            ]
+            
+            for cmd in general_commands:
+                log_result = os.popen(cmd).read().strip()
+                if log_result and test_email in log_result:
+                    log_messages.append(log_result)
+                    print(f"📝 Email-related log found: {log_result}")
+            
+            # Show recent logs for debugging
+            if not log_messages:
+                print(f"\n📋 RECENT BACKEND LOGS (last 30 lines):")
+                recent_logs = os.popen("tail -n 30 /var/log/supervisor/backend.out.log").read()
+                print(recent_logs)
+                
+    except Exception as e:
+        print(f"⚠️ Error checking logs: {e}")
+    
+    # Check Resend API configuration
+    print(f"\n🔧 RESEND API CONFIGURATION CHECK:")
+    try:
+        with open("/app/backend/.env", "r") as f:
+            env_content = f.read()
+            
+        has_resend_key = "RESEND_API_KEY=" in env_content and len(env_content.split("RESEND_API_KEY=")[1].split("\n")[0].strip()) > 0
+        
+        print(f"✅ RESEND_API_KEY configured: {has_resend_key}")
+        
+        if has_resend_key:
+            resend_key = env_content.split("RESEND_API_KEY=")[1].split("\n")[0].strip()
+            print(f"RESEND_API_KEY length: {len(resend_key)} characters")
+            
+    except Exception as e:
+        print(f"⚠️ Error checking Resend config: {e}")
+        has_resend_key = False
+    
+    # Verify all requirements are met
+    requirements_met = (
+        pdf_exists and              # PDF exists on disk
+        success and                 # Join waitlist successful
+        is_instant and             # Response is instant (background task)
+        (attachment_email_found or resend_email_found)  # Email sent via Resend
+    )
+    
+    print(f"\n📋 ATTACHMENT-BASED EMAIL FLOW REQUIREMENTS CHECK:")
+    print(f"  ✅ PDF exists on disk: {pdf_exists}")
+    print(f"  ✅ Join waitlist successful: {success}")
+    print(f"  ✅ Response is instant (background task): {is_instant} ({response_time:.3f}s)")
+    print(f"  📧 Attachment email confirmation: {attachment_email_found}")
+    print(f"  📧 General Resend email confirmation: {resend_email_found}")
+    print(f"  🔧 Resend API configured: {has_resend_key}")
+    print(f"  ✅ Overall requirements met: {requirements_met}")
+    
+    if attachment_email_found:
+        print(f"\n🎉 SUCCESS: Attachment-based welcome email flow is working correctly!")
+        print(f"✅ PDF is attached directly via Resend API")
+        print(f"✅ Logs confirm 'via Resend (With Attachment)'")
+    elif resend_email_found:
+        print(f"\n⚠️ PARTIAL SUCCESS: Resend email working but attachment status unclear")
+        print(f"✅ Email sent via Resend API")
+        print(f"⚠️ Attachment confirmation not found in logs")
+    else:
+        print(f"\n❌ ISSUE: Attachment-based email flow has problems")
+        print(f"❌ No Resend email confirmation found")
+    
+    return requirements_met
+
 def test_partner_contact_resend_logic():
     """Test the partner contact form with Resend logic as requested in review"""
     print("🎯 TESTING SPECIFIC REVIEW REQUEST: Partner Contact Form with Resend Logic")
