@@ -498,12 +498,13 @@ async def send_welcome_email(to_email: str, name: str):
             import base64
             with open(pdf_path, "rb") as pdf_file:
                 pdf_bytes = pdf_file.read()
-                pdf_base64 = base64.b64encode(pdf_bytes).decode("ascii")
+                pdf_base64 = base64.b64encode(pdf_bytes).decode("utf-8")
             
             params["attachments"] = [
                 {
                     "filename": "Recalibrate_Self_Management_101.pdf",
-                    "content": pdf_base64
+                    "content": pdf_base64,
+                    "content_type": "application/pdf"
                 }
             ]
             
