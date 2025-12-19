@@ -273,14 +273,14 @@ function App() {
               
               {/* Waitlist Count */}
               <div className="flex flex-col items-center gap-3">
+                <p className="text-sm text-gray-600 text-center">
+                  🎁 Get instant access to our <span className="font-semibold text-purple-700">free Self-Management 101 course</span> when you join
+                </p>
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full px-6 py-2.5 shadow-lg shadow-purple-500/25">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                   <span className="font-bold text-white text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}+</span>
                   <span className="text-white/80 text-sm">joined</span>
                 </div>
-                <p className="text-sm text-gray-600 text-center">
-                  🎁 Get instant access to our <span className="font-semibold text-purple-700">free Self-Management 101 course</span> when you join
-                </p>
               </div>
             </div>
 
@@ -1130,6 +1130,9 @@ function App() {
               <div className="absolute bottom-0 right-0 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
               
               <div className="relative">
+                <p className="text-sm text-white/90 text-center mb-4">
+                  🎁 Get instant access to our <span className="font-semibold text-white">free Self-Management 101 course</span> when you join
+                </p>
                 <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-5 py-2.5 mb-6">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                   <span className="text-white font-bold text-base">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}+</span>
