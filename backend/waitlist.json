@@ -273,5 +273,10 @@
     "name": "Resend Attachment Test User",
     "email": "test_resend_attachment_1766156656@test.com",
     "timestamp": "2025-12-19T15:04:16.943216"
+  },
+  {
+    "name": "Debug Test User",
+    "email": "test_debug_email_1766156688@test.com",
+    "timestamp": "2025-12-19T15:04:48.443525"
   }
 ]
