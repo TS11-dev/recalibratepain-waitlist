@@ -448,10 +448,8 @@ async def send_welcome_email(to_email: str, name: str):
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
             <div style="text-align: center; margin-bottom: 24px;">
                 <img src="{frontend_url}/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto; margin-bottom: 16px;">
-                <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold; margin-top: 0;">Welcome to the Revolution! 🚀</h1>
+                <h1 style="color: #4f46e5; font-size: 24px; font-weight: bold; margin-top: 0;">Welcome to Recalibrate! 🚀</h1>
             </div>
-            
-            <p>Hi {name},</p>
             
             <p>Thank you for joining the <strong>Recalibrate App</strong> waitlist. You are now part of a movement to redefine how we understand and manage chronic pain.</p>
             
