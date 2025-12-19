@@ -508,9 +508,10 @@ async def send_welcome_email(to_email: str, name: str):
             ]
             
             # Send email using Resend API with attachment
-            await asyncio.to_thread(resend.Emails.send, params)
+            response = await asyncio.to_thread(resend.Emails.send, params)
             
             logger.info(f"📧 Welcome email sent to {to_email} via Resend (With Attachment)")
+            logger.info(f"📧 Resend Response: {response}")
         else:
             # Fallback: send without attachment if PDF not found
             await asyncio.to_thread(resend.Emails.send, params)
