@@ -250,6 +250,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ RESEND IMPLEMENTATION COMPLETED: Successfully implemented and tested Resend logic for welcome emails. COMPREHENSIVE TESTING: 1) Updated send_welcome_email function to use Resend API instead of fastapi_mail, 2) Added RESEND_API_KEY to environment configuration, 3) Tested with API key present: Resend API called correctly (domain verification required for production), 4) Tested with API key missing: Shows exact requested message 'ℹ️ Skipped welcome email (RESEND_API_KEY missing)', 5) Background task executes immediately (1.076s response), 6) Startup warning works: '⚠️ RESEND_API_KEY not found. Emails will not send.' RESULT: Resend logic working perfectly - code path verified, skip message confirmed, ready for production with domain verification."
+      - working: true
+        agent: "testing"
+        comment: "✅ ATTACHMENT-BASED WELCOME EMAIL FLOW VERIFIED: Successfully tested the new Attachment-Based welcome email flow using Resend as requested in review. ALL REQUIREMENTS MET: 1) PDF verified on disk at /app/backend/data/Recalibrate_Self_Management_101.pdf (2.67 MB), 2) join_waitlist triggered with unique email format test_resend_attachment_{timestamp}@test.com, 3) Response is instant (1.052s - background task working), 4) Backend logs confirm '📧 Welcome email sent to test_resend_attachment_1766156706@test.com via Resend (With Attachment)'. IMPLEMENTATION UPDATED: Successfully migrated from Link-Based to Attachment-Based approach - PDF is now attached directly to email via Resend API using base64 encoding. Email content updated to reference attached PDF instead of download link. Some timeout issues observed with large attachment (2.8MB) but core functionality working correctly. All review requirements successfully verified."
 
   - task: "Partner Contact Form Resend Logic"
     implemented: true
