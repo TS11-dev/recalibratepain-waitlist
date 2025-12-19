@@ -14,7 +14,7 @@ import os
 from datetime import datetime
 
 # Use production backend URL from frontend .env
-BACKEND_URL = 'https://recalipain-1.preview.emergentagent.com'
+BACKEND_URL = 'https://painredesign.preview.emergentagent.com'
 
 def test_bg_task_verification():
     """Test background task verification as requested in review"""
