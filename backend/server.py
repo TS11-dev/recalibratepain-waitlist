@@ -690,10 +690,13 @@ async def partner_contact(form: PartnerContactForm):
         if os.environ.get("RESEND_API_KEY"):
             try:
                 # Prepare email content
+                # Get preview/production URL for logo
+                frontend_url = os.environ.get("REACT_APP_BACKEND_URL", "https://recalibratepain.com").replace("/api", "")
+                
                 html_content = f"""
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
                     <div style="text-align: center; margin-bottom: 24px;">
-                        <img src="https://recalibratepain.com/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto;">
+                        <img src="{frontend_url}/recalibrate-logo.png" alt="Recalibrate Logo" style="height: 48px; width: auto;">
                     </div>
                     <h2 style="color: #4f46e5;">New Partner Inquiry: {form.type.title()}</h2>
                     <p><strong>Name:</strong> {form.name}</p>
@@ -713,7 +716,7 @@ async def partner_contact(form: PartnerContactForm):
                 """
                 
                 params = {
-                    "from": SENDER_EMAIL,
+                    "from": "Recalibrate <info@recalibratepain.com>",
                     "to": ["info@recalibratepain.com"],
                     "subject": f"New Partner Inquiry: {form.organization}",
                     "html": html_content,
