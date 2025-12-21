@@ -34,10 +34,12 @@ function App() {
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isYearly, setIsYearly] = useState(false);
   const [partnerForm, setPartnerForm] = useState({ type: '', name: '', email: '', organization: '', message: '' });
   const [partnerFormOpen, setPartnerFormOpen] = useState(null); // 'clinic', 'research', 'investor'
   const [partnerSubmitting, setPartnerSubmitting] = useState(false);
+  const [goPlanYearly, setGoPlanYearly] = useState(false);
+  const [proPlanYearly, setProPlanYearly] = useState(false);
+  const [superPlanYearly, setSuperPlanYearly] = useState(false);
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
@@ -771,22 +773,6 @@ function App() {
             <div className="text-center mb-8">
               <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">Simple, Transparent Pricing</h2>
               <p className="text-gray-600 mb-6">Choose the plan that fits your journey</p>
-              
-              {/* Monthly/Yearly Toggle */}
-              <div className="inline-flex items-center gap-3 bg-gray-100 p-1 rounded-xl">
-                <button 
-                  onClick={() => setIsYearly(false)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${!isYearly ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-600'}`}
-                >
-                  Monthly
-                </button>
-                <button 
-                  onClick={() => setIsYearly(true)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${isYearly ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-600'}`}
-                >
-                  Yearly <span className="text-xs text-green-600 font-semibold ml-1">Save 35%</span>
-                </button>
-              </div>
             </div>
             
             {/* Pricing Cards - Grid Layout like Features */}
@@ -822,16 +808,39 @@ function App() {
               </div>
 
               {/* Go Plan */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow relative">
+                {/* Toggle in top right corner */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-1 bg-emerald-100 p-1 rounded-lg">
+                  <button 
+                    onClick={() => setGoPlanYearly(false)}
+                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${!goPlanYearly ? 'bg-white text-emerald-700 shadow-sm' : 'text-emerald-600'}`}
+                  >
+                    Monthly
+                  </button>
+                  <button 
+                    onClick={() => setGoPlanYearly(true)}
+                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${goPlanYearly ? 'bg-white text-emerald-700 shadow-sm' : 'text-emerald-600'}`}
+                  >
+                    Yearly
+                  </button>
+                </div>
+                
                 <div className="lg:order-2">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">🚀</span>
                     <h3 className="text-2xl font-bold text-gray-900">Go</h3>
                   </div>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-gray-900">${isYearly ? subscriptionPlans[1].yearly : subscriptionPlans[1].monthly}</span>
-                    <span className="text-lg text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
-                    {!isYearly && <p className="text-sm text-green-600 font-medium">${subscriptionPlans[1].yearly}/yr if billed yearly</p>}
+                    <div className="mb-2">
+                      <span className="text-4xl font-bold text-gray-900">${goPlanYearly ? subscriptionPlans[1].yearly : subscriptionPlans[1].monthly}</span>
+                      <span className="text-lg text-gray-500">/{goPlanYearly ? 'yr' : 'mo'}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <span className="text-gray-600">${subscriptionPlans[1].monthly}/mo</span>
+                      <span className="text-gray-400">•</span>
+                      <span className="text-gray-600">${subscriptionPlans[1].yearly}/yr</span>
+                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-semibold">Save 35%</span>
+                    </div>
                     <p className="text-gray-600 mt-1">Education & tools</p>
                   </div>
                   <ul className="space-y-2 mb-6">
@@ -858,15 +867,39 @@ function App() {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">Most Popular</span>
                 </div>
+                
+                {/* Toggle in top right corner */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-1 bg-purple-100 p-1 rounded-lg">
+                  <button 
+                    onClick={() => setProPlanYearly(false)}
+                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${!proPlanYearly ? 'bg-white text-purple-700 shadow-sm' : 'text-purple-600'}`}
+                  >
+                    Monthly
+                  </button>
+                  <button 
+                    onClick={() => setProPlanYearly(true)}
+                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${proPlanYearly ? 'bg-white text-purple-700 shadow-sm' : 'text-purple-600'}`}
+                  >
+                    Yearly
+                  </button>
+                </div>
+                
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">⭐</span>
                     <h3 className="text-2xl font-bold text-gray-900">Pro</h3>
                   </div>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-gray-900">${isYearly ? subscriptionPlans[2].yearly : subscriptionPlans[2].monthly}</span>
-                    <span className="text-lg text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
-                    {!isYearly && <p className="text-sm text-green-600 font-medium">${subscriptionPlans[2].yearly}/yr if billed yearly</p>}
+                    <div className="mb-2">
+                      <span className="text-4xl font-bold text-gray-900">${proPlanYearly ? subscriptionPlans[2].yearly : subscriptionPlans[2].monthly}</span>
+                      <span className="text-lg text-gray-500">/{proPlanYearly ? 'yr' : 'mo'}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <span className="text-gray-600">${subscriptionPlans[2].monthly}/mo</span>
+                      <span className="text-gray-400">•</span>
+                      <span className="text-gray-600">${subscriptionPlans[2].yearly}/yr</span>
+                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-semibold">Save 29%</span>
+                    </div>
                     <p className="text-gray-600 mt-1">AI & Care Team</p>
                   </div>
                   <ul className="space-y-2 mb-6">
@@ -889,16 +922,39 @@ function App() {
               </div>
 
               {/* Super Plan */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-amber-300 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-amber-300 shadow-sm hover:shadow-lg transition-shadow relative">
+                {/* Toggle in top right corner */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-1 bg-amber-100 p-1 rounded-lg">
+                  <button 
+                    onClick={() => setSuperPlanYearly(false)}
+                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${!superPlanYearly ? 'bg-white text-amber-700 shadow-sm' : 'text-amber-600'}`}
+                  >
+                    Monthly
+                  </button>
+                  <button 
+                    onClick={() => setSuperPlanYearly(true)}
+                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${superPlanYearly ? 'bg-white text-amber-700 shadow-sm' : 'text-amber-600'}`}
+                  >
+                    Yearly
+                  </button>
+                </div>
+                
                 <div className="lg:order-2">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">💎</span>
                     <h3 className="text-2xl font-bold text-gray-900">Super</h3>
                   </div>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-gray-900">${isYearly ? subscriptionPlans[3].yearly : subscriptionPlans[3].monthly}</span>
-                    <span className="text-lg text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
-                    {!isYearly && <p className="text-sm text-green-600 font-medium">${subscriptionPlans[3].yearly}/yr if billed yearly</p>}
+                    <div className="mb-2">
+                      <span className="text-4xl font-bold text-gray-900">${superPlanYearly ? subscriptionPlans[3].yearly : subscriptionPlans[3].monthly}</span>
+                      <span className="text-lg text-gray-500">/{superPlanYearly ? 'yr' : 'mo'}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <span className="text-gray-600">${subscriptionPlans[3].monthly}/mo</span>
+                      <span className="text-gray-400">•</span>
+                      <span className="text-gray-600">${subscriptionPlans[3].yearly}/yr</span>
+                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-semibold">Save 17%</span>
+                    </div>
                     <p className="text-gray-600 mt-1">Premium AI & Support</p>
                   </div>
                   <ul className="space-y-2 mb-6">
