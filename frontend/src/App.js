@@ -1243,61 +1243,70 @@ function App() {
 
             {/* Desktop: Full cards - all same white style */}
             <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-              {/* Newsletter */}
+              {/* Newsletter - Purple gradient */}
               <a 
                 href="https://recalibrate.beehiiv.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl p-8 border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl transition-all group"
+                className="relative bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/20 transition-all group overflow-hidden"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">📬</span>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-purple-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                    <span className="text-3xl">📬</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Recalibrate Newsletter</h3>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Weekly insights on chronic pain management, research updates, and practical tips delivered to your inbox.
+                  </p>
+                  <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-xl font-semibold text-purple-600 shadow-md group-hover:shadow-lg group-hover:bg-purple-600 group-hover:text-white transition-all">
+                    Subscribe Free <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Recalibrate Newsletter</h3>
-                <p className="text-gray-600 mb-4">
-                  Weekly insights on chronic pain management, research updates, and practical tips delivered to your inbox.
-                </p>
-                <span className="inline-flex items-center gap-2 text-purple-600 font-semibold">
-                  Subscribe free <ExternalLink className="w-4 h-4" />
-                </span>
               </a>
               
-              {/* Courses and Products */}
+              {/* Courses and Products - Orange gradient */}
               <a 
                 href="https://www.etsy.com/shop/RecalibratePain" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl p-8 border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl transition-all group"
+                className="relative bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border-2 border-orange-200 hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/20 transition-all group overflow-hidden"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">📚</span>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-orange-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                    <span className="text-3xl">📚</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Courses & Products</h3>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Explore our pain education resources, worksheets, and guides to start your journey.
+                  </p>
+                  <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-xl font-semibold text-orange-600 shadow-md group-hover:shadow-lg group-hover:bg-orange-600 group-hover:text-white transition-all">
+                    Browse Products <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Courses and Other Products</h3>
-                <p className="text-gray-600 mb-4">
-                  Explore our pain education resources, worksheets, and guides to start your journey.
-                </p>
-                <span className="inline-flex items-center gap-2 text-purple-600 font-semibold">
-                  Browse products <ExternalLink className="w-4 h-4" />
-                </span>
               </a>
               
-              {/* Support */}
+              {/* Support - Pink/Rose gradient */}
               <a 
                 href="https://ko-fi.com/N4N21O1R1W" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl p-8 border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl transition-all group"
+                className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl hover:shadow-pink-500/20 transition-all group overflow-hidden"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">☕</span>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-rose-500/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                    <span className="text-3xl">☕</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Support Our Mission</h3>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Help us build the future of pain management. Your support keeps our free resources available.
+                  </p>
+                  <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-xl font-semibold text-pink-600 shadow-md group-hover:shadow-lg group-hover:bg-pink-600 group-hover:text-white transition-all">
+                    Buy Us a Coffee <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Support Our Mission</h3>
-                <p className="text-gray-600 mb-4">
-                  Help us build the future of pain management. Your support keeps our free resources available to everyone.
-                </p>
-                <span className="inline-flex items-center gap-2 text-purple-600 font-semibold">
-                  Buy us a coffee <ExternalLink className="w-4 h-4" />
-                </span>
               </a>
             </div>
           </div>
