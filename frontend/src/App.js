@@ -249,7 +249,7 @@ function App() {
               </h1>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-                <strong className="text-gray-800">Recalibrate App</strong> — Track over 18 Health Variables including Pain, Exercise, Nutrition, Anxiety and Sleep. Discover patterns with Analytics and Recalibrate AI, access guided tools and exercises, learn from our Pain Academy and connect to clinicians, researchers and carers easily.
+                <strong className="text-gray-800">Recalibrate App</strong> — Track over 18 Health Variables including Pain, Exercise, Nutrition, Anxiety and Sleep. Discover patterns with Analytics and Recalibrate AI, access guided tools and exercises, learn from our Recalibrate Academy and connect to clinicians, researchers and carers easily.
               </p>
               
               {/* Email Form */}
@@ -432,7 +432,7 @@ function App() {
                   <span className="text-lg">🧠</span>
                   <div>
                     <p className="font-bold text-sm">90+ Lessons</p>
-                    <p className="text-xs text-white/80">Pain Academy</p>
+                    <p className="text-xs text-white/80">Recalibrate Academy</p>
                   </div>
                 </div>
               </div>
@@ -564,11 +564,11 @@ function App() {
               </div>
             </div>
 
-            {/* Feature 3: Pain Academy - visual LEFT */}
+            {/* Feature 3: Recalibrate Academy - visual LEFT */}
             <div className="grid grid-cols-2 gap-2 lg:gap-12 items-center mb-4 lg:mb-20 p-2 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow">
               <div className="col-span-1">
                 <span className="inline-block bg-emerald-100 text-emerald-700 text-[9px] lg:text-xs font-bold px-1.5 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">GO</span>
-                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Pain Academy</h3>
+                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Recalibrate Academy</h3>
                 <p className="text-gray-600 mb-2 lg:mb-6 text-[9px] lg:text-lg leading-tight">
                   90+ lessons on pain science. Earn XP and badges.
                 </p>
