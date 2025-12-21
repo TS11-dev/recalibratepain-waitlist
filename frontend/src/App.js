@@ -789,65 +789,166 @@ function App() {
               </div>
             </div>
             
-            <div className="overflow-x-auto pb-4 -mx-4 px-4">
-              <div className="flex gap-3 lg:gap-4 min-w-min">
-                {subscriptionPlans.map((plan, i) => (
-                  <div
-                    key={i}
-                    className={`relative flex-shrink-0 w-[280px] lg:w-[240px] bg-white rounded-xl p-4 lg:p-6 border-2 transition-all hover:shadow-lg ${
-                      plan.popular 
-                        ? 'border-purple-500 shadow-lg shadow-purple-500/10' 
-                        : plan.isLifetime 
-                          ? 'border-amber-400'
-                          : 'border-gray-200'
-                    }`}
-                  >
-                    {plan.popular && (
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2">
-                        <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">Most Popular</span>
-                      </div>
-                    )}
-                    
-                    <div className="text-center pt-2">
-                      <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
-                      <div className="mt-2 mb-1">
-                        <span className="text-3xl font-bold text-gray-900">
-                          ${plan.isLifetime ? plan.monthly : (isYearly && plan.yearly ? plan.yearly : plan.monthly)}
-                        </span>
-                        {!plan.isLifetime && plan.monthly !== "0" && (
-                          <span className="text-sm text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
-                        )}
-                        {plan.isLifetime && <span className="text-sm text-gray-500"> once</span>}
-                      </div>
-                      {!isYearly && plan.yearly && plan.monthly !== "0" && (
-                        <p className="text-xs text-green-600 font-medium">${plan.yearly}/yr if billed yearly</p>
-                      )}
-                      <p className="text-xs text-gray-500 mt-1">{plan.description}</p>
-                    </div>
-                    
-                    <div className="mt-4 space-y-2">
-                      {plan.features.map((feature, fi) => (
-                        <p key={fi} className="text-sm text-gray-600 flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span>{feature}</span>
-                        </p>
-                      ))}
-                    </div>
-                    
-                    <button 
-                      onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-                      className={`w-full mt-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                        plan.popular 
-                          ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-purple-500/25' 
-                          : plan.isLifetime
-                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      {plan.cta}
-                    </button>
+            {/* Pricing Cards - Grid Layout like Features */}
+            <div className="space-y-6">
+              {/* Free Plan */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🆓</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Free</h3>
                   </div>
-                ))}
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-gray-900">$0</span>
+                    <p className="text-gray-600 mt-1">Essential tracking</p>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {subscriptionPlans[0].features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="bg-gray-100 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all">
+                    Start Free
+                  </button>
+                </div>
+                <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-xl p-8 border-2 border-gray-200 text-center">
+                  <div className="text-6xl mb-4">📊</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">18+ Variables</p>
+                  <p className="text-gray-600">Track everything that matters</p>
+                </div>
+              </div>
+
+              {/* Go Plan */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div className="lg:order-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🚀</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Go</h3>
+                  </div>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-gray-900">${isYearly ? subscriptionPlans[1].yearly : subscriptionPlans[1].monthly}</span>
+                    <span className="text-lg text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
+                    {!isYearly && <p className="text-sm text-green-600 font-medium">${subscriptionPlans[1].yearly}/yr if billed yearly</p>}
+                    <p className="text-gray-600 mt-1">Education & tools</p>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {subscriptionPlans[1].features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="bg-emerald-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-emerald-600 transition-all">
+                    Get Go
+                  </button>
+                </div>
+                <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-8 border-2 border-emerald-200 text-center lg:order-1">
+                  <div className="text-6xl mb-4">🧠</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">90+ Lessons</p>
+                  <p className="text-gray-600">Pain Academy & Tools</p>
+                </div>
+              </div>
+
+              {/* Pro Plan */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-500 shadow-lg shadow-purple-500/10 hover:shadow-xl transition-shadow relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">Most Popular</span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">⭐</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Pro</h3>
+                  </div>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-gray-900">${isYearly ? subscriptionPlans[2].yearly : subscriptionPlans[2].monthly}</span>
+                    <span className="text-lg text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
+                    {!isYearly && <p className="text-sm text-green-600 font-medium">${subscriptionPlans[2].yearly}/yr if billed yearly</p>}
+                    <p className="text-gray-600 mt-1">AI & Care Team</p>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {subscriptionPlans[2].features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all">
+                    Go Pro
+                  </button>
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
+                  <div className="text-6xl mb-4">🤖</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Recalibrate AI</p>
+                  <p className="text-gray-600">Gemini 2.0 Flash powered</p>
+                </div>
+              </div>
+
+              {/* Super Plan */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-amber-300 shadow-sm hover:shadow-lg transition-shadow">
+                <div className="lg:order-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">💎</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Super</h3>
+                  </div>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-gray-900">${isYearly ? subscriptionPlans[3].yearly : subscriptionPlans[3].monthly}</span>
+                    <span className="text-lg text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
+                    {!isYearly && <p className="text-sm text-green-600 font-medium">${subscriptionPlans[3].yearly}/yr if billed yearly</p>}
+                    <p className="text-gray-600 mt-1">Premium AI & Support</p>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {subscriptionPlans[3].features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                    Get Super
+                  </button>
+                </div>
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 border-2 border-amber-200 text-center lg:order-1">
+                  <div className="text-6xl mb-4">👨‍⚕️</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">More Care Team</p>
+                  <p className="text-gray-600">+ Customizations</p>
+                </div>
+              </div>
+
+              {/* Lifetime Super */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-amber-400 shadow-lg hover:shadow-xl transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">♾️</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Lifetime Super</h3>
+                  </div>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-gray-900">${subscriptionPlans[4].monthly}</span>
+                    <span className="text-lg text-gray-500"> once</span>
+                    <p className="text-gray-600 mt-1">Super forever</p>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {subscriptionPlans[4].features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                    Get Lifetime Super
+                  </button>
+                </div>
+                <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-8 border-2 border-amber-300 text-center">
+                  <div className="text-6xl mb-4">⭐</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">VIP Access</p>
+                  <p className="text-gray-600">Lifetime updates & features</p>
+                </div>
               </div>
             </div>
           </div>
