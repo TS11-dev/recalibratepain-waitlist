@@ -825,7 +825,7 @@ function App() {
                   </button>
                 </div>
                 
-                <div className="lg:order-2">
+                <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">🚀</span>
                     <h3 className="text-2xl font-bold text-gray-900">Go</h3>
@@ -861,7 +861,7 @@ function App() {
                     Get Go
                   </button>
                 </div>
-                <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-8 border-2 border-emerald-200 text-center lg:order-1">
+                <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-8 border-2 border-emerald-200 text-center">
                   <div className="text-6xl mb-4">🧠</div>
                   <p className="text-2xl font-bold text-gray-900 mb-2">90+ Lessons</p>
                   <p className="text-gray-600">Pain Academy & Tools</p>
@@ -951,7 +951,7 @@ function App() {
                   </button>
                 </div>
                 
-                <div className="lg:order-2">
+                <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">💎</span>
                     <h3 className="text-2xl font-bold text-gray-900">Super</h3>
@@ -987,7 +987,7 @@ function App() {
                     Get Super
                   </button>
                 </div>
-                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 border-2 border-amber-200 text-center lg:order-1">
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 border-2 border-amber-200 text-center">
                   <div className="text-6xl mb-4">👨‍⚕️</div>
                   <p className="text-2xl font-bold text-gray-900 mb-2">More Care Team</p>
                   <p className="text-gray-600">+ Customizations</p>
