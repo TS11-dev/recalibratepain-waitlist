@@ -809,17 +809,17 @@ function App() {
 
               {/* Go Plan */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow relative">
-                {/* Toggle in top right corner */}
-                <div className="absolute top-4 right-4 inline-flex items-center gap-1 bg-emerald-100 p-1 rounded-lg">
+                {/* Toggle in top right corner - BIGGER */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-2 bg-emerald-100 p-1.5 rounded-xl shadow-sm">
                   <button 
                     onClick={() => setGoPlanYearly(false)}
-                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${!goPlanYearly ? 'bg-white text-emerald-700 shadow-sm' : 'text-emerald-600'}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${!goPlanYearly ? 'bg-white text-emerald-700 shadow-md' : 'text-emerald-600'}`}
                   >
                     Monthly
                   </button>
                   <button 
                     onClick={() => setGoPlanYearly(true)}
-                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${goPlanYearly ? 'bg-white text-emerald-700 shadow-sm' : 'text-emerald-600'}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${goPlanYearly ? 'bg-white text-emerald-700 shadow-md' : 'text-emerald-600'}`}
                   >
                     Yearly
                   </button>
@@ -832,16 +832,22 @@ function App() {
                   </div>
                   <div className="mb-4">
                     <div className="mb-2">
-                      <span className="text-4xl font-bold text-gray-900">${goPlanYearly ? subscriptionPlans[1].yearly : subscriptionPlans[1].monthly}</span>
-                      <span className="text-lg text-gray-500">/{goPlanYearly ? 'yr' : 'mo'}</span>
+                      <span className="text-4xl font-bold text-gray-900">
+                        ${goPlanYearly ? (parseFloat(subscriptionPlans[1].yearly) / 12).toFixed(2) : subscriptionPlans[1].monthly}
+                      </span>
+                      <span className="text-lg text-gray-500">/mo</span>
                     </div>
+                    {goPlanYearly && (
+                      <p className="text-sm text-gray-600 mb-2">Billed yearly at ${subscriptionPlans[1].yearly}</p>
+                    )}
                     <div className="flex items-center gap-2 text-sm">
-                      <span className="text-gray-600">${subscriptionPlans[1].monthly}/mo</span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-gray-600">${subscriptionPlans[1].yearly}/yr</span>
-                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-semibold">Save 35%</span>
+                      <span className="text-gray-600">${subscriptionPlans[1].monthly}/mo monthly</span>
+                      <span className="text-gray-400">or</span>
+                      <span className="text-gray-600">${(parseFloat(subscriptionPlans[1].yearly) / 12).toFixed(2)}/mo yearly</span>
                     </div>
-                    <p className="text-gray-600 mt-1">Education & tools</p>
+                    <div className="mt-2">
+                      <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Save 35% with yearly</span>
+                    </div>
                   </div>
                   <ul className="space-y-2 mb-6">
                     {subscriptionPlans[1].features.map((feature, i) => (
@@ -868,17 +874,17 @@ function App() {
                   <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">Most Popular</span>
                 </div>
                 
-                {/* Toggle in top right corner */}
-                <div className="absolute top-4 right-4 inline-flex items-center gap-1 bg-purple-100 p-1 rounded-lg">
+                {/* Toggle in top right corner - BIGGER */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-2 bg-purple-100 p-1.5 rounded-xl shadow-sm">
                   <button 
                     onClick={() => setProPlanYearly(false)}
-                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${!proPlanYearly ? 'bg-white text-purple-700 shadow-sm' : 'text-purple-600'}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${!proPlanYearly ? 'bg-white text-purple-700 shadow-md' : 'text-purple-600'}`}
                   >
                     Monthly
                   </button>
                   <button 
                     onClick={() => setProPlanYearly(true)}
-                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${proPlanYearly ? 'bg-white text-purple-700 shadow-sm' : 'text-purple-600'}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${proPlanYearly ? 'bg-white text-purple-700 shadow-md' : 'text-purple-600'}`}
                   >
                     Yearly
                   </button>
@@ -891,16 +897,22 @@ function App() {
                   </div>
                   <div className="mb-4">
                     <div className="mb-2">
-                      <span className="text-4xl font-bold text-gray-900">${proPlanYearly ? subscriptionPlans[2].yearly : subscriptionPlans[2].monthly}</span>
-                      <span className="text-lg text-gray-500">/{proPlanYearly ? 'yr' : 'mo'}</span>
+                      <span className="text-4xl font-bold text-gray-900">
+                        ${proPlanYearly ? (parseFloat(subscriptionPlans[2].yearly) / 12).toFixed(2) : subscriptionPlans[2].monthly}
+                      </span>
+                      <span className="text-lg text-gray-500">/mo</span>
                     </div>
+                    {proPlanYearly && (
+                      <p className="text-sm text-gray-600 mb-2">Billed yearly at ${subscriptionPlans[2].yearly}</p>
+                    )}
                     <div className="flex items-center gap-2 text-sm">
-                      <span className="text-gray-600">${subscriptionPlans[2].monthly}/mo</span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-gray-600">${subscriptionPlans[2].yearly}/yr</span>
-                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-semibold">Save 29%</span>
+                      <span className="text-gray-600">${subscriptionPlans[2].monthly}/mo monthly</span>
+                      <span className="text-gray-400">or</span>
+                      <span className="text-gray-600">${(parseFloat(subscriptionPlans[2].yearly) / 12).toFixed(2)}/mo yearly</span>
                     </div>
-                    <p className="text-gray-600 mt-1">AI & Care Team</p>
+                    <div className="mt-2">
+                      <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Save 29% with yearly</span>
+                    </div>
                   </div>
                   <ul className="space-y-2 mb-6">
                     {subscriptionPlans[2].features.map((feature, i) => (
@@ -923,17 +935,17 @@ function App() {
 
               {/* Super Plan */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-amber-300 shadow-sm hover:shadow-lg transition-shadow relative">
-                {/* Toggle in top right corner */}
-                <div className="absolute top-4 right-4 inline-flex items-center gap-1 bg-amber-100 p-1 rounded-lg">
+                {/* Toggle in top right corner - BIGGER */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-2 bg-amber-100 p-1.5 rounded-xl shadow-sm">
                   <button 
                     onClick={() => setSuperPlanYearly(false)}
-                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${!superPlanYearly ? 'bg-white text-amber-700 shadow-sm' : 'text-amber-600'}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${!superPlanYearly ? 'bg-white text-amber-700 shadow-md' : 'text-amber-600'}`}
                   >
                     Monthly
                   </button>
                   <button 
                     onClick={() => setSuperPlanYearly(true)}
-                    className={`px-2 py-1 rounded text-xs font-medium transition-all ${superPlanYearly ? 'bg-white text-amber-700 shadow-sm' : 'text-amber-600'}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${superPlanYearly ? 'bg-white text-amber-700 shadow-md' : 'text-amber-600'}`}
                   >
                     Yearly
                   </button>
@@ -946,16 +958,22 @@ function App() {
                   </div>
                   <div className="mb-4">
                     <div className="mb-2">
-                      <span className="text-4xl font-bold text-gray-900">${superPlanYearly ? subscriptionPlans[3].yearly : subscriptionPlans[3].monthly}</span>
-                      <span className="text-lg text-gray-500">/{superPlanYearly ? 'yr' : 'mo'}</span>
+                      <span className="text-4xl font-bold text-gray-900">
+                        ${superPlanYearly ? (parseFloat(subscriptionPlans[3].yearly) / 12).toFixed(2) : subscriptionPlans[3].monthly}
+                      </span>
+                      <span className="text-lg text-gray-500">/mo</span>
                     </div>
+                    {superPlanYearly && (
+                      <p className="text-sm text-gray-600 mb-2">Billed yearly at ${subscriptionPlans[3].yearly}</p>
+                    )}
                     <div className="flex items-center gap-2 text-sm">
-                      <span className="text-gray-600">${subscriptionPlans[3].monthly}/mo</span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-gray-600">${subscriptionPlans[3].yearly}/yr</span>
-                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-semibold">Save 17%</span>
+                      <span className="text-gray-600">${subscriptionPlans[3].monthly}/mo monthly</span>
+                      <span className="text-gray-400">or</span>
+                      <span className="text-gray-600">${(parseFloat(subscriptionPlans[3].yearly) / 12).toFixed(2)}/mo yearly</span>
                     </div>
-                    <p className="text-gray-600 mt-1">Premium AI & Support</p>
+                    <div className="mt-2">
+                      <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Save 17% with yearly</span>
+                    </div>
                   </div>
                   <ul className="space-y-2 mb-6">
                     {subscriptionPlans[3].features.map((feature, i) => (
