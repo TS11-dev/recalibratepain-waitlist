@@ -115,8 +115,8 @@ function App() {
     {
       name: "Free",
       monthly: "0",
-      yearly: "0",
-      description: "Full tracking forever",
+      yearly: null,
+      description: "Essential tracking",
       features: ["Smart Tracking (18+ variables)", "Analytics Dashboard", "Medication tracking", "Exported Reports", "Limited Support"],
       popular: false,
       cta: "Start Free"
@@ -140,13 +140,22 @@ function App() {
       cta: "Go Pro"
     },
     {
-      name: "Lifetime",
-      monthly: "499.99",
-      yearly: null,
-      description: "Pro forever",
-      features: ["All Pro features", "Lifetime updates", "Early access to new features"],
+      name: "Super",
+      monthly: "59.99",
+      yearly: "599.99",
+      description: "Premium AI & Support",
+      features: ["Everything in Pro", "More AI credits", "More clinicians & carers", "Customizations", "Priority support"],
       popular: false,
-      cta: "Get Lifetime",
+      cta: "Get Super"
+    },
+    {
+      name: "Lifetime Super",
+      monthly: "999.99",
+      yearly: null,
+      description: "Super forever",
+      features: ["All Super features", "Lifetime updates", "Early access to new features", "VIP support"],
+      popular: false,
+      cta: "Get Lifetime Super",
       isLifetime: true
     }
   ];
