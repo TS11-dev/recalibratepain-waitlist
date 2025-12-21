@@ -788,64 +788,66 @@ function App() {
               </div>
             </div>
             
-            <div className="flex flex-nowrap overflow-x-auto lg:grid lg:grid-cols-4 gap-4 pb-4 px-4 -mx-4 lg:pb-0 lg:px-0 lg:mx-0 snap-x snap-mandatory">
-              {subscriptionPlans.map((plan, i) => (
-                <div
-                  key={i}
-                  className={`relative flex-shrink-0 w-[85vw] sm:w-[300px] lg:w-auto snap-center bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 border-2 transition-all hover:shadow-lg ${
-                    plan.popular 
-                      ? 'border-purple-500 shadow-lg shadow-purple-500/10' 
-                      : plan.isLifetime 
-                        ? 'border-amber-400'
-                        : 'border-gray-200'
-                  }`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-2 lg:-top-3 left-1/2 -translate-x-1/2 w-full text-center">
-                      <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:px-3 lg:py-1 rounded-full shadow-sm">Most Popular</span>
-                    </div>
-                  )}
-                  
-                  <div className="text-center pt-2">
-                    <h3 className="text-sm lg:text-lg font-bold text-gray-900">{plan.name}</h3>
-                    <div className="mt-1 lg:mt-2 mb-1">
-                      <span className="text-xl lg:text-3xl font-bold text-gray-900">
-                        ${plan.isLifetime ? plan.monthly : (isYearly && plan.yearly ? plan.yearly : plan.monthly)}
-                      </span>
-                      {!plan.isLifetime && plan.monthly !== "0" && (
-                        <span className="text-xs lg:text-sm text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
-                      )}
-                      {plan.isLifetime && <span className="text-xs lg:text-sm text-gray-500"> once</span>}
-                    </div>
-                    {!isYearly && plan.yearly && plan.monthly !== "0" && (
-                      <p className="text-[10px] lg:text-xs text-green-600 font-medium">${plan.yearly}/yr if billed yearly</p>
-                    )}
-                    <p className="text-[10px] lg:text-xs text-gray-500 mt-1">{plan.description}</p>
-                  </div>
-                  
-                  <div className="mt-3 lg:mt-4 space-y-1.5 lg:space-y-2">
-                    {plan.features.map((feature, fi) => (
-                      <p key={fi} className="text-[10px] lg:text-sm text-gray-600 flex items-start gap-1.5 lg:gap-2">
-                        <CheckCircle className="w-3 h-3 lg:w-4 lg:h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </p>
-                    ))}
-                  </div>
-                  
-                  <button 
-                    onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-                    className={`w-full mt-3 lg:mt-4 py-2 lg:py-2.5 rounded-xl text-xs lg:text-sm font-semibold transition-all ${
+            <div className="overflow-x-auto pb-4 -mx-4 px-4">
+              <div className="flex gap-3 lg:gap-4 min-w-min">
+                {subscriptionPlans.map((plan, i) => (
+                  <div
+                    key={i}
+                    className={`relative flex-shrink-0 w-[280px] lg:w-[240px] bg-white rounded-xl p-4 lg:p-6 border-2 transition-all hover:shadow-lg ${
                       plan.popular 
-                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-purple-500/25' 
-                        : plan.isLifetime
-                          ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'border-purple-500 shadow-lg shadow-purple-500/10' 
+                        : plan.isLifetime 
+                          ? 'border-amber-400'
+                          : 'border-gray-200'
                     }`}
                   >
-                    {plan.cta}
-                  </button>
-                </div>
-              ))}
+                    {plan.popular && (
+                      <div className="absolute -top-2 left-1/2 -translate-x-1/2">
+                        <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">Most Popular</span>
+                      </div>
+                    )}
+                    
+                    <div className="text-center pt-2">
+                      <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
+                      <div className="mt-2 mb-1">
+                        <span className="text-3xl font-bold text-gray-900">
+                          ${plan.isLifetime ? plan.monthly : (isYearly && plan.yearly ? plan.yearly : plan.monthly)}
+                        </span>
+                        {!plan.isLifetime && plan.monthly !== "0" && (
+                          <span className="text-sm text-gray-500">/{isYearly ? 'yr' : 'mo'}</span>
+                        )}
+                        {plan.isLifetime && <span className="text-sm text-gray-500"> once</span>}
+                      </div>
+                      {!isYearly && plan.yearly && plan.monthly !== "0" && (
+                        <p className="text-xs text-green-600 font-medium">${plan.yearly}/yr if billed yearly</p>
+                      )}
+                      <p className="text-xs text-gray-500 mt-1">{plan.description}</p>
+                    </div>
+                    
+                    <div className="mt-4 space-y-2">
+                      {plan.features.map((feature, fi) => (
+                        <p key={fi} className="text-sm text-gray-600 flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </p>
+                      ))}
+                    </div>
+                    
+                    <button 
+                      onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                      className={`w-full mt-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                        plan.popular 
+                          ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-purple-500/25' 
+                          : plan.isLifetime
+                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {plan.cta}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
