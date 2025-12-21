@@ -127,8 +127,8 @@ function App() {
       name: "Go",
       monthly: "12.99",
       yearly: "99.99",
-      description: "Education & tools",
-      features: ["Everything in Free", "Pain Academy (90+ lessons)", "Therapeutic Tools & Exercises", "Daily inspiration", "Goal tracking"],
+      description: "Academy & Tools",
+      features: ["Everything in Free", "Full Recalibrate Academy", "Courses & Guides", "Therapeutic Tools", "Journal, Goals & Guided Exercises"],
       popular: false,
       cta: "Get Go"
     },
@@ -137,7 +137,7 @@ function App() {
       monthly: "34.99",
       yearly: "299.99",
       description: "AI & Care Team",
-      features: ["Everything in Go", "Recalibrate AI companion", "Care Team dashboards", "Priority support", "Advanced analytics"],
+      features: ["Everything in Go", "Recalibrate AI (with credits)", "Care Team Access", "Clinicians, Researchers & Family", "Advanced Academy Courses"],
       popular: true,
       cta: "Go Pro"
     },
@@ -145,8 +145,8 @@ function App() {
       name: "Super",
       monthly: "59.99",
       yearly: "599.99",
-      description: "Premium AI & Support",
-      features: ["Everything in Pro", "More AI credits", "More clinicians & carers", "Customizations", "Priority support"],
+      description: "Premium Everything",
+      features: ["Everything in Pro", "More Care Team Members", "Much More AI Credits", "Customizations (Dark Mode & More)", "Priority Support"],
       popular: false,
       cta: "Get Super"
     },
@@ -862,9 +862,9 @@ function App() {
                   </button>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-8 border-2 border-emerald-200 text-center">
-                  <div className="text-6xl mb-4">🧠</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">90+ Lessons</p>
-                  <p className="text-gray-600">Pain Academy & Tools</p>
+                  <div className="text-6xl mb-4">🎓</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Academy & Tools</p>
+                  <p className="text-gray-600">Courses, Guides & Exercises</p>
                 </div>
               </div>
 
@@ -928,8 +928,8 @@ function App() {
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
                   <div className="text-6xl mb-4">🤖</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Recalibrate AI</p>
-                  <p className="text-gray-600">Gemini 2.0 Flash powered</p>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">AI + Care Team</p>
+                  <p className="text-gray-600">Clinicians, Researchers & Family</p>
                 </div>
               </div>
 
@@ -988,9 +988,9 @@ function App() {
                   </button>
                 </div>
                 <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 border-2 border-amber-200 text-center">
-                  <div className="text-6xl mb-4">👨‍⚕️</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">More Care Team</p>
-                  <p className="text-gray-600">+ Customizations</p>
+                  <div className="text-6xl mb-4">💎</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">More Everything</p>
+                  <p className="text-gray-600">AI Credits + Customizations</p>
                 </div>
               </div>
 
