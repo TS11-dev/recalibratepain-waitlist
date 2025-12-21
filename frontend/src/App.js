@@ -467,6 +467,7 @@ function App() {
                 <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">🆓 FREE — Tracker & Analytics</span>
                 <span className="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">🚀 GO — Academy & Tools</span>
                 <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">⭐ PRO — AI & Care Team</span>
+                <span className="bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-medium">💎 SUPER — Premium AI</span>
               </div>
             </div>
 
