@@ -304,9 +304,13 @@ function App() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-28 h-4 sm:h-5 lg:h-7 bg-gray-900 rounded-b-xl lg:rounded-b-2xl z-10"></div>
                 <div className="w-full h-full bg-white rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.3rem] overflow-hidden">
                   <img 
-                    src="/app-screenshot.png" 
+                    src="/app-screenshot-optimized.jpg" 
                     alt="Recalibrate App" 
                     className="w-full h-full object-cover object-top"
+                    width="560"
+                    height="1102"
+                    loading="eager"
+                    decoding="async"
                   />
                 </div>
               </div>
