@@ -1404,7 +1404,14 @@ function App() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center gap-2">
-                <img src="/recalibrate-logo.png" alt="Recalibrate" className="h-10 w-auto" />
+                <img 
+                  src="/recalibrate-logo-optimized.png" 
+                  alt="Recalibrate" 
+                  className="h-10 w-auto" 
+                  width="40" 
+                  height="40"
+                  loading="lazy"
+                />
                 <span className="font-bold text-lg">Recalibrate</span>
               </div>
               
