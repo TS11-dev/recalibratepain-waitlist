@@ -180,7 +180,14 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <img src="/recalibrate-logo.png" alt="Recalibrate" className="h-10 w-auto" />
+                <img 
+                  src="/recalibrate-logo-optimized.png" 
+                  alt="Recalibrate" 
+                  className="h-10 w-auto" 
+                  width="40" 
+                  height="40"
+                  fetchPriority="high"
+                />
                 <span className="text-xl font-bold text-white">Recalibrate</span>
               </div>
               
