@@ -516,155 +516,153 @@ function App() {
         </section>
 
         {/* How It Works - Journey Roadmap */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 overflow-hidden relative">
+        <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 overflow-hidden relative">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-10 left-5 w-48 sm:w-72 h-48 sm:h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 right-5 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
           </div>
           
           <div className="max-w-6xl mx-auto relative z-10">
-            <div className="text-center mb-12 sm:mb-16">
-              <span className="inline-block bg-purple-500/20 text-purple-300 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-500/30">
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <span className="inline-block bg-purple-500/20 text-purple-300 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4 border border-purple-500/30">
                 Your Journey with Recalibrate
               </span>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white mb-3 sm:mb-4">
                 How It <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Works</span>
               </h2>
-              <p className="text-lg text-purple-200/80 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-purple-200/80 max-w-2xl mx-auto px-4">
                 A personalized path to understanding and managing your chronic pain
               </p>
             </div>
 
-            {/* 3D Roadmap Container */}
+            {/* Mobile: Compact scrollable or stacked cards */}
+            {/* Desktop: 5 column grid */}
             <div className="relative" style={{perspective: '1000px'}}>
-              {/* Connecting Line - Hidden on mobile, visible on desktop */}
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transform -translate-y-1/2 z-0" style={{transform: 'translateY(-50%) rotateX(60deg)'}}></div>
+              {/* Connecting Line - Desktop only */}
+              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transform -translate-y-1/2 z-0 opacity-50"></div>
               
-              {/* Journey Steps */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
-                {/* Step 1: Assessment */}
-                <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+              {/* Journey Steps - Mobile optimized */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-4">
+                {/* Step 1: Assessment - Blue */}
+                <div className="group relative" style={{transformStyle: 'preserve-3d'}}>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl sm:rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 border border-blue-500/30 h-full">
+                    <div className="absolute -top-2 sm:-top-3 -right-1 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg sm:rounded-xl flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg shadow-blue-500/50">
                       1
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-blue-500/30">
-                      <span className="text-4xl">📋</span>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 border border-blue-500/30">
+                      <span className="text-xl sm:text-2xl lg:text-4xl">📋</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Assessment</h3>
-                    <p className="text-blue-200/70 text-sm leading-relaxed">
-                      Complete your personalized health profile & baseline pain assessment
+                    <h3 className="text-sm sm:text-base lg:text-xl font-bold text-white mb-1 sm:mb-2">Assessment</h3>
+                    <p className="text-blue-200/70 text-[10px] sm:text-xs lg:text-sm leading-tight sm:leading-relaxed hidden sm:block">
+                      Complete your health profile & baseline assessment
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full">Profile</span>
-                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full">History</span>
+                    <div className="mt-2 sm:mt-3 lg:mt-4 flex flex-wrap gap-1 sm:gap-2">
+                      <span className="text-[8px] sm:text-[10px] lg:text-xs bg-blue-500/20 text-blue-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">Profile</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Step 2: Track */}
-                <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 sm:translate-y-8 lg:translate-y-6" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-emerald-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                {/* Step 2: Track - Emerald */}
+                <div className="group relative" style={{transformStyle: 'preserve-3d'}}>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl sm:rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 border border-emerald-500/30 h-full">
+                    <div className="absolute -top-2 sm:-top-3 -right-1 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-emerald-500 to-teal-400 rounded-lg sm:rounded-xl flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg shadow-emerald-500/50">
                       2
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-emerald-500/30">
-                      <span className="text-4xl">📊</span>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 border border-emerald-500/30">
+                      <span className="text-xl sm:text-2xl lg:text-4xl">📊</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Track Daily</h3>
-                    <p className="text-emerald-200/70 text-sm leading-relaxed">
-                      Log 18+ health variables: pain, sleep, mood, energy & more
+                    <h3 className="text-sm sm:text-base lg:text-xl font-bold text-white mb-1 sm:mb-2">Track Daily</h3>
+                    <p className="text-emerald-200/70 text-[10px] sm:text-xs lg:text-sm leading-tight sm:leading-relaxed hidden sm:block">
+                      Log 18+ health variables: pain, sleep, mood & more
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded-full">18+ Variables</span>
-                      <span className="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded-full">Daily</span>
+                    <div className="mt-2 sm:mt-3 lg:mt-4 flex flex-wrap gap-1 sm:gap-2">
+                      <span className="text-[8px] sm:text-[10px] lg:text-xs bg-emerald-500/20 text-emerald-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">18+ Vars</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Step 3: Learn */}
-                <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-purple-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                {/* Step 3: Learn - Purple */}
+                <div className="group relative" style={{transformStyle: 'preserve-3d'}}>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-violet-500 rounded-xl sm:rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 border border-purple-500/30 h-full">
+                    <div className="absolute -top-2 sm:-top-3 -right-1 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-purple-500 to-violet-400 rounded-lg sm:rounded-xl flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg shadow-purple-500/50">
                       3
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-violet-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-purple-500/30">
-                      <span className="text-4xl">🎓</span>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500/20 to-violet-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 border border-purple-500/30">
+                      <span className="text-xl sm:text-2xl lg:text-4xl">🎓</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Learn & Grow</h3>
-                    <p className="text-purple-200/70 text-sm leading-relaxed">
-                      90+ lessons on pain science in our Recalibrate Academy
+                    <h3 className="text-sm sm:text-base lg:text-xl font-bold text-white mb-1 sm:mb-2">Learn</h3>
+                    <p className="text-purple-200/70 text-[10px] sm:text-xs lg:text-sm leading-tight sm:leading-relaxed hidden sm:block">
+                      90+ lessons on pain science in our Academy
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">Academy</span>
-                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">XP & Badges</span>
+                    <div className="mt-2 sm:mt-3 lg:mt-4 flex flex-wrap gap-1 sm:gap-2">
+                      <span className="text-[8px] sm:text-[10px] lg:text-xs bg-purple-500/20 text-purple-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">Academy</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Step 4: AI Insights */}
-                <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 sm:translate-y-8 lg:translate-y-6" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-pink-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-pink-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                {/* Step 4: AI Insights - Pink */}
+                <div className="group relative" style={{transformStyle: 'preserve-3d'}}>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl sm:rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 border border-pink-500/30 h-full">
+                    <div className="absolute -top-2 sm:-top-3 -right-1 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-pink-500 to-rose-400 rounded-lg sm:rounded-xl flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg shadow-pink-500/50">
                       4
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-pink-500/30">
-                      <span className="text-4xl">🤖</span>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 border border-pink-500/30">
+                      <span className="text-xl sm:text-2xl lg:text-4xl">🤖</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">AI Insights</h3>
-                    <p className="text-pink-200/70 text-sm leading-relaxed">
-                      Get personalized patterns & suggestions from Recalibrate AI
+                    <h3 className="text-sm sm:text-base lg:text-xl font-bold text-white mb-1 sm:mb-2">AI Insights</h3>
+                    <p className="text-pink-200/70 text-[10px] sm:text-xs lg:text-sm leading-tight sm:leading-relaxed hidden sm:block">
+                      Get personalized patterns from Recalibrate AI
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-pink-500/20 text-pink-300 px-2 py-1 rounded-full">Gemini 2.0</span>
-                      <span className="text-xs bg-pink-500/20 text-pink-300 px-2 py-1 rounded-full">Patterns</span>
+                    <div className="mt-2 sm:mt-3 lg:mt-4 flex flex-wrap gap-1 sm:gap-2">
+                      <span className="text-[8px] sm:text-[10px] lg:text-xs bg-pink-500/20 text-pink-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">Gemini</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Step 5: Connect */}
-                <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 sm:col-span-2 lg:col-span-1" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-amber-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-amber-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                {/* Step 5: Connect - Amber - Full width on mobile when odd */}
+                <div className="group relative col-span-2 sm:col-span-2 lg:col-span-1" style={{transformStyle: 'preserve-3d'}}>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl sm:rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 border border-amber-500/30 h-full flex flex-row sm:flex-row lg:flex-col items-center sm:items-center lg:items-start gap-3 sm:gap-4 lg:gap-0">
+                    <div className="absolute -top-2 sm:-top-3 right-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-amber-500 to-orange-400 rounded-lg sm:rounded-xl flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg shadow-amber-500/50">
                       5
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-amber-500/30">
-                      <span className="text-4xl">🤝</span>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center lg:mb-4 border border-amber-500/30 flex-shrink-0">
+                      <span className="text-xl sm:text-2xl lg:text-4xl">🤝</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Connect Care</h3>
-                    <p className="text-amber-200/70 text-sm leading-relaxed">
-                      Share with clinicians, researchers & family with Care Team
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded-full">Clinicians</span>
-                      <span className="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded-full">Family</span>
+                    <div>
+                      <h3 className="text-sm sm:text-base lg:text-xl font-bold text-white mb-0 sm:mb-1 lg:mb-2">Connect Care</h3>
+                      <p className="text-amber-200/70 text-[10px] sm:text-xs lg:text-sm leading-tight sm:leading-relaxed">
+                        Share with clinicians, researchers & family
+                      </p>
+                      <div className="mt-1 sm:mt-2 lg:mt-4 flex flex-wrap gap-1 sm:gap-2">
+                        <span className="text-[8px] sm:text-[10px] lg:text-xs bg-amber-500/20 text-amber-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">Clinicians</span>
+                        <span className="text-[8px] sm:text-[10px] lg:text-xs bg-amber-500/20 text-amber-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">Family</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Progress Indicator */}
-              <div className="mt-12 flex justify-center items-center gap-4 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-blue-500 animate-pulse"></div>
-                  <span className="text-sm text-blue-300">Start Free</span>
+              {/* Bottom Progress Indicator - Simplified on mobile */}
+              <div className="mt-8 sm:mt-10 lg:mt-12 flex justify-center items-center gap-2 sm:gap-4 flex-wrap">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-blue-500 animate-pulse"></div>
+                  <span className="text-xs sm:text-sm text-blue-300">Free</span>
                 </div>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-purple-500 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                  <span className="text-sm text-purple-300">Upgrade to Go</span>
+                <div className="w-6 sm:w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-purple-500 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                  <span className="text-xs sm:text-sm text-purple-300">Go</span>
                 </div>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 hidden sm:block"></div>
-                <div className="hidden sm:flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-pink-500 animate-pulse" style={{animationDelay: '1s'}}></div>
-                  <span className="text-sm text-pink-300">Go Pro</span>
+                <div className="w-6 sm:w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-pink-500 animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <span className="text-xs sm:text-sm text-pink-300">Pro</span>
                 </div>
               </div>
             </div>
