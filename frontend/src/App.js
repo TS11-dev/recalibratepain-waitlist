@@ -1501,7 +1501,7 @@ function App() {
             </div>
             
             <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-              <p className="text-gray-400 text-sm mb-4">Recalibrate Inc. Smarter Health and Pain Technology</p>
+              <p className="text-gray-400 text-sm mb-4">Recalibrate Inc. Allied Health & Wellness Technology</p>
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <p className="text-gray-500 text-xs">© 2025 Recalibrate. Your intelligent allied health companion.</p>
                 <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center gap-2">
