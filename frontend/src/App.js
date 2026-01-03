@@ -1023,21 +1023,33 @@ function App() {
           </div>
         </section>
 
-        {/* Clinicians & Partners - Matching New Style */}
-        <section id="partners" className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-white to-purple-50/30 scroll-mt-20">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">Clinicians & Partners</h2>
-              <p className="text-gray-600">Join us in revolutionizing chronic pain management</p>
+        {/* Clinicians & Partners - Premium Design */}
+        <section id="partners" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-slate-50 scroll-mt-20 relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-0 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="max-w-5xl mx-auto relative z-10">
+            <div className="text-center mb-12">
+              <span className="inline-block bg-gradient-to-r from-blue-500/10 to-emerald-500/10 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-blue-200">
+                For Professionals
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
+                Clinicians & <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">Partners</span>
+              </h2>
+              <p className="text-lg text-gray-600">Join us in revolutionizing chronic pain management</p>
             </div>
             
-            {/* Partnership Cards - 2 Column Layout */}
+            {/* Partnership Cards */}
             <div className="space-y-6">
-              {/* Healthcare Clinics */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Healthcare Clinics - Blue */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-blue-200 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">🩺</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">🩺</span>
+                    </div>
                     <h3 className="text-2xl font-bold text-gray-900">Healthcare Clinics</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
@@ -1046,27 +1058,32 @@ function App() {
                   <ul className="space-y-2 mb-6">
                     {["Multi-patient clinician dashboard", "Care team integration", "HIPAA-compliant data sharing", "Progress reports for appointments", "Patient engagement tools"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <button onClick={() => setPartnerFormOpen('clinic')} className="bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition-all flex items-center gap-2">
+                  <button onClick={() => setPartnerFormOpen('clinic')} className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all flex items-center gap-2">
                     Partner with us <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
-                  <div className="text-6xl mb-4">🏥</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Clinical Dashboard</p>
-                  <p className="text-gray-600">Track all your patients</p>
+                <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">🏥</div>
+                    <p className="text-2xl font-bold text-white mb-2">Clinical Dashboard</p>
+                    <p className="text-blue-100">Track all your patients</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Research Collaborations */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Research - Purple */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-200 shadow-sm hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">🔬</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">🔬</span>
+                    </div>
                     <h3 className="text-2xl font-bold text-gray-900">Research Collaborations</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
@@ -1075,27 +1092,32 @@ function App() {
                   <ul className="space-y-2 mb-6">
                     {["Longitudinal pain datasets", "Multi-variable correlations", "Ethical data partnerships", "IRB-approved protocols", "Academic collaboration"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <button onClick={() => setPartnerFormOpen('research')} className="bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition-all flex items-center gap-2">
+                  <button onClick={() => setPartnerFormOpen('research')} className="bg-gradient-to-r from-purple-500 to-violet-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all flex items-center gap-2">
                     Collaborate with us <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
-                  <div className="text-6xl mb-4">📊</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Research Data</p>
-                  <p className="text-gray-600">Anonymized pain insights</p>
+                <div className="bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-2xl font-bold text-white mb-2">Research Data</p>
+                    <p className="text-purple-100">Anonymized pain insights</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Investors */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Investors - Emerald */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-emerald-200 shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">🤝</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">🤝</span>
+                    </div>
                     <h3 className="text-2xl font-bold text-gray-900">Become an Investor</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
@@ -1104,19 +1126,22 @@ function App() {
                   <ul className="space-y-2 mb-6">
                     {["$50B+ chronic pain market", "AI-powered health insights", "Scalable B2B & B2C model", "Strong founding team", "Clear path to profitability"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <button onClick={() => setPartnerFormOpen('investor')} className="bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition-all flex items-center gap-2">
+                  <button onClick={() => setPartnerFormOpen('investor')} className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all flex items-center gap-2">
                     Investor Prospectus <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
-                  <div className="text-6xl mb-4">📈</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">$1.5M Seed Round</p>
-                  <p className="text-gray-600">Building the future</p>
+                <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">📈</div>
+                    <p className="text-2xl font-bold text-white mb-2">$1.5M Seed Round</p>
+                    <p className="text-emerald-100">Building the future</p>
+                  </div>
                 </div>
               </div>
             </div>
