@@ -920,78 +920,78 @@ function App() {
               <p className="text-gray-600">Choose the plan that fits your journey</p>
             </div>
             
-            {/* Compact Pricing Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Compact Pricing Grid - Same layout on mobile and desktop */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {/* Free Plan */}
-              <div className="bg-white rounded-2xl p-5 border-2 border-gray-200 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-2xl">🆓</span>
-                  <h3 className="text-xl font-bold text-gray-900">Free</h3>
+              <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 border-2 border-gray-200 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                  <span className="text-lg sm:text-2xl">🆓</span>
+                  <h3 className="text-base sm:text-xl font-bold text-gray-900">Free</h3>
                 </div>
-                <div className="mb-3">
-                  <span className="text-3xl font-bold text-gray-900">$0</span>
-                  <p className="text-sm text-gray-500">Essential tracking</p>
+                <div className="mb-2 sm:mb-3">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-900">$0</span>
+                  <p className="text-xs sm:text-sm text-gray-500">Essential tracking</p>
                 </div>
-                <ul className="space-y-1.5 mb-4 text-sm">
+                <ul className="space-y-1 sm:space-y-1.5 mb-3 sm:mb-4 text-xs sm:text-sm">
                   {["Smart Tracking (18+ vars)", "Analytics Dashboard", "Medication tracking", "Basic Reports"].map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span>{f}</span>
+                    <li key={i} className="flex items-center gap-1.5 sm:gap-2 text-gray-600">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                      <span className="text-[11px] sm:text-sm">{f}</span>
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="w-full bg-gray-100 text-gray-700 py-2.5 rounded-xl font-semibold hover:bg-gray-200 transition-all text-sm">
+                <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="w-full bg-gray-100 text-gray-700 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold hover:bg-gray-200 transition-all text-xs sm:text-sm">
                   Start Free
                 </button>
               </div>
 
               {/* Go Plan */}
-              <div className="bg-white rounded-2xl p-5 border-2 border-emerald-200 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-2xl">🚀</span>
-                  <h3 className="text-xl font-bold text-gray-900">Go</h3>
+              <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 border-2 border-emerald-200 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                  <span className="text-lg sm:text-2xl">🚀</span>
+                  <h3 className="text-base sm:text-xl font-bold text-gray-900">Go</h3>
                 </div>
-                <div className="mb-3">
-                  <span className="text-3xl font-bold text-gray-900">${subscriptionPlans[1].monthly}</span>
-                  <span className="text-sm text-gray-500">/mo</span>
-                  <p className="text-xs text-emerald-600 font-medium">or ${(parseFloat(subscriptionPlans[1].yearly) / 12).toFixed(2)}/mo yearly</p>
+                <div className="mb-2 sm:mb-3">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-900">${subscriptionPlans[1].monthly}</span>
+                  <span className="text-xs sm:text-sm text-gray-500">/mo</span>
+                  <p className="text-[10px] sm:text-xs text-emerald-600 font-medium">or ${(parseFloat(subscriptionPlans[1].yearly) / 12).toFixed(2)}/mo yearly</p>
                 </div>
-                <ul className="space-y-1.5 mb-4 text-sm">
+                <ul className="space-y-1 sm:space-y-1.5 mb-3 sm:mb-4 text-xs sm:text-sm">
                   {["Everything in Free", "Full Academy (100+ lessons)", "Therapeutic Tools", "Journal & Goal Tracking"].map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span>{f}</span>
+                    <li key={i} className="flex items-center gap-1.5 sm:gap-2 text-gray-600">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                      <span className="text-[11px] sm:text-sm">{f}</span>
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="w-full bg-emerald-500 text-white py-2.5 rounded-xl font-semibold hover:bg-emerald-600 transition-all text-sm">
+                <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="w-full bg-emerald-500 text-white py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold hover:bg-emerald-600 transition-all text-xs sm:text-sm">
                   Get Go
                 </button>
               </div>
 
               {/* Pro Plan - Popular */}
-              <div className="bg-white rounded-2xl p-5 border-2 border-purple-500 shadow-lg shadow-purple-500/10 hover:shadow-xl transition-shadow relative">
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">POPULAR</span>
+              <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 border-2 border-purple-500 shadow-lg shadow-purple-500/10 hover:shadow-xl transition-shadow relative">
+                <div className="absolute -top-2 sm:-top-2.5 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-[8px] sm:text-[10px] font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-lg">POPULAR</span>
                 </div>
-                <div className="flex items-center gap-2 mb-3 mt-1">
-                  <span className="text-2xl">⭐</span>
-                  <h3 className="text-xl font-bold text-gray-900">Pro</h3>
+                <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 mt-1">
+                  <span className="text-lg sm:text-2xl">⭐</span>
+                  <h3 className="text-base sm:text-xl font-bold text-gray-900">Pro</h3>
                 </div>
-                <div className="mb-3">
-                  <span className="text-3xl font-bold text-gray-900">${subscriptionPlans[2].monthly}</span>
-                  <span className="text-sm text-gray-500">/mo</span>
-                  <p className="text-xs text-purple-600 font-medium">or ${(parseFloat(subscriptionPlans[2].yearly) / 12).toFixed(2)}/mo yearly</p>
+                <div className="mb-2 sm:mb-3">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-900">${subscriptionPlans[2].monthly}</span>
+                  <span className="text-xs sm:text-sm text-gray-500">/mo</span>
+                  <p className="text-[10px] sm:text-xs text-purple-600 font-medium">or ${(parseFloat(subscriptionPlans[2].yearly) / 12).toFixed(2)}/mo yearly</p>
                 </div>
-                <ul className="space-y-1.5 mb-4 text-sm">
+                <ul className="space-y-1 sm:space-y-1.5 mb-3 sm:mb-4 text-xs sm:text-sm">
                   {["Everything in Go", "Recalibrate AI", "Care Team Access", "Advanced Courses"].map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span>{f}</span>
+                    <li key={i} className="flex items-center gap-1.5 sm:gap-2 text-gray-600">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                      <span className="text-[11px] sm:text-sm">{f}</span>
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-2.5 rounded-xl font-semibold hover:shadow-lg transition-all text-sm">
+                <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold hover:shadow-lg transition-all text-xs sm:text-sm">
                   Go Pro
                 </button>
               </div>
