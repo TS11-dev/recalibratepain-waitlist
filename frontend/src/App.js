@@ -322,93 +322,45 @@ function App() {
                 </div>
               </div>
               
-              {/* Mobile Floating Labels - ALL 8 Labels visible */}
+              {/* Mobile Floating Labels - Compact pill style */}
               {/* Top Left - Blue */}
-              <div className="absolute -left-2 sm:left-0 top-2 sm:top-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg shadow-lg shadow-blue-500/25 p-1.5 sm:p-2 max-w-[85px] sm:max-w-[100px] animate-float lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">📊</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">18 Variables</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Track all</p>
-                  </div>
-                </div>
+              <div className="absolute left-1 sm:left-0 top-4 sm:top-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full shadow-lg shadow-blue-500/25 px-2 py-1 sm:px-3 sm:py-1.5 animate-float lg:hidden text-white z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">📊 18 Variables</p>
               </div>
               
               {/* Top Right - Emerald */}
-              <div className="absolute -right-2 sm:right-0 top-8 sm:top-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 max-w-[80px] sm:max-w-[95px] animate-float-delayed lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">🔔</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">Reminders</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Stay on track</p>
-                  </div>
-                </div>
+              <div className="absolute right-1 sm:right-0 top-12 sm:top-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full shadow-lg shadow-emerald-500/25 px-2 py-1 sm:px-3 sm:py-1.5 animate-float-delayed lg:hidden text-white z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">🔔 Reminders</p>
               </div>
               
               {/* Mid Left - Purple */}
-              <div className="absolute -left-2 sm:left-0 top-24 sm:top-28 bg-gradient-to-r from-purple-500 to-violet-500 rounded-lg shadow-lg shadow-purple-500/25 p-1.5 sm:p-2 max-w-[80px] sm:max-w-[90px] animate-float lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">🤖</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">AI Insights</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Patterns</p>
-                  </div>
-                </div>
+              <div className="absolute left-1 sm:left-0 top-24 sm:top-28 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full shadow-lg shadow-purple-500/25 px-2 py-1 sm:px-3 sm:py-1.5 animate-float lg:hidden text-white z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">🤖 AI Insights</p>
               </div>
 
               {/* Mid Right - Pink */}
-              <div className="absolute -right-2 sm:right-0 top-32 sm:top-36 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg shadow-lg shadow-pink-500/25 p-1.5 sm:p-2 max-w-[75px] sm:max-w-[85px] animate-float-delayed lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">👥</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">Care Team</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Connect</p>
-                  </div>
-                </div>
+              <div className="absolute right-1 sm:right-0 top-36 sm:top-36 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full shadow-lg shadow-pink-500/25 px-2 py-1 sm:px-3 sm:py-1.5 animate-float-delayed lg:hidden text-white z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">👥 Care Team</p>
               </div>
               
               {/* Bottom Mid-Left - Amber */}
-              <div className="absolute -left-2 sm:left-0 bottom-28 sm:bottom-32 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 max-w-[80px] sm:max-w-[90px] animate-float lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">📈</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">Analytics</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Stability</p>
-                  </div>
-                </div>
+              <div className="absolute left-1 sm:left-0 bottom-28 sm:bottom-32 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full shadow-lg shadow-amber-500/25 px-2 py-1 sm:px-3 sm:py-1.5 animate-float lg:hidden text-white z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">📈 Analytics</p>
               </div>
 
               {/* Bottom Mid-Right - Cyan */}
-              <div className="absolute -right-2 sm:right-0 bottom-20 sm:bottom-24 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-lg shadow-cyan-500/25 p-1.5 sm:p-2 max-w-[75px] sm:max-w-[85px] animate-float-delayed lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">🎯</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">Goals</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Track</p>
-                  </div>
-                </div>
+              <div className="absolute right-1 sm:right-0 bottom-20 sm:bottom-24 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full shadow-lg shadow-cyan-500/25 px-2 py-1 sm:px-3 sm:py-1.5 animate-float-delayed lg:hidden text-white z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">🎯 Goals</p>
               </div>
               
               {/* Bottom Left - Purple gradient */}
-              <div className="absolute -left-2 sm:left-0 bottom-8 sm:bottom-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg shadow-lg shadow-purple-500/25 p-1.5 sm:p-2 max-w-[80px] sm:max-w-[90px] text-white animate-float-delayed lg:hidden z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">🧠</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">100+ Lessons</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Academy</p>
-                  </div>
-                </div>
+              <div className="absolute left-1 sm:left-0 bottom-10 sm:bottom-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full shadow-lg shadow-purple-500/25 px-2 py-1 sm:px-3 sm:py-1.5 text-white animate-float-delayed lg:hidden z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">🧠 100+ Lessons</p>
               </div>
 
               {/* Bottom Right - Emerald gradient */}
-              <div className="absolute -right-2 sm:right-0 bottom-2 sm:bottom-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 max-w-[80px] sm:max-w-[90px] text-white animate-float lg:hidden z-20">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm">✨</span>
-                  <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">200+ Tools</p>
-                    <p className="text-[6px] sm:text-[7px] text-white/80">Resources</p>
-                  </div>
-                </div>
+              <div className="absolute right-1 sm:right-0 bottom-4 sm:bottom-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full shadow-lg shadow-emerald-500/25 px-2 py-1 sm:px-3 sm:py-1.5 text-white animate-float lg:hidden z-20">
+                <p className="font-bold text-[9px] sm:text-[10px] whitespace-nowrap">✨ 200+ Tools</p>
               </div>
 
               {/* Desktop Floating Cards - More labels */}
