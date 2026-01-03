@@ -671,11 +671,12 @@ function App() {
 
 
         {/* Features Section - Premium Design with Matching Colors */}
-        <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-slate-50 via-white to-purple-50/30 relative overflow-hidden">
+        <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-purple-50/40 via-white to-purple-50/50 relative overflow-hidden">
           {/* Subtle animated background */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-3xl"></div>
           </div>
           
           <div className="max-w-5xl mx-auto relative z-10">
@@ -1039,7 +1040,7 @@ function App() {
         </section>
 
         {/* Evidence-Based Approaches */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-purple-100/50 via-violet-50 to-purple-100/50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Built on Evidence-Based Science</h3>
@@ -1075,10 +1076,10 @@ function App() {
         </section>
 
         {/* Clinicians & Partners - Premium Design */}
-        <section id="partners" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-slate-50 scroll-mt-20 relative overflow-hidden">
+        <section id="partners" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-white via-purple-50/30 to-white scroll-mt-20 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-0 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-0 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-0 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl"></div>
           </div>
           
           <div className="max-w-5xl mx-auto relative z-10">
@@ -1200,10 +1201,10 @@ function App() {
         </section>
 
         {/* Recalibrate Resources - Premium Design */}
-        <section id="resources" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+        <section id="resources" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-purple-50/40 via-white to-purple-50/30 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl"></div>
           </div>
           
           <div className="max-w-5xl mx-auto relative z-10">
@@ -1392,7 +1393,7 @@ function App() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 scroll-mt-20">
+        <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-white via-purple-50/20 to-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Common questions</h2>
@@ -1419,7 +1420,7 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-4 sm:px-6 bg-gray-900 text-white">
+        <footer className="py-12 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-purple-950/30 to-gray-900 text-white">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center gap-2">
