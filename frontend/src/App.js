@@ -164,7 +164,7 @@ function App() {
 
   const faqs = [
     { q: "When does Recalibrate launch?", a: "Q1 2026 on iOS, Android, and Web. Join the waitlist to be first in line!" },
-    { q: "Is my health data private?", a: "100% private. Encrypted, never shared, and you own your data. We follow HIPAA-compliant practices." },
+    { q: "Is my health data private?", a: "100% private. Encrypted, never shared, and you own your data. We follow secure, industry-standard practices." },
     { q: "How does the AI companion work?", a: "Powered by Gemini 2.0 Flash, it analyzes your patterns and provides personalized insights based on your tracked data." },
     { q: "What makes this different?", a: "We combine tracking, education, therapeutic tools, and AI insights in one app designed specifically for chronic pain management." },
     { q: "Is there a cost?", a: "We offer a free tier with essential features. Premium plans unlock advanced tools, AI insights, and Care Team access." }
@@ -394,7 +394,7 @@ function App() {
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">🧠</span>
                   <div>
-                    <p className="font-bold text-[8px] sm:text-[9px]">90+ Lessons</p>
+                    <p className="font-bold text-[8px] sm:text-[9px]">100+ Lessons</p>
                     <p className="text-[6px] sm:text-[7px] text-white/80">Academy</p>
                   </div>
                 </div>
@@ -494,7 +494,7 @@ function App() {
                 <div className="flex items-center gap-2">
                   <span className="text-lg">🧠</span>
                   <div>
-                    <p className="font-bold text-sm">90+ Lessons</p>
+                    <p className="font-bold text-sm">100+ Lessons</p>
                     <p className="text-xs text-white/80">Recalibrate Academy</p>
                   </div>
                 </div>
@@ -829,10 +829,10 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    90+ lessons on pain science. Earn XP and badges as you learn evidence-based strategies.
+                    100+ lessons on pain science. Earn XP and badges as you learn evidence-based strategies.
                   </p>
                   <ul className="space-y-2">
-                    {["90+ educational lessons", "Pain neuroscience modules", "Foundations & strategies", "XP & badge rewards", "Self-paced learning"].map((feature, i) => (
+                    {["100+ educational lessons", "Pain neuroscience modules", "Foundations & strategies", "XP & badge rewards", "Self-paced learning"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -844,7 +844,7 @@ function App() {
                   
                   <div className="relative">
                     <div className="text-6xl mb-4">🧠</div>
-                    <p className="text-2xl font-bold text-white mb-2">90+ Lessons</p>
+                    <p className="text-2xl font-bold text-white mb-2">100+ Lessons</p>
                     <p className="text-emerald-100">Evidence-based pain education</p>
                   </div>
                 </div>
@@ -1005,7 +1005,7 @@ function App() {
                   <p className="text-xs text-emerald-600 font-medium">or ${(parseFloat(subscriptionPlans[1].yearly) / 12).toFixed(2)}/mo yearly</p>
                 </div>
                 <ul className="space-y-1.5 mb-4 text-sm">
-                  {["Everything in Free", "Full Academy (90+ lessons)", "Therapeutic Tools", "Journal & Goal Tracking"].map((f, i) => (
+                  {["Everything in Free", "Full Academy (100+ lessons)", "Therapeutic Tools", "Journal & Goal Tracking"].map((f, i) => (
                     <li key={i} className="flex items-center gap-2 text-gray-600">
                       <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
                       <span>{f}</span>
@@ -1160,7 +1160,7 @@ function App() {
                     Integrate Recalibrate into your practice. Help your patients track their progress between appointments.
                   </p>
                   <ul className="space-y-2 mb-6">
-                    {["Multi-patient clinician dashboard", "Care team integration", "HIPAA-compliant data sharing", "Progress reports for appointments", "Patient engagement tools"].map((feature, i) => (
+                    {["Multi-patient clinician dashboard", "Care team integration", "Secure data sharing", "Progress reports for appointments", "Patient engagement tools"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -1615,7 +1615,7 @@ function App() {
                   <div className="space-y-2 text-sm text-gray-700">
                     <p><strong className="text-purple-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven pain management.</p>
                     <p><strong className="text-purple-700">Market:</strong> $600B+ Chronic Pain Market | 1.5B Sufferers Globally.</p>
-                    <p><strong className="text-purple-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, HIPAA-compliant architecture.</p>
+                    <p><strong className="text-purple-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, Secure architecture.</p>
                     <p><strong className="text-purple-700">Opportunity:</strong> Raising $500,000 Seed Round to accelerate Development Testing, Clinical and Research Partnerships, AI R&D and Marketing.</p>
                     <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
                   </div>
