@@ -176,7 +176,7 @@ function App() {
         <Toaster position="top-center" toastOptions={{ style: { borderRadius: '12px', background: '#1f2937', color: '#fff' } }} />
         
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
@@ -212,7 +212,7 @@ function App() {
           </div>
           
           {mobileMenuOpen && (
-            <div className="md:hidden bg-indigo-700/95 border-t border-white/10 py-3 px-4 space-y-1">
+            <div className="md:hidden bg-slate-900/95 border-t border-purple-500/20 py-3 px-4 space-y-1">
               {['features', 'pricing', 'partners', 'resources'].map((item) => (
                 <button key={item} onClick={() => smoothScroll(item)} className="block w-full text-left py-3 px-4 text-white/90 hover:bg-white/10 rounded-xl capitalize">
                   {item}
@@ -221,7 +221,7 @@ function App() {
               <button onClick={() => { setShowContactModal(true); setMobileMenuOpen(false); }} className="block w-full text-left py-3 px-4 text-white/90 hover:bg-white/10 rounded-xl">
                 Contact Us
               </button>
-              <button onClick={() => smoothScroll('waitlist')} className="w-full mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold">
+              <button onClick={() => smoothScroll('waitlist')} className="w-full mt-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-semibold">
                 Join the Revolution
               </button>
             </div>
@@ -1346,10 +1346,10 @@ function App() {
         {/* Final CTA */}
         <section className="py-16 sm:py-24 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-700 rounded-3xl p-8 sm:p-12 text-center overflow-hidden">
+            <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 rounded-3xl p-8 sm:p-12 text-center overflow-hidden">
               {/* Decorative elements */}
-              <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-0 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+              <div className="absolute top-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
               
               <div className="relative">
                 <p className="text-sm text-white/90 text-center mb-4">
@@ -1420,7 +1420,7 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-purple-950/30 to-gray-900 text-white">
+        <footer className="py-12 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900/50 to-indigo-900 text-white">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center gap-2">
