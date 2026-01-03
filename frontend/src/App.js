@@ -619,184 +619,235 @@ function App() {
         </section>
 
 
-        {/* Features Section - 200+ Tools & Resources - Matching Subscription Style */}
-        <section id="features" className="py-12 sm:py-16 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-white to-purple-50/30">
-          <div className="max-w-5xl mx-auto">
+        {/* Features Section - Premium Design with Matching Colors */}
+        <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-slate-50 via-white to-purple-50/30 relative overflow-hidden">
+          {/* Subtle animated background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="max-w-5xl mx-auto relative z-10">
             {/* Section Header */}
-            <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">
-                200+ Tools & Resources
+            <div className="text-center mb-12">
+              <span className="inline-block bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
+                Comprehensive Platform
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
+                200+ Tools & <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Resources</span>
               </h2>
-              <p className="text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Everything you need to manage your chronic pain journey
               </p>
             </div>
 
-            {/* Feature Cards - Matching Subscription Layout */}
+            {/* Feature Cards */}
             <div className="space-y-6">
               
-              {/* Feature 1: Smart Tracker */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-blue-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Feature 1: Smart Tracker - Blue */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-blue-200 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">📊</span>
-                    <h3 className="text-2xl font-bold text-gray-900">Smart Tracker</h3>
-                    <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">📊</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Smart Tracker</h3>
+                      <span className="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">FREE</span>
+                    </div>
                   </div>
                   <p className="text-gray-600 mb-4">
                     Log pain, sleep, mood & energy across 8 health systems with our comprehensive tracking tools.
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2">
                     {["18+ health variables tracked", "Pain & mood monitoring", "Sleep quality analysis", "Medication tracking", "Energy level logging"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 border-2 border-blue-200 text-center">
-                  <div className="text-6xl mb-4">🎯</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">18+ Variables</p>
-                  <p className="text-gray-600">Across 8 biological systems</p>
+                <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">🎯</div>
+                    <p className="text-2xl font-bold text-white mb-2">18+ Variables</p>
+                    <p className="text-blue-100">Across 8 biological systems</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Feature 2: Analytics Dashboard */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-indigo-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Feature 2: Analytics Dashboard - Purple */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-200 shadow-sm hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">📈</span>
-                    <h3 className="text-2xl font-bold text-gray-900">Analytics Dashboard</h3>
-                    <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">📈</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Analytics Dashboard</h3>
+                      <span className="text-xs font-bold text-purple-600 bg-purple-100 px-2 py-0.5 rounded-full">FREE</span>
+                    </div>
                   </div>
                   <p className="text-gray-600 mb-4">
                     Your personal Stability Score calculated from 18 variables. Visualize trends and patterns.
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2">
                     {["Stability score tracking", "Trend analysis & visualization", "Pattern detection algorithms", "Doctor-ready reports", "Historical data comparison"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border-2 border-indigo-200 text-center">
-                  <div className="text-6xl mb-4">📊</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Stability Score</p>
-                  <p className="text-gray-600">Real-time pattern detection</p>
+                <div className="bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">📊</div>
+                    <p className="text-2xl font-bold text-white mb-2">Stability Score</p>
+                    <p className="text-purple-100">Real-time pattern detection</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Feature 3: Recalibrate Academy */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Feature 3: Recalibrate Academy - Emerald */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-emerald-200 shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">🎓</span>
-                    <h3 className="text-2xl font-bold text-gray-900">Recalibrate Academy</h3>
-                    <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full">GO</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">🎓</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Recalibrate Academy</h3>
+                      <span className="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">GO</span>
+                    </div>
                   </div>
                   <p className="text-gray-600 mb-4">
                     90+ lessons on pain science. Earn XP and badges as you learn evidence-based strategies.
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2">
                     {["90+ educational lessons", "Pain neuroscience modules", "Foundations & strategies", "XP & badge rewards", "Self-paced learning"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-8 border-2 border-emerald-200 text-center">
-                  <div className="text-6xl mb-4">🧠</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">90+ Lessons</p>
-                  <p className="text-gray-600">Evidence-based pain education</p>
+                <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">🧠</div>
+                    <p className="text-2xl font-bold text-white mb-2">90+ Lessons</p>
+                    <p className="text-emerald-100">Evidence-based pain education</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Feature 4: Tools & Exercises */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-orange-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Feature 4: Tools & Exercises - Amber */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-200 shadow-sm hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">🛠️</span>
-                    <h3 className="text-2xl font-bold text-gray-900">Tools & Exercises</h3>
-                    <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full">GO</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">🛠️</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Tools & Exercises</h3>
+                      <span className="text-xs font-bold text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full">GO</span>
+                    </div>
                   </div>
                   <p className="text-gray-600 mb-4">
                     Journaling, goal tracking, daily inspiration, and guided therapeutic exercises.
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2">
                     {["Reflective journaling", "Goal setting & tracking", "Daily inspiration quotes", "Guided exercises", "CBT & mindfulness tools"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-amber-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-8 border-2 border-orange-200 text-center">
-                  <div className="text-6xl mb-4">✨</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Therapeutic Tools</p>
-                  <p className="text-gray-600">CBT, Mindfulness & More</p>
+                <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">✨</div>
+                    <p className="text-2xl font-bold text-white mb-2">Therapeutic Tools</p>
+                    <p className="text-amber-100">CBT, Mindfulness & More</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Feature 5: Recalibrate AI */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-500 shadow-lg shadow-purple-500/10 hover:shadow-xl transition-shadow relative">
+              {/* Feature 5: Recalibrate AI - Pink/Rose */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border-2 border-pink-300 shadow-lg shadow-pink-500/10 hover:shadow-xl hover:shadow-pink-500/20 hover:border-pink-400 transition-all duration-300 relative">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">AI Powered</span>
+                  <span className="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-pink-500/25">AI Powered</span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">🤖</span>
-                    <h3 className="text-2xl font-bold text-gray-900">Recalibrate AI</h3>
-                    <span className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">PRO</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center shadow-lg shadow-pink-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">🤖</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Recalibrate AI</h3>
+                      <span className="text-xs font-bold text-pink-600 bg-pink-100 px-2 py-0.5 rounded-full">PRO</span>
+                    </div>
                   </div>
                   <p className="text-gray-600 mb-4">
                     Your AI companion powered by Gemini 2.0 Flash. Get personalized insights and research assistance.
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2">
                     {["Chat with health context", "Pain science research", "Pattern analysis", "Personalized suggestions", "24/7 AI availability"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-pink-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-8 border-2 border-purple-200 text-center">
-                  <div className="text-6xl mb-4">💬</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Gemini 2.0 Flash</p>
-                  <p className="text-gray-600">AI-powered health insights</p>
+                <div className="bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">💬</div>
+                    <p className="text-2xl font-bold text-white mb-2">Gemini 2.0 Flash</p>
+                    <p className="text-pink-100">AI-powered health insights</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Feature 6: Care Team */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-pink-200 shadow-sm hover:shadow-lg transition-shadow">
+              {/* Feature 6: Care Team - Blue/Cyan */}
+              <div className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-cyan-200 shadow-sm hover:shadow-xl hover:shadow-cyan-500/10 hover:border-cyan-300 transition-all duration-300">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">👥</span>
-                    <h3 className="text-2xl font-bold text-gray-900">Care Team</h3>
-                    <span className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">PRO</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">👥</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Care Team</h3>
+                      <span className="text-xs font-bold text-cyan-600 bg-cyan-100 px-2 py-0.5 rounded-full">PRO</span>
+                    </div>
                   </div>
                   <p className="text-gray-600 mb-4">
                     Connect clinicians, researchers, family members, and friends with dedicated dashboards.
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2">
                     {["Clinician analytics access", "Research data sharing", "Family support dashboards", "Progress report exports", "Collaborative care coordination"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-cyan-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 text-center">
-                  <div className="text-6xl mb-4">🩺</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Connected Care</p>
-                  <p className="text-gray-600">Clinicians, Family & Friends</p>
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">🩺</div>
+                    <p className="text-2xl font-bold text-white mb-2">Connected Care</p>
+                    <p className="text-cyan-100">Clinicians, Family & Friends</p>
+                  </div>
                 </div>
               </div>
 
