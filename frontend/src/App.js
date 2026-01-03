@@ -972,73 +972,101 @@ function App() {
           </div>
         </section>
 
-        {/* Clinicians & Partners - Compact Grid */}
+        {/* Clinicians & Partners - Matching New Style */}
         <section id="partners" className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-white to-purple-50/30 scroll-mt-20">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">Clinicians & Partners</h2>
               <p className="text-gray-600">Join us in revolutionizing chronic pain management</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Partnership Cards - 2 Column Layout */}
+            <div className="space-y-6">
               {/* Healthcare Clinics */}
-              <div className="bg-white rounded-2xl p-5 border-2 border-blue-200 hover:shadow-lg transition-shadow group">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🩺</span>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🩺</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Healthcare Clinics</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Integrate Recalibrate into your practice. Help your patients track their progress between appointments.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["Multi-patient clinician dashboard", "Care team integration", "HIPAA-compliant data sharing", "Progress reports for appointments", "Patient engagement tools"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => setPartnerFormOpen('clinic')} className="bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition-all flex items-center gap-2">
+                    Partner with us <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Healthcare Clinics</h3>
-                <p className="text-sm text-gray-600 mb-4">Integrate Recalibrate into your practice with multi-patient dashboards.</p>
-                <ul className="space-y-1.5 mb-4 text-sm">
-                  {["Clinician dashboard", "Care team tools", "HIPAA-compliant"].map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={() => setPartnerFormOpen('clinic')} className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-1 text-sm">
-                  Partner with us <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
+                  <div className="text-6xl mb-4">🏥</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Clinical Dashboard</p>
+                  <p className="text-gray-600">Track all your patients</p>
+                </div>
               </div>
 
-              {/* Research */}
-              <div className="bg-white rounded-2xl p-5 border-2 border-purple-200 hover:shadow-lg transition-shadow group">
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🔬</span>
+              {/* Research Collaborations */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🔬</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Research Collaborations</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Access anonymized, aggregated data for pain research. Advance the science of chronic pain management.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["Longitudinal pain datasets", "Multi-variable correlations", "Ethical data partnerships", "IRB-approved protocols", "Academic collaboration"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => setPartnerFormOpen('research')} className="bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition-all flex items-center gap-2">
+                    Collaborate with us <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Research Collaborations</h3>
-                <p className="text-sm text-gray-600 mb-4">Access anonymized data for pain research and advance the science.</p>
-                <ul className="space-y-1.5 mb-4 text-sm">
-                  {["Pain datasets", "Multi-variable data", "Ethical partnerships"].map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={() => setPartnerFormOpen('research')} className="text-purple-600 font-semibold hover:text-purple-700 flex items-center gap-1 text-sm">
-                  Collaborate with us <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
+                  <div className="text-6xl mb-4">📊</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Research Data</p>
+                  <p className="text-gray-600">Anonymized pain insights</p>
+                </div>
               </div>
 
               {/* Investors */}
-              <div className="bg-white rounded-2xl p-5 border-2 border-emerald-200 hover:shadow-lg transition-shadow group">
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🤝</span>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🤝</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Become an Investor</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Join us in building the future of chronic pain management. We're raising our seed round to accelerate.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["$50B+ chronic pain market", "AI-powered health insights", "Scalable B2B & B2C model", "Strong founding team", "Clear path to profitability"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button onClick={() => setPartnerFormOpen('investor')} className="bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition-all flex items-center gap-2">
+                    Investor Prospectus <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Become an Investor</h3>
-                <p className="text-sm text-gray-600 mb-4">Join us building the future of chronic pain management.</p>
-                <ul className="space-y-1.5 mb-4 text-sm">
-                  {["$50B+ market", "AI-powered", "Scalable model"].map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={() => setPartnerFormOpen('investor')} className="text-emerald-600 font-semibold hover:text-emerald-700 flex items-center gap-1 text-sm">
-                  Investor Prospectus <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
+                  <div className="text-6xl mb-4">📈</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">$1.5M Seed Round</p>
+                  <p className="text-gray-600">Building the future</p>
+                </div>
               </div>
             </div>
           </div>
