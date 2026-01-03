@@ -462,8 +462,8 @@ function App() {
           </div>
         </section>
 
-        {/* 3D Animated Roadmap - How It Works */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 overflow-hidden relative">
+        {/* How It Works - Journey Roadmap */}
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-800 overflow-hidden relative">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -487,48 +487,48 @@ function App() {
             {/* 3D Roadmap Container */}
             <div className="relative" style={{perspective: '1000px'}}>
               {/* Connecting Line - Hidden on mobile, visible on desktop */}
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transform -translate-y-1/2 z-0" style={{transform: 'translateY(-50%) rotateX(60deg)'}}></div>
+              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 rounded-full transform -translate-y-1/2 z-0 opacity-50"></div>
               
               {/* Journey Steps */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
                 {/* Step 1: Assessment */}
                 <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/30 h-full">
+                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-purple-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
                       1
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-blue-500/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-purple-400/30">
                       <span className="text-4xl">📋</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Assessment</h3>
-                    <p className="text-blue-200/70 text-sm leading-relaxed">
+                    <p className="text-purple-200/70 text-sm leading-relaxed">
                       Complete your personalized health profile & baseline pain assessment
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full">Profile</span>
-                      <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full">History</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">Profile</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">History</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Step 2: Track */}
                 <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 sm:translate-y-8 lg:translate-y-6" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-emerald-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/30 h-full">
+                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
                       2
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-emerald-500/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-purple-400/30">
                       <span className="text-4xl">📊</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Track Daily</h3>
-                    <p className="text-emerald-200/70 text-sm leading-relaxed">
+                    <p className="text-purple-200/70 text-sm leading-relaxed">
                       Log 18+ health variables: pain, sleep, mood, energy & more
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded-full">18+ Variables</span>
-                      <span className="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded-full">Daily</span>
+                      <span className="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded-full">18+ Variables</span>
+                      <span className="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded-full">Daily</span>
                     </div>
                   </div>
                 </div>
@@ -536,11 +536,11 @@ function App() {
                 {/* Step 3: Learn */}
                 <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2" style={{transformStyle: 'preserve-3d'}}>
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-purple-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/30 h-full">
+                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-purple-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
                       3
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-violet-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-purple-500/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-violet-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-purple-400/30">
                       <span className="text-4xl">🎓</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Learn & Grow</h3>
@@ -556,62 +556,62 @@ function App() {
 
                 {/* Step 4: AI Insights */}
                 <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 sm:translate-y-8 lg:translate-y-6" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-pink-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-pink-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/30 h-full">
+                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-violet-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
                       4
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-pink-500/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-purple-400/30">
                       <span className="text-4xl">🤖</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">AI Insights</h3>
-                    <p className="text-pink-200/70 text-sm leading-relaxed">
+                    <p className="text-purple-200/70 text-sm leading-relaxed">
                       Get personalized patterns & suggestions from Recalibrate AI
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-pink-500/20 text-pink-300 px-2 py-1 rounded-full">Gemini 2.0</span>
-                      <span className="text-xs bg-pink-500/20 text-pink-300 px-2 py-1 rounded-full">Patterns</span>
+                      <span className="text-xs bg-violet-500/20 text-violet-300 px-2 py-1 rounded-full">Gemini 2.0</span>
+                      <span className="text-xs bg-violet-500/20 text-violet-300 px-2 py-1 rounded-full">Patterns</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Step 5: Connect */}
                 <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 sm:col-span-2 lg:col-span-1" style={{transformStyle: 'preserve-3d'}}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 border border-amber-500/30 h-full">
-                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-amber-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/30 h-full">
+                    <div className="absolute -top-4 -right-2 w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-purple-500/50 transform rotate-12 group-hover:rotate-0 transition-transform">
                       5
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-amber-500/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-purple-400/30">
                       <span className="text-4xl">🤝</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Connect Care</h3>
-                    <p className="text-amber-200/70 text-sm leading-relaxed">
+                    <p className="text-purple-200/70 text-sm leading-relaxed">
                       Share with clinicians, researchers & family with Care Team
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded-full">Clinicians</span>
-                      <span className="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded-full">Family</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">Clinicians</span>
+                      <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">Family</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Bottom Progress Indicator */}
-              <div className="mt-12 flex justify-center items-center gap-4">
+              <div className="mt-12 flex justify-center items-center gap-4 flex-wrap">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-blue-500 animate-pulse"></div>
-                  <span className="text-sm text-blue-300">Start Free</span>
+                  <div className="w-3 h-3 rounded-full bg-purple-400 animate-pulse"></div>
+                  <span className="text-sm text-purple-300">Start Free</span>
                 </div>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-indigo-400"></div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-purple-500 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                  <span className="text-sm text-purple-300">Upgrade to Go</span>
+                  <div className="w-3 h-3 rounded-full bg-indigo-400 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                  <span className="text-sm text-indigo-300">Upgrade to Go</span>
                 </div>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 hidden sm:block"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-indigo-400 to-violet-400 hidden sm:block"></div>
                 <div className="hidden sm:flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-pink-500 animate-pulse" style={{animationDelay: '1s'}}></div>
-                  <span className="text-sm text-pink-300">Go Pro</span>
+                  <div className="w-3 h-3 rounded-full bg-violet-400 animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <span className="text-sm text-violet-300">Go Pro</span>
                 </div>
               </div>
             </div>
