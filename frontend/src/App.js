@@ -263,7 +263,7 @@ function App() {
               </h1>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-                <strong className="text-gray-800">Recalibrate</strong> — The comprehensive allied health platform for chronic pain, chronic illness, and rehabilitation. Track 18+ health variables, connect with physiotherapists, occupational therapists, chiropractors and allied health professionals. Learn from our Academy and get AI-powered insights.
+                <strong className="text-gray-800">Recalibrate App</strong> — The comprehensive allied health platform for chronic pain, chronic illness, and rehabilitation. Track 18+ health variables, connect with physiotherapists, occupational therapists, chiropractors and allied health professionals. Learn from our Academy and get AI-powered insights.
               </p>
               
               {/* Email Form */}
@@ -1501,7 +1501,7 @@ function App() {
             </div>
             
             <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-              <p className="text-gray-400 text-sm mb-4">Recalibrate Inc. Allied Health & Wellness Technology</p>
+              <p className="text-gray-400 text-sm mb-4">Recalibrate. Smarter Health and Pain Technology</p>
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <p className="text-gray-500 text-xs">© 2025 Recalibrate. Your intelligent allied health companion.</p>
                 <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center gap-2">
