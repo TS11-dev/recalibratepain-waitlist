@@ -1051,128 +1051,120 @@ function App() {
           </div>
         </section>
 
-        {/* Recalibrate Resources Section */}
-        <section id="resources" className="py-10 lg:py-24 px-4 sm:px-6 scroll-mt-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-6 lg:mb-12">
-              <h2 className="text-2xl lg:text-5xl font-bold text-gray-900 mb-2 lg:mb-4">
+        {/* Recalibrate Resources Section - Matching New Style */}
+        <section id="resources" className="py-12 sm:py-16 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-purple-50/50 to-white">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">
                 Recalibrate Resources
               </h2>
-              <p className="text-sm lg:text-lg text-gray-600 max-w-2xl mx-auto">
-                Start your pain management journey today.
+              <p className="text-gray-600 mb-6">
+                Start your pain management journey today
               </p>
             </div>
             
-            {/* Mobile: Compact 3-column grid with more info */}
-            <div className="grid grid-cols-3 gap-2 lg:hidden">
+            {/* Resource Cards - Matching Subscription Layout */}
+            <div className="space-y-6">
+              {/* Newsletter */}
               <a 
                 href="https://recalibrate.beehiiv.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow group"
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-xl">📬</span>
-                </div>
-                <h3 className="text-xs font-bold text-gray-900 mb-1">Newsletter</h3>
-                <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">Weekly pain science tips & research updates</p>
-                <span className="text-[9px] text-purple-600 font-medium">Subscribe →</span>
-              </a>
-              
-              <a 
-                href="https://www.etsy.com/shop/RecalibratePain" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all"
-              >
-                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-xl">📚</span>
-                </div>
-                <h3 className="text-xs font-bold text-gray-900 mb-1">Products</h3>
-                <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">Courses, worksheets & educational guides</p>
-                <span className="text-[9px] text-purple-600 font-medium">Browse →</span>
-              </a>
-              
-              <a 
-                href="https://ko-fi.com/N4N21O1R1W" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-white rounded-xl p-3 border border-purple-100 shadow-sm text-center hover:shadow-md transition-all"
-              >
-                <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-xl">☕</span>
-                </div>
-                <h3 className="text-xs font-bold text-gray-900 mb-1">Support</h3>
-                <p className="text-[8px] text-gray-500 mb-1.5 leading-tight">Help keep our free resources available</p>
-                <span className="text-[9px] text-purple-600 font-medium">Donate →</span>
-              </a>
-            </div>
-
-            {/* Desktop: Full cards - all same white style */}
-            <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-              {/* Newsletter - Purple gradient */}
-              <a 
-                href="https://recalibrate.beehiiv.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="relative bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/20 transition-all group overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-full -mr-16 -mt-16"></div>
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-purple-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">📬</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Recalibrate Newsletter</h3>
+                    <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Recalibrate Newsletter</h3>
-                  <p className="text-gray-700 mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-4">
                     Weekly insights on chronic pain management, research updates, and practical tips delivered to your inbox.
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-xl font-semibold text-purple-600 shadow-md group-hover:shadow-lg group-hover:bg-purple-600 group-hover:text-white transition-all">
-                    Subscribe Free <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ul className="space-y-2 mb-6">
+                    {["Weekly pain science updates", "Practical management tips", "Research breakthroughs", "Community stories", "Exclusive content"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="inline-flex items-center gap-2 bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:bg-purple-600 transition-all">
+                    Subscribe Free <ExternalLink className="w-4 h-4" />
                   </div>
                 </div>
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
+                  <div className="text-6xl mb-4">✉️</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Weekly Insights</p>
+                  <p className="text-gray-600">Direct to your inbox</p>
+                </div>
               </a>
-              
-              {/* Courses and Products - Orange gradient */}
+
+              {/* Courses & Products */}
               <a 
                 href="https://www.etsy.com/shop/RecalibratePain" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="relative bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border-2 border-orange-200 hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/20 transition-all group overflow-hidden"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-orange-200 shadow-sm hover:shadow-lg transition-shadow group"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full -mr-16 -mt-16"></div>
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-orange-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">📚</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Courses & Products</h3>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Courses & Products</h3>
-                  <p className="text-gray-700 mb-6 leading-relaxed">
-                    Explore our pain education resources, worksheets, and guides to start your journey.
+                  <p className="text-gray-600 mb-4">
+                    Explore our pain education resources, worksheets, and guides to start your journey today.
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-xl font-semibold text-orange-600 shadow-md group-hover:shadow-lg group-hover:bg-orange-600 group-hover:text-white transition-all">
-                    Browse Products <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ul className="space-y-2 mb-6">
+                    {["Educational courses", "Downloadable worksheets", "Pain management guides", "Tracking templates", "Self-help resources"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:bg-orange-600 transition-all">
+                    Browse Products <ExternalLink className="w-4 h-4" />
                   </div>
                 </div>
+                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-8 border-2 border-orange-200 text-center">
+                  <div className="text-6xl mb-4">🎓</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Learn & Grow</p>
+                  <p className="text-gray-600">Start your journey now</p>
+                </div>
               </a>
-              
-              {/* Support - Pink/Rose gradient */}
+
+              {/* Support Our Mission */}
               <a 
                 href="https://ko-fi.com/N4N21O1R1W" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl hover:shadow-pink-500/20 transition-all group overflow-hidden"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-pink-200 shadow-sm hover:shadow-lg transition-shadow group"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-rose-500/10 rounded-full -mr-16 -mt-16"></div>
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
                     <span className="text-3xl">☕</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Support Our Mission</h3>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Support Our Mission</h3>
-                  <p className="text-gray-700 mb-6 leading-relaxed">
-                    Help us build the future of pain management. Your support keeps our free resources available.
+                  <p className="text-gray-600 mb-4">
+                    Help us build the future of pain management. Your support keeps our free resources available for everyone.
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-xl font-semibold text-pink-600 shadow-md group-hover:shadow-lg group-hover:bg-pink-600 group-hover:text-white transition-all">
-                    Buy Us a Coffee <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ul className="space-y-2 mb-6">
+                    {["Fund free resources", "Support app development", "Enable research initiatives", "Help more people", "Be part of the mission"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="inline-flex items-center gap-2 bg-pink-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:bg-pink-600 transition-all">
+                    Buy Us a Coffee <ExternalLink className="w-4 h-4" />
                   </div>
+                </div>
+                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 text-center">
+                  <div className="text-6xl mb-4">💜</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Make a Difference</p>
+                  <p className="text-gray-600">Every bit helps</p>
                 </div>
               </a>
             </div>
