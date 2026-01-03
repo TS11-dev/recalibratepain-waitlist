@@ -732,6 +732,11 @@ function App() {
                   <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-pink-500 animate-pulse" style={{animationDelay: '1s'}}></div>
                   <span className="text-xs sm:text-sm text-pink-300">Pro</span>
                 </div>
+                <div className="w-6 sm:w-12 h-0.5 bg-gradient-to-r from-pink-500 to-yellow-500"></div>
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                  <span className="text-xs sm:text-sm text-yellow-300">Super</span>
+                </div>
               </div>
             </div>
           </div>
