@@ -1095,8 +1095,8 @@ function App() {
         <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-purple-100/50 via-violet-50 to-purple-100/50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Built on Evidence-Based Science</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Recalibrate App integrates proven approaches from leading pain research</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Built on Evidence-Based Allied Health Science</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Recalibrate integrates proven approaches from leading allied health and pain research</p>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-6">
