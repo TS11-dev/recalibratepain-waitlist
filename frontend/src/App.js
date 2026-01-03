@@ -252,11 +252,11 @@ function App() {
               </div>
               
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
-                Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Health</span>
+                Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Health</span>
                 <span className="sm:hidden"><br />and </span>
                 <span className="hidden sm:inline"> and</span>
                 <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Pain Management</span>
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Pain Management</span>
                 <span className="sm:hidden"><br /></span>
                 <span className="hidden sm:inline"> </span>
                 Companion
@@ -281,7 +281,7 @@ function App() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                      className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
                     >
                       {loading ? (
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -1420,7 +1420,7 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900/50 to-indigo-900 text-white">
+        <footer className="py-12 px-4 sm:px-6 bg-slate-900 text-white">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center gap-2">
