@@ -465,316 +465,188 @@ function App() {
 
 
 
-        {/* Features Section - 200+ Tools & Resources */}
-        <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-white to-purple-50/30">
-          <div className="max-w-7xl mx-auto">
+        {/* Features Section - 200+ Tools & Resources - Matching Subscription Style */}
+        <section id="features" className="py-12 sm:py-16 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-white to-purple-50/30">
+          <div className="max-w-5xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                200+ Tools & Resources in Recalibrate App
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">
+                200+ Tools & Resources
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                Everything you need to understand, track, and manage your chronic pain and chronic illness journey with our comprehensive pain management app.
+              <p className="text-gray-600 mb-6">
+                Everything you need to manage your chronic pain journey
               </p>
-              <div className="flex flex-wrap gap-3 justify-center">
-                <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">🆓 FREE — Tracker & Analytics</span>
-                <span className="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">🚀 GO — Academy & Tools</span>
-                <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">⭐ PRO — AI & Care Team</span>
-                <span className="bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-medium">💎 SUPER — Premium AI</span>
-              </div>
             </div>
 
-            {/* Feature 1: Smart Tracker - visual LEFT */}
-            <div className="grid grid-cols-2 gap-2 lg:gap-12 items-center mb-4 lg:mb-20 p-2 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-blue-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="col-span-1">
-                <span className="inline-block bg-gray-100 text-gray-600 text-[9px] lg:text-xs font-bold px-1.5 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">FREE</span>
-                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Smart Tracker</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-[9px] lg:text-lg leading-tight">
-                  Log pain, sleep, mood & energy across 8 health systems.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 lg:gap-4">
-                  {[
-                    { icon: "🎯", label: "Pain" },
-                    { icon: "😴", label: "Sleep" },
-                    { icon: "💊", label: "Meds" },
-                    { icon: "⚡", label: "Energy" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-1.5 lg:gap-2 p-1 lg:p-3 bg-gray-50 rounded">
-                      <span className="text-[10px] lg:text-2xl">{item.icon}</span>
-                      <p className="font-medium text-gray-900 text-[8px] lg:text-sm leading-none">{item.label}</p>
-                    </div>
-                  ))}
+            {/* Feature Cards - Matching Subscription Layout */}
+            <div className="space-y-6">
+              
+              {/* Feature 1: Smart Tracker */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-blue-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">📊</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Smart Tracker</h3>
+                    <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Log pain, sleep, mood & energy across 8 health systems with our comprehensive tracking tools.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["18+ health variables tracked", "Pain & mood monitoring", "Sleep quality analysis", "Medication tracking", "Energy level logging"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 border-2 border-blue-200 text-center">
+                  <div className="text-6xl mb-4">🎯</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">18+ Variables</p>
+                  <p className="text-gray-600">Across 8 biological systems</p>
                 </div>
               </div>
-              <div className="relative col-span-1 block">
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl lg:rounded-3xl p-1.5 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-blue-200">
-                  <div className="grid grid-cols-4 gap-0.5 lg:gap-2 mb-1 lg:mb-4">
-                    {["🎯", "😴", "💊", "⚡", "🧠", "❤️", "🦴", "🫁"].map((icon, i) => (
-                      <div key={i} className="w-5 h-5 lg:w-12 lg:h-12 bg-white rounded lg:rounded-xl shadow flex items-center justify-center text-[10px] lg:text-2xl">{icon}</div>
-                    ))}
-                  </div>
-                  <div className="bg-white rounded-lg lg:rounded-2xl p-1.5 lg:p-4 shadow-lg text-center w-full max-w-xs">
-                    <p className="text-lg lg:text-4xl font-bold text-blue-600">18</p>
-                    <p className="text-[8px] lg:text-sm text-gray-600 leading-tight">Health Variables</p>
-                    <p className="text-[6px] lg:text-xs text-blue-500 mt-0.5 lg:mt-1 leading-tight">across 8 biological systems</p>
-                  </div>
-                  <div className="flex gap-0.5 lg:gap-2 mt-1.5 lg:mt-3 flex-wrap justify-center">
-                    {["Pain", "Sleep", "Mood", "Energy"].map((label, i) => (
-                      <span key={i} className="bg-blue-100 text-blue-700 px-1 py-0.5 lg:px-2 lg:py-1 rounded-full text-[6px] lg:text-xs font-medium">{label}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Feature 2: Analytics Dashboard - visual RIGHT */}
-            <div className="grid grid-cols-2 gap-2 lg:gap-12 items-center mb-4 lg:mb-20 p-2 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-indigo-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative col-span-1 block">
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl lg:rounded-3xl p-1.5 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-indigo-200">
-                  <div className="bg-white rounded-lg lg:rounded-2xl p-1.5 lg:p-5 shadow-lg mb-1.5 lg:mb-3 w-full max-w-xs">
-                    <div className="flex justify-between items-center mb-1 lg:mb-2">
-                      <p className="text-[8px] lg:text-sm text-gray-500">Stability Score</p>
-                      <span className="text-[7px] lg:text-xs bg-green-100 text-green-700 px-1 py-0.5 lg:px-2 lg:py-0.5 rounded-full">↑ 12%</span>
-                    </div>
-                    <p className="text-xl lg:text-5xl font-bold text-indigo-600">53%</p>
-                    <div className="w-full h-1 lg:h-3 bg-gray-200 rounded-full mt-1 lg:mt-3">
-                      <div className="w-1/2 h-1 lg:h-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                    </div>
+              {/* Feature 2: Analytics Dashboard */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-indigo-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">📈</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Analytics Dashboard</h3>
+                    <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
                   </div>
-                  <div className="grid grid-cols-3 gap-1 lg:gap-2 w-full max-w-xs">
-                    <div className="bg-white rounded-lg lg:rounded-xl p-1 lg:p-3 shadow text-center">
-                      <p className="text-xs lg:text-2xl font-bold text-purple-600">18</p>
-                      <p className="text-[6px] lg:text-xs text-gray-500">Variables</p>
-                    </div>
-                    <div className="bg-white rounded-lg lg:rounded-xl p-1 lg:p-3 shadow text-center">
-                      <p className="text-xs lg:text-2xl font-bold text-indigo-600">30+</p>
-                      <p className="text-[6px] lg:text-xs text-gray-500">Days</p>
-                    </div>
-                    <div className="bg-white rounded-lg lg:rounded-xl p-1 lg:p-3 shadow text-center">
-                      <p className="text-xs lg:text-2xl">📈</p>
-                      <p className="text-[6px] lg:text-xs text-gray-500">Trends</p>
-                    </div>
-                  </div>
-                  <p className="text-[7px] lg:text-xs text-indigo-600 font-medium mt-1.5 lg:mt-3">Real-time pattern detection</p>
+                  <p className="text-gray-600 mb-4">
+                    Your personal Stability Score calculated from 18 variables. Visualize trends and patterns.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["Stability score tracking", "Trend analysis & visualization", "Pattern detection algorithms", "Doctor-ready reports", "Historical data comparison"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border-2 border-indigo-200 text-center">
+                  <div className="text-6xl mb-4">📊</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Stability Score</p>
+                  <p className="text-gray-600">Real-time pattern detection</p>
                 </div>
               </div>
-              <div className="col-span-1 order-1 lg:order-2">
-                <span className="inline-block bg-gray-100 text-gray-600 text-[9px] lg:text-xs font-bold px-1.5 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">FREE</span>
-                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Analytics Dashboard</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-[9px] lg:text-lg leading-tight">
-                  Stability Score from 18 variables. Visualize trends.
-                </p>
-                <ul className="space-y-0.5 lg:space-y-3">
-                  {["Stability score", "Trend analysis", "Pattern detection", "Doctor reports"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-1 lg:gap-3">
-                      <CheckCircle className="w-2.5 h-2.5 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700 text-[8px] lg:text-base leading-tight">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
-            {/* Feature 3: Recalibrate Academy - visual LEFT */}
-            <div className="grid grid-cols-2 gap-2 lg:gap-12 items-center mb-4 lg:mb-20 p-2 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="col-span-1">
-                <span className="inline-block bg-emerald-100 text-emerald-700 text-[9px] lg:text-xs font-bold px-1.5 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">GO</span>
-                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Recalibrate Academy</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-[9px] lg:text-lg leading-tight">
-                  90+ lessons on pain science. Earn XP and badges.
-                </p>
-                <div className="flex flex-wrap gap-1 lg:gap-3">
-                  {["Foundations", "Neuro", "Strategies"].map((topic, i) => (
-                    <span key={i} className="bg-emerald-50 text-emerald-700 px-1 py-0.5 lg:px-3 lg:py-1 rounded-full text-[8px] lg:text-sm font-medium">{topic}</span>
-                  ))}
+              {/* Feature 3: Recalibrate Academy */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-emerald-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🎓</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Recalibrate Academy</h3>
+                    <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full">GO</span>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    90+ lessons on pain science. Earn XP and badges as you learn evidence-based strategies.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["90+ educational lessons", "Pain neuroscience modules", "Foundations & strategies", "XP & badge rewards", "Self-paced learning"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-8 border-2 border-emerald-200 text-center">
+                  <div className="text-6xl mb-4">🧠</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">90+ Lessons</p>
+                  <p className="text-gray-600">Evidence-based pain education</p>
                 </div>
               </div>
-              <div className="relative col-span-1 block">
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl lg:rounded-3xl p-1.5 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-emerald-200">
-                  <div className="flex gap-0.5 lg:gap-3 mb-1.5 lg:mb-4">
-                    <div className="bg-white rounded lg:rounded-xl p-1 lg:p-4 shadow-lg text-center">
-                      <p className="text-sm lg:text-3xl font-bold text-emerald-600">90+</p>
-                      <p className="text-[6px] lg:text-xs text-gray-500">Lessons</p>
-                    </div>
-                    <div className="bg-white rounded lg:rounded-xl p-1 lg:p-4 shadow-lg text-center">
-                      <p className="text-sm lg:text-3xl font-bold text-amber-500">835</p>
-                      <p className="text-[6px] lg:text-xs text-gray-500">XP</p>
-                    </div>
-                    <div className="bg-white rounded lg:rounded-xl p-1 lg:p-4 shadow-lg text-center">
-                      <p className="text-sm lg:text-3xl font-bold text-teal-600">12</p>
-                      <p className="text-[6px] lg:text-xs text-gray-500">Badges</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-0.5 lg:gap-2 mb-1 lg:mb-3 flex-wrap justify-center">
-                    {["🏆", "🎯", "🔥", "⭐", "🧠"].map((badge, i) => (
-                      <div key={i} className="w-4 h-4 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-[8px] lg:text-lg">{badge}</div>
-                    ))}
-                  </div>
-                  <div className="flex gap-0.5 lg:gap-2 flex-wrap justify-center">
-                    {["Foundations", "Neurobiology", "Strategies"].map((topic, i) => (
-                      <span key={i} className="bg-emerald-100 text-emerald-700 px-1 py-0.5 lg:px-2 lg:py-1 rounded-full text-[6px] lg:text-xs font-medium">{topic}</span>
-                    ))}
-                  </div>
-                  <p className="text-[7px] lg:text-xs text-emerald-600 font-medium mt-1 lg:mt-3 text-center">Evidence-based pain education</p>
-                </div>
-              </div>
-            </div>
 
-            {/* Feature 4: Tools & Exercises - visual RIGHT */}
-            <div className="grid grid-cols-2 gap-2 lg:gap-12 items-center mb-4 lg:mb-20 p-2 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-orange-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative col-span-1 block">
-                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl lg:rounded-3xl p-1.5 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-orange-200">
-                  <div className="grid grid-cols-2 gap-1 lg:gap-3 w-full max-w-xs mb-1 lg:mb-3">
-                    {[
-                      { icon: "📝", name: "Journal", desc: "Reflections", color: "bg-orange-500" },
-                      { icon: "🎯", name: "Goals", desc: "Progress", color: "bg-amber-500" },
-                      { icon: "💡", name: "Inspire", desc: "Quotes", color: "bg-yellow-500" },
-                      { icon: "🏃", name: "Move", desc: "Guided", color: "bg-orange-600" }
-                    ].map((tool, i) => (
-                      <div key={i} className="bg-white rounded-lg lg:rounded-xl p-1 lg:p-3 shadow-lg text-center">
-                        <div className={`w-5 h-5 lg:w-10 lg:h-10 ${tool.color} rounded-md lg:rounded-lg mx-auto mb-0.5 lg:mb-2 flex items-center justify-center text-[10px] lg:text-xl text-white`}>
-                          {tool.icon}
-                        </div>
-                        <p className="font-semibold text-gray-900 text-[8px] lg:text-sm">{tool.name}</p>
-                        <p className="text-[6px] lg:text-xs text-gray-500 leading-none">{tool.desc}</p>
-                      </div>
-                    ))}
+              {/* Feature 4: Tools & Exercises */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-orange-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🛠️</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Tools & Exercises</h3>
+                    <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full">GO</span>
                   </div>
-                  <div className="flex gap-0.5 lg:gap-2 flex-wrap justify-center">
-                    {["CBT", "Mindfulness", "Graded"].map((therapy, i) => (
-                      <span key={i} className="bg-orange-100 text-orange-700 px-1 py-0.5 lg:px-2 lg:py-1 rounded-full text-[6px] lg:text-xs font-medium">{therapy}</span>
+                  <p className="text-gray-600 mb-4">
+                    Journaling, goal tracking, daily inspiration, and guided therapeutic exercises.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["Reflective journaling", "Goal setting & tracking", "Daily inspiration quotes", "Guided exercises", "CBT & mindfulness tools"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
                     ))}
-                  </div>
-                  <p className="text-[7px] lg:text-xs text-orange-600 font-medium mt-1 lg:mt-2">Therapeutic interventions</p>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-8 border-2 border-orange-200 text-center">
+                  <div className="text-6xl mb-4">✨</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Therapeutic Tools</p>
+                  <p className="text-gray-600">CBT, Mindfulness & More</p>
                 </div>
               </div>
-              <div className="col-span-1 order-1 lg:order-2">
-                <span className="inline-block bg-emerald-100 text-emerald-700 text-[9px] lg:text-xs font-bold px-1.5 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">GO</span>
-                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Tools & Exercises</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-[9px] lg:text-lg leading-tight">
-                  Journal, goals, inspiration, and guided exercises.
-                </p>
-                <ul className="space-y-0.5 lg:space-y-3">
-                  {["Journaling", "Goal tracking", "Inspiration", "Exercises"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-1 lg:gap-3">
-                      <CheckCircle className="w-2.5 h-2.5 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700 text-[8px] lg:text-base leading-tight">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
-            {/* Feature 5: Recalibrate AI - visual LEFT */}
-            <div className="grid grid-cols-2 gap-2 lg:gap-12 items-center mb-4 lg:mb-20 p-2 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="col-span-1">
-                <span className="inline-block bg-purple-100 text-purple-700 text-[9px] lg:text-xs font-bold px-1.5 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">PRO</span>
-                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Recalibrate AI</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-[9px] lg:text-lg leading-tight">
-                  AI companion powered by Gemini 2.0 Flash.
-                </p>
-                <div className="space-y-0.5 lg:space-y-3">
-                  {[
-                    { mode: "💬 Chat", desc: "Health data" },
-                    { mode: "🔬 Research", desc: "Pain science" },
-                    { mode: "📊 Analysis", desc: "Patterns" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-1 lg:gap-3 p-1 lg:p-3 bg-purple-50 rounded lg:rounded-xl">
-                      <span className="font-semibold text-purple-700 text-[8px] lg:text-base">{item.mode}</span>
-                      <span className="text-gray-600 text-[7px] lg:text-sm">{item.desc}</span>
-                    </div>
-                  ))}
+              {/* Feature 5: Recalibrate AI */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-500 shadow-lg shadow-purple-500/10 hover:shadow-xl transition-shadow relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">AI Powered</span>
                 </div>
-              </div>
-              <div className="relative col-span-1 block">
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl lg:rounded-3xl p-1.5 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-purple-200">
-                  <div className="bg-white rounded-lg lg:rounded-2xl p-1.5 lg:p-5 shadow-xl w-full max-w-xs mb-1 lg:mb-3">
-                    <div className="flex items-center gap-1 lg:gap-3 mb-1 lg:mb-3">
-                      <div className="w-5 h-5 lg:w-10 lg:h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
-                        <Bot className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-bold text-gray-900 text-[8px] lg:text-base">Recalibrate AI</p>
-                        <p className="text-[6px] lg:text-xs text-gray-500">Gemini 2.0</p>
-                      </div>
-                    </div>
-                    <div className="bg-purple-50 rounded lg:rounded-xl p-1 lg:p-3 mb-1 lg:mb-3">
-                      <p className="text-[7px] lg:text-sm text-gray-700 leading-tight">I notice your pain increases after poor sleep. Suggestions?</p>
-                    </div>
-                    <div className="flex gap-1 lg:gap-2">
-                      <span className="text-[6px] lg:text-xs bg-purple-100 text-purple-700 px-1 py-0.5 lg:px-2 lg:py-1 rounded-full">Yes, show me</span>
-                      <span className="text-[6px] lg:text-xs bg-gray-100 text-gray-600 px-1 py-0.5 lg:px-2 lg:py-1 rounded-full">Tell me more</span>
-                    </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">🤖</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Recalibrate AI</h3>
+                    <span className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">PRO</span>
                   </div>
-                  <div className="flex gap-1 lg:gap-2 mb-0.5 lg:mb-2">
-                    {[
-                      { icon: "💬", label: "Chat" },
-                      { icon: "🔬", label: "Research" },
-                      { icon: "📊", label: "Analysis" }
-                    ].map((mode, i) => (
-                      <div key={i} className="bg-white rounded-lg px-1.5 py-0.5 lg:px-3 lg:py-2 shadow text-center">
-                        <span className="text-[10px] lg:text-lg">{mode.icon}</span>
-                        <p className="text-[6px] lg:text-xs text-gray-600">{mode.label}</p>
-                      </div>
+                  <p className="text-gray-600 mb-4">
+                    Your AI companion powered by Gemini 2.0 Flash. Get personalized insights and research assistance.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["Chat with health context", "Pain science research", "Pattern analysis", "Personalized suggestions", "24/7 AI availability"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
                     ))}
-                  </div>
-                  <p className="text-[7px] lg:text-xs text-purple-600 font-medium">AI-powered health insights</p>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-8 border-2 border-purple-200 text-center">
+                  <div className="text-6xl mb-4">💬</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Gemini 2.0 Flash</p>
+                  <p className="text-gray-600">AI-powered health insights</p>
                 </div>
               </div>
-            </div>
 
-            {/* Feature 6: Care Team - visual RIGHT */}
-            <div className="grid grid-cols-2 gap-2 lg:gap-12 items-center p-2 lg:p-8 bg-white rounded-xl lg:rounded-3xl border-2 border-pink-200 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="order-2 lg:order-1 relative col-span-1 block">
-                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl lg:rounded-3xl p-1.5 lg:p-6 aspect-square flex flex-col items-center justify-center border lg:border-2 border-pink-200">
-                  <div className="flex justify-center mb-1 lg:mb-4">
-                    <div className="relative">
-                      <div className="w-8 h-8 lg:w-16 lg:h-16 bg-white rounded-full shadow-lg flex items-center justify-center text-sm lg:text-2xl border-2 lg:border-4 border-pink-200">👤</div>
-                      <div className="absolute -top-1 -right-2 lg:-right-6 w-5 h-5 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-[8px] lg:text-lg border lg:border-2 border-blue-200">🩺</div>
-                      <div className="absolute -bottom-1 -right-2 lg:-right-6 w-5 h-5 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-[8px] lg:text-lg border lg:border-2 border-green-200">👨‍👩‍👧</div>
-                      <div className="absolute -bottom-1 -left-2 lg:-left-6 w-5 h-5 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-[8px] lg:text-lg border lg:border-2 border-purple-200">🔬</div>
-                      <div className="absolute -top-1 -left-2 lg:-left-6 w-5 h-5 lg:w-10 lg:h-10 bg-white rounded-full shadow flex items-center justify-center text-[8px] lg:text-lg border lg:border-2 border-amber-200">📋</div>
-                    </div>
+              {/* Feature 6: Care Team */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-pink-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-3xl">👥</span>
+                    <h3 className="text-2xl font-bold text-gray-900">Care Team</h3>
+                    <span className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">PRO</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-1 lg:gap-2 w-full max-w-xs mb-1 lg:mb-3">
-                    {[
-                      { icon: "🩺", title: "Clinician", desc: "Analytics" },
-                      { icon: "🔬", title: "Research", desc: "Data" },
-                      { icon: "👨‍👩‍👧", title: "Family", desc: "Support" },
-                      { icon: "📋", title: "Reports", desc: "Progress" }
-                    ].map((item, i) => (
-                      <div key={i} className="bg-white rounded-lg p-1 lg:p-2 shadow text-center">
-                        <span className="text-[10px] lg:text-lg">{item.icon}</span>
-                        <p className="font-semibold text-gray-900 text-[6px] lg:text-xs">{item.title}</p>
-                        <p className="text-[5px] lg:text-[10px] text-gray-500 leading-none">{item.desc}</p>
-                      </div>
+                  <p className="text-gray-600 mb-4">
+                    Connect clinicians, researchers, family members, and friends with dedicated dashboards.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["Clinician analytics access", "Research data sharing", "Family support dashboards", "Progress report exports", "Collaborative care coordination"].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-700">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
                     ))}
-                  </div>
-                  <p className="text-[7px] lg:text-xs text-pink-600 font-medium">Collaborative care coordination</p>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border-2 border-pink-200 text-center">
+                  <div className="text-6xl mb-4">🩺</div>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Connected Care</p>
+                  <p className="text-gray-600">Clinicians, Family & Friends</p>
                 </div>
               </div>
-              <div className="col-span-1 order-1 lg:order-2">
-                <span className="inline-block bg-purple-100 text-purple-700 text-[9px] lg:text-xs font-bold px-1.5 py-0.5 lg:py-1 rounded-full mb-1 lg:mb-4">PRO</span>
-                <h3 className="text-xs lg:text-3xl font-bold text-gray-900 mb-1 lg:mb-4">Care Team</h3>
-                <p className="text-gray-600 mb-2 lg:mb-6 text-[9px] lg:text-lg leading-tight">
-                  Connect clinicians, family, and friends with dashboards.
-                </p>
-                <div className="grid grid-cols-1 gap-1 lg:gap-4">
-                  {[
-                    { icon: "🩺", title: "Clinician" },
-                    { icon: "🔬", title: "Research" },
-                    { icon: "👨‍👩‍👧", title: "Family" },
-                    { icon: "📋", title: "Reports" }
-                  ].map((item, i) => (
-                    <div key={i} className="p-1 lg:p-3 bg-white rounded lg:rounded-xl border border-gray-100 shadow-sm flex items-center gap-1 lg:block">
-                      <span className="text-[10px] lg:text-2xl">{item.icon}</span>
-                      <p className="font-semibold text-gray-900 text-[8px] lg:text-sm lg:mt-1">{item.title}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
 
+            </div>
           </div>
         </section>
 
