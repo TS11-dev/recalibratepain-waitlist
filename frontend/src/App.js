@@ -669,7 +669,7 @@ function App() {
                   </ul>
                 </div>
                 <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">🎯</div>
                     <p className="text-2xl font-bold text-white mb-2">18+ Variables</p>
@@ -703,7 +703,7 @@ function App() {
                   </ul>
                 </div>
                 <div className="bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">📊</div>
                     <p className="text-2xl font-bold text-white mb-2">Stability Score</p>
@@ -737,7 +737,7 @@ function App() {
                   </ul>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">🧠</div>
                     <p className="text-2xl font-bold text-white mb-2">90+ Lessons</p>
@@ -771,7 +771,7 @@ function App() {
                   </ul>
                 </div>
                 <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">✨</div>
                     <p className="text-2xl font-bold text-white mb-2">Therapeutic Tools</p>
@@ -808,7 +808,7 @@ function App() {
                   </ul>
                 </div>
                 <div className="bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">💬</div>
                     <p className="text-2xl font-bold text-white mb-2">Gemini 2.0 Flash</p>
@@ -842,7 +842,7 @@ function App() {
                   </ul>
                 </div>
                 <div className="bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">🩺</div>
                     <p className="text-2xl font-bold text-white mb-2">Connected Care</p>
@@ -1068,7 +1068,7 @@ function App() {
                   </button>
                 </div>
                 <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">🏥</div>
                     <p className="text-2xl font-bold text-white mb-2">Clinical Dashboard</p>
@@ -1102,7 +1102,7 @@ function App() {
                   </button>
                 </div>
                 <div className="bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">📊</div>
                     <p className="text-2xl font-bold text-white mb-2">Research Data</p>
@@ -1136,7 +1136,7 @@ function App() {
                   </button>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">📈</div>
                     <p className="text-2xl font-bold text-white mb-2">$1.5M Seed Round</p>
@@ -1201,7 +1201,7 @@ function App() {
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">✉️</div>
                     <p className="text-2xl font-bold text-white mb-2">Weekly Insights</p>
@@ -1240,7 +1240,7 @@ function App() {
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">🎓</div>
                     <p className="text-2xl font-bold text-white mb-2">Learn & Grow</p>
@@ -1279,7 +1279,7 @@ function App() {
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  
                   <div className="relative">
                     <div className="text-6xl mb-4">💜</div>
                     <p className="text-2xl font-bold text-white mb-2">Make a Difference</p>
