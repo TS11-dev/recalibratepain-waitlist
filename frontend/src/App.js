@@ -251,11 +251,11 @@ function App() {
               </div>
               
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
-                Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Allied Health</span>
+                Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-900 bg-clip-text text-transparent">Health</span>
                 <span className="sm:hidden"><br />and </span>
                 <span className="hidden sm:inline"> &</span>
                 <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Wellness</span>
+                <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-900 bg-clip-text text-transparent">Pain Management</span>
                 <span className="sm:hidden"><br /></span>
                 <span className="hidden sm:inline"> </span>
                 Companion
