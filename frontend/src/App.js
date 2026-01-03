@@ -1148,28 +1148,42 @@ function App() {
           </div>
         </section>
 
-        {/* Recalibrate Resources - Matching New Style */}
-        <section id="resources" className="py-12 sm:py-16 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-purple-50/50 to-white">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">Recalibrate Resources</h2>
-              <p className="text-gray-600">Start your pain management journey today</p>
+        {/* Recalibrate Resources - Premium Design */}
+        <section id="resources" className="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="max-w-5xl mx-auto relative z-10">
+            <div className="text-center mb-12">
+              <span className="inline-block bg-gradient-to-r from-purple-500/10 to-amber-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
+                Start Today
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
+                Recalibrate <span className="bg-gradient-to-r from-purple-600 to-amber-600 bg-clip-text text-transparent">Resources</span>
+              </h2>
+              <p className="text-lg text-gray-600">Start your pain management journey today</p>
             </div>
             
-            {/* Resource Cards - 2 Column Layout */}
+            {/* Resource Cards */}
             <div className="space-y-6">
-              {/* Newsletter */}
+              {/* Newsletter - Purple */}
               <a 
                 href="https://recalibrate.beehiiv.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow group"
+                className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-200 shadow-sm hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-300 transition-all duration-300"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">📬</span>
-                    <h3 className="text-2xl font-bold text-gray-900">Recalibrate Newsletter</h3>
-                    <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">📬</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Recalibrate Newsletter</h3>
+                      <span className="text-xs font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">FREE</span>
+                    </div>
                   </div>
                   <p className="text-gray-600 mb-4">
                     Weekly insights on chronic pain management, research updates, and practical tips delivered to your inbox.
@@ -1177,32 +1191,37 @@ function App() {
                   <ul className="space-y-2 mb-6">
                     {["Weekly pain science updates", "Practical management tips", "Research breakthroughs", "Community stories", "Exclusive content"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="inline-flex items-center gap-2 bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:bg-purple-600 transition-all">
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:shadow-lg group-hover:shadow-purple-500/25 transition-all">
                     Subscribe Free <ExternalLink className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
-                  <div className="text-6xl mb-4">✉️</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Weekly Insights</p>
-                  <p className="text-gray-600">Direct to your inbox</p>
+                <div className="bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">✉️</div>
+                    <p className="text-2xl font-bold text-white mb-2">Weekly Insights</p>
+                    <p className="text-purple-100">Direct to your inbox</p>
+                  </div>
                 </div>
               </a>
 
-              {/* Courses & Products */}
+              {/* Courses - Amber */}
               <a 
                 href="https://www.etsy.com/shop/RecalibratePain" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow group"
+                className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-200 shadow-sm hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 transition-all duration-300"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">📚</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">📚</span>
+                    </div>
                     <h3 className="text-2xl font-bold text-gray-900">Courses & Products</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
@@ -1211,32 +1230,37 @@ function App() {
                   <ul className="space-y-2 mb-6">
                     {["Educational courses", "Downloadable worksheets", "Pain management guides", "Tracking templates", "Self-help resources"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-amber-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="inline-flex items-center gap-2 bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:bg-purple-600 transition-all">
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:shadow-lg group-hover:shadow-amber-500/25 transition-all">
                     Browse Products <ExternalLink className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
-                  <div className="text-6xl mb-4">🎓</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Learn & Grow</p>
-                  <p className="text-gray-600">Start your journey now</p>
+                <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">🎓</div>
+                    <p className="text-2xl font-bold text-white mb-2">Learn & Grow</p>
+                    <p className="text-amber-100">Start your journey now</p>
+                  </div>
                 </div>
               </a>
 
-              {/* Support Our Mission */}
+              {/* Support - Pink */}
               <a 
                 href="https://ko-fi.com/N4N21O1R1W" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white rounded-2xl border-2 border-purple-200 shadow-sm hover:shadow-lg transition-shadow group"
+                className="group grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-6 lg:p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-pink-200 shadow-sm hover:shadow-xl hover:shadow-pink-500/10 hover:border-pink-300 transition-all duration-300"
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-3xl">☕</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center shadow-lg shadow-pink-500/25 group-hover:scale-110 transition-transform">
+                      <span className="text-2xl">☕</span>
+                    </div>
                     <h3 className="text-2xl font-bold text-gray-900">Support Our Mission</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
@@ -1245,19 +1269,22 @@ function App() {
                   <ul className="space-y-2 mb-6">
                     {["Fund free resources", "Support app development", "Enable research initiatives", "Help more people", "Be part of the mission"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-pink-500 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="inline-flex items-center gap-2 bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:bg-purple-600 transition-all">
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-3 rounded-xl font-semibold group-hover:shadow-lg group-hover:shadow-pink-500/25 transition-all">
                     Buy Us a Coffee <ExternalLink className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 border-2 border-purple-200 text-center">
-                  <div className="text-6xl mb-4">💜</div>
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Make a Difference</p>
-                  <p className="text-gray-600">Every bit helps</p>
+                <div className="bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl p-8 text-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
+                  <div className="relative">
+                    <div className="text-6xl mb-4">💜</div>
+                    <p className="text-2xl font-bold text-white mb-2">Make a Difference</p>
+                    <p className="text-pink-100">Every bit helps</p>
+                  </div>
                 </div>
               </a>
             </div>
