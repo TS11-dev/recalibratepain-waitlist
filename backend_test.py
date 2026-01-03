@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 # Use production backend URL from frontend .env
-BACKEND_URL = 'https://image-optimizer-22.preview.emergentagent.com'
+BACKEND_URL = 'https://recalibrate.preview.emergentagent.com'
 WAITLIST_FILE = "/app/backend/waitlist.json"
 
 print(f"Using backend URL: {BACKEND_URL}")

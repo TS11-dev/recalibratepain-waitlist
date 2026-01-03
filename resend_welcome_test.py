@@ -8,7 +8,7 @@ import time
 import os
 
 # Use production backend URL from frontend .env
-BACKEND_URL = 'https://image-optimizer-22.preview.emergentagent.com'
+BACKEND_URL = 'https://recalibrate.preview.emergentagent.com'
 
 def test_resend_welcome_email_implementation():
     """Test the new Resend implementation for welcome emails"""
