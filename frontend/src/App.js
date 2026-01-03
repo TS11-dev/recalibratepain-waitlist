@@ -166,7 +166,7 @@ function App() {
     { q: "When does Recalibrate launch?", a: "Q1 2026 on iOS, Android, and Web. Join the waitlist to be first in line!" },
     { q: "Is my health data private?", a: "100% private. Encrypted, never shared, and you own your data. We follow secure, industry-standard practices." },
     { q: "How does the AI companion work?", a: "Powered by Gemini 2.0 Flash, it analyzes your patterns and provides personalized insights based on your tracked data." },
-    { q: "What makes this different?", a: "We combine tracking, education, therapeutic tools, and AI insights in one app designed specifically for chronic pain management." },
+    { q: "What makes this different?", a: "We combine tracking, education, therapeutic tools, and AI insights in one comprehensive allied health platform designed for chronic pain, chronic illness, and rehabilitation." },
     { q: "Is there a cost?", a: "We offer a free tier with essential features. Premium plans unlock advanced tools, AI insights, and Care Team access." }
   ];
 
@@ -252,18 +252,18 @@ function App() {
               </div>
               
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
-                Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Health</span>
+                Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Allied Health</span>
                 <span className="sm:hidden"><br />and </span>
-                <span className="hidden sm:inline"> and</span>
+                <span className="hidden sm:inline"> &</span>
                 <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Pain Management</span>
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">Wellness</span>
                 <span className="sm:hidden"><br /></span>
                 <span className="hidden sm:inline"> </span>
                 Companion
               </h1>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-                <strong className="text-gray-800">Recalibrate App</strong> — Track over 18 Health Variables including Pain, Exercise, Nutrition, Anxiety and Sleep. Discover patterns with Analytics and Recalibrate AI, access guided tools and exercises, learn from our Recalibrate Academy and connect to clinicians, researchers and carers easily.
+                <strong className="text-gray-800">Recalibrate</strong> — The comprehensive allied health platform for chronic pain, chronic illness, and rehabilitation. Track 18+ health variables, connect with physiotherapists, occupational therapists, chiropractors and allied health professionals. Learn from our Academy and get AI-powered insights.
               </p>
               
               {/* Email Form */}
@@ -532,7 +532,7 @@ function App() {
                 How It <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Works</span>
               </h2>
               <p className="text-sm sm:text-base lg:text-lg text-purple-200/80 max-w-2xl mx-auto px-4">
-                A personalized path to understanding and managing your chronic pain
+                Your personalized path through allied health, chronic pain, and wellness
               </p>
             </div>
 
@@ -741,7 +741,7 @@ function App() {
                 200+ Tools & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Resources</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Everything you need to manage your chronic pain journey
+                Everything you need for allied health, chronic pain, and wellness
               </p>
             </div>
 
@@ -1140,9 +1140,9 @@ function App() {
                 For Professionals
               </span>
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
-                Clinicians & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Partners</span>
+                Clinicians & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Allied Health</span>
               </h2>
-              <p className="text-lg text-gray-600">Join us in revolutionizing chronic pain management</p>
+              <p className="text-lg text-gray-600">Join us in revolutionizing allied health and patient care</p>
             </div>
             
             {/* Partnership Cards */}
@@ -1154,13 +1154,13 @@ function App() {
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">
                       <span className="text-2xl">🩺</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Healthcare Clinics</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">Allied Health Clinics</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Integrate Recalibrate into your practice. Help your patients track their progress between appointments.
+                    Integrate Recalibrate into your allied health practice. Perfect for physiotherapists, occupational therapists, chiropractors, dietitians, and psychologists.
                   </p>
                   <ul className="space-y-2 mb-6">
-                    {["Multi-patient clinician dashboard", "Care team integration", "Secure data sharing", "Progress reports for appointments", "Patient engagement tools"].map((feature, i) => (
+                    {["Multi-patient clinician dashboard", "Care team integration", "Secure data sharing", "Progress reports for appointments", "Allied health professional tools"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -1191,10 +1191,10 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900">Research Collaborations</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Access anonymized, aggregated data for pain research. Advance the science of chronic pain management.
+                    Access anonymized, aggregated data for allied health and chronic pain research. Advance the science of patient care.
                   </p>
                   <ul className="space-y-2 mb-6">
-                    {["Longitudinal pain datasets", "Multi-variable correlations", "Ethical data partnerships", "IRB-approved protocols", "Academic collaboration"].map((feature, i) => (
+                    {["Longitudinal health datasets", "Multi-variable correlations", "Ethical data partnerships", "IRB-approved protocols", "Allied health research collaboration"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -1225,10 +1225,10 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900">Become an Investor</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Join us in building the future of chronic pain management. We're raising our seed round to accelerate.
+                    Join us in building the future of allied health technology. We're raising our seed round to accelerate.
                   </p>
                   <ul className="space-y-2 mb-6">
-                    {["$50B+ chronic pain market", "AI-powered health insights", "Scalable B2B & B2C model", "Strong founding team", "Clear path to profitability"].map((feature, i) => (
+                    {["$50B+ allied health & chronic pain market", "AI-powered health insights", "Scalable B2B & B2C model", "Strong founding team", "Clear path to profitability"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -1267,7 +1267,7 @@ function App() {
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
                 Recalibrate <span className="bg-gradient-to-r from-purple-600 to-amber-600 bg-clip-text text-transparent">Resources</span>
               </h2>
-              <p className="text-lg text-gray-600">Start your pain management journey today</p>
+              <p className="text-lg text-gray-600">Start your allied health and wellness journey today</p>
             </div>
             
             {/* Resource Cards */}
@@ -1417,7 +1417,7 @@ function App() {
                   Ready to recalibrate your health?
                 </h2>
                 <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-                  Join the revolution. Be the first to experience the future of pain management.
+                  Join the revolution. Be the first to experience the future of allied health.
                 </p>
                 
                 <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto mb-6">
@@ -1503,7 +1503,7 @@ function App() {
             <div className="border-t border-gray-800 mt-8 pt-8 text-center">
               <p className="text-gray-400 text-sm mb-4">Recalibrate Inc. Smarter Health and Pain Technology</p>
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p className="text-gray-500 text-xs">© 2025 Recalibrate App. Your intelligent health companion.</p>
+                <p className="text-gray-500 text-xs">© 2025 Recalibrate. Your intelligent allied health companion.</p>
                 <a href="mailto:info@recalibratepain.com" className="text-gray-400 hover:text-white text-sm flex items-center gap-2">
                   <Mail className="w-4 h-4" />
                   info@recalibratepain.com
@@ -1613,8 +1613,8 @@ function App() {
                     <h4 className="font-bold text-gray-900">Investor Prospectus Summary</h4>
                   </div>
                   <div className="space-y-2 text-sm text-gray-700">
-                    <p><strong className="text-purple-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven pain management.</p>
-                    <p><strong className="text-purple-700">Market:</strong> $600B+ Chronic Pain Market | 1.5B Sufferers Globally.</p>
+                    <p><strong className="text-purple-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven allied health and wellness.</p>
+                    <p><strong className="text-purple-700">Market:</strong> $600B+ Allied Health & Chronic Pain Market | 1.5B+ People Globally.</p>
                     <p><strong className="text-purple-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, Secure architecture.</p>
                     <p><strong className="text-purple-700">Opportunity:</strong> Raising $500,000 Seed Round to accelerate Development Testing, Clinical and Research Partnerships, AI R&D and Marketing.</p>
                     <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
