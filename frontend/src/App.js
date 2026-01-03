@@ -682,11 +682,11 @@ function App() {
           <div className="max-w-5xl mx-auto relative z-10">
             {/* Section Header */}
             <div className="text-center mb-12">
-              <span className="inline-block bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
+              <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
                 Comprehensive Platform
               </span>
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
-                200+ Tools & <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Resources</span>
+                200+ Tools & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Resources</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Everything you need to manage your chronic pain journey
@@ -1067,7 +1067,7 @@ function App() {
             
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {['Acceptance & Commitment', 'Pacing Strategies', 'Nutrition Science', 'Stress Management', 'Biofeedback', 'Goal Setting', 'Self-Compassion', 'Activity Tracking', 'Therapeutic Alliance', 'Neuroplasticity', 'Systems Biology', 'Precision Medicine'].map((item, i) => (
-                <span key={i} className="bg-white/80 backdrop-blur text-gray-700 border border-gray-200 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-white hover:border-purple-300 transition-all">
+                <span key={i} className="bg-white/80 backdrop-blur text-gray-700 border border-purple-200 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-purple-50 hover:border-purple-300 hover:text-purple-700 transition-all cursor-default">
                   {item}
                 </span>
               ))}
@@ -1084,11 +1084,11 @@ function App() {
           
           <div className="max-w-5xl mx-auto relative z-10">
             <div className="text-center mb-12">
-              <span className="inline-block bg-gradient-to-r from-blue-500/10 to-emerald-500/10 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-blue-200">
+              <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
                 For Professionals
               </span>
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
-                Clinicians & <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">Partners</span>
+                Clinicians & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Partners</span>
               </h2>
               <p className="text-lg text-gray-600">Join us in revolutionizing chronic pain management</p>
             </div>
