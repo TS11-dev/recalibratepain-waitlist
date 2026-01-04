@@ -672,7 +672,7 @@ function App() {
                           <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Academy</h3>
                           <span className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">6</span>
                         </div>
-                        <p className="text-sm text-purple-200/80">100+ lessons on pain science & management</p>
+                        <p className="text-sm text-purple-200/80">100+ lessons on health & pain science</p>
                       </div>
                     </div>
                   </div>
@@ -850,7 +850,7 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    100+ lessons on pain science. Earn XP and badges as you learn evidence-based strategies.
+                    100+ lessons on health and pain science. Earn XP and badges as you learn evidence-based strategies.
                   </p>
                   <ul className="space-y-2">
                     {["100+ educational lessons", "Pain neuroscience modules", "Foundations & strategies", "XP & badge rewards", "Self-paced learning"].map((feature, i) => (
@@ -924,7 +924,7 @@ function App() {
                     Your AI companion for health insights. Get personalized patterns and research assistance.
                   </p>
                   <ul className="space-y-2">
-                    {["Chat with health context", "Pain science research", "Pattern analysis", "Personalized suggestions", "24/7 AI availability"].map((feature, i) => (
+                    {["Chat with health context", "Health and pain science research", "Pattern analysis", "Personalized suggestions", "24/7 AI availability"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-pink-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -1314,7 +1314,7 @@ function App() {
                     Weekly insights on chronic pain management, research updates, and practical tips delivered to your inbox.
                   </p>
                   <ul className="space-y-2 mb-6">
-                    {["Weekly pain science updates", "Practical management tips", "Research breakthroughs", "Community stories", "Exclusive content"].map((feature, i) => (
+                    {["Weekly health and pain science updates", "Practical management tips", "Research breakthroughs", "Community stories", "Exclusive content"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0" />
                         <span>{feature}</span>
