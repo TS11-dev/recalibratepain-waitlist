@@ -530,7 +530,7 @@ function App() {
           </div>
         </section>
 
-        {/* How It Works - 3D Journey Roadmap */}
+        {/* How It Works - 3D Cube Journey */}
         <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 overflow-hidden relative">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -552,144 +552,191 @@ function App() {
               </p>
             </div>
 
-            {/* 3D Flow Diagram */}
-            <div className="relative" style={{perspective: '1200px'}}>
-              {/* Main 3D Container */}
-              <div className="relative transform-gpu" style={{transformStyle: 'preserve-3d', transform: 'rotateX(10deg)'}}>
+            {/* 3D Isometric Cube Flow */}
+            <div className="relative" style={{perspective: '1500px'}}>
+              
+              {/* Glowing connection path */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" style={{zIndex: 0}}>
+                <defs>
+                  <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3b82f6" />
+                    <stop offset="25%" stopColor="#8b5cf6" />
+                    <stop offset="50%" stopColor="#ec4899" />
+                    <stop offset="75%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#10b981" />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path d="M 120 180 Q 300 150, 350 180 T 580 180 T 820 180 T 1050 180 T 1280 180 T 1500 180" 
+                      stroke="url(#pathGradient)" strokeWidth="4" fill="none" filter="url(#glow)" opacity="0.6"/>
+                <path d="M 120 420 Q 300 390, 350 420 T 580 420 T 820 420 T 1050 420 T 1280 420 T 1500 420" 
+                      stroke="url(#pathGradient)" strokeWidth="4" fill="none" filter="url(#glow)" opacity="0.6"/>
+              </svg>
+
+              {/* 3D Cubes Grid */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative z-10">
                 
-                {/* Glowing Path Line - Desktop */}
-                <div className="hidden lg:block absolute top-1/2 left-[5%] right-[5%] h-1 -translate-y-1/2 z-0">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 via-pink-500 to-yellow-500 rounded-full blur-sm opacity-60"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 via-pink-500 to-yellow-500 rounded-full"></div>
-                  {/* Animated glow pulse */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 via-pink-400 to-yellow-400 rounded-full animate-pulse opacity-50"></div>
-                </div>
-
-                {/* Flow Steps */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 relative z-10">
-                  
-                  {/* Row 1 */}
-                  {/* Step 1: Initial Assessment */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-blue-500/50 shadow-2xl shadow-blue-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-blue-500/50 transform rotate-3">
-                        1
+                {/* Cube 1: Initial Assessment */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    {/* Cube Front Face */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-blue-400/50 group-hover:from-blue-400 group-hover:to-cyan-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">📋</span>
                       </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-blue-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">📋</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">Initial Assessment</h3>
-                      <p className="text-blue-200/70 text-xs leading-relaxed">Complete your health profile & baseline</p>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">Initial Assessment</h3>
+                      <p className="text-[10px] sm:text-xs text-blue-100 text-center mt-1 hidden sm:block">Health profile & baseline</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-blue-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">1</div>
                     </div>
-                  </div>
-
-                  {/* Step 2: Daily Check Ins */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-emerald-500/50 shadow-2xl shadow-emerald-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-emerald-500/50 transform rotate-3">
-                        2
-                      </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">✅</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">Daily Check Ins</h3>
-                      <p className="text-emerald-200/70 text-xs leading-relaxed">Quick daily logging of how you're feeling</p>
-                    </div>
-                  </div>
-
-                  {/* Step 3: Track Health */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-cyan-500/50 shadow-2xl shadow-cyan-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-cyan-500/50 transform rotate-3">
-                        3
-                      </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-cyan-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">📊</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">Track Health</h3>
-                      <p className="text-cyan-200/70 text-xs leading-relaxed">Physical, mental & lifestyle - 18+ variables</p>
-                    </div>
-                  </div>
-
-                  {/* Step 4: Medications */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-indigo-500/50 shadow-2xl shadow-indigo-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-indigo-500 to-violet-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-indigo-500/50 transform rotate-3">
-                        4
-                      </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-indigo-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">💊</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">Medications</h3>
-                      <p className="text-indigo-200/70 text-xs leading-relaxed">Track meds, dosages & reminders</p>
-                    </div>
-                  </div>
-
-                  {/* Row 2 */}
-                  {/* Step 5: Tools */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-amber-500/50 shadow-2xl shadow-amber-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-amber-500 to-orange-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-amber-500/50 transform rotate-3">
-                        5
-                      </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-amber-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">🛠️</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">Tools</h3>
-                      <p className="text-amber-200/70 text-xs leading-relaxed">Journal, exercises & guided activities</p>
-                    </div>
-                  </div>
-
-                  {/* Step 6: Academy */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-purple-500/50 shadow-2xl shadow-purple-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-purple-500/50 transform rotate-3">
-                        6
-                      </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-purple-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">🎓</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">Academy</h3>
-                      <p className="text-purple-200/70 text-xs leading-relaxed">100+ lessons on pain science</p>
-                    </div>
-                  </div>
-
-                  {/* Step 7: AI Insights */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-pink-500/50 shadow-2xl shadow-pink-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-pink-500 to-rose-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-pink-500/50 transform rotate-3">
-                        7
-                      </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-pink-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">🤖</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">AI Insights</h3>
-                      <p className="text-pink-200/70 text-xs leading-relaxed">Personalized patterns & suggestions</p>
-                    </div>
-                  </div>
-
-                  {/* Step 8: Connect Care */}
-                  <div className="group relative transform-gpu hover:scale-105 hover:-translate-y-2 transition-all duration-300" style={{transformStyle: 'preserve-3d'}}>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 lg:p-5 border border-teal-500/50 shadow-2xl shadow-teal-500/20">
-                      <div className="absolute -top-3 -right-2 w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-400 rounded-xl flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-teal-500/50 transform rotate-3">
-                        8
-                      </div>
-                      <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-teal-500/30 transform -rotate-3 group-hover:rotate-0 transition-transform">
-                        <span className="text-2xl">🤝</span>
-                      </div>
-                      <h3 className="text-base lg:text-lg font-bold text-white mb-1">Connect Care</h3>
-                      <p className="text-teal-200/70 text-xs leading-relaxed">Share with clinicians & family</p>
-                    </div>
+                    {/* Cube Top Face */}
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    {/* Cube Right Face */}
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-blue-600 to-cyan-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
                   </div>
                 </div>
+
+                {/* Cube 2: Daily Check Ins */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-emerald-400/50 group-hover:from-emerald-400 group-hover:to-teal-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">✅</span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">Daily Check Ins</h3>
+                      <p className="text-[10px] sm:text-xs text-emerald-100 text-center mt-1 hidden sm:block">Quick daily logging</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-emerald-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">2</div>
+                    </div>
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-emerald-600 to-teal-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
+                  </div>
+                </div>
+
+                {/* Cube 3: Track Health */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-cyan-400/50 group-hover:from-cyan-400 group-hover:to-blue-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">📊</span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">Track Health</h3>
+                      <p className="text-[10px] sm:text-xs text-cyan-100 text-center mt-1 hidden sm:block">18+ variables tracked</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-cyan-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">3</div>
+                    </div>
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-cyan-600 to-blue-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
+                  </div>
+                </div>
+
+                {/* Cube 4: Medications */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-indigo-400/50 group-hover:from-indigo-400 group-hover:to-violet-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">💊</span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">Medications</h3>
+                      <p className="text-[10px] sm:text-xs text-indigo-100 text-center mt-1 hidden sm:block">Meds & reminders</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-indigo-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">4</div>
+                    </div>
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-indigo-400 to-violet-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-indigo-600 to-violet-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
+                  </div>
+                </div>
+
+                {/* Cube 5: Tools */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-amber-400/50 group-hover:from-amber-400 group-hover:to-orange-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">🛠️</span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">Tools</h3>
+                      <p className="text-[10px] sm:text-xs text-amber-100 text-center mt-1 hidden sm:block">Journal & exercises</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-amber-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">5</div>
+                    </div>
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-amber-400 to-orange-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-amber-600 to-orange-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
+                  </div>
+                </div>
+
+                {/* Cube 6: Academy */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-purple-400/50 group-hover:from-purple-400 group-hover:to-violet-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">🎓</span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">Academy</h3>
+                      <p className="text-[10px] sm:text-xs text-purple-100 text-center mt-1 hidden sm:block">100+ lessons</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-purple-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">6</div>
+                    </div>
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-purple-400 to-violet-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-purple-600 to-violet-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
+                  </div>
+                </div>
+
+                {/* Cube 7: AI Insights */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-pink-400/50 group-hover:from-pink-400 group-hover:to-rose-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">🤖</span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">AI Insights</h3>
+                      <p className="text-[10px] sm:text-xs text-pink-100 text-center mt-1 hidden sm:block">Smart patterns</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-pink-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">7</div>
+                    </div>
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-pink-400 to-rose-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-pink-600 to-rose-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
+                  </div>
+                </div>
+
+                {/* Cube 8: Connect Care */}
+                <div className="group flex justify-center">
+                  <div className="relative w-32 h-40 sm:w-40 sm:h-48 lg:w-44 lg:h-52" style={{transformStyle: 'preserve-3d', transform: 'rotateX(-10deg) rotateY(-15deg)'}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-xl flex flex-col items-center justify-center p-3 shadow-2xl border border-teal-400/50 group-hover:from-teal-400 group-hover:to-emerald-500 transition-all duration-300"
+                         style={{transform: 'translateZ(20px)'}}>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-2 shadow-lg">
+                        <span className="text-2xl sm:text-3xl">🤝</span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white text-center">Connect Care</h3>
+                      <p className="text-[10px] sm:text-xs text-teal-100 text-center mt-1 hidden sm:block">Clinicians & family</p>
+                      <div className="absolute -top-2 -right-2 w-7 h-7 bg-white text-teal-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-lg">8</div>
+                    </div>
+                    <div className="absolute inset-x-0 h-6 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-t-xl origin-bottom"
+                         style={{transform: 'rotateX(90deg) translateZ(0px)', top: '-6px'}}></div>
+                    <div className="absolute inset-y-0 w-6 bg-gradient-to-b from-teal-600 to-emerald-700 rounded-r-xl origin-left"
+                         style={{transform: 'rotateY(90deg) translateZ(calc(100% - 6px))', right: '-6px'}}></div>
+                  </div>
+                </div>
+
               </div>
 
               {/* Bottom Progress Indicator */}
