@@ -323,46 +323,72 @@ function App() {
               
               {/* Mobile Floating Labels - Card style like desktop */}
               {/* Top Left - Blue */}
-              <div className="absolute -left-1 top-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl shadow-xl shadow-blue-500/25 p-2.5 max-w-[120px] animate-float lg:hidden text-white z-20">
+              <div className="absolute -left-1 top-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl shadow-xl shadow-blue-500/25 p-2.5 max-w-[120px] animate-float lg:hidden text-white z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-sm">📊</span>
                   </div>
                   <div>
-                    <p className="font-bold text-[10px]">18 Variables</p>
-                    <p className="text-[8px] text-white/80">Track all</p>
+                    <p className="font-bold text-[10px]">Track Health</p>
+                    <p className="text-[8px] text-white/80">18+ variables</p>
                   </div>
                 </div>
               </div>
               
-              {/* Top Right - Emerald */}
-              <div className="absolute -right-1 top-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl shadow-xl shadow-emerald-500/25 p-2.5 max-w-[110px] animate-float-delayed lg:hidden text-white z-20">
+              {/* Top Right - Rose */}
+              <div className="absolute -right-1 top-10 bg-gradient-to-r from-rose-500 to-pink-600 rounded-xl shadow-xl shadow-rose-500/25 p-2.5 max-w-[115px] animate-float-delayed lg:hidden text-white z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-sm">🔔</span>
                   </div>
                   <div>
-                    <p className="font-bold text-[10px]">Reminders</p>
+                    <p className="font-bold text-[10px]">Notifications</p>
                     <p className="text-[8px] text-white/80">Stay on track</p>
                   </div>
                 </div>
               </div>
               
-              {/* Mid Left - Purple */}
-              <div className="absolute -left-1 top-24 bg-gradient-to-r from-purple-500 to-violet-500 rounded-xl shadow-xl shadow-purple-500/25 p-2.5 max-w-[115px] animate-float lg:hidden text-white z-20">
+              {/* Mid Left - Emerald */}
+              <div className="absolute -left-1 top-24 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl shadow-xl shadow-emerald-500/25 p-2.5 max-w-[115px] animate-float lg:hidden text-white z-20">
+                <div className="flex items-start gap-2">
+                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm">🎓</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-[10px]">Learn Science</p>
+                    <p className="text-[8px] text-white/80">Health & Pain</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mid Right - Violet */}
+              <div className="absolute -right-1 top-36 bg-gradient-to-r from-violet-500 to-purple-600 rounded-xl shadow-xl shadow-violet-500/25 p-2.5 max-w-[110px] animate-float-delayed lg:hidden text-white z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-sm">🤖</span>
                   </div>
                   <div>
                     <p className="font-bold text-[10px]">AI Insights</p>
-                    <p className="text-[8px] text-white/80">Patterns</p>
+                    <p className="text-[8px] text-white/80">Smart patterns</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Bottom Mid-Left - Amber */}
+              <div className="absolute -left-1 bottom-28 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl shadow-xl shadow-amber-500/25 p-2.5 max-w-[110px] animate-float lg:hidden text-white z-20">
+                <div className="flex items-start gap-2">
+                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm">💊</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-[10px]">Medications</p>
+                    <p className="text-[8px] text-white/80">Track & remind</p>
                   </div>
                 </div>
               </div>
 
-              {/* Mid Right - Pink */}
-              <div className="absolute -right-1 top-36 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl shadow-xl shadow-pink-500/25 p-2.5 max-w-[110px] animate-float-delayed lg:hidden text-white z-20">
+              {/* Bottom Mid-Right - Cyan */}
+              <div className="absolute -right-1 bottom-20 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-xl shadow-xl shadow-cyan-500/25 p-2.5 max-w-[110px] animate-float-delayed lg:hidden text-white z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-sm">👥</span>
@@ -374,54 +400,28 @@ function App() {
                 </div>
               </div>
               
-              {/* Bottom Mid-Left - Amber */}
-              <div className="absolute -left-1 bottom-28 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl shadow-xl shadow-amber-500/25 p-2.5 max-w-[110px] animate-float lg:hidden text-white z-20">
+              {/* Bottom Left - Fuchsia */}
+              <div className="absolute -left-1 bottom-8 bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-xl shadow-xl shadow-fuchsia-500/25 p-2.5 max-w-[115px] text-white animate-float-delayed lg:hidden z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-sm">📈</span>
                   </div>
                   <div>
                     <p className="font-bold text-[10px]">Analytics</p>
-                    <p className="text-[8px] text-white/80">Real-time</p>
+                    <p className="text-[8px] text-white/80">Your progress</p>
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Mid-Right - Cyan */}
-              <div className="absolute -right-1 bottom-20 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl shadow-xl shadow-cyan-500/25 p-2.5 max-w-[100px] animate-float-delayed lg:hidden text-white z-20">
+              {/* Bottom Right - Lime/Green */}
+              <div className="absolute -right-1 bottom-2 bg-gradient-to-r from-lime-500 to-green-600 rounded-xl shadow-xl shadow-lime-500/25 p-2.5 max-w-[110px] text-white animate-float lg:hidden z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm">🎯</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[10px]">Goals</p>
-                    <p className="text-[8px] text-white/80">Track</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Bottom Left - Purple gradient */}
-              <div className="absolute -left-1 bottom-8 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-xl shadow-purple-500/25 p-2.5 max-w-[115px] text-white animate-float-delayed lg:hidden z-20">
-                <div className="flex items-start gap-2">
-                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm">🧠</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[10px]">100+ Lessons</p>
-                    <p className="text-[8px] text-white/80">Academy</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Right - Emerald gradient */}
-              <div className="absolute -right-1 bottom-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl shadow-xl shadow-emerald-500/25 p-2.5 max-w-[110px] text-white animate-float lg:hidden z-20">
-                <div className="flex items-start gap-2">
-                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm">✨</span>
+                    <span className="text-sm">🛠️</span>
                   </div>
                   <div>
                     <p className="font-bold text-[10px]">200+ Tools</p>
-                    <p className="text-[8px] text-white/80">Resources</p>
+                    <p className="text-[8px] text-white/80">Exercises</p>
                   </div>
                 </div>
               </div>
