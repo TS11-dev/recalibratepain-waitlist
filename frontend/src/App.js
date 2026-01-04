@@ -1618,72 +1618,137 @@ function App() {
         {/* Partner Form Modal */}
         {partnerFormOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={(e) => e.target === e.currentTarget && setPartnerFormOpen(null)}>
-            <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-bold">
-                  {partnerFormOpen === 'clinic' && '🏥 Healthcare Clinic Inquiry'}
-                  {partnerFormOpen === 'research' && '🔬 Research Collaboration'}
-                  {partnerFormOpen === 'investor' && '💼 Investor Inquiry'}
-                </h3>
-                <button onClick={() => setPartnerFormOpen(null)} className="p-2 hover:bg-gray-100 rounded-lg"><X className="w-5 h-5" /></button>
+            <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+              {/* Header with gradient */}
+              <div className={`p-6 rounded-t-3xl ${
+                partnerFormOpen === 'clinic' ? 'bg-gradient-to-r from-blue-600 to-cyan-600' :
+                partnerFormOpen === 'research' ? 'bg-gradient-to-r from-purple-600 to-indigo-600' :
+                'bg-gradient-to-r from-emerald-600 to-teal-600'
+              }`}>
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                      <span className="text-2xl">
+                        {partnerFormOpen === 'clinic' && '🏥'}
+                        {partnerFormOpen === 'research' && '🔬'}
+                        {partnerFormOpen === 'investor' && '💼'}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">
+                        {partnerFormOpen === 'clinic' && 'Allied Health Clinic'}
+                        {partnerFormOpen === 'research' && 'Research Collaboration'}
+                        {partnerFormOpen === 'investor' && 'Investor Inquiry'}
+                      </h3>
+                      <p className="text-sm text-white/80">
+                        {partnerFormOpen === 'clinic' && 'Partner with Recalibrate'}
+                        {partnerFormOpen === 'research' && 'Advance health science together'}
+                        {partnerFormOpen === 'investor' && 'Join our journey'}
+                      </p>
+                    </div>
+                  </div>
+                  <button onClick={() => setPartnerFormOpen(null)} className="p-2 hover:bg-white/20 rounded-xl transition-colors"><X className="w-5 h-5 text-white" /></button>
+                </div>
               </div>
-              {partnerFormOpen === 'investor' && (
-                <div className="mb-6 p-5 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-purple-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xl">📊</span>
-                    <h4 className="font-bold text-gray-900">Investor Prospectus Summary</h4>
+
+              <div className="p-6">
+                {/* Clinic Info Box */}
+                {partnerFormOpen === 'clinic' && (
+                  <div className="mb-6 p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
+                    <h4 className="font-semibold text-blue-900 mb-2">Why Partner With Us?</h4>
+                    <ul className="space-y-1.5 text-sm text-blue-800">
+                      <li className="flex items-center gap-2"><span className="text-blue-500">✓</span> Multi-patient clinician dashboard</li>
+                      <li className="flex items-center gap-2"><span className="text-blue-500">✓</span> Real-time patient progress tracking</li>
+                      <li className="flex items-center gap-2"><span className="text-blue-500">✓</span> Secure data sharing & reports</li>
+                      <li className="flex items-center gap-2"><span className="text-blue-500">✓</span> Allied health professional tools</li>
+                    </ul>
                   </div>
-                  <div className="space-y-2 text-sm text-gray-700">
-                    <p><strong className="text-purple-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven allied health and wellness.</p>
-                    <p><strong className="text-purple-700">Market:</strong> $600B+ Allied Health & Chronic Pain Market | 1.5B+ affected by chronic illness.</p>
-                    <p><strong className="text-purple-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, Secure architecture.</p>
-                    <p><strong className="text-purple-700">Opportunity:</strong> Raising $500,000 Seed Round to accelerate Development Testing, Clinical and Research Partnerships, Fund Independent Research Study, AI R&D and Marketing.</p>
-                    <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
+                )}
+
+                {/* Research Info Box */}
+                {partnerFormOpen === 'research' && (
+                  <div className="mb-6 p-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl border border-purple-100">
+                    <h4 className="font-semibold text-purple-900 mb-2">Research Partnership Benefits</h4>
+                    <ul className="space-y-1.5 text-sm text-purple-800">
+                      <li className="flex items-center gap-2"><span className="text-purple-500">✓</span> Longitudinal health datasets</li>
+                      <li className="flex items-center gap-2"><span className="text-purple-500">✓</span> Multi-variable correlations</li>
+                      <li className="flex items-center gap-2"><span className="text-purple-500">✓</span> Ethical data partnerships</li>
+                      <li className="flex items-center gap-2"><span className="text-purple-500">✓</span> Allied health research collaboration</li>
+                    </ul>
                   </div>
-                </div>
-              )}
-              
-              <form onSubmit={async (e) => {
-                e.preventDefault();
-                setPartnerSubmitting(true);
-                try {
-                  const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partner/contact`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ...partnerForm, type: partnerFormOpen })
-                  });
-                  const data = await response.json();
-                  if (data.success) {
-                    alert('Thank you! We will contact you soon.');
-                    setPartnerFormOpen(null);
-                    setPartnerForm({ type: '', name: '', email: '', organization: '', message: '' });
+                )}
+
+                {/* Investor Info Box */}
+                {partnerFormOpen === 'investor' && (
+                  <div className="mb-6 p-4 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-lg">📊</span>
+                      <h4 className="font-bold text-gray-900">Investor Prospectus Summary</h4>
+                    </div>
+                    <div className="space-y-2 text-sm text-gray-700">
+                      <p><strong className="text-emerald-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven allied health and wellness.</p>
+                      <p><strong className="text-emerald-700">Market:</strong> $600B+ Allied Health & Chronic Pain Market | 1.5B+ affected by chronic illness.</p>
+                      <p><strong className="text-emerald-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, Secure architecture.</p>
+                      <p><strong className="text-emerald-700">Opportunity:</strong> Raising $500,000 Seed Round to accelerate Development Testing, Clinical and Research Partnerships, Fund Independent Research Study, AI R&D and Marketing.</p>
+                      <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
+                    </div>
+                  </div>
+                )}
+                
+                <form onSubmit={async (e) => {
+                  e.preventDefault();
+                  setPartnerSubmitting(true);
+                  try {
+                    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partner/contact`, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ ...partnerForm, type: partnerFormOpen })
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                      alert('Thank you! We will contact you soon.');
+                      setPartnerFormOpen(null);
+                      setPartnerForm({ type: '', name: '', email: '', organization: '', message: '' });
+                    }
+                  } catch (err) {
+                    alert('Error submitting form. Please try again.');
                   }
-                } catch (err) {
-                  alert('Error submitting form. Please try again.');
-                }
-                setPartnerSubmitting(false);
-              }} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
-                  <input type="text" required value={partnerForm.name} onChange={(e) => setPartnerForm({...partnerForm, name: e.target.value})} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="John Doe" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                  <input type="email" required value={partnerForm.email} onChange={(e) => setPartnerForm({...partnerForm, email: e.target.value})} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="john@example.com" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Organization *</label>
-                  <input type="text" required value={partnerForm.organization} onChange={(e) => setPartnerForm({...partnerForm, organization: e.target.value})} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your clinic, university, or company" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
-                  <textarea required value={partnerForm.message} onChange={(e) => setPartnerForm({...partnerForm, message: e.target.value})} rows={4} className="w-full px-4 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none" placeholder="Tell us about your interest in partnering with Recalibrate..." />
-                </div>
-                <button type="submit" disabled={partnerSubmitting} className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50">
-                  {partnerSubmitting ? 'Submitting...' : 'Submit Inquiry'}
-                </button>
-                <p className="text-xs text-gray-500 text-center">We'll respond to info@recalibratepain.com inquiries within 48 hours</p>
-              </form>
+                  setPartnerSubmitting(false);
+                }} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Your Name *</label>
+                    <input type="text" required value={partnerForm.name} onChange={(e) => setPartnerForm({...partnerForm, name: e.target.value})} className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:bg-white transition-all" placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label>
+                    <input type="email" required value={partnerForm.email} onChange={(e) => setPartnerForm({...partnerForm, email: e.target.value})} className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:bg-white transition-all" placeholder="john@example.com" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Organization *</label>
+                    <input type="text" required value={partnerForm.organization} onChange={(e) => setPartnerForm({...partnerForm, organization: e.target.value})} className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:bg-white transition-all" placeholder={
+                      partnerFormOpen === 'clinic' ? 'Your clinic or practice name' :
+                      partnerFormOpen === 'research' ? 'University or research institution' :
+                      'Your company or fund'
+                    } />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Message *</label>
+                    <textarea required value={partnerForm.message} onChange={(e) => setPartnerForm({...partnerForm, message: e.target.value})} rows={4} className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:bg-white transition-all resize-none" placeholder={
+                      partnerFormOpen === 'clinic' ? 'Tell us about your practice and how you would like to integrate Recalibrate...' :
+                      partnerFormOpen === 'research' ? 'Describe your research focus and collaboration interests...' :
+                      'Tell us about your investment focus and interest in Recalibrate...'
+                    } />
+                  </div>
+                  <button type="submit" disabled={partnerSubmitting} className={`w-full py-3.5 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 text-white ${
+                    partnerFormOpen === 'clinic' ? 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700' :
+                    partnerFormOpen === 'research' ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700' :
+                    'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700'
+                  }`}>
+                    {partnerSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                  </button>
+                  <p className="text-xs text-gray-500 text-center">We'll respond within 48 hours</p>
+                </form>
+              </div>
             </div>
           </div>
         )}
