@@ -554,133 +554,162 @@ function App() {
             </div>
 
             {/* 3D Roadmap */}
-            <div className="relative" style={{perspective: '1000px'}}>
-              {/* The 3D tilted container */}
-              <div 
-                className="relative transform-gpu transition-transform duration-500"
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transform: 'rotateX(15deg) rotateY(-5deg)',
-                }}
-              >
-                {/* Glowing Road/Path */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-2 -translate-x-1/2 bg-gradient-to-b from-blue-500 via-purple-500 via-pink-500 to-teal-500 rounded-full shadow-[0_0_30px_rgba(168,85,247,0.5)] hidden lg:block" style={{transform: 'translateZ(0px)'}}></div>
+            <div className="relative">
+              {/* The container - subtle 3D effect */}
+              <div className="relative">
                 
-                {/* Mobile: Vertical line */}
-                <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 via-pink-500 to-teal-500 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.4)] lg:hidden"></div>
+                {/* Glowing Road/Path - Desktop only (center vertical line) */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-1.5 -translate-x-1/2 bg-gradient-to-b from-blue-500 via-purple-500 via-pink-500 to-teal-500 rounded-full shadow-[0_0_30px_rgba(168,85,247,0.5)] hidden lg:block"></div>
+                
+                {/* Mobile: Left vertical line */}
+                <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 via-pink-500 to-teal-500 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.4)] lg:hidden"></div>
 
                 {/* Journey Steps */}
-                <div className="space-y-6 lg:space-y-0 relative">
+                <div className="space-y-8 lg:space-y-10 relative">
                   
-                  {/* Step 1 */}
-                  <div className="flex items-center lg:justify-start gap-4 lg:gap-0 lg:mb-12">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-blue-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      📋
-                    </div>
-                    <div className="lg:absolute lg:left-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">1</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">Initial Assessment</h3>
+                  {/* Step 1 - Right side on desktop */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    {/* Icon */}
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-blue-500/50 border-4 border-slate-900 transform hover:scale-110 hover:rotate-3 transition-all cursor-pointer">
+                        📋
                       </div>
-                      <p className="text-sm text-blue-200/80">Complete your health profile & baseline assessment</p>
+                    </div>
+                    {/* Content - Right on desktop */}
+                    <div className="flex-1 lg:w-[45%] lg:ml-[55%] lg:pl-8">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">1</span>
+                          <h3 className="text-base lg:text-lg font-bold text-white">Initial Assessment</h3>
+                        </div>
+                        <p className="text-sm text-blue-200/80">Complete your health profile & baseline assessment</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Step 2 */}
-                  <div className="flex items-center lg:justify-end gap-4 lg:gap-0 lg:mb-12">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-emerald-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      ✅
-                    </div>
-                    <div className="lg:absolute lg:right-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all lg:text-right" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1 lg:justify-end">
-                        <span className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs font-bold lg:order-2">2</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">Daily Check Ins</h3>
+                  {/* Step 2 - Left side on desktop */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-emerald-500/50 border-4 border-slate-900 transform hover:scale-110 hover:-rotate-3 transition-all cursor-pointer">
+                        ✅
                       </div>
-                      <p className="text-sm text-emerald-200/80">Quick daily logging of symptoms & how you're feeling</p>
+                    </div>
+                    <div className="flex-1 lg:w-[45%] lg:mr-[55%] lg:pr-8 lg:text-right">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2 lg:justify-end">
+                          <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Daily Check Ins</h3>
+                          <span className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">2</span>
+                        </div>
+                        <p className="text-sm text-emerald-200/80">Quick daily logging of symptoms & how you're feeling</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Step 3 */}
-                  <div className="flex items-center lg:justify-start gap-4 lg:gap-0 lg:mb-12">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-cyan-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      📊
-                    </div>
-                    <div className="lg:absolute lg:left-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xs font-bold">3</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">Track Health</h3>
+                  {/* Step 3 - Right side */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-cyan-500/50 border-4 border-slate-900 transform hover:scale-110 hover:rotate-3 transition-all cursor-pointer">
+                        📊
                       </div>
-                      <p className="text-sm text-cyan-200/80">Physical, mental & lifestyle tracking - 18+ variables</p>
+                    </div>
+                    <div className="flex-1 lg:w-[45%] lg:ml-[55%] lg:pl-8">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">3</span>
+                          <h3 className="text-base lg:text-lg font-bold text-white">Track Health</h3>
+                        </div>
+                        <p className="text-sm text-cyan-200/80">Physical, mental & lifestyle tracking - 18+ variables</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Step 4 */}
-                  <div className="flex items-center lg:justify-end gap-4 lg:gap-0 lg:mb-12">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-indigo-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      💊
-                    </div>
-                    <div className="lg:absolute lg:right-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all lg:text-right" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1 lg:justify-end">
-                        <span className="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold lg:order-2">4</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">Medications</h3>
+                  {/* Step 4 - Left side */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-indigo-500/50 border-4 border-slate-900 transform hover:scale-110 hover:-rotate-3 transition-all cursor-pointer">
+                        💊
                       </div>
-                      <p className="text-sm text-indigo-200/80">Track medications, dosages & set reminders</p>
+                    </div>
+                    <div className="flex-1 lg:w-[45%] lg:mr-[55%] lg:pr-8 lg:text-right">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2 lg:justify-end">
+                          <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Medications</h3>
+                          <span className="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">4</span>
+                        </div>
+                        <p className="text-sm text-indigo-200/80">Track medications, dosages & set reminders</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Step 5 */}
-                  <div className="flex items-center lg:justify-start gap-4 lg:gap-0 lg:mb-12">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-amber-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      🛠️
-                    </div>
-                    <div className="lg:absolute lg:left-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold">5</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">Tools</h3>
+                  {/* Step 5 - Right side */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-amber-500/50 border-4 border-slate-900 transform hover:scale-110 hover:rotate-3 transition-all cursor-pointer">
+                        🛠️
                       </div>
-                      <p className="text-sm text-amber-200/80">Journal, exercises & guided therapeutic activities</p>
+                    </div>
+                    <div className="flex-1 lg:w-[45%] lg:ml-[55%] lg:pl-8">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">5</span>
+                          <h3 className="text-base lg:text-lg font-bold text-white">Tools</h3>
+                        </div>
+                        <p className="text-sm text-amber-200/80">Journal, exercises & guided therapeutic activities</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Step 6 */}
-                  <div className="flex items-center lg:justify-end gap-4 lg:gap-0 lg:mb-12">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-purple-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      🎓
-                    </div>
-                    <div className="lg:absolute lg:right-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all lg:text-right" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1 lg:justify-end">
-                        <span className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold lg:order-2">6</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">Academy</h3>
+                  {/* Step 6 - Left side */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-purple-500/50 border-4 border-slate-900 transform hover:scale-110 hover:-rotate-3 transition-all cursor-pointer">
+                        🎓
                       </div>
-                      <p className="text-sm text-purple-200/80">100+ lessons on pain science & management</p>
+                    </div>
+                    <div className="flex-1 lg:w-[45%] lg:mr-[55%] lg:pr-8 lg:text-right">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2 lg:justify-end">
+                          <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Academy</h3>
+                          <span className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">6</span>
+                        </div>
+                        <p className="text-sm text-purple-200/80">100+ lessons on pain science & management</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Step 7 */}
-                  <div className="flex items-center lg:justify-start gap-4 lg:gap-0 lg:mb-12">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-pink-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      🤖
-                    </div>
-                    <div className="lg:absolute lg:left-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold">7</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">AI Insights</h3>
+                  {/* Step 7 - Right side */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-pink-500/50 border-4 border-slate-900 transform hover:scale-110 hover:rotate-3 transition-all cursor-pointer">
+                        🤖
                       </div>
-                      <p className="text-sm text-pink-200/80">Personalized patterns & smart suggestions from AI</p>
+                    </div>
+                    <div className="flex-1 lg:w-[45%] lg:ml-[55%] lg:pl-8">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">7</span>
+                          <h3 className="text-base lg:text-lg font-bold text-white">AI Insights</h3>
+                        </div>
+                        <p className="text-sm text-pink-200/80">Personalized patterns & smart suggestions from AI</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Step 8 */}
-                  <div className="flex items-center lg:justify-end gap-4 lg:gap-0">
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl flex items-center justify-center text-2xl lg:text-3xl shadow-2xl shadow-teal-500/50 border-4 border-white/20 z-10 transform hover:scale-110 transition-transform" style={{transform: 'translateZ(40px)'}}>
-                      🤝
-                    </div>
-                    <div className="lg:absolute lg:right-[calc(50%+60px)] lg:w-[calc(50%-80px)] bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl transform hover:-translate-y-1 transition-all lg:text-right" style={{transform: 'translateZ(20px)'}}>
-                      <div className="flex items-center gap-2 mb-1 lg:justify-end">
-                        <span className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold lg:order-2">8</span>
-                        <h3 className="text-base lg:text-lg font-bold text-white">Connect Care</h3>
+                  {/* Step 8 - Left side */}
+                  <div className="flex items-start gap-4 lg:gap-0">
+                    <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-teal-500/50 border-4 border-slate-900 transform hover:scale-110 hover:-rotate-3 transition-all cursor-pointer">
+                        🤝
                       </div>
-                      <p className="text-sm text-teal-200/80">Share reports with clinicians & family members</p>
+                    </div>
+                    <div className="flex-1 lg:w-[45%] lg:mr-[55%] lg:pr-8 lg:text-right">
+                      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
+                        <div className="flex items-center gap-2 mb-2 lg:justify-end">
+                          <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Connect Care</h3>
+                          <span className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">8</span>
+                        </div>
+                        <p className="text-sm text-teal-200/80">Share reports with clinicians & family members</p>
+                      </div>
                     </div>
                   </div>
 
