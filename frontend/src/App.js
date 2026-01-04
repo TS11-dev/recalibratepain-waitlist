@@ -641,38 +641,38 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Step 5 - Right side */}
+                  {/* Step 5 - Right side - Academy */}
                   <div className="flex items-start gap-4 lg:gap-0">
                     <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-amber-500/50 border-4 border-slate-900 transform hover:scale-110 hover:rotate-3 transition-all cursor-pointer">
-                        🛠️
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-purple-500/50 border-4 border-slate-900 transform hover:scale-110 hover:rotate-3 transition-all cursor-pointer">
+                        🎓
                       </div>
                     </div>
                     <div className="flex-1 lg:w-[45%] lg:ml-[55%] lg:pl-8">
                       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">5</span>
-                          <h3 className="text-base lg:text-lg font-bold text-white">Tools</h3>
+                          <span className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">5</span>
+                          <h3 className="text-base lg:text-lg font-bold text-white">Academy</h3>
                         </div>
-                        <p className="text-sm text-amber-200/80">Journal, exercises & guided therapeutic activities</p>
+                        <p className="text-sm text-purple-200/80">100+ lessons on health & pain science</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Step 6 - Left side */}
+                  {/* Step 6 - Left side - Tools */}
                   <div className="flex items-start gap-4 lg:gap-0">
                     <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-purple-500/50 border-4 border-slate-900 transform hover:scale-110 hover:-rotate-3 transition-all cursor-pointer">
-                        🎓
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl shadow-2xl shadow-amber-500/50 border-4 border-slate-900 transform hover:scale-110 hover:-rotate-3 transition-all cursor-pointer">
+                        🛠️
                       </div>
                     </div>
                     <div className="flex-1 lg:w-[45%] lg:mr-[55%] lg:pr-8 lg:text-right">
                       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-5 border border-white/20 shadow-xl hover:bg-white/15 transition-all">
                         <div className="flex items-center gap-2 mb-2 lg:justify-end">
-                          <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Academy</h3>
-                          <span className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">6</span>
+                          <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Tools</h3>
+                          <span className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">6</span>
                         </div>
-                        <p className="text-sm text-purple-200/80">100+ lessons on health & pain science</p>
+                        <p className="text-sm text-amber-200/80">Journal, exercises & guided therapeutic activities</p>
                       </div>
                     </div>
                   </div>
