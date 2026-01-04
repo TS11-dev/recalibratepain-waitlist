@@ -1158,10 +1158,10 @@ function App() {
           <div className="max-w-5xl mx-auto relative z-10">
             <div className="text-center mb-12">
               <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
-                Partnerships and Fundraising
+                For Professionals
               </span>
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
-                Clinicians & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Allied Health</span>
+                Partnerships & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Fundraising</span>
               </h2>
               <p className="text-lg text-gray-600">Join us in revolutionizing allied health and patient care</p>
             </div>
