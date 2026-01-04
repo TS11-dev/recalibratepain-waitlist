@@ -165,7 +165,7 @@ function App() {
   const faqs = [
     { q: "When does Recalibrate launch?", a: "Q1 2026 on iOS, Android, and Web. Join the waitlist to be first in line!" },
     { q: "Is my health data private?", a: "100% private. Encrypted, never shared, and you own your data. We follow secure, industry-standard practices." },
-    { q: "How does the AI companion work?", a: "Powered by Gemini 2.0 Flash, it analyzes your patterns and provides personalized insights based on your tracked data." },
+    { q: "How does the AI companion work?", a: "Recalibrate AI analyzes your patterns and provides personalized insights based on your tracked data." },
     { q: "What makes this different?", a: "We combine tracking, education, therapeutic tools, and AI insights in one comprehensive allied health platform designed for chronic pain, chronic illness, and rehabilitation." },
     { q: "Is there a cost?", a: "We offer a free tier with essential features. Premium plans unlock advanced tools, AI insights, and Care Team access." }
   ];
@@ -921,7 +921,7 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Your AI companion powered by Gemini 2.0 Flash. Get personalized insights and research assistance.
+                    Your AI companion for health insights. Get personalized patterns and research assistance.
                   </p>
                   <ul className="space-y-2">
                     {["Chat with health context", "Pain science research", "Pattern analysis", "Personalized suggestions", "24/7 AI availability"].map((feature, i) => (
@@ -936,7 +936,7 @@ function App() {
                   
                   <div className="relative">
                     <div className="text-6xl mb-4">💬</div>
-                    <p className="text-2xl font-bold text-white mb-2">Gemini 2.0 Flash</p>
+                    <p className="text-2xl font-bold text-white mb-2">Recalibrate AI</p>
                     <p className="text-pink-100">AI-powered health insights</p>
                   </div>
                 </div>
