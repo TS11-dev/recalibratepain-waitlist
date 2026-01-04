@@ -1215,7 +1215,7 @@ function App() {
                     Access anonymized, aggregated data for allied health and chronic pain research. Advance the science of patient care.
                   </p>
                   <ul className="space-y-2 mb-6">
-                    {["Longitudinal health datasets", "Multi-variable correlations", "Ethical data partnerships", "IRB-approved protocols", "Allied health research collaboration"].map((feature, i) => (
+                    {["Longitudinal health datasets", "Multi-variable correlations", "Ethical data partnerships", "Allied health research collaboration"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -1249,7 +1249,7 @@ function App() {
                     Join us in building the future of allied health technology. We're raising our seed round to accelerate.
                   </p>
                   <ul className="space-y-2 mb-6">
-                    {["$600B+ Allied Health & Chronic Pain Market", "1.5B+ People Globally", "AI-powered health insights", "Scalable B2B & B2C model", "Strong founding team", "Clear path to profitability"].map((feature, i) => (
+                    {["$600B+ Allied Health & Chronic Pain Market", "1.5B+ affected by chronic illness", "AI-powered health insights", "Scalable B2B & B2C model", "Strong founding team", "Clear path to profitability"].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-700">
                         <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span>{feature}</span>
@@ -1635,7 +1635,7 @@ function App() {
                   </div>
                   <div className="space-y-2 text-sm text-gray-700">
                     <p><strong className="text-purple-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven allied health and wellness.</p>
-                    <p><strong className="text-purple-700">Market:</strong> $600B+ Allied Health & Chronic Pain Market | 1.5B+ People Globally.</p>
+                    <p><strong className="text-purple-700">Market:</strong> $600B+ Allied Health & Chronic Pain Market | 1.5B+ affected by chronic illness.</p>
                     <p><strong className="text-purple-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, Secure architecture.</p>
                     <p><strong className="text-purple-700">Opportunity:</strong> Raising $500,000 Seed Round to accelerate Development Testing, Clinical and Research Partnerships, Fund Independent Research Study, AI R&D and Marketing.</p>
                     <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
