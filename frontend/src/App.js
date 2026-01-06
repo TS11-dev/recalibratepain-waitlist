@@ -375,7 +375,7 @@ function App() {
               </div>
               
               {/* Bottom Mid-Left - Amber-Orange: Medications */}
-              <div className="absolute -left-1 bottom-28 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl shadow-xl shadow-amber-500/25 p-2.5 max-w-[110px] animate-float lg:hidden text-white z-20">
+              <div className="absolute -left-1 bottom-28 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl shadow-xl shadow-amber-500/25 p-2.5 max-w-[125px] animate-float lg:hidden text-white z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-sm">💊</span>
