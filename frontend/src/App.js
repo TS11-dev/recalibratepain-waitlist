@@ -262,7 +262,7 @@ function App() {
               </h1>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-                <strong className="text-gray-800">Recalibrate App</strong> — The comprehensive allied health platform for chronic pain, chronic illness, and rehabilitation. Track 18+ health variables, connect with physiotherapists, occupational therapists, chiropractors and allied health professionals. Learn from our Academy and get AI-powered insights.
+                <strong className="text-gray-800">Recalibrate App</strong> — The comprehensive allied health platform for chronic pain, chronic illness, and rehabilitation. Advanced Health Tracking and Analytics, Learn from our Academy, Explore exercises and tools, get AI-powered insights and chat about your health data, connect with physiotherapists, psychologists, pain specialists and other allied health professionals in your care team as well as Family/Friends to share access.
               </p>
               
               {/* Email Form */}
