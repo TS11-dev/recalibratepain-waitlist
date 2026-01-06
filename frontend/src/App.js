@@ -1112,12 +1112,18 @@ function App() {
           </div>
         </section>
 
-        {/* Evidence-Based Approaches */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-purple-100/50 via-violet-50 to-purple-100/50">
-          <div className="max-w-6xl mx-auto">
+        {/* Evidence-Based Approaches - Dark purple background like How It Works */}
+        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-10 left-10 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 right-10 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          </div>
+          
+          <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Built on Evidence-Based Allied Health Science</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Recalibrate integrates proven approaches from leading allied health and pain research</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Built on Evidence-Based Allied Health Science</h3>
+              <p className="text-purple-200/80 text-sm sm:text-base">Recalibrate integrates proven approaches from leading allied health and pain research</p>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-6">
@@ -1129,18 +1135,18 @@ function App() {
                 { icon: "📈", label: "Graded Exposure", color: "from-pink-500 to-rose-500" },
                 { icon: "😴", label: "Sleep Science", color: "from-indigo-500 to-blue-500" }
               ].map((item, i) => (
-                <div key={i} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 text-center hover:shadow-md transition-all hover:-translate-y-1">
+                <div key={i} className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 text-center hover:bg-white/15 transition-all hover:-translate-y-1">
                   <div className={`w-12 h-12 mx-auto mb-2 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-xl shadow-lg`}>
                     {item.icon}
                   </div>
-                  <p className="text-xs sm:text-sm font-semibold text-gray-800">{item.label}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-white">{item.label}</p>
                 </div>
               ))}
             </div>
             
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {['Acceptance & Commitment', 'Pacing Strategies', 'Nutrition Science', 'Stress Management', 'Biofeedback', 'Goal Setting', 'Self-Compassion', 'Activity Tracking', 'Therapeutic Alliance', 'Neuroplasticity', 'Systems Biology', 'Precision Medicine'].map((item, i) => (
-                <span key={i} className="bg-white/80 backdrop-blur text-gray-700 border border-purple-200 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-purple-50 hover:border-purple-300 hover:text-purple-700 transition-all cursor-default">
+                <span key={i} className="bg-white/10 backdrop-blur text-purple-200 border border-purple-500/30 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-white/20 hover:border-purple-400/50 hover:text-white transition-all cursor-default">
                   {item}
                 </span>
               ))}
