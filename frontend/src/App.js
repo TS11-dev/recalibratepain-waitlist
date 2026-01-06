@@ -708,7 +708,7 @@ function App() {
                           <h3 className="text-base lg:text-lg font-bold text-white lg:order-2">Connect Care</h3>
                           <span className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">8</span>
                         </div>
-                        <p className="text-sm text-teal-200/80">Share reports with clinicians & family members</p>
+                        <p className="text-sm text-teal-200/80">Share Reports and Data with Clinicians and Family members</p>
                       </div>
                     </div>
                   </div>
