@@ -1270,8 +1270,8 @@ function App() {
                   
                   <div className="relative">
                     <div className="text-6xl mb-4">📈</div>
-                    <p className="text-2xl font-bold text-white mb-2">$500K Seed Round</p>
-                    <p className="text-emerald-100">Building the future</p>
+                    <p className="text-2xl font-bold text-white mb-2">$250K Pre-Seed Round</p>
+                    <p className="text-emerald-100">$1M Valuation</p>
                   </div>
                 </div>
               </div>
