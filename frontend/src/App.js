@@ -1695,7 +1695,7 @@ function App() {
                       <p><strong className="text-emerald-700">Mission:</strong> Empowering millions to recalibrate their lives through AI-driven allied health and wellness.</p>
                       <p><strong className="text-emerald-700">Market:</strong> $600B+ Allied Health & Chronic Pain Market | 1.5B+ affected by chronic illness.</p>
                       <p><strong className="text-emerald-700">Traction:</strong> 50+ organic Pre-launch waitlist, Pre-Seed Investment Secured, Secure architecture.</p>
-                      <p><strong className="text-emerald-700">Opportunity:</strong> Raising $500,000 Seed Round to accelerate Development Testing, Clinical and Research Partnerships, Fund Independent Research Study, AI R&D and Marketing.</p>
+                      <p><strong className="text-emerald-700">Opportunity:</strong> Raising $250K Pre-Seed Round at $1M Valuation to accelerate Development Testing, Clinical and Research Partnerships, Fund Independent Research Study, AI R&D and Marketing.</p>
                       <p className="text-xs text-gray-500 mt-2 italic">Fill out the form below to request the full deck.</p>
                     </div>
                   </div>
