@@ -336,7 +336,7 @@ function App() {
               </div>
               
               {/* Top Right - Rose-Pink: Notifications */}
-              <div className="absolute -right-1 top-10 bg-gradient-to-r from-rose-500 to-pink-600 rounded-xl shadow-xl shadow-rose-500/25 p-2.5 max-w-[115px] animate-float-delayed lg:hidden text-white z-20">
+              <div className="absolute -right-1 top-10 bg-gradient-to-r from-rose-500 to-pink-600 rounded-xl shadow-xl shadow-rose-500/25 p-2.5 max-w-[125px] animate-float-delayed lg:hidden text-white z-20">
                 <div className="flex items-start gap-2">
                   <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-sm">🔔</span>
