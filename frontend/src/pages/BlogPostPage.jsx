@@ -927,23 +927,7 @@ export default function BlogPostPage() {
             ))}
           </div>
 
-          {/* Download Full Article */}
-          <div className="mt-12 p-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl border border-purple-200">
-            <div className="flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <h3 className="font-bold text-gray-900 mb-1">Want the full article?</h3>
-                <p className="text-sm text-gray-600">Download as Markdown for offline reading or reference.</p>
-              </div>
-              <a 
-                href={`/blog/${post.slug}.md`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-all"
-              >
-                <FileText className="w-4 h-4" /> Download .md
-              </a>
-            </div>
-          </div>
+          {/* End of article content */}
         </div>
       </article>
 
