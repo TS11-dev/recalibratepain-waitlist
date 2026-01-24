@@ -5,7 +5,8 @@ import {
   BarChart3, Users, BookOpen, Bell,
   Zap, MessageCircle, Mail, ExternalLink,
   Clock, ChevronDown, ChevronUp, Star, AlertTriangle, X, Menu,
-  Play, Smartphone, Globe, Bot, Flame, Snowflake, Dumbbell
+  Play, Smartphone, Globe, Bot, Flame, Snowflake, Dumbbell,
+  FileText, Calendar, User, Tag, ArrowUpRight
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 
