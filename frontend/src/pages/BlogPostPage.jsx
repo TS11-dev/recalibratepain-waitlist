@@ -5,6 +5,13 @@ import {
   BookOpen, ChevronRight, FileText, ExternalLink
 } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
+import { 
+  generateArticleSchema, 
+  generateFAQSchema, 
+  generateBreadcrumbSchema,
+  generateOrganizationSchema,
+  useSchemaMarkup 
+} from '../utils/schemaMarkup';
 
 // Full blog content for each post
 const blogContent = {
