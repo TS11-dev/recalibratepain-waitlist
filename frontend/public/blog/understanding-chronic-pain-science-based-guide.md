@@ -1,6 +1,6 @@
 # Understanding Chronic Pain: The Complete Science-Based Guide
 
-**Published:** January 15, 2025  
+**Published:** January 24, 2025  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 12 minutes  
 **Category:** Pain Science  
@@ -356,7 +356,7 @@ Ready to take control of your chronic pain? Consider these actions:
 
 **About Recalibrate:** Recalibrate is a comprehensive allied health platform for chronic pain, chronic illness, and health management. Features include smart health tracking, educational content, therapeutic tools, and AI-powered insights.
 
-**Website:** [recalibrateapp.com](https://recalibrateapp.com)
+**Website:** [recalibratepain.com](https://recalibratepain.com)
 
 ---
 

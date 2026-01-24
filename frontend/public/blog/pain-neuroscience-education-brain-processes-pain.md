@@ -1,6 +1,6 @@
 # Pain Neuroscience Education: How Your Brain Processes Pain
 
-**Published:** January 22, 2025  
+**Published:** January 24, 2025  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 10 minutes  
 **Category:** Pain Science  
@@ -340,7 +340,7 @@ For most chronic pain, however, extensive imaging often provides more fear than 
 
 **About Recalibrate:** Recalibrate is a comprehensive allied health platform for chronic pain, chronic illness, and health management.
 
-**Website:** [recalibrateapp.com](https://recalibrateapp.com)
+**Website:** [recalibratepain.com](https://recalibratepain.com)
 
 ---
 

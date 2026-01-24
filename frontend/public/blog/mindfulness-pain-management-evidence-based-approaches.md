@@ -1,6 +1,6 @@
 # Mindfulness and Pain Management: Evidence-Based Approaches
 
-**Published:** February 5, 2025  
+**Published:** January 24, 2025  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 10 minutes  
 **Category:** Mind-Body Techniques  

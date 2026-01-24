@@ -1,6 +1,6 @@
 # Sleep and Chronic Pain: Breaking the Vicious Cycle
 
-**Published:** January 29, 2025  
+**Published:** January 24, 2025  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 11 minutes  
 **Category:** Lifestyle & Wellness  
@@ -400,7 +400,7 @@ Unlike sleep medications that mask the problem, CBT-I addresses the **root cause
 
 **About Recalibrate:** Recalibrate is a comprehensive allied health platform for chronic pain, chronic illness, and health management.
 
-**Website:** [recalibrateapp.com](https://recalibrateapp.com)
+**Website:** [recalibratepain.com](https://recalibratepain.com)
 
 ---
 

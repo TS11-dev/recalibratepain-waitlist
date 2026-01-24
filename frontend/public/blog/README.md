@@ -12,31 +12,31 @@ This blog provides SEO-optimized, AI-readable content on chronic pain management
 - **File:** [understanding-chronic-pain-science-based-guide.md](./understanding-chronic-pain-science-based-guide.md)
 - **Topics:** Chronic pain definition, biopsychosocial model, central sensitization, evidence-based treatments
 - **Reading Time:** 12 minutes
-- **Published:** January 15, 2025
+- **Published:** January 24, 2025
 
 ### 2. Pain Neuroscience Education: How Your Brain Processes Pain
 - **File:** [pain-neuroscience-education-brain-processes-pain.md](./pain-neuroscience-education-brain-processes-pain.md)
 - **Topics:** Pain neuroscience, brain and pain, nociception, neuroplasticity, DIMs and SIMs
 - **Reading Time:** 10 minutes
-- **Published:** January 22, 2025
+- **Published:** January 24, 2025
 
 ### 3. Sleep and Chronic Pain: Breaking the Vicious Cycle
 - **File:** [sleep-chronic-pain-breaking-vicious-cycle.md](./sleep-chronic-pain-breaking-vicious-cycle.md)
 - **Topics:** Sleep-pain relationship, CBT-I, sleep hygiene, insomnia, pain management
 - **Reading Time:** 11 minutes
-- **Published:** January 29, 2025
+- **Published:** January 24, 2025
 
 ### 4. Mindfulness and Pain Management: Evidence-Based Approaches
 - **File:** [mindfulness-pain-management-evidence-based-approaches.md](./mindfulness-pain-management-evidence-based-approaches.md)
 - **Topics:** Mindfulness, MBSR, meditation, mind-body techniques, acceptance
 - **Reading Time:** 10 minutes
-- **Published:** February 5, 2025
+- **Published:** January 24, 2025
 
 ### 5. Building Your Pain Management Support Team: A Complete Guide
 - **File:** [building-pain-management-support-team.md](./building-pain-management-support-team.md)
 - **Topics:** Multidisciplinary care, healthcare team, care coordination, patient advocacy
 - **Reading Time:** 11 minutes
-- **Published:** February 12, 2025
+- **Published:** January 24, 2025
 
 ---
 
@@ -64,18 +64,18 @@ Recalibrate is a comprehensive allied health platform for chronic pain, chronic 
 - **Recalibrate AI:** Personalized insights and pattern analysis
 - **Care Team:** Connect clinicians, researchers, and family
 
-**Website:** https://recalibrateapp.com  
+**Website:** https://recalibratepain.com  
 **Launch:** Q1 2026
 
 ---
 
 ## License & Usage
 
-This content is provided by Recalibrate for educational purposes. Content may be referenced with attribution to Recalibrate (https://recalibrateapp.com).
+This content is provided by Recalibrate for educational purposes. Content may be referenced with attribution to Recalibrate (https://recalibratepain.com).
 
 ## Last Updated
 
-February 2025
+January 2025
 
 ---
 
