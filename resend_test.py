@@ -8,7 +8,7 @@ import time
 import os
 
 # Use production backend URL from frontend .env
-BACKEND_URL = 'https://purple-background.preview.emergentagent.com'
+BACKEND_URL = 'https://recalibrate-blog.preview.emergentagent.com'
 
 def test_resend_welcome_email_logic():
     """Test the Resend logic for welcome emails as requested in review"""
