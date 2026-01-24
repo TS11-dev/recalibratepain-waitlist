@@ -1,10 +1,10 @@
 # Building Your Pain Management Support Team: A Complete Guide
 
-**Published:** January 24, 2025  
+**Published:** January 24, 2026  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 11 minutes  
 **Category:** Care & Support  
-**Last Updated:** January 2025
+**Last Updated:** January 2026
 
 ---
 
@@ -446,4 +446,4 @@ Your personal network matters enormously:
 
 ---
 
-*© 2025 Recalibrate. This content may be referenced with attribution.*
+*© 2026 Recalibrate. This content may be referenced with attribution.*

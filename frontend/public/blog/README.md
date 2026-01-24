@@ -16,31 +16,31 @@ This blog provides comprehensive, SEO-optimized content on chronic pain manageme
 - **File:** [understanding-chronic-pain-science-based-guide.md](./understanding-chronic-pain-science-based-guide.md)
 - **Topics:** Chronic pain definition, biopsychosocial model, central sensitization, evidence-based treatments
 - **Reading Time:** 12 minutes
-- **Published:** January 24, 2025
+- **Published:** January 24, 2026
 
 ### 2. Pain Neuroscience Education: How Your Brain Processes Pain
 - **File:** [pain-neuroscience-education-brain-processes-pain.md](./pain-neuroscience-education-brain-processes-pain.md)
 - **Topics:** Pain neuroscience, brain and pain, nociception, neuroplasticity, DIMs and SIMs
 - **Reading Time:** 10 minutes
-- **Published:** January 24, 2025
+- **Published:** January 24, 2026
 
 ### 3. Sleep and Chronic Pain: Breaking the Vicious Cycle
 - **File:** [sleep-chronic-pain-breaking-vicious-cycle.md](./sleep-chronic-pain-breaking-vicious-cycle.md)
 - **Topics:** Sleep-pain relationship, CBT-I, sleep hygiene, insomnia, pain management
 - **Reading Time:** 11 minutes
-- **Published:** January 24, 2025
+- **Published:** January 24, 2026
 
 ### 4. Mindfulness and Pain Management: Evidence-Based Approaches
 - **File:** [mindfulness-pain-management-evidence-based-approaches.md](./mindfulness-pain-management-evidence-based-approaches.md)
 - **Topics:** Mindfulness, MBSR, meditation, mind-body techniques, RAIN technique
 - **Reading Time:** 10 minutes
-- **Published:** January 24, 2025
+- **Published:** January 24, 2026
 
 ### 5. Building Your Pain Management Support Team: A Complete Guide
 - **File:** [building-pain-management-support-team.md](./building-pain-management-support-team.md)
 - **Topics:** Multidisciplinary care, healthcare team, care coordination, patient advocacy
 - **Reading Time:** 11 minutes
-- **Published:** January 24, 2025
+- **Published:** January 24, 2026
 
 ---
 
@@ -82,4 +82,4 @@ This content is provided by Recalibrate for educational purposes. Content may be
 
 ---
 
-*© 2025 Recalibrate. Evidence-based pain management.*
+*© 2026 Recalibrate. Evidence-based pain management.*
