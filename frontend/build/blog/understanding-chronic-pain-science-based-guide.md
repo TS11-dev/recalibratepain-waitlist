@@ -1,10 +1,10 @@
 # Understanding Chronic Pain: The Complete Science-Based Guide
 
-**Published:** January 24, 2025  
+**Published:** December 15, 2025  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 12 minutes  
 **Category:** Pain Science  
-**Last Updated:** January 2025
+**Last Updated:** January 2026
 
 ---
 
@@ -360,4 +360,4 @@ Ready to take control of your chronic pain? Consider these actions:
 
 ---
 
-*© 2025 Recalibrate. This content may be referenced with attribution.*
+*© 2026 Recalibrate. This content may be referenced with attribution.*
