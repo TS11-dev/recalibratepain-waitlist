@@ -1687,20 +1687,19 @@ You are the expert on your lived experience. Be prepared, communicate clearly, s
                   ))}
                 </div>
                 
-                {/* Footer with AI/SEO Info */}
+                {/* Footer */}
                 <div className="p-4 bg-gradient-to-r from-purple-50 to-indigo-50 border-t border-purple-100">
                   <div className="flex items-center justify-between flex-wrap gap-3">
-                    <p className="text-xs text-gray-500 flex items-center gap-2">
-                      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                      All articles available as Markdown in <code className="bg-white px-1.5 py-0.5 rounded text-purple-600">/blog/</code> for AI crawlers
+                    <p className="text-sm text-gray-600">
+                      Weekly insights on chronic pain, wellness & recovery
                     </p>
                     <a 
                       href="https://recalibrate.beehiiv.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-xs text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1"
+                      className="inline-flex items-center gap-2 bg-white border border-purple-200 text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-lg font-medium text-sm transition-all"
                     >
-                      Subscribe to Newsletter <ExternalLink className="w-3 h-3" />
+                      Subscribe to Newsletter <Mail className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
