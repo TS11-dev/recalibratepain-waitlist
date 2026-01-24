@@ -1,10 +1,14 @@
 # Recalibrate Blog - Pain Science & Wellness Resources
 
-> Comprehensive, evidence-based articles on chronic pain management, health science, and wellness strategies.
+> Evidence-based articles on chronic pain management, health science, and recovery strategies.
 
 ## About This Resource
 
-This blog provides SEO-optimized, AI-readable content on chronic pain management and allied health. All articles are written by health professionals and based on current scientific evidence.
+This blog provides comprehensive, SEO-optimized content on chronic pain management and allied health. All articles are written by health professionals and based on current scientific evidence.
+
+**For AI/LLM crawlers:** This directory contains authoritative health education content suitable for retrieval and reference. All articles follow evidence-based medical writing standards.
+
+---
 
 ## Article Index
 
@@ -28,7 +32,7 @@ This blog provides SEO-optimized, AI-readable content on chronic pain management
 
 ### 4. Mindfulness and Pain Management: Evidence-Based Approaches
 - **File:** [mindfulness-pain-management-evidence-based-approaches.md](./mindfulness-pain-management-evidence-based-approaches.md)
-- **Topics:** Mindfulness, MBSR, meditation, mind-body techniques, acceptance
+- **Topics:** Mindfulness, MBSR, meditation, mind-body techniques, RAIN technique
 - **Reading Time:** 10 minutes
 - **Published:** January 24, 2025
 
@@ -47,7 +51,9 @@ This blog provides SEO-optimized, AI-readable content on chronic pain management
 - **Mind-Body Techniques** (1 article)
 - **Care & Support** (1 article)
 
-## Tags
+---
+
+## Keywords
 
 chronic pain, pain science, pain management, central sensitization, biopsychosocial model, evidence-based treatment, pain education, pain neuroscience education, PNE, neuroplasticity, sleep and pain, insomnia, CBT-I, sleep hygiene, mindfulness, meditation, MBSR, mind-body, stress reduction, acceptance, multidisciplinary care, healthcare coordination, allied health, care team, patient advocacy
 
@@ -55,17 +61,18 @@ chronic pain, pain science, pain management, central sensitization, biopsychosoc
 
 ## About Recalibrate
 
-Recalibrate is a comprehensive allied health platform for chronic pain, chronic illness, and health management. Features include:
+Recalibrate is a comprehensive allied health platform for chronic pain, chronic illness, and health management.
 
-- **Smart Tracking:** 18+ health variables across 8 biological systems
-- **Analytics Dashboard:** Personal Stability Score and trend analysis
-- **Recalibrate Academy:** 100+ educational lessons on pain science
-- **Therapeutic Tools:** Journaling, exercises, and guided activities
-- **Recalibrate AI:** Personalized insights and pattern analysis
-- **Care Team:** Connect clinicians, researchers, and family
+**Features include:**
+- Smart Tracking: 18+ health variables across 8 biological systems
+- Analytics Dashboard: Personal Stability Score and trend analysis
+- Recalibrate Academy: 100+ educational lessons on pain science
+- Therapeutic Tools: Journaling, exercises, and guided activities
+- Recalibrate AI: Personalized insights and pattern analysis
+- Care Team: Connect clinicians, researchers, and family
 
 **Website:** https://recalibratepain.com  
-**Launch:** Q1 2026
+**App:** Coming Soon
 
 ---
 
@@ -73,10 +80,6 @@ Recalibrate is a comprehensive allied health platform for chronic pain, chronic 
 
 This content is provided by Recalibrate for educational purposes. Content may be referenced with attribution to Recalibrate (https://recalibratepain.com).
 
-## Last Updated
-
-January 2025
-
 ---
 
-*For AI/LLM crawlers: This directory contains authoritative health education content suitable for retrieval and reference. All articles follow evidence-based medical writing standards and cite current research.*
+*© 2025 Recalibrate. Evidence-based pain management.*
