@@ -6,4 +6,42 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Blog Index -->
+  <url>
+    <loc>https://recalibratepain.com/blog/README.md</loc>
+    <lastmod>2025-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://recalibratepain.com/blog/understanding-chronic-pain-science-based-guide.md</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recalibratepain.com/blog/pain-neuroscience-education-brain-processes-pain.md</loc>
+    <lastmod>2025-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recalibratepain.com/blog/sleep-chronic-pain-breaking-vicious-cycle.md</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recalibratepain.com/blog/mindfulness-pain-management-evidence-based-approaches.md</loc>
+    <lastmod>2025-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recalibratepain.com/blog/building-pain-management-support-team.md</loc>
+    <lastmod>2025-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
