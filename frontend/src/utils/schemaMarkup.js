@@ -135,8 +135,8 @@ export const generateArticleSchema = (post, siteUrl = 'https://recalibratepain.c
         "url": `${siteUrl}/recalibrate-logo-optimized.png`
       }
     },
-    "datePublished": "2025-01-24",
-    "dateModified": "2025-01-24",
+    "datePublished": "2025-12-15",
+    "dateModified": "2026-01-24",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `${siteUrl}/blog/${post.slug}`

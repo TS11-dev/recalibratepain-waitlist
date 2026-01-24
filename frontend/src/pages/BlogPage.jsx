@@ -26,7 +26,7 @@ const generateBlogListSchema = (siteUrl = 'https://recalibratepain.com') => ({
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "datePublished": "2025-01-24",
+    "datePublished": "2026-01-15",
     "url": `${siteUrl}/blog/${post.slug}`,
     "author": {
       "@type": "Organization",
