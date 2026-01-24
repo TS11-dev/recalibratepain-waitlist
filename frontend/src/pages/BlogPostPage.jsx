@@ -792,6 +792,14 @@ export default function BlogPostPage() {
     window.scrollTo(0, 0);
   }, [slug, navigate]);
 
+  // Inject JSON-LD Schema markup for SEO
+  useSchemaMarkup(post ? [
+    generateArticleSchema(post),
+    generateFAQSchema(slug),
+    generateBreadcrumbSchema(post),
+    generateOrganizationSchema()
+  ] : []);
+
   if (!post || !content) {
     return (
       <div className="min-h-screen flex items-center justify-center">
