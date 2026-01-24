@@ -1,0 +1,162 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { 
+  FileText, Clock, Calendar, Tag, ArrowRight, 
+  ArrowLeft, Search, Mail
+} from 'lucide-react';
+import { blogPosts } from '../data/blogPosts';
+
+export default function BlogPage() {
+  const categories = [...new Set(blogPosts.map(post => post.category))];
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center space-x-2">
+              <img 
+                src="/recalibrate-logo-optimized.png" 
+                alt="Recalibrate" 
+                className="h-10 w-auto" 
+                width="40" 
+                height="40"
+              />
+              <span className="text-xl font-bold text-white">Recalibrate</span>
+            </Link>
+            <div className="flex items-center gap-4">
+              <Link to="/" className="text-white/80 hover:text-white text-sm font-medium flex items-center gap-1">
+                <ArrowLeft className="w-4 h-4" /> Back to Home
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-28 pb-12 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200 rounded-full px-4 py-2 mb-6">
+            <FileText className="w-4 h-4 text-purple-600" />
+            <span className="text-sm font-semibold text-purple-700">Recalibrate Blog</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+            Pain Science & <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Wellness</span>
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            Evidence-based articles on chronic pain management, neuroscience, and recovery strategies written by health professionals.
+          </p>
+          
+          {/* Categories */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {categories.map((category) => (
+              <span 
+                key={category}
+                className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-purple-300 hover:text-purple-700 transition-all cursor-pointer"
+              >
+                {category}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Posts Grid */}
+      <section className="pb-20 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {blogPosts.map((post) => (
+              <Link 
+                key={post.id}
+                to={`/blog/${post.slug}`}
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex flex-col"
+              >
+                {/* Card Header */}
+                <div className={`p-6 ${
+                  post.color === 'blue' ? 'bg-gradient-to-br from-blue-500 to-cyan-500' :
+                  post.color === 'purple' ? 'bg-gradient-to-br from-purple-500 to-violet-500' :
+                  post.color === 'indigo' ? 'bg-gradient-to-br from-indigo-500 to-blue-500' :
+                  post.color === 'emerald' ? 'bg-gradient-to-br from-emerald-500 to-teal-500' :
+                  'bg-gradient-to-br from-rose-500 to-pink-500'
+                }`}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-4xl">{post.icon}</span>
+                    <span className="bg-white/20 backdrop-blur text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Card Body */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors line-clamp-2">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-1">
+                    {post.excerpt}
+                  </p>
+                  
+                  {/* Meta */}
+                  <div className="flex items-center justify-between text-xs text-gray-400 pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" /> {post.readTime}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" /> {post.date}
+                      </span>
+                    </div>
+                    <span className="text-purple-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Read <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section className="pb-20 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+            
+            <div className="relative">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                Get Weekly Pain Science Insights
+              </h2>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto">
+                Join thousands receiving evidence-based tips on chronic pain management, research updates, and wellness strategies.
+              </p>
+              <a 
+                href="https://recalibrate.beehiiv.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-purple-700 px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
+              >
+                <Mail className="w-5 h-5" /> Subscribe Free
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 py-8 px-4 sm:px-6 bg-white/50">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link to="/" className="flex items-center gap-2">
+            <img src="/recalibrate-logo-optimized.png" alt="Recalibrate" className="h-8 w-auto" />
+            <span className="font-bold text-gray-900">Recalibrate</span>
+          </Link>
+          <p className="text-sm text-gray-500">
+            © 2025 Recalibrate. Evidence-based pain management.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
