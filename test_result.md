@@ -312,6 +312,18 @@ frontend:
         agent: "testing"
         comment: "Responsive design works correctly on desktop, tablet, and mobile screen sizes. All UI elements adjust appropriately to different viewport sizes."
 
+  - task: "Recalibrate Blog Section"
+    implemented: true
+    working: true
+    file: "/app/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested the Recalibrate Blog section at https://recalibrate-blog.preview.emergentagent.com. ALL REQUIREMENTS VERIFIED: 1) Successfully navigated to Resources section via navigation link, 2) Verified 'Recalibrate Blog' title is displayed correctly, 3) Confirmed all 5 blog posts are present with correct titles and categories (Pain Science, Lifestyle & Wellness, Mind-Body Techniques, Care & Support), 4) Tested blog post expand functionality - posts expand to show detailed content with tags when clicked, 5) Verified footer message 'All articles available as Markdown in /blog/ for AI crawlers' is present, 6) Confirmed 'View all as Markdown' link exists with correct href (/blog/README.md), 7) Verified 'Subscribe to Newsletter' link exists with correct href (https://recalibrate.beehiiv.com), 8) Tested collapse functionality - clicking same post again collapses content, 9) Verified mobile responsiveness - blog section works correctly on mobile viewport (390x844). The blog section is fully functional with proper expand/collapse behavior, correct links, and responsive design. All review requirements met successfully."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
