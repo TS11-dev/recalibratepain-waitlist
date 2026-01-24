@@ -1302,10 +1302,10 @@ function App() {
             
             {/* Resource Cards */}
             <div className="space-y-6">
-              {/* Blog Section - Expandable Posts */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-200 shadow-sm overflow-hidden">
-                <div className="p-6 lg:p-8 border-b border-purple-100">
-                  <div className="flex items-center justify-between flex-wrap gap-4">
+              {/* Blog Section - Clean Card with Preview */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-200 shadow-sm overflow-hidden hover:shadow-xl hover:border-purple-300 transition-all duration-300">
+                <div className="p-6 lg:p-8">
+                  <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
                         <FileText className="w-6 h-6 text-white" />
@@ -1315,150 +1315,57 @@ function App() {
                         <p className="text-sm text-gray-500">Evidence-based articles on pain science & wellness</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm text-gray-400">{blogPosts.length} articles</span>
-                      <a 
-                        href="/blog/README.md" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-purple-500/25 transition-all"
-                      >
-                        View All Articles <ArrowUpRight className="w-4 h-4" />
-                      </a>
-                    </div>
+                    <Link 
+                      to="/blog"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5"
+                    >
+                      View All Articles <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
-                </div>
-                
-                {/* Blog Posts List */}
-                <div className="divide-y divide-purple-100">
-                  {blogPosts.map((post) => (
-                    <div key={post.id} className="group">
-                      {/* Post Header - Always Visible */}
-                      <button 
-                        onClick={() => setExpandedBlog(expandedBlog === post.id ? null : post.id)}
-                        className="w-full p-5 lg:p-6 text-left hover:bg-purple-50/50 transition-all duration-200"
+                  
+                  {/* Blog Posts Preview Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {blogPosts.slice(0, 3).map((post) => (
+                      <Link 
+                        key={post.id}
+                        to={`/blog/${post.slug}`}
+                        className="group bg-gray-50 hover:bg-purple-50 rounded-xl p-4 transition-all duration-200"
                       >
-                        <div className="flex items-start gap-4">
-                          <div className={`w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-2xl shadow-lg ${
-                            post.color === 'blue' ? 'bg-gradient-to-br from-blue-500 to-cyan-500 shadow-blue-500/25' :
-                            post.color === 'purple' ? 'bg-gradient-to-br from-purple-500 to-violet-500 shadow-purple-500/25' :
-                            post.color === 'indigo' ? 'bg-gradient-to-br from-indigo-500 to-blue-500 shadow-indigo-500/25' :
-                            post.color === 'emerald' ? 'bg-gradient-to-br from-emerald-500 to-teal-500 shadow-emerald-500/25' :
-                            'bg-gradient-to-br from-rose-500 to-pink-500 shadow-rose-500/25'
-                          }`}>
-                            {post.icon}
-                          </div>
+                        <div className="flex items-start gap-3">
+                          <span className="text-2xl">{post.icon}</span>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap mb-1">
-                              <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                                post.color === 'blue' ? 'bg-blue-100 text-blue-700' :
-                                post.color === 'purple' ? 'bg-purple-100 text-purple-700' :
-                                post.color === 'indigo' ? 'bg-indigo-100 text-indigo-700' :
-                                post.color === 'emerald' ? 'bg-emerald-100 text-emerald-700' :
-                                'bg-rose-100 text-rose-700'
-                              }`}>
-                                {post.category}
-                              </span>
-                              <span className="text-xs text-gray-400 flex items-center gap-1">
-                                <Clock className="w-3 h-3" /> {post.readTime}
-                              </span>
-                            </div>
-                            <h4 className="text-lg font-bold text-gray-900 group-hover:text-purple-700 transition-colors mb-1">
+                            <span className={`text-xs font-semibold px-2 py-0.5 rounded-full inline-block mb-2 ${
+                              post.color === 'blue' ? 'bg-blue-100 text-blue-700' :
+                              post.color === 'purple' ? 'bg-purple-100 text-purple-700' :
+                              post.color === 'indigo' ? 'bg-indigo-100 text-indigo-700' :
+                              post.color === 'emerald' ? 'bg-emerald-100 text-emerald-700' :
+                              'bg-rose-100 text-rose-700'
+                            }`}>
+                              {post.category}
+                            </span>
+                            <h4 className="font-bold text-gray-900 group-hover:text-purple-700 transition-colors text-sm leading-tight line-clamp-2 mb-1">
                               {post.title}
                             </h4>
-                            <p className="text-sm text-gray-600 line-clamp-2">
-                              {post.excerpt}
+                            <p className="text-xs text-gray-500 flex items-center gap-1">
+                              <Clock className="w-3 h-3" /> {post.readTime}
                             </p>
-                            <div className="flex items-center gap-3 mt-2 text-xs text-gray-400">
-                              <span className="flex items-center gap-1">
-                                <Calendar className="w-3 h-3" /> {post.date}
-                              </span>
-                            </div>
-                          </div>
-                          <div className="flex-shrink-0">
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                              expandedBlog === post.id ? 'bg-purple-100 rotate-180' : 'bg-gray-100 group-hover:bg-purple-50'
-                            }`}>
-                              <ChevronDown className={`w-4 h-4 ${expandedBlog === post.id ? 'text-purple-600' : 'text-gray-400'}`} />
-                            </div>
                           </div>
                         </div>
-                      </button>
-                      
-                      {/* Expanded Content */}
-                      {expandedBlog === post.id && (
-                        <div className="px-5 lg:px-6 pb-6 animate-fade-in">
-                          <div className="ml-16 pl-4 border-l-2 border-purple-200">
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {post.tags.map((tag, i) => (
-                                <span key={i} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full flex items-center gap-1">
-                                  <Tag className="w-3 h-3" /> {tag}
-                                </span>
-                              ))}
-                            </div>
-                            
-                            {/* Content Preview */}
-                            <div className="prose prose-sm prose-purple max-w-none">
-                              <div className="bg-gradient-to-br from-gray-50 to-purple-50/30 rounded-xl p-5 text-gray-700 leading-relaxed">
-                                {post.content.split('\n').map((line, i) => {
-                                  if (line.startsWith('## ')) {
-                                    return <h3 key={i} className="text-lg font-bold text-gray-900 mt-4 mb-2">{line.replace('## ', '')}</h3>;
-                                  } else if (line.startsWith('### ')) {
-                                    return <h4 key={i} className="text-base font-semibold text-gray-800 mt-3 mb-1">{line.replace('### ', '')}</h4>;
-                                  } else if (line.startsWith('- **')) {
-                                    const parts = line.replace('- **', '').split(':**');
-                                    return (
-                                      <p key={i} className="flex items-start gap-2 my-1">
-                                        <CheckCircle className="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" />
-                                        <span><strong className="text-gray-900">{parts[0]}:</strong>{parts[1]}</span>
-                                      </p>
-                                    );
-                                  } else if (line.startsWith('1. ') || line.startsWith('2. ') || line.startsWith('3. ') || line.startsWith('4. ')) {
-                                    return <p key={i} className="flex items-start gap-2 my-1"><span className="text-purple-600 font-bold">{line.charAt(0)}.</span> {line.slice(3)}</p>;
-                                  } else if (line.includes('[Read the full article')) {
-                                    return (
-                                      <div key={i} className="mt-4 pt-4 border-t border-purple-200">
-                                        <a 
-                                          href={`/blog/${post.slug}.md`}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
-                                        >
-                                          <FileText className="w-4 h-4" />
-                                          Read full article (Markdown)
-                                          <ExternalLink className="w-3 h-3" />
-                                        </a>
-                                      </div>
-                                    );
-                                  } else if (line.trim()) {
-                                    return <p key={i} className="my-2">{line}</p>;
-                                  }
-                                  return null;
-                                })}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Footer */}
-                <div className="p-4 bg-gradient-to-r from-purple-50 to-indigo-50 border-t border-purple-100">
-                  <div className="flex items-center justify-between flex-wrap gap-3">
-                    <p className="text-sm text-gray-600">
-                      Weekly insights on chronic pain, wellness & recovery
+                      </Link>
+                    ))}
+                  </div>
+                  
+                  {/* More Articles Indicator */}
+                  <div className="mt-4 pt-4 border-t border-purple-100 flex items-center justify-between">
+                    <p className="text-sm text-gray-500">
+                      +{blogPosts.length - 3} more articles on pain science, sleep, mindfulness & more
                     </p>
-                    <a 
-                      href="https://recalibrate.beehiiv.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white border border-purple-200 text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-lg font-medium text-sm transition-all"
+                    <Link 
+                      to="/blog"
+                      className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1"
                     >
-                      Subscribe to Newsletter <Mail className="w-4 h-4" />
-                    </a>
+                      Read all <ArrowUpRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
