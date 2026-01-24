@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Heart, Brain, Activity, Shield, Target, 
   TrendingUp, CheckCircle, ArrowRight, Sparkles,
@@ -9,6 +10,7 @@ import {
   FileText, Calendar, User, Tag, ArrowUpRight
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
+import { blogPosts } from './data/blogPosts';
 
 class ErrorBoundary extends React.Component {
   constructor(props) { super(props); this.state = { hasError: false }; }
