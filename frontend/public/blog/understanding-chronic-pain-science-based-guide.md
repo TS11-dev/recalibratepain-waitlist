@@ -1,6 +1,6 @@
 # Understanding Chronic Pain: The Complete Science-Based Guide
 
-**Published:** January 24, 2026  
+**Published:** December 15, 2025  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 12 minutes  
 **Category:** Pain Science  

@@ -1,6 +1,6 @@
 # Pain Neuroscience Education: How Your Brain Processes Pain
 
-**Published:** January 24, 2026  
+**Published:** December 22, 2025  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 10 minutes  
 **Category:** Pain Science  

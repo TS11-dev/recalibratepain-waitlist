@@ -1,6 +1,6 @@
 # Sleep and Chronic Pain: Breaking the Vicious Cycle
 
-**Published:** January 24, 2026  
+**Published:** January 6, 2026  
 **Author:** Recalibrate Health Team  
 **Reading Time:** 11 minutes  
 **Category:** Lifestyle & Wellness  
