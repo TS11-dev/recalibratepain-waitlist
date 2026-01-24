@@ -1,13 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FileText, Clock, Calendar, Tag, ArrowRight, 
   ArrowLeft, Search, Mail
 } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
+import { generateOrganizationSchema, useSchemaMarkup } from '../utils/schemaMarkup';
+
+// Blog listing schema
+const generateBlogListSchema = (siteUrl = 'https://recalibratepain.com') => ({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Recalibrate Blog - Pain Science & Wellness",
+  "description": "Evidence-based articles on chronic pain management, neuroscience, and recovery strategies.",
+  "url": `${siteUrl}/blog`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Recalibrate",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/recalibrate-logo-optimized.png`
+    }
+  },
+  "blogPost": blogPosts.map(post => ({
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": "2025-01-24",
+    "url": `${siteUrl}/blog/${post.slug}`,
+    "author": {
+      "@type": "Organization",
+      "name": "Recalibrate Health Team"
+    }
+  }))
+});
 
 export default function BlogPage() {
   const categories = [...new Set(blogPosts.map(post => post.category))];
+  
+  // Inject JSON-LD Schema for SEO
+  useSchemaMarkup([
+    generateBlogListSchema(),
+    generateOrganizationSchema()
+  ]);
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
