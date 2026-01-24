@@ -33,6 +33,7 @@ module.exports = {
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.6s ease-out',
+        'fade-in': 'fadeIn 0.3s ease-out',
         'slide-in-left': 'slideInLeft 0.6s ease-out',
         'slide-in-right': 'slideInRight 0.6s ease-out',
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -47,6 +48,14 @@ module.exports = {
           '100%': {
             opacity: '1',
             transform: 'translateY(0)',
+          },
+        },
+        fadeIn: {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
           },
         },
         slideInLeft: {
