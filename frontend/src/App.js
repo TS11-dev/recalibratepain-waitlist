@@ -1557,14 +1557,17 @@ You are the expert on your lived experience. Be prepared, communicate clearly, s
                         <p className="text-sm text-gray-500">Evidence-based articles on pain science & wellness</p>
                       </div>
                     </div>
-                    <a 
-                      href="/blog/README.md" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1"
-                    >
-                      View all as Markdown <ArrowUpRight className="w-4 h-4" />
-                    </a>
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm text-gray-400">{blogPosts.length} articles</span>
+                      <a 
+                        href="/blog/README.md" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-purple-500/25 transition-all"
+                      >
+                        View All Articles <ArrowUpRight className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
                 </div>
                 
