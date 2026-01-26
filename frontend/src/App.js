@@ -282,7 +282,7 @@ function App() {
               <span className="inline-block bg-gradient-to-r from-blue-100 to-purple-100 text-purple-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-purple-200">
                 Step 1 · First Look
               </span>
-              <p className="text-sm text-gray-500 mt-2">See what you'll get — the app at a glance</p>
+              <p className="text-sm text-gray-500 mt-2">See what you'll get</p>
             </div>
 
             {/* Phone Mockup - Centered Below */}
