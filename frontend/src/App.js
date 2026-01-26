@@ -33,7 +33,6 @@ class ErrorBoundary extends React.Component {
 function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [waitlistCount, setWaitlistCount] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -45,29 +44,6 @@ function App() {
   const [superPlanYearly, setSuperPlanYearly] = useState(false);
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
-
-  // Fetch waitlist count on mount and periodically
-  const fetchWaitlistCount = useCallback(async () => {
-    try {
-      const response = await fetch(`${BACKEND_URL}/api/waitlist/count?t=${Date.now()}`, {
-        method: 'GET',
-        headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Waitlist count:', data.count);
-        setWaitlistCount(data.count);
-      }
-    } catch (error) {
-      console.log('Error fetching waitlist count:', error);
-    }
-  }, [BACKEND_URL]);
-
-  useEffect(() => {
-    fetchWaitlistCount();
-    const interval = setInterval(fetchWaitlistCount, 10000);
-    return () => clearInterval(interval);
-  }, [fetchWaitlistCount]);
 
   // Placeholder for future feature hooks
 
