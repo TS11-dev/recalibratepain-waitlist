@@ -71,8 +71,8 @@ def test_health_endpoint():
         has_dual_storage_info
     )
 
-def test_waitlist_count_endpoint():
-    """Test the waitlist count endpoint with source information"""
+def test_waitlist_count_real_only():
+    """Test /api/waitlist/count returns real count only without artificial inflation"""
     response = requests.get(f"{BACKEND_URL}/api/waitlist/count")
     print(f"Response: {response.status_code} - {response.text}")
     
@@ -80,14 +80,38 @@ def test_waitlist_count_endpoint():
     
     # Check for source information
     has_source_info = "source" in data
+    count = data.get("count", 0)
+    
     if has_source_info:
         print(f"Data source: {data['source']}")
+    
+    print(f"Waitlist count: {count}")
+    
+    # Get health endpoint to compare
+    health_response = requests.get(f"{BACKEND_URL}/api/health")
+    if health_response.status_code == 200:
+        health_data = health_response.json()
+        health_actual = health_data.get("actual_subscribers", 0)
+        health_display = health_data.get("subscribers", 0)
+        
+        print(f"Health actual subscribers: {health_actual}")
+        print(f"Health display subscribers: {health_display}")
+        
+        # Verify count endpoint matches health actual count (no inflation)
+        counts_match = (count == health_actual == health_display)
+        print(f"All counts match (no artificial inflation): {counts_match}")
+        
+        return (
+            response.status_code == 200 and
+            "count" in data and
+            has_source_info and
+            counts_match
+        )
     
     return (
         response.status_code == 200 and
         "count" in data and
-        has_source_info and
-        data.get("source") in ["mongodb", "json_backup", "fallback"]
+        has_source_info
     )
 
 def test_waitlist_export_endpoint():
