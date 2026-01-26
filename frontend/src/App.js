@@ -308,99 +308,99 @@ function App() {
                 
                 {/* Floating Labels - positioned relative to container, hidden on lg (desktop has own labels) */}
                 {/* Left Column Labels - SPECIFIC FEATURES */}
-                <div className="absolute -left-1 top-[5%] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-md sm:rounded-lg shadow-lg shadow-blue-500/25 p-1 sm:p-1.5 animate-float lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-right">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">📊</span>
+                <div className="absolute -left-2 sm:-left-4 top-[3%] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg shadow-blue-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">📊</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">18+ Health Metrics</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">Pain, sleep, mood</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">18+ Health Metrics</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">Pain, sleep, mood</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute -left-1 top-[22%] bg-gradient-to-r from-emerald-500 to-teal-600 rounded-md sm:rounded-lg shadow-lg shadow-emerald-500/25 p-1 sm:p-1.5 animate-float-delayed lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-right">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">🎓</span>
+                <div className="absolute -left-3 sm:-left-6 top-[24%] bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">🎓</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">Pain Science Academy</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">100+ lessons</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">Pain Science Academy</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">100+ lessons</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute -left-1 top-[42%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-md sm:rounded-lg shadow-lg shadow-amber-500/25 p-1 sm:p-1.5 animate-float lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-right">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">🛠️</span>
+                <div className="absolute -left-2 sm:-left-4 top-[46%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">🛠️</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">Tools Library</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">Exercises, journal, goals</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">Tools Library</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">Exercises, journal, goals</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute -left-1 top-[62%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-md sm:rounded-lg shadow-lg shadow-fuchsia-500/25 p-1 sm:p-1.5 animate-float-delayed lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-right">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">📈</span>
+                <div className="absolute -left-3 sm:-left-5 top-[68%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg shadow-lg shadow-fuchsia-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">📈</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">Visual Analytics</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">Trends & correlations</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">Visual Analytics</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">Trends & correlations</p>
                     </div>
                   </div>
                 </div>
                 
                 {/* Right Column Labels - SPECIFIC FEATURES */}
-                <div className="absolute -right-1 top-[12%] bg-gradient-to-r from-rose-500 to-pink-600 rounded-md sm:rounded-lg shadow-lg shadow-rose-500/25 p-1 sm:p-1.5 animate-float-delayed lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-left">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">💊</span>
+                <div className="absolute -right-2 sm:-right-4 top-[8%] bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg shadow-lg shadow-rose-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">💊</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">Medication Tracker</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">Reminders & logging</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">Medication Tracker</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">Reminders & logging</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute -right-1 top-[32%] bg-gradient-to-r from-violet-500 to-purple-600 rounded-md sm:rounded-lg shadow-lg shadow-violet-500/25 p-1 sm:p-1.5 animate-float lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-left">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">🤖</span>
+                <div className="absolute -right-3 sm:-right-6 top-[30%] bg-gradient-to-r from-violet-500 to-purple-600 rounded-lg shadow-lg shadow-violet-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">🤖</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">Recalibrate AI</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">Chat with your data</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">Recalibrate AI</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">Chat with your data</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute -right-1 top-[52%] bg-gradient-to-r from-cyan-500 to-sky-600 rounded-md sm:rounded-lg shadow-lg shadow-cyan-500/25 p-1 sm:p-1.5 animate-float-delayed lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-left">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">👥</span>
+                <div className="absolute -right-2 sm:-right-5 top-[52%] bg-gradient-to-r from-cyan-500 to-sky-600 rounded-lg shadow-lg shadow-cyan-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">👥</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">Clinician Dashboard</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">Real-time patient data</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">Clinician Dashboard</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">Real-time patient data</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute -right-1 top-[72%] bg-gradient-to-r from-lime-500 to-green-600 rounded-md sm:rounded-lg shadow-lg shadow-lime-500/25 p-1 sm:p-1.5 animate-float lg:hidden text-white z-20 scale-[0.85] sm:scale-90 origin-left">
-                  <div className="flex items-center gap-1">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded flex items-center justify-center flex-shrink-0">
-                      <span className="text-[8px] sm:text-[10px]">👨‍👩‍👧</span>
+                <div className="absolute -right-3 sm:-right-4 top-[74%] bg-gradient-to-r from-lime-500 to-green-600 rounded-lg shadow-lg shadow-lime-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm sm:text-base">👨‍👩‍👧</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[7px] sm:text-[8px]">3 User Types</p>
-                      <p className="text-[5px] sm:text-[6px] text-white/80">Patient, Clinician, Carer</p>
+                      <p className="font-bold text-[9px] sm:text-[11px]">3 User Types</p>
+                      <p className="text-[7px] sm:text-[8px] text-white/80">Patient, Clinician, Carer</p>
                     </div>
                   </div>
                 </div>
