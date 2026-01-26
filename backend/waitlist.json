@@ -323,5 +323,10 @@
     "name": "Email Verification Test User",
     "email": "email_verification_test_1769414397@test.com",
     "timestamp": "2026-01-26T07:59:58.136145"
+  },
+  {
+    "name": "Website Subscriber",
+    "email": "frontend_test_1769414483@test.com",
+    "timestamp": "2026-01-26T08:01:23.805000"
   }
 ]
