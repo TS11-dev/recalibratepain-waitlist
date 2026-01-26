@@ -75,6 +75,8 @@ function App() {
             event_category: 'engagement',
             event_label: 'Waitlist Signup Success'
           });
+          // Google Ads Conversion Tracking - Replace AW-XXXXXXXXX/XXXXXXXXXXX with your conversion ID
+          // window.gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXX'});
         }
         toast.success('🎉 You\'re on the list! We\'ll email you when we launch.', { duration: 5000 });
         setEmail('');
