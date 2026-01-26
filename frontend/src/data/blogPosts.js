@@ -69,6 +69,76 @@ export const blogPosts = [
     tags: ['healthcare team', 'multidisciplinary', 'support', 'pain specialist', 'allied health'],
     metaDescription: 'Build your ideal pain management team: learn which specialists to include, how to coordinate care, and advocate for yourself effectively.',
     keywords: ['pain management team', 'multidisciplinary pain care', 'pain specialist near me', 'chronic pain support', 'allied health for pain']
+  },
+  {
+    id: 6,
+    slug: 'activity-pacing-boom-bust-cycle-chronic-pain',
+    title: 'Activity Pacing: How to Break the Boom-Bust Cycle in Chronic Pain',
+    excerpt: 'Do you push through on good days only to crash afterward? The boom-bust cycle keeps millions trapped in pain flares. Activity pacing is the evidence-based technique that breaks this pattern for good.',
+    category: 'Self-Management',
+    readTime: '9 min read',
+    date: 'January 25, 2026',
+    color: 'amber',
+    icon: '⚖️',
+    tags: ['pacing', 'boom-bust cycle', 'activity management', 'energy conservation', 'flare prevention'],
+    metaDescription: 'Learn activity pacing techniques to break the boom-bust cycle. Evidence-based strategies for managing energy and preventing chronic pain flares.',
+    keywords: ['activity pacing chronic pain', 'boom bust cycle', 'how to pace with chronic pain', 'energy management chronic illness', 'prevent pain flares']
+  },
+  {
+    id: 7,
+    slug: 'fibromyalgia-flare-triggers-management',
+    title: 'Fibromyalgia Flares: Identifying Triggers and Taking Back Control',
+    excerpt: 'Fibromyalgia flares can feel unpredictable and overwhelming. But research shows most flares have identifiable triggers. Learn how tracking patterns can help you prevent flares before they start.',
+    category: 'Condition Guides',
+    readTime: '10 min read',
+    date: 'January 26, 2026',
+    color: 'fuchsia',
+    icon: '🔍',
+    tags: ['fibromyalgia', 'flare management', 'triggers', 'symptom tracking', 'self-management'],
+    metaDescription: 'Identify and manage fibromyalgia flare triggers. Evidence-based strategies for tracking symptoms, recognizing patterns, and reducing flare frequency.',
+    keywords: ['fibromyalgia flare triggers', 'how to prevent fibro flares', 'fibromyalgia symptom tracking', 'managing fibromyalgia naturally', 'fibro flare up what to do']
+  },
+  {
+    id: 8,
+    slug: 'central-sensitization-why-pain-persists',
+    title: 'Central Sensitization: Why Your Pain Persists After Healing',
+    excerpt: 'Your injury healed months ago, but the pain remains. Central sensitization explains why: your nervous system has become hypersensitive. Understanding this science is the first step to rewiring it.',
+    category: 'Pain Science',
+    readTime: '11 min read',
+    date: 'January 27, 2026',
+    color: 'red',
+    icon: '⚡',
+    tags: ['central sensitization', 'nervous system', 'nociplastic pain', 'hyperalgesia', 'allodynia'],
+    metaDescription: 'Understand central sensitization: why pain persists after tissue healing, how the nervous system becomes hypersensitive, and evidence-based treatments.',
+    keywords: ['central sensitization syndrome', 'why does my pain not go away', 'nervous system and chronic pain', 'nociplastic pain explained', 'hypersensitive nervous system']
+  },
+  {
+    id: 9,
+    slug: 'pain-catastrophizing-break-negative-thought-patterns',
+    title: 'Pain Catastrophizing: Breaking Free from Negative Thought Spirals',
+    excerpt: 'When pain strikes, does your mind race to worst-case scenarios? Pain catastrophizing affects up to 31% of pain severity. The good news: these thought patterns can be changed with the right techniques.',
+    category: 'Mind-Body Techniques',
+    readTime: '10 min read',
+    date: 'January 28, 2026',
+    color: 'violet',
+    icon: '💭',
+    tags: ['catastrophizing', 'cognitive therapy', 'negative thoughts', 'CBT', 'pain psychology'],
+    metaDescription: 'Learn to recognize and overcome pain catastrophizing. Evidence-based cognitive techniques to break negative thought patterns and reduce pain perception.',
+    keywords: ['pain catastrophizing scale', 'how to stop catastrophizing pain', 'negative thoughts chronic pain', 'CBT for chronic pain', 'pain and anxiety']
+  },
+  {
+    id: 10,
+    slug: 'gabapentin-alternatives-non-medication-pain-relief',
+    title: 'Beyond Gabapentin: Evidence-Based Non-Medication Pain Relief',
+    excerpt: 'Concerns about long-term gabapentin use are growing. Research shows non-pharmacological approaches can be equally effective for many people. Explore the science-backed alternatives.',
+    category: 'Treatment Options',
+    readTime: '12 min read',
+    date: 'January 29, 2026',
+    color: 'teal',
+    icon: '🌿',
+    tags: ['medication alternatives', 'non-pharmacological', 'natural pain relief', 'gabapentin', 'integrative medicine'],
+    metaDescription: 'Explore evidence-based alternatives to gabapentin and other pain medications. Non-pharmacological approaches including exercise, therapy, and lifestyle changes.',
+    keywords: ['gabapentin alternatives', 'natural pain relief that works', 'non drug pain management', 'chronic pain without medication', 'integrative pain treatment']
   }
 ];
 
