@@ -21,11 +21,18 @@ Health and pain management app landing page with waitlist functionality. Key foc
 
 ## What's Been Implemented
 
-### January 26, 2026
-- **Removed fake waitlist counter** - Replaced inflated "228+" counter (which added fake BASE_SUBSCRIBER_COUNT = 191 to real emails) with authentic scarcity messaging
+### January 26, 2026 - Session 2
+- **Blog scroll-to-top fix**: Blog page now scrolls to top on load
+- **Newsletter CTA updated**: Changed from "Subscribe Free" to "Explore More Pain Science" + "Visit Our Newsletter" (external beehiiv link)
+- **Cohesive storytelling**: Added step badges to create narrative flow:
+  - Step 1 · First Look (Phone mockup - see the app at a glance)
+  - Step 2 · Your Journey (How It Works - 8-step path)
+  - Step 3 · Deep Dive (What's Inside - detailed features)
+
+### January 26, 2026 - Session 1
+- **Removed fake waitlist counter**: Replaced inflated "228+" counter with authentic scarcity messaging
 - **New scarcity badge**: "Limited Spaces Available • Join Cohort 1 Now" with Sparkles icon
 - **Backend change**: BASE_SUBSCRIBER_COUNT set to 0 - only real emails counted now
-- **Cleaned up unused code**: Removed waitlistCount state, fetchWaitlistCount callback, and related imports
 
 ## Prioritized Backlog
 
@@ -38,7 +45,7 @@ Health and pain management app landing page with waitlist functionality. Key foc
 
 ### P2 (Nice to Have)
 - Add countdown timer to Q1 2026 launch
-- Add real-time subscriber milestone celebrations (when hitting 50, 100, etc)
+- Add real-time subscriber milestone celebrations
 
 ## Next Tasks
 - Monitor real email signups and engagement
