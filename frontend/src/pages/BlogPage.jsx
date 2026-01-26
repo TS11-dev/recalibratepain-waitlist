@@ -118,6 +118,12 @@ export default function BlogPage() {
                   post.color === 'purple' ? 'bg-gradient-to-br from-purple-500 to-violet-500' :
                   post.color === 'indigo' ? 'bg-gradient-to-br from-indigo-500 to-blue-500' :
                   post.color === 'emerald' ? 'bg-gradient-to-br from-emerald-500 to-teal-500' :
+                  post.color === 'rose' ? 'bg-gradient-to-br from-rose-500 to-pink-500' :
+                  post.color === 'amber' ? 'bg-gradient-to-br from-amber-500 to-orange-500' :
+                  post.color === 'fuchsia' ? 'bg-gradient-to-br from-fuchsia-500 to-pink-500' :
+                  post.color === 'red' ? 'bg-gradient-to-br from-red-500 to-rose-500' :
+                  post.color === 'violet' ? 'bg-gradient-to-br from-violet-500 to-purple-500' :
+                  post.color === 'teal' ? 'bg-gradient-to-br from-teal-500 to-emerald-500' :
                   'bg-gradient-to-br from-rose-500 to-pink-500'
                 }`}>
                   <div className="flex items-center justify-between">
