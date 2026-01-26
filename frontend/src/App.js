@@ -298,11 +298,11 @@ function App() {
                 </div>
               </form>
               
-              {/* Waitlist Count */}
+              {/* Scarcity Messaging */}
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full px-6 py-2.5 shadow-lg shadow-purple-500/25">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="font-bold text-white text-lg">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}+</span>
-                <span className="text-white/80 text-sm">joined</span>
+                <Sparkles className="w-4 h-4 text-yellow-300" />
+                <span className="font-semibold text-white text-sm">Limited Spaces Available</span>
+                <span className="text-white/90 text-sm font-medium">• Join Cohort 1 Now</span>
               </div>
             </div>
 
