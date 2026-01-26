@@ -1933,7 +1933,7 @@ def run_all_tests():
     run_test("BACKGROUND TASK: Welcome Email (No Blocking)", test_background_task_welcome_email)
     run_test("REVIEW REQUEST: General Contact Form via curl", test_general_contact_form_curl)
     run_test("Partner Contact Form Endpoint", test_partner_contact_form)
-    run_test("Health Endpoint - Waitlist Count Verification (194)", test_health_endpoint_waitlist_count)
+    run_test("Health Endpoint - Real Count Only (No Artificial Inflation)", test_health_endpoint_real_count_only)
     
     print("\n🔍 TESTING DUAL STORAGE SYSTEM (MongoDB + JSON) 🔍\n")
     
