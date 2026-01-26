@@ -407,16 +407,16 @@ function App() {
 
               </div>
               
-              {/* Desktop Floating Cards - OUTCOMES focused */}
+              {/* Desktop Floating Cards - SPECIFIC FEATURES */}
               {/* Top Left */}
               <div className="absolute left-[18%] top-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl shadow-xl shadow-blue-500/25 p-4 max-w-[200px] animate-float hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">🎯</span>
+                    <span className="text-lg">📊</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm">Know Your Body</p>
-                    <p className="text-xs text-white/80">Find patterns</p>
+                    <p className="font-bold text-sm">18+ Health Metrics</p>
+                    <p className="text-xs text-white/80">Pain, sleep, mood & more</p>
                   </div>
                 </div>
               </div>
@@ -425,37 +425,37 @@ function App() {
               <div className="absolute right-[18%] top-16 bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl shadow-xl shadow-rose-500/25 p-4 max-w-[190px] animate-float-delayed hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">🔔</span>
+                    <span className="text-lg">💊</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm">Stay Consistent</p>
-                    <p className="text-xs text-white/80">Smart reminders</p>
+                    <p className="font-bold text-sm">Medication Tracker</p>
+                    <p className="text-xs text-white/80">Reminders & logging</p>
                   </div>
                 </div>
               </div>
 
               {/* Mid Left */}
-              <div className="absolute left-[12%] top-44 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl shadow-xl shadow-emerald-500/25 p-4 max-w-[180px] animate-float-delayed hidden lg:block text-white">
+              <div className="absolute left-[12%] top-44 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl shadow-xl shadow-emerald-500/25 p-4 max-w-[200px] animate-float-delayed hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">💡</span>
+                    <span className="text-lg">🎓</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm">Understand Pain</p>
-                    <p className="text-xs text-white/80">Learn the science</p>
+                    <p className="font-bold text-sm">Pain Science Academy</p>
+                    <p className="text-xs text-white/80">100+ bite-sized lessons</p>
                   </div>
                 </div>
               </div>
 
               {/* Mid Right */}
-              <div className="absolute right-[12%] top-48 bg-gradient-to-r from-violet-500 to-purple-600 rounded-2xl shadow-xl shadow-violet-500/25 p-4 max-w-[170px] animate-float hidden lg:block text-white">
+              <div className="absolute right-[12%] top-48 bg-gradient-to-r from-violet-500 to-purple-600 rounded-2xl shadow-xl shadow-violet-500/25 p-4 max-w-[180px] animate-float hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-lg">🤖</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm">Get Answers</p>
-                    <p className="text-xs text-white/80">AI powered</p>
+                    <p className="font-bold text-sm">Recalibrate AI</p>
+                    <p className="text-xs text-white/80">Chat with your data</p>
                   </div>
                 </div>
               </div>
@@ -464,24 +464,24 @@ function App() {
               <div className="absolute left-[16%] bottom-32 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl shadow-xl shadow-amber-500/25 p-4 max-w-[190px] animate-float hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">⚡</span>
+                    <span className="text-lg">🧘</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm">Take Control</p>
-                    <p className="text-xs text-white/80">Daily actions</p>
+                    <p className="font-bold text-sm">200+ Exercises</p>
+                    <p className="text-xs text-white/80">Physio, mindfulness, pacing</p>
                   </div>
                 </div>
               </div>
 
               {/* Bottom Mid-Right */}
-              <div className="absolute right-[16%] bottom-40 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-2xl shadow-xl shadow-cyan-500/25 p-4 max-w-[180px] animate-float-delayed hidden lg:block text-white">
+              <div className="absolute right-[16%] bottom-40 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-2xl shadow-xl shadow-cyan-500/25 p-4 max-w-[200px] animate-float-delayed hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">🤝</span>
+                    <span className="text-lg">👥</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm">Share with Doctors</p>
-                    <p className="text-xs text-white/80">Better appointments</p>
+                    <p className="font-bold text-sm">Clinician Dashboard</p>
+                    <p className="text-xs text-white/80">Real-time patient data</p>
                   </div>
                 </div>
               </div>
@@ -491,19 +491,19 @@ function App() {
                 <div className="flex items-center gap-2">
                   <span className="text-lg">📈</span>
                   <div>
-                    <p className="font-bold text-sm">See Progress</p>
-                    <p className="text-xs text-white/80">Track improvement</p>
+                    <p className="font-bold text-sm">Visual Analytics</p>
+                    <p className="text-xs text-white/80">Trends & correlations</p>
                   </div>
                 </div>
               </div>
 
               {/* Bottom Right */}
-              <div className="absolute right-[20%] bottom-12 bg-gradient-to-r from-lime-500 to-green-600 rounded-2xl shadow-xl shadow-lime-500/25 p-4 max-w-[160px] text-white animate-float-delayed hidden lg:block">
+              <div className="absolute right-[20%] bottom-12 bg-gradient-to-r from-lime-500 to-green-600 rounded-2xl shadow-xl shadow-lime-500/25 p-4 max-w-[180px] text-white animate-float-delayed hidden lg:block">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">✨</span>
+                  <span className="text-lg">👨‍👩‍👧</span>
                   <div>
-                    <p className="font-bold text-sm">Feel Better</p>
-                    <p className="text-xs text-white/80">Real results</p>
+                    <p className="font-bold text-sm">3 User Types</p>
+                    <p className="text-xs text-white/80">Patient, Clinician, Carer</p>
                   </div>
                 </div>
               </div>
