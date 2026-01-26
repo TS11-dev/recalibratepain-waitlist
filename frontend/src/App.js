@@ -738,13 +738,13 @@ function App() {
             {/* Section Header */}
             <div className="text-center mb-12">
               <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
-                Step 3 · Deep Dive
+                Step 3 · The Tools
               </span>
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
                 What's <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Inside</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Now let's explore each feature in detail — here's exactly what you get with Recalibrate
+                Here's what each feature actually does for you
               </p>
             </div>
 
