@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FileText, Clock, Calendar, Tag, ArrowRight, 
-  ArrowLeft, Search, Mail
+  ArrowLeft, Search, Mail, ExternalLink
 } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import { generateOrganizationSchema, useSchemaMarkup } from '../utils/schemaMarkup';
@@ -37,6 +37,11 @@ const generateBlogListSchema = (siteUrl = 'https://recalibratepain.com') => ({
 
 export default function BlogPage() {
   const categories = [...new Set(blogPosts.map(post => post.category))];
+  
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   // Inject JSON-LD Schema for SEO
   useSchemaMarkup([
