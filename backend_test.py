@@ -887,8 +887,8 @@ def test_general_contact_form_curl():
     
     return requirements_met
 
-def test_health_endpoint_waitlist_count():
-    """Test Health endpoint to verify Waitlist Count is 194 (191 base + 3 test)"""
+def test_health_endpoint_real_count_only():
+    """Test Health endpoint to verify it returns real subscriber count without artificial inflation"""
     response = requests.get(f"{BACKEND_URL}/api/health")
     print(f"Response: {response.status_code} - {response.text}")
     
@@ -904,12 +904,15 @@ def test_health_endpoint_waitlist_count():
     
     print(f"Total subscribers (display): {subscribers}")
     print(f"Actual subscribers: {actual_subscribers}")
-    print(f"Expected total: 194 (191 base + 3 test)")
     
-    # Verify the count is 194 as expected (191 base + 3 test)
-    expected_count = 194
+    # Verify that display count equals actual count (no artificial inflation)
+    # Both should be the same now that BASE_SUBSCRIBER_COUNT = 0
+    no_artificial_inflation = (subscribers == actual_subscribers)
     
-    return subscribers == expected_count
+    print(f"No artificial inflation: {no_artificial_inflation}")
+    print(f"BASE_SUBSCRIBER_COUNT should be 0 (no fake inflation)")
+    
+    return no_artificial_inflation
 
 def test_production_readiness():
     """Test that the backend is ready for production deployment"""
