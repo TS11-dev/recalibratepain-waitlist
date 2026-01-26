@@ -1940,7 +1940,7 @@ def run_all_tests():
     # Basic endpoint tests
     run_test("Health Endpoint with Dual Storage Status", test_health_endpoint)
     run_test("Root Endpoint", test_root_endpoint)
-    run_test("Waitlist Count Endpoint with Source Info", test_waitlist_count_endpoint)
+    run_test("Waitlist Count - Real Count Only", test_waitlist_count_real_only)
     run_test("Waitlist Export Endpoint with Storage Info", test_waitlist_export_endpoint)
     run_test("Waitlist Stats Endpoint with Storage Source", test_waitlist_stats_endpoint)
     
