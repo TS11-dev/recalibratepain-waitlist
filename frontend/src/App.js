@@ -68,6 +68,14 @@ function App() {
       const data = await response.json();
       
       if (response.ok && data.success) {
+        // Track successful waitlist signup in Google Analytics
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'sign_up', {
+            method: 'waitlist',
+            event_category: 'engagement',
+            event_label: 'Waitlist Signup Success'
+          });
+        }
         toast.success('🎉 You\'re on the list! We\'ll email you when we launch.', { duration: 5000 });
         setEmail('');
       } else {
