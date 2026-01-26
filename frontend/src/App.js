@@ -1735,6 +1735,13 @@ function App() {
                     });
                     const data = await response.json();
                     if (data.success) {
+                      // Track partner inquiry in Google Analytics
+                      if (typeof window.gtag === 'function') {
+                        window.gtag('event', 'generate_lead', {
+                          event_category: 'partnership',
+                          event_label: `Partner Inquiry - ${partnerFormOpen}`
+                        });
+                      }
                       alert('Thank you! We will contact you soon.');
                       setPartnerFormOpen(null);
                       setPartnerForm({ type: '', name: '', email: '', organization: '', message: '' });
