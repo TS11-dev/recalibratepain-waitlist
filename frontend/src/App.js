@@ -1597,6 +1597,13 @@ function App() {
                   });
                   const data = await response.json();
                   if (data.success) {
+                    // Track contact form submission in Google Analytics
+                    if (typeof window.gtag === 'function') {
+                      window.gtag('event', 'generate_lead', {
+                        event_category: 'engagement',
+                        event_label: 'Contact Form Submission'
+                      });
+                    }
                     alert('Message sent! We will get back to you soon.');
                     setShowContactModal(false);
                     setPartnerForm({ type: '', name: '', email: '', organization: '', message: '' });
