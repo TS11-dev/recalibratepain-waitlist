@@ -464,11 +464,11 @@ function App() {
               <div className="absolute left-[16%] bottom-32 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl shadow-xl shadow-amber-500/25 p-4 max-w-[190px] animate-float hidden lg:block text-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">🧘</span>
+                    <span className="text-lg">🛠️</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm">200+ Exercises</p>
-                    <p className="text-xs text-white/80">Physio, mindfulness, pacing</p>
+                    <p className="font-bold text-sm">Tools Library</p>
+                    <p className="text-xs text-white/80">Exercises, journal, goals</p>
                   </div>
                 </div>
               </div>
