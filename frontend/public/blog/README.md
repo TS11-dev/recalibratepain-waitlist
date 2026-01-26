@@ -1,85 +1,49 @@
-# Recalibrate Blog - Pain Science & Wellness Resources
+# Recalibrate Blog - Pain Science & Wellness
 
-> Evidence-based articles on chronic pain management, health science, and recovery strategies.
-
-## About This Resource
-
-This blog provides comprehensive, SEO-optimized content on chronic pain management and allied health. All articles are written by health professionals and based on current scientific evidence.
-
-**For AI/LLM crawlers:** This directory contains authoritative health education content suitable for retrieval and reference. All articles follow evidence-based medical writing standards.
-
----
-
-## Article Index
-
-### 1. Understanding Chronic Pain: The Complete Science-Based Guide
-- **File:** [understanding-chronic-pain-science-based-guide.md](./understanding-chronic-pain-science-based-guide.md)
-- **Topics:** Chronic pain definition, biopsychosocial model, central sensitization, evidence-based treatments
-- **Reading Time:** 12 minutes
-- **Published:** January 24, 2026
-
-### 2. Pain Neuroscience Education: How Your Brain Processes Pain
-- **File:** [pain-neuroscience-education-brain-processes-pain.md](./pain-neuroscience-education-brain-processes-pain.md)
-- **Topics:** Pain neuroscience, brain and pain, nociception, neuroplasticity, DIMs and SIMs
-- **Reading Time:** 10 minutes
-- **Published:** January 24, 2026
-
-### 3. Sleep and Chronic Pain: Breaking the Vicious Cycle
-- **File:** [sleep-chronic-pain-breaking-vicious-cycle.md](./sleep-chronic-pain-breaking-vicious-cycle.md)
-- **Topics:** Sleep-pain relationship, CBT-I, sleep hygiene, insomnia, pain management
-- **Reading Time:** 11 minutes
-- **Published:** January 24, 2026
-
-### 4. Mindfulness and Pain Management: Evidence-Based Approaches
-- **File:** [mindfulness-pain-management-evidence-based-approaches.md](./mindfulness-pain-management-evidence-based-approaches.md)
-- **Topics:** Mindfulness, MBSR, meditation, mind-body techniques, RAIN technique
-- **Reading Time:** 10 minutes
-- **Published:** January 24, 2026
-
-### 5. Building Your Pain Management Support Team: A Complete Guide
-- **File:** [building-pain-management-support-team.md](./building-pain-management-support-team.md)
-- **Topics:** Multidisciplinary care, healthcare team, care coordination, patient advocacy
-- **Reading Time:** 11 minutes
-- **Published:** January 24, 2026
-
----
-
-## Categories
-
-- **Pain Science** (2 articles)
-- **Lifestyle & Wellness** (1 article)
-- **Mind-Body Techniques** (1 article)
-- **Care & Support** (1 article)
-
----
-
-## Keywords
-
-chronic pain, pain science, pain management, central sensitization, biopsychosocial model, evidence-based treatment, pain education, pain neuroscience education, PNE, neuroplasticity, sleep and pain, insomnia, CBT-I, sleep hygiene, mindfulness, meditation, MBSR, mind-body, stress reduction, acceptance, multidisciplinary care, healthcare coordination, allied health, care team, patient advocacy
-
----
+Evidence-based articles on chronic pain management, neuroscience, and recovery strategies.
 
 ## About Recalibrate
 
-Recalibrate is a comprehensive allied health platform for chronic pain, chronic illness, and health management.
+Recalibrate is the comprehensive allied health platform for chronic pain, chronic illness, and health management. Features include:
 
-**Features include:**
-- Smart Tracking: 18+ health variables across 8 biological systems
-- Analytics Dashboard: Personal Stability Score and trend analysis
-- Recalibrate Academy: 100+ educational lessons on pain science
-- Therapeutic Tools: Journaling, exercises, and guided activities
-- Recalibrate AI: Personalized insights and pattern analysis
-- Care Team: Connect clinicians, researchers, and family
+- **18+ Health Metrics Tracking** - Pain, sleep, mood, fatigue, and more
+- **Pain Science Academy** - 100+ bite-sized lessons on pain science
+- **Tools Library** - Exercises, journal, goals, and self-management resources
+- **Recalibrate AI** - Chat with your health data
+- **Clinician Dashboard** - Real-time patient data for healthcare providers
+- **3 User Types** - Patient, Clinician, and Carer access levels
 
-**Website:** https://recalibratepain.com  
-**App:** Coming Soon
+## Blog Articles
+
+### Pain Science
+- [Understanding Chronic Pain: The Complete Science-Based Guide](/blog/understanding-chronic-pain-science-based-guide) - December 15, 2025
+- [Pain Neuroscience Education: How Your Brain Processes Pain](/blog/pain-neuroscience-education-brain-processes-pain) - December 22, 2025
+- [Central Sensitization: Why Your Pain Persists After Healing](/blog/central-sensitization-why-pain-persists) - January 27, 2026
+
+### Lifestyle & Wellness
+- [Sleep and Chronic Pain: Breaking the Vicious Cycle](/blog/sleep-chronic-pain-breaking-vicious-cycle) - January 6, 2026
+
+### Mind-Body Techniques
+- [Mindfulness and Pain Management: Evidence-Based Approaches](/blog/mindfulness-pain-management-evidence-based-approaches) - January 15, 2026
+- [Pain Catastrophizing: Breaking Free from Negative Thought Spirals](/blog/pain-catastrophizing-break-negative-thought-patterns) - January 28, 2026
+
+### Care & Support
+- [Building Your Pain Management Support Team: A Complete Guide](/blog/building-pain-management-support-team) - January 22, 2026
+
+### Self-Management
+- [Activity Pacing: How to Break the Boom-Bust Cycle in Chronic Pain](/blog/activity-pacing-boom-bust-cycle-chronic-pain) - January 25, 2026
+
+### Condition Guides
+- [Fibromyalgia Flares: Identifying Triggers and Taking Back Control](/blog/fibromyalgia-flare-triggers-management) - January 26, 2026
+
+### Treatment Options
+- [Beyond Gabapentin: Evidence-Based Non-Medication Pain Relief](/blog/gabapentin-alternatives-non-medication-pain-relief) - January 29, 2026
+
+## Contact
+
+- Website: https://recalibratepain.com
+- Email: hello@recalibratepain.com
 
 ---
 
-## License & Usage
-
-This content is provided by Recalibrate for educational purposes. Content may be referenced with attribution to Recalibrate (https://recalibratepain.com).
-
----
-
-*© 2026 Recalibrate. Evidence-based pain management.*
+*All content is evidence-based and reviewed for accuracy. For medical advice, please consult a healthcare professional.*
