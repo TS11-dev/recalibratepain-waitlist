@@ -70,11 +70,6 @@ function App() {
       if (response.ok && data.success) {
         toast.success('🎉 You\'re on the list! We\'ll email you when we launch.', { duration: 5000 });
         setEmail('');
-        if (data.total_subscribers) {
-          setWaitlistCount(data.total_subscribers);
-        } else {
-          fetchWaitlistCount();
-        }
       } else {
         toast.error(data.message || 'Something went wrong. Try again!');
       }
