@@ -10,7 +10,7 @@ import os
 from datetime import datetime
 
 # Use production backend URL from frontend .env
-BACKEND_URL = 'https://recalibrate-blog.preview.emergentagent.com'
+BACKEND_URL = 'https://authentic-signup.preview.emergentagent.com'
 
 def test_welcome_email_final_verification():
     """Test welcome email functionality as requested in review"""
