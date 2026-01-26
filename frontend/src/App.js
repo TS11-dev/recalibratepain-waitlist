@@ -332,7 +332,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -left-8 sm:-left-12 top-[46%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="absolute -left-8 sm:-left-12 top-[50%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">🛠️</span>
@@ -344,7 +344,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -left-10 sm:-left-14 top-[68%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg shadow-lg shadow-fuchsia-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="absolute -left-10 sm:-left-14 top-[72%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg shadow-lg shadow-fuchsia-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">📈</span>
