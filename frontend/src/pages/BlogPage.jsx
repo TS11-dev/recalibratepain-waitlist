@@ -167,10 +167,10 @@ export default function BlogPage() {
             
             <div className="relative">
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Get Weekly Pain Science Insights
+                Explore More Pain Science
               </h2>
               <p className="text-white/80 mb-6 max-w-xl mx-auto">
-                Join thousands receiving evidence-based tips on chronic pain management, research updates, and wellness strategies.
+                Get weekly evidence-based insights on chronic pain management, research updates, and wellness strategies delivered to your inbox.
               </p>
               <a 
                 href="https://recalibrate.beehiiv.com" 
@@ -178,7 +178,7 @@ export default function BlogPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-purple-700 px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
               >
-                <Mail className="w-5 h-5" /> Subscribe Free
+                <ExternalLink className="w-5 h-5" /> Visit Our Newsletter
               </a>
             </div>
           </div>
