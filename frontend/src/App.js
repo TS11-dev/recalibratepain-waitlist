@@ -525,13 +525,13 @@ function App() {
             {/* Header */}
             <div className="text-center mb-12 lg:mb-16">
               <span className="inline-block bg-purple-500/20 text-purple-300 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-500/30">
-                Step 2 · Your Journey
+                Step 2 · Your Daily Routine
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
                 How It <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Works</span>
               </h2>
               <p className="text-base lg:text-lg text-purple-200/80 max-w-xl mx-auto">
-                From first check-in to connected care — your 8-step path to better health management
+                What you'll actually do each day in the app
               </p>
             </div>
 
