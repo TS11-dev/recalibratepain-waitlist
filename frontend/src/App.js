@@ -1435,9 +1435,9 @@ function App() {
                   🎁 Get instant access to our <span className="font-semibold text-white">free Self-Management 101 course</span> when you join
                 </p>
                 <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-5 py-2.5 mb-6">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-white font-bold text-base">{waitlistCount > 0 ? waitlistCount.toLocaleString() : '...'}+</span>
-                  <span className="text-white/80 text-sm">joined</span>
+                  <Sparkles className="w-4 h-4 text-yellow-300" />
+                  <span className="text-white font-semibold text-sm">Limited Spaces Available</span>
+                  <span className="text-white/90 text-sm">• Join Cohort 1 Now</span>
                 </div>
                 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
