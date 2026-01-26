@@ -307,15 +307,15 @@ function App() {
                 </div>
                 
                 {/* Floating Labels - positioned relative to container, hidden on lg (desktop has own labels) */}
-                {/* Left Column Labels */}
+                {/* Left Column Labels - OUTCOMES */}
                 <div className="absolute left-0 top-[5%] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg sm:rounded-xl shadow-lg shadow-blue-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1 sm:gap-1.5">
                     <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-[10px] sm:text-xs">📊</span>
+                      <span className="text-[10px] sm:text-xs">🎯</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">Track Health</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">18+ variables</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">Know Your Body</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">Find patterns</p>
                     </div>
                   </div>
                 </div>
@@ -323,11 +323,11 @@ function App() {
                 <div className="absolute left-0 top-[22%] bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg sm:rounded-xl shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1 sm:gap-1.5">
                     <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-[10px] sm:text-xs">🎓</span>
+                      <span className="text-[10px] sm:text-xs">💡</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">Academy</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">100+ lessons</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">Understand Pain</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">Learn the science</p>
                     </div>
                   </div>
                 </div>
@@ -335,11 +335,11 @@ function App() {
                 <div className="absolute left-0 top-[42%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg sm:rounded-xl shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1 sm:gap-1.5">
                     <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-[10px] sm:text-xs">💊</span>
+                      <span className="text-[10px] sm:text-xs">⚡</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">Medications</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">Track & remind</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">Take Control</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">Daily actions</p>
                     </div>
                   </div>
                 </div>
@@ -350,21 +350,21 @@ function App() {
                       <span className="text-[10px] sm:text-xs">📈</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">Analytics</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">Your progress</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">See Progress</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">Track improvement</p>
                     </div>
                   </div>
                 </div>
                 
-                {/* Right Column Labels */}
+                {/* Right Column Labels - OUTCOMES */}
                 <div className="absolute right-0 top-[12%] bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg sm:rounded-xl shadow-lg shadow-rose-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1 sm:gap-1.5">
                     <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-[10px] sm:text-xs">🔔</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">Notifications</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">Stay on track</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">Stay Consistent</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">Smart reminders</p>
                     </div>
                   </div>
                 </div>
@@ -375,8 +375,8 @@ function App() {
                       <span className="text-[10px] sm:text-xs">🤖</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">AI Insights</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">Smart patterns</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">Get Answers</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">AI powered</p>
                     </div>
                   </div>
                 </div>
@@ -384,11 +384,11 @@ function App() {
                 <div className="absolute right-0 top-[52%] bg-gradient-to-r from-cyan-500 to-sky-600 rounded-lg sm:rounded-xl shadow-lg shadow-cyan-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1 sm:gap-1.5">
                     <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-[10px] sm:text-xs">👥</span>
+                      <span className="text-[10px] sm:text-xs">🤝</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">Care Team</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">Connect</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">Share with Doctors</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">Better appointments</p>
                     </div>
                   </div>
                 </div>
@@ -396,11 +396,11 @@ function App() {
                 <div className="absolute right-0 top-[72%] bg-gradient-to-r from-lime-500 to-green-600 rounded-lg sm:rounded-xl shadow-lg shadow-lime-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1 sm:gap-1.5">
                     <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-[10px] sm:text-xs">🛠️</span>
+                      <span className="text-[10px] sm:text-xs">✨</span>
                     </div>
                     <div>
-                      <p className="font-bold text-[8px] sm:text-[9px]">200+ Tools</p>
-                      <p className="text-[6px] sm:text-[7px] text-white/80">Exercises</p>
+                      <p className="font-bold text-[8px] sm:text-[9px]">Feel Better</p>
+                      <p className="text-[6px] sm:text-[7px] text-white/80">Real results</p>
                     </div>
                   </div>
                 </div>
