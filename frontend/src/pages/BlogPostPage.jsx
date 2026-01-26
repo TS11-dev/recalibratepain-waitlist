@@ -772,6 +772,592 @@ Providers have clinical expertise, but YOU know:
 **Remember:** You have the right to a second opinion. You can change providers. Your voice matters in your care.`
       }
     ]
+  },
+  'activity-pacing-boom-bust-cycle-chronic-pain': {
+    sections: [
+      {
+        title: "What Is the Boom-Bust Cycle?",
+        content: `**Sound familiar?** You have a good day, so you push through everything on your to-do list. The next day (or two, or three), you're completely wiped out, in more pain than before.
+
+This is the **boom-bust cycle**, and it's one of the most common patterns in chronic pain and fatigue conditions.
+
+**The pattern looks like this:**
+- **BOOM:** Feel okay → Do too much → Ignore warning signs
+- **BUST:** Crash → Increased pain → Forced rest → Guilt and frustration
+- **Repeat:** Feel slightly better → Overcompensate → Crash again
+
+**Why it's so damaging:**
+- Creates unpredictable, roller-coaster symptoms
+- Leads to deconditioning over time
+- Increases fear and avoidance of activity
+- Makes planning and commitments nearly impossible
+- Worsens pain sensitivity through repeated flares`
+      },
+      {
+        title: "What Is Activity Pacing?",
+        content: `**Activity pacing is a structured approach to breaking the boom-bust cycle.**
+
+Instead of being driven by how you feel in the moment, pacing means:
+- Setting **time-based limits** on activities
+- Taking breaks **before** you need them
+- Maintaining **consistent** activity levels regardless of pain
+- Gradually building capacity over time
+
+**The core principle:** Do less on good days and more on bad days to create a steady baseline.
+
+**Research shows pacing helps:**
+- Reduce frequency and severity of flares
+- Build sustainable activity tolerance
+- Increase confidence in your body
+- Improve quality of life and function`
+      },
+      {
+        title: "How Do I Find My Baseline?",
+        content: `**Your baseline is the amount of activity you can do WITHOUT triggering a flare.**
+
+**Step 1: Track your current patterns**
+For 1-2 weeks, note:
+- What activities you do
+- How long you do them
+- Pain levels before and after
+- Any flares and what preceded them
+
+**Step 2: Identify your tolerance**
+Look at activities that DON'T cause flares. How long can you:
+- Walk before symptoms increase?
+- Sit at a computer?
+- Stand while cooking?
+- Do housework?
+
+**Step 3: Set your starting point**
+Take **50-80% of your comfortable time** as your baseline.
+
+*Example: If you can walk 20 minutes before pain increases, start with 10-15 minute walks.*
+
+**Why start lower?** This builds in a safety margin and creates room for gradual progress.`
+      },
+      {
+        title: "How Does Recalibrate Help with Pacing?",
+        content: `**Pacing requires data, and that's where Recalibrate shines.**
+
+**Track activities and symptoms together:**
+- Log what you do and how long
+- Record pain, fatigue, and other symptoms
+- See patterns over days and weeks
+- Identify YOUR specific triggers and tolerances
+
+**Set goals and monitor progress:**
+- Create activity goals based on your baseline
+- Track completion and adjust as needed
+- Celebrate consistent progress, not perfection
+
+**Learn the science:**
+- Pain Science Academy lessons on pacing
+- Understanding the nervous system's role
+- Why consistency beats intensity
+
+**Share with your care team:**
+- Show clinicians your activity patterns
+- Demonstrate progress over time
+- Make informed decisions together
+
+**The key:** Pacing isn't about doing less forever. It's about building a foundation for doing MORE sustainably.`
+      }
+    ]
+  },
+  'fibromyalgia-flare-triggers-management': {
+    sections: [
+      {
+        title: "What Causes Fibromyalgia Flares?",
+        content: `**Fibromyalgia flares are temporary worsenings of symptoms** that can last days to weeks. While they often feel random, research shows most flares have identifiable triggers.
+
+**Common triggers include:**
+
+**Physical factors:**
+- Overexertion or "overdoing it"
+- Poor sleep or sleep disruption
+- Weather and temperature changes
+- Infections or illness
+- Hormonal fluctuations
+
+**Emotional factors:**
+- Stress (acute or chronic)
+- Anxiety and worry
+- Major life changes
+- Grief or emotional trauma
+
+**Lifestyle factors:**
+- Dietary changes or trigger foods
+- Disrupted routines
+- Travel or schedule changes
+- Dehydration
+
+**The challenge:** Triggers are highly individual. What causes a flare for one person may not affect another at all.`
+      },
+      {
+        title: "How Do I Identify MY Triggers?",
+        content: `**The key is systematic tracking over time.**
+
+**What to track:**
+- Daily symptoms (pain levels, fatigue, brain fog, etc.)
+- Sleep quality and duration
+- Activities and exercise
+- Stress levels
+- Weather conditions
+- Food and hydration
+- Menstrual cycle (if applicable)
+- Medications and supplements
+
+**Look for patterns:**
+- What happened in the 24-72 hours before a flare?
+- Are certain days of the week worse?
+- Do flares follow specific activities?
+- Are there seasonal patterns?
+
+**Tips for effective tracking:**
+- Be consistent (track daily, even when feeling okay)
+- Note both good and bad days
+- Include context (what made a good day good?)
+- Review weekly to spot patterns
+
+**Remember:** Some triggers have delayed effects. A stressful event Monday might not cause a flare until Wednesday.`
+      },
+      {
+        title: "What Can I Do During a Flare?",
+        content: `**When a flare hits, focus on damage control and recovery.**
+
+**Immediate strategies:**
+- **Rest, but don't stop completely.** Gentle movement prevents deconditioning
+- **Prioritize ruthlessly.** What MUST get done? Everything else can wait
+- **Use heat or cold.** Whatever works for YOUR body
+- **Stay hydrated.** Dehydration worsens symptoms
+- **Practice self-compassion.** Flares aren't failures
+
+**What NOT to do:**
+- Push through and make it worse
+- Cancel all activity (creates fear and avoidance)
+- Blame yourself (flares happen despite best efforts)
+- Make major decisions while flaring
+
+**Flare duration guidelines:**
+- Under 12 hours: Maintain modified activity
+- 24-48 hours: Reduce activity significantly
+- Over 48 hours: Focus on gentle movement and recovery basics
+
+**After the flare:** Review what happened. What might have triggered it? What helped? Add to your knowledge bank.`
+      },
+      {
+        title: "How Recalibrate Helps Manage Fibromyalgia",
+        content: `**Fibromyalgia management is all about understanding YOUR patterns.**
+
+**Comprehensive symptom tracking:**
+- Track 18+ health variables in one place
+- Pain, fatigue, sleep, mood, brain fog, and more
+- Quick daily check-ins (under 2 minutes)
+- Visual analytics show patterns over time
+
+**Identify triggers with data:**
+- See correlations between activities and symptoms
+- Track weather, sleep, stress, and symptoms together
+- Spot patterns you might miss otherwise
+- Share insights with your healthcare team
+
+**Access fibro-specific tools:**
+- Pacing guides and timers
+- Gentle exercise library
+- Sleep hygiene resources
+- Stress management techniques
+
+**Connect with care:**
+- Share data with clinicians in real-time
+- Prepare for appointments with clear information
+- Track treatment effectiveness
+- Coordinate multidisciplinary care
+
+**You're not just collecting data. You're building a personalized playbook for YOUR fibromyalgia.**`
+      }
+    ]
+  },
+  'central-sensitization-why-pain-persists': {
+    sections: [
+      {
+        title: "Why Does My Pain Persist After Healing?",
+        content: `**Your injury healed. The scans are clear. But the pain remains.**
+
+This is one of the most frustrating experiences in chronic pain, and it's incredibly common. The answer lies in how your nervous system has adapted.
+
+**Central sensitization** is when your central nervous system (brain and spinal cord) becomes hypersensitive to pain signals. Think of it like a smoke alarm that's been turned up too high. It now goes off for toast, not just fire.
+
+**What's happening in your body:**
+- Neurons become more excitable (lower threshold to fire)
+- Pain signals get amplified on the way to the brain
+- The brain's pain-dampening systems weaken
+- Pain spreads beyond the original site
+- Normal sensations start feeling painful
+
+**This is NOT "in your head." It's a real, measurable change in how your nervous system functions.**`
+      },
+      {
+        title: "What Are the Signs of Central Sensitization?",
+        content: `**How do you know if your nervous system has become sensitized?**
+
+**Key indicators:**
+
+**Allodynia** (pain from non-painful stimuli):
+- Light touch hurts
+- Clothing or sheets feel painful
+- Gentle pressure causes pain
+
+**Hyperalgesia** (exaggerated pain response):
+- Minor bumps cause significant pain
+- Small injuries hurt way more than expected
+- Pain is disproportionate to cause
+
+**Widespread symptoms:**
+- Pain has spread beyond original site
+- Multiple body areas affected
+- Migratory pain that moves around
+
+**Other signs:**
+- Heightened sensitivity to light, sound, or smells
+- Fatigue that doesn't improve with rest
+- Brain fog and concentration difficulties
+- Sleep disruption
+- Temperature sensitivity
+
+**Conditions associated with central sensitization:**
+- Fibromyalgia
+- Chronic fatigue syndrome
+- Irritable bowel syndrome
+- Chronic headaches/migraines
+- Chronic low back pain
+- Complex regional pain syndrome`
+      },
+      {
+        title: "Can Central Sensitization Be Reversed?",
+        content: `**Here's the good news: neuroplasticity works both ways.**
+
+The same brain changes that created sensitization can be directed toward **desensitization**. Your nervous system learned to amplify pain. It can learn to turn down the volume.
+
+**What helps:**
+
+**Pain neuroscience education:**
+- Understanding WHY you hurt reduces threat perception
+- Knowledge itself is therapeutic
+- Changes how the brain interprets signals
+
+**Graded exposure:**
+- Slowly reintroducing feared movements and activities
+- Building confidence in your body
+- Proving to your nervous system that movement is safe
+
+**Exercise:**
+- Releases natural pain-relieving chemicals
+- Improves sleep and mood
+- Builds physical resilience
+- Must be gradual and paced
+
+**Stress management:**
+- Chronic stress fuels sensitization
+- Relaxation techniques calm the nervous system
+- Mindfulness reduces pain catastrophizing
+
+**Sleep optimization:**
+- Poor sleep worsens sensitization
+- Restorative sleep allows healing
+- Sleep hygiene is foundational
+
+**The key:** Treatment must address the nervous system, not just the tissues. That's why injections and surgeries often don't help sensitized pain.`
+      },
+      {
+        title: "How Recalibrate Addresses Central Sensitization",
+        content: `**Managing sensitization requires understanding your nervous system.**
+
+**Pain Science Academy:**
+- 100+ lessons on how pain works
+- Central sensitization explained clearly
+- Neuroplasticity and recovery
+- Evidence-based education that reduces threat
+
+**Track nervous system patterns:**
+- Monitor pain, sleep, stress, and mood together
+- See how factors interact
+- Identify what calms YOUR system
+- Measure progress over time
+
+**Graded activity tools:**
+- Start where you are
+- Progress at YOUR pace
+- Build confidence systematically
+- Track improvements
+
+**Calming practices:**
+- Guided relaxation exercises
+- Breathing techniques
+- Mindfulness resources
+- Sleep improvement tools
+
+**Care team connection:**
+- Share data showing nervous system patterns
+- Coordinate with specialists who understand sensitization
+- Track treatment response objectively
+
+**Central sensitization isn't a life sentence. It's a state your nervous system entered, and with the right approach, it can shift.**`
+      }
+    ]
+  },
+  'pain-catastrophizing-break-negative-thought-patterns': {
+    sections: [
+      {
+        title: "What Is Pain Catastrophizing?",
+        content: `**When pain strikes, where does your mind go?**
+
+Pain catastrophizing is an exaggerated negative response to actual or anticipated pain. It's not weakness or "being dramatic." It's a thought pattern that affects up to 31% of pain severity.
+
+**The three components:**
+
+**Rumination:** You can't stop thinking about the pain
+- "I keep thinking about how much this hurts"
+- "I can't get the pain out of my mind"
+- Constant focus on symptoms
+
+**Magnification:** You expect the worst
+- "I'm afraid something serious is wrong"
+- "This pain means my body is damaged"
+- Small symptoms become major concerns
+
+**Helplessness:** You feel powerless
+- "There's nothing I can do"
+- "This pain will never get better"
+- "I can't cope with this"
+
+**Why it matters:** These thoughts aren't just distressing. They actually AMPLIFY the pain signal in your brain. Your nervous system interprets catastrophizing as danger, which turns up the volume on pain.`
+      },
+      {
+        title: "How Does Catastrophizing Make Pain Worse?",
+        content: `**The mind-body connection is real and measurable.**
+
+**Here's what happens in your brain:**
+
+**1. Threat detection activates:**
+- Catastrophic thoughts signal DANGER
+- Your fight-or-flight system fires up
+- Muscles tense, heart rate increases
+- Nervous system goes on high alert
+
+**2. Pain amplification:**
+- Attention narrows onto pain
+- Brain areas that process emotion light up
+- Pain-dampening systems get suppressed
+- Same stimulus = more pain perceived
+
+**3. Behavioral changes:**
+- Fear leads to avoidance
+- Avoidance leads to deconditioning
+- Deconditioning leads to more pain
+- More pain leads to more fear
+
+**The cycle becomes self-fulfilling:**
+Catastrophizing → Increased pain → More catastrophizing → More pain
+
+**Research shows:** People with high catastrophizing scores experience the same injuries as more painful and take longer to recover.`
+      },
+      {
+        title: "How Can I Stop Catastrophizing?",
+        content: `**The good news: these thought patterns can be changed.**
+
+**Step 1: Notice the thoughts**
+Awareness is the first step. Start recognizing when you're:
+- Ruminating on pain
+- Predicting worst-case scenarios
+- Feeling helpless
+
+**Step 2: Challenge the thoughts**
+Ask yourself:
+- Is this definitely true, or am I assuming?
+- What's the evidence for and against this thought?
+- What would I tell a friend thinking this?
+- Is there another way to see this?
+
+**Step 3: Reframe**
+Instead of: "This pain will never end"
+Try: "Pain fluctuates. I've had better days before"
+
+Instead of: "Something must be seriously wrong"
+Try: "My scans are clear. This is my nervous system being sensitive"
+
+**Step 4: Practice consistently**
+- Cognitive techniques are skills that improve with practice
+- Keep a thought diary
+- Work with a therapist trained in CBT
+- Be patient with yourself
+
+**Remember:** You're not trying to think your pain away. You're reducing the EXTRA suffering that catastrophizing adds.`
+      },
+      {
+        title: "How Recalibrate Helps with Pain Psychology",
+        content: `**Understanding your thoughts is part of understanding your pain.**
+
+**Pain Science Academy:**
+- Lessons on the brain-pain connection
+- Understanding catastrophizing
+- Evidence-based cognitive techniques
+- How thoughts influence pain perception
+
+**Track mood and thoughts:**
+- Daily mood logging
+- Note stress and anxiety levels
+- See patterns between thoughts and pain
+- Identify your personal triggers
+
+**Calming tools:**
+- Guided relaxation exercises
+- Breathing techniques for acute moments
+- Mindfulness practices
+- Grounding exercises
+
+**Recalibrate AI:**
+- Chat about what you're experiencing
+- Get evidence-based information
+- Process concerns in a safe space
+- Available when you need support
+
+**Care team integration:**
+- Share psychological data with providers
+- Connect with mental health support
+- Coordinate physical and psychological care
+- Track therapy progress
+
+**Catastrophizing isn't your fault. But you have more power over it than you might think. The right tools and knowledge can help you take that power back.**`
+      }
+    ]
+  },
+  'gabapentin-alternatives-non-medication-pain-relief': {
+    sections: [
+      {
+        title: "Why Are People Looking Beyond Gabapentin?",
+        content: `**Gabapentin has become one of the most prescribed drugs for chronic pain**, with over 15 million prescriptions in 2024 alone. But growing research is raising concerns.
+
+**Recent findings:**
+- 6+ months of use linked to 29% higher dementia risk
+- 85% higher risk of mild cognitive impairment
+- Side effects including drowsiness, dizziness, weight gain
+- Dependency and withdrawal concerns
+
+**This doesn't mean gabapentin is "bad."** For many people, it's an important part of their pain management. But it's reasonable to explore what else works.
+
+**The bigger picture:** Research increasingly shows that non-pharmacological approaches can be equally or more effective for chronic pain than medications, often with fewer side effects.
+
+**What the evidence supports:**
+- Multidisciplinary approaches work better than single treatments
+- Combining physical, psychological, and lifestyle interventions
+- Active approaches (things you DO) often outperform passive ones
+- Self-management skills provide lasting benefits`
+      },
+      {
+        title: "What Non-Medication Approaches Actually Work?",
+        content: `**Not all "alternative" treatments are created equal. Here's what the research supports:**
+
+**Strong evidence:**
+
+**Exercise and movement:**
+- Aerobic exercise releases natural painkillers
+- Strength training stabilizes joints and improves function
+- Yoga and tai chi combine movement with mindfulness
+- Key: Start low, progress slowly, stay consistent
+
+**Cognitive Behavioral Therapy (CBT):**
+- Changes thought patterns that amplify pain
+- Develops coping strategies
+- Addresses anxiety, depression, and catastrophizing
+- Long-term benefits that persist after treatment ends
+
+**Pain neuroscience education:**
+- Understanding pain reduces its threat value
+- Knowledge changes how the brain processes signals
+- Can reduce pain intensity by itself
+
+**Physical therapy:**
+- Manual therapy for specific conditions
+- Movement retraining
+- Ergonomic adjustments
+- Personalized exercise programs
+
+**Emerging evidence:**
+
+**Virtual reality therapy:** 45% reduction in perceived pain in studies
+**Mindfulness-based stress reduction (MBSR):** Significant improvements in pain and function
+**Acupuncture:** Helpful for certain conditions`
+      },
+      {
+        title: "How Do I Build a Non-Medication Pain Plan?",
+        content: `**The best approach combines multiple strategies tailored to YOU.**
+
+**Step 1: Assess your current situation**
+- What's working? What isn't?
+- What have you tried before?
+- What are your biggest barriers?
+- What matters most to you?
+
+**Step 2: Start with foundations**
+Before adding treatments, optimize:
+- **Sleep:** Poor sleep worsens everything
+- **Stress management:** Chronic stress fuels pain
+- **Basic movement:** Gentle activity you can sustain
+
+**Step 3: Add targeted interventions**
+Based on your specific needs:
+- Physical therapy for mechanical issues
+- CBT or ACT for psychological factors
+- Specific exercises for your condition
+- Mind-body practices for nervous system calming
+
+**Step 4: Track and adjust**
+- Monitor what's helping
+- Note side effects and barriers
+- Adjust based on data, not guessing
+- Be patient (most approaches need 8-12 weeks)
+
+**Important:** This isn't about rejecting medications entirely. Many people do best with a combination. The goal is finding YOUR optimal balance.`
+      },
+      {
+        title: "How Recalibrate Supports Non-Medication Approaches",
+        content: `**Recalibrate was built on the principle that self-management matters.**
+
+**200+ tools and resources:**
+- Exercise libraries (gentle to advanced)
+- Mindfulness and relaxation practices
+- Sleep improvement resources
+- Pacing and activity management tools
+- Journaling and reflection prompts
+
+**Pain Science Academy:**
+- 100+ lessons on pain and recovery
+- Evidence-based education
+- Understanding your nervous system
+- Cognitive techniques and skills
+
+**Track what's working:**
+- Monitor symptoms alongside interventions
+- See which activities help or hurt
+- Identify YOUR effective strategies
+- Share data with providers
+
+**Care team integration:**
+- Connect with physiotherapists, psychologists, and specialists
+- Share real-time data
+- Coordinate multidisciplinary care
+- Track progress objectively
+
+**Recalibrate AI:**
+- Get personalized suggestions
+- Learn about evidence-based options
+- Chat about concerns and questions
+- 24/7 support
+
+**The goal isn't to replace medical care. It's to empower you with the tools and knowledge to actively participate in your recovery.**`
+      }
+    ]
   }
 };
 
