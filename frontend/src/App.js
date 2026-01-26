@@ -308,7 +308,7 @@ function App() {
                 
                 {/* Floating Labels - positioned relative to container, hidden on lg (desktop has own labels) */}
                 {/* Left Column Labels - SPECIFIC FEATURES */}
-                <div className="absolute -left-2 sm:-left-4 top-[3%] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg shadow-blue-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="absolute -left-24 sm:-left-32 top-[3%] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg shadow-blue-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">📊</span>
@@ -320,7 +320,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -left-3 sm:-left-6 top-[24%] bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="absolute -left-28 sm:-left-36 top-[24%] bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">🎓</span>
@@ -332,7 +332,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -left-2 sm:-left-4 top-[46%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="absolute -left-24 sm:-left-32 top-[46%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">🛠️</span>
@@ -344,7 +344,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -left-3 sm:-left-5 top-[68%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg shadow-lg shadow-fuchsia-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="absolute -left-28 sm:-left-34 top-[68%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg shadow-lg shadow-fuchsia-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">📈</span>
@@ -357,7 +357,7 @@ function App() {
                 </div>
                 
                 {/* Right Column Labels - SPECIFIC FEATURES */}
-                <div className="absolute -right-2 sm:-right-4 top-[8%] bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg shadow-lg shadow-rose-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="absolute -right-24 sm:-right-32 top-[8%] bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg shadow-lg shadow-rose-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">💊</span>
@@ -369,7 +369,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -right-3 sm:-right-6 top-[30%] bg-gradient-to-r from-violet-500 to-purple-600 rounded-lg shadow-lg shadow-violet-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="absolute -right-28 sm:-right-36 top-[30%] bg-gradient-to-r from-violet-500 to-purple-600 rounded-lg shadow-lg shadow-violet-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">🤖</span>
@@ -381,7 +381,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -right-2 sm:-right-5 top-[52%] bg-gradient-to-r from-cyan-500 to-sky-600 rounded-lg shadow-lg shadow-cyan-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="absolute -right-24 sm:-right-34 top-[52%] bg-gradient-to-r from-cyan-500 to-sky-600 rounded-lg shadow-lg shadow-cyan-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">👥</span>
@@ -393,7 +393,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="absolute -right-3 sm:-right-4 top-[74%] bg-gradient-to-r from-lime-500 to-green-600 rounded-lg shadow-lg shadow-lime-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="absolute -right-28 sm:-right-32 top-[74%] bg-gradient-to-r from-lime-500 to-green-600 rounded-lg shadow-lg shadow-lime-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
                   <div className="flex items-center gap-1.5">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-sm sm:text-base">👨‍👩‍👧</span>
