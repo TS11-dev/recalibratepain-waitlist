@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import App from './App';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import CoursePage from './pages/CoursePage';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,8 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/recalibrate101" element={<CoursePage />} />
+        <Route path="/course" element={<CoursePage />} />
       </Routes>
       <Toaster position="top-center" />
     </BrowserRouter>
