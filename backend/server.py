@@ -442,7 +442,7 @@ async def send_welcome_email(to_email: str, name: str):
 
     try:
         # Use production URL for resources
-        download_url = "https://recalibratepain.com/Recalibrate_Self_Management_101.pdf"
+        download_url = "https://recalibratepain.com/recalibrate101"
         
         welcome_html = f"""
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
