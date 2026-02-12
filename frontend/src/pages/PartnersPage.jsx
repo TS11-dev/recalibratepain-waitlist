@@ -97,6 +97,7 @@ export default function PartnersPage() {
           Partnerships & <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Fundraising</span>
         </h1>
         <p className="text-lg text-gray-600">Join us in revolutionizing allied health and patient care</p>
+        </div>
       </section>
 
       {/* Cards */}
