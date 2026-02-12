@@ -1,0 +1,42 @@
+{
+  "summary": "Completed comprehensive testing of the multi-page Recalibrate landing site restructure. All pages load correctly with proper routing, navigation, and forms working as expected.",
+  "backend_issues": {
+    "minor_validation_issues": [
+      {
+        "endpoint": "/api/waitlist/join", 
+        "issue": "Validation errors return 422 instead of 400 for empty/invalid emails",
+        "impact": "Very minor - proper validation is working, just different HTTP status code",
+        "fix_priority": "LOW"
+      }
+    ]
+  },
+  "frontend_issues": {},
+  "passed_tests": [
+    "Homepage loads with hero, how it works, hub navigation cards, FAQ, and final CTA sections",
+    "Navigation bar shows Features, Protocol, Pricing, Partners, Resources, Contact Us links and 'Go to App' button correctly",
+    "'Go to App' button in navbar links to https://recalibratepain.app and opens in new tab",
+    "/features page loads with 6 feature cards and evidence-based section",
+    "/protocol page loads with hero, 8 biological systems, what's included, research section, and pricing CTA ($149.99)",
+    "Protocol CTA buttons link to https://recalibratepain.app/protocol and open in new tab",
+    "/pricing page loads with 4 subscription plans (Free, Go, Pro, Super) + lifetime option",
+    "/partners page loads with 3 partner cards (Clinics, Research, Investors) and partner form modals work",
+    "/resources page loads with blog preview, courses link, and support link",
+    "Hub navigation cards (Features, Protocol, Pricing, Partners, Resources, Blog) all link to correct pages",
+    "Active nav link is highlighted correctly on each page",
+    "Contact Us button in nav opens contact modal with working form",
+    "Waitlist form on hub page submits email to backend API successfully",
+    "Footer shows on all pages with correct links and social media",
+    "/blog page loads with multiple articles and categories",
+    "Backend API health check working (46 subscribers, MongoDB + JSON backup)",
+    "Backend waitlist join, partner contact, and data export endpoints working",
+    "All external links (recalibratepain.app, etsy.com, ko-fi.com) work correctly",
+    "Partner form modals open and display correctly with proper form fields",
+    "All form submissions successfully reach backend APIs"
+  ],
+  "test_report_links": ["/app/backend_test.py"],
+  "action_item_for_main_agent": "",
+  "updated_files": ["/app/backend_test.py"],
+  "success_percentage": "backend: 87.5%, frontend: 100%",
+  "should_call_test_agent_after_fix": "false",
+  "should_main_agent_test_itself": "false"
+}
