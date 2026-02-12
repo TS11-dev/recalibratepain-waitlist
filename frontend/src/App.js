@@ -142,11 +142,92 @@ function App() {
           </div>
 
           <div className="relative flex justify-center px-4 sm:px-8">
-            <div className="relative mx-auto w-[180px] h-[380px] sm:w-[220px] sm:h-[460px] lg:w-[280px] lg:h-[580px] bg-gray-900 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-1.5 sm:p-2 lg:p-3 shadow-2xl shadow-purple-500/20 z-10">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-28 h-4 sm:h-5 lg:h-7 bg-gray-900 rounded-b-xl lg:rounded-b-2xl z-10"></div>
-              <div className="w-full h-full bg-white rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.3rem] overflow-hidden">
-                <img src="/app-screenshot-optimized.jpg" alt="Recalibrate App" className="w-full h-full object-cover object-top" width="560" height="1102" loading="eager" decoding="async" />
+            {/* Container for phone and labels */}
+            <div className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[700px]">
+
+              {/* Phone Frame */}
+              <div className="relative mx-auto w-[180px] h-[380px] sm:w-[220px] sm:h-[460px] lg:w-[280px] lg:h-[580px] bg-gray-900 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-1.5 sm:p-2 lg:p-3 shadow-2xl shadow-purple-500/20 z-10">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-28 h-4 sm:h-5 lg:h-7 bg-gray-900 rounded-b-xl lg:rounded-b-2xl z-10"></div>
+                <div className="w-full h-full bg-white rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.3rem] overflow-hidden">
+                  <img src="/app-screenshot-optimized.jpg" alt="Recalibrate App" className="w-full h-full object-cover object-top" width="560" height="1102" loading="eager" decoding="async" />
+                </div>
               </div>
+
+              {/* Mobile Floating Labels (hidden on lg) */}
+              <div className="absolute -left-8 sm:-left-12 top-[3%] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg shadow-blue-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">📊</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">18+ Health Metrics</p><p className="text-[7px] sm:text-[8px] text-white/80">Pain, sleep, mood</p></div>
+                </div>
+              </div>
+              <div className="absolute -left-10 sm:-left-14 top-[24%] bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">🎓</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">Pain Science Academy</p><p className="text-[7px] sm:text-[8px] text-white/80">100+ lessons</p></div>
+                </div>
+              </div>
+              <div className="absolute -left-8 sm:-left-12 top-[50%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">🛠️</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">Tools Library</p><p className="text-[7px] sm:text-[8px] text-white/80">Exercises, journal, goals</p></div>
+                </div>
+              </div>
+              <div className="absolute -left-10 sm:-left-14 top-[72%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg shadow-lg shadow-fuchsia-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">📈</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">Visual Analytics</p><p className="text-[7px] sm:text-[8px] text-white/80">Trends & correlations</p></div>
+                </div>
+              </div>
+              <div className="absolute -right-8 sm:-right-12 top-[8%] bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg shadow-lg shadow-rose-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">💊</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">Medication Tracker</p><p className="text-[7px] sm:text-[8px] text-white/80">Reminders & logging</p></div>
+                </div>
+              </div>
+              <div className="absolute -right-10 sm:-right-14 top-[30%] bg-gradient-to-r from-violet-500 to-purple-600 rounded-lg shadow-lg shadow-violet-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">🤖</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">Recalibrate AI</p><p className="text-[7px] sm:text-[8px] text-white/80">Chat with your data</p></div>
+                </div>
+              </div>
+              <div className="absolute -right-8 sm:-right-12 top-[52%] bg-gradient-to-r from-cyan-500 to-sky-600 rounded-lg shadow-lg shadow-cyan-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">👥</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">Clinician Dashboard</p><p className="text-[7px] sm:text-[8px] text-white/80">Real-time patient data</p></div>
+                </div>
+              </div>
+              <div className="absolute -right-10 sm:-right-14 top-[74%] bg-gradient-to-r from-lime-500 to-green-600 rounded-lg shadow-lg shadow-lime-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">👨‍👩‍👧</span></div>
+                  <div><p className="font-bold text-[9px] sm:text-[11px]">3 User Types</p><p className="text-[7px] sm:text-[8px] text-white/80">Patient, Clinician, Carer</p></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Floating Cards (hidden below lg) */}
+            <div className="absolute left-[18%] top-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl shadow-xl shadow-blue-500/25 p-4 max-w-[200px] animate-float hidden lg:block text-white">
+              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">📊</span></div><div><p className="font-bold text-sm">18+ Health Metrics</p><p className="text-xs text-white/80">Pain, sleep, mood & more</p></div></div>
+            </div>
+            <div className="absolute right-[18%] top-16 bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl shadow-xl shadow-rose-500/25 p-4 max-w-[190px] animate-float-delayed hidden lg:block text-white">
+              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">💊</span></div><div><p className="font-bold text-sm">Medication Tracker</p><p className="text-xs text-white/80">Reminders & logging</p></div></div>
+            </div>
+            <div className="absolute left-[12%] top-44 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl shadow-xl shadow-emerald-500/25 p-4 max-w-[200px] animate-float-delayed hidden lg:block text-white">
+              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">🎓</span></div><div><p className="font-bold text-sm">Pain Science Academy</p><p className="text-xs text-white/80">100+ bite-sized lessons</p></div></div>
+            </div>
+            <div className="absolute right-[12%] top-48 bg-gradient-to-r from-violet-500 to-purple-600 rounded-2xl shadow-xl shadow-violet-500/25 p-4 max-w-[180px] animate-float hidden lg:block text-white">
+              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">🤖</span></div><div><p className="font-bold text-sm">Recalibrate AI</p><p className="text-xs text-white/80">Chat with your data</p></div></div>
+            </div>
+            <div className="absolute left-[16%] bottom-32 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl shadow-xl shadow-amber-500/25 p-4 max-w-[190px] animate-float hidden lg:block text-white">
+              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">🛠️</span></div><div><p className="font-bold text-sm">Tools Library</p><p className="text-xs text-white/80">Exercises, journal, goals</p></div></div>
+            </div>
+            <div className="absolute right-[16%] bottom-40 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-2xl shadow-xl shadow-cyan-500/25 p-4 max-w-[200px] animate-float-delayed hidden lg:block text-white">
+              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">👥</span></div><div><p className="font-bold text-sm">Clinician Dashboard</p><p className="text-xs text-white/80">Real-time patient data</p></div></div>
+            </div>
+            <div className="absolute left-[20%] bottom-8 bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-2xl shadow-xl shadow-fuchsia-500/25 p-4 max-w-[170px] text-white animate-float hidden lg:block">
+              <div className="flex items-center gap-2"><span className="text-lg">📈</span><div><p className="font-bold text-sm">Visual Analytics</p><p className="text-xs text-white/80">Trends & correlations</p></div></div>
+            </div>
+            <div className="absolute right-[20%] bottom-12 bg-gradient-to-r from-lime-500 to-green-600 rounded-2xl shadow-xl shadow-lime-500/25 p-4 max-w-[180px] text-white animate-float-delayed hidden lg:block">
+              <div className="flex items-center gap-2"><span className="text-lg">👨‍👩‍👧</span><div><p className="font-bold text-sm">3 User Types</p><p className="text-xs text-white/80">Patient, Clinician, Carer</p></div></div>
             </div>
           </div>
         </div>
