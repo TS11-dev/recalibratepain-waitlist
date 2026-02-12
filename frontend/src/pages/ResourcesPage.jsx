@@ -25,6 +25,7 @@ export default function ResourcesPage() {
           Recalibrate <span className="bg-gradient-to-r from-purple-600 to-amber-600 bg-clip-text text-transparent">Resources</span>
         </h1>
         <p className="text-lg text-gray-600">Start your allied health and wellness journey today</p>
+        </div>
       </section>
 
       {/* Resources */}
