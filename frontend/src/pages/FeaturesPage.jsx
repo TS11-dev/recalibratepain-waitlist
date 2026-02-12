@@ -80,6 +80,7 @@ export default function FeaturesPage() {
           What's <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Inside</span>
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">Here's what each feature actually does for you</p>
+        </div>
       </section>
 
       {/* Feature Cards */}
