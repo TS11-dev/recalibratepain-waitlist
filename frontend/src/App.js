@@ -315,26 +315,32 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {hubCards.map((card) => (
-              <Link
-                key={card.to}
-                to={card.to}
-                data-testid={`hub-card-${card.title.toLowerCase()}`}
-                className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl border p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${card.border}`}
-              >
-                {card.badge && (
-                  <span className="absolute -top-2.5 right-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">{card.badge}</span>
-                )}
-                <div className={`w-12 h-12 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform`}>
-                  {card.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{card.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{card.desc}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-600 group-hover:text-purple-700 transition-colors">
-                  Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-            ))}
+            {hubCards.map((card) => {
+              const CardTag = card.external ? 'a' : Link;
+              const cardProps = card.external
+                ? { href: card.to, target: '_blank', rel: 'noopener noreferrer' }
+                : { to: card.to };
+              return (
+                <CardTag
+                  key={card.to}
+                  {...cardProps}
+                  data-testid={`hub-card-${card.title.toLowerCase()}`}
+                  className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl border p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${card.border}`}
+                >
+                  {card.badge && (
+                    <span className="absolute -top-2.5 right-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">{card.badge}</span>
+                  )}
+                  <div className={`w-12 h-12 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform`}>
+                    {card.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{card.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4">{card.desc}</p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-600 group-hover:text-purple-700 transition-colors">
+                    Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </CardTag>
+              );
+            })}
           </div>
         </div>
       </section>
