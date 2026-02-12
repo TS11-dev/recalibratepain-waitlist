@@ -59,18 +59,31 @@ export default function Navbar() {
 
             <div className="hidden md:flex items-center space-x-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  data-testid={`nav-link-${link.label.toLowerCase()}`}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${
-                    location.pathname === link.to
-                      ? 'text-white bg-white/15'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                link.external ? (
+                  <a
+                    key={link.to}
+                    href={link.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={`nav-link-${link.label.toLowerCase()}`}
+                    className="px-3 py-2 text-sm font-medium rounded-lg transition-all text-white/80 hover:text-white hover:bg-white/10"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    data-testid={`nav-link-${link.label.toLowerCase()}`}
+                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${
+                      location.pathname === link.to
+                        ? 'text-white bg-white/15'
+                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
               <button
                 onClick={() => setShowContactModal(true)}
