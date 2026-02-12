@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import App from './App';
 import FeaturesPage from './pages/FeaturesPage';
-import ProtocolPage from './pages/ProtocolPage';
 import PricingPage from './pages/PricingPage';
 import PartnersPage from './pages/PartnersPage';
 import ResourcesPage from './pages/ResourcesPage';
@@ -21,7 +20,6 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/protocol" element={<ProtocolPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/partners" element={<PartnersPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
