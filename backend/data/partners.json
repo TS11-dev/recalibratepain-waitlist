@@ -270,5 +270,37 @@
     "organization": "Test Medical Clinic 1769414412",
     "message": "We are interested in partnering with RecalibratePain for our chronic pain management program.",
     "timestamp": "2026-01-26T08:00:12.813302"
+  },
+  {
+    "type": "clinic",
+    "name": "Dr. Test Smith",
+    "email": "clinic_test_152421@testclinic.com",
+    "organization": "Test Clinic",
+    "message": "This is a test inquiry for clinic partnership.",
+    "timestamp": "2026-02-12T15:24:21.898289"
+  },
+  {
+    "type": "clinic",
+    "name": "Test Clinic Contact",
+    "email": "clinic_test_152422@testclinic.com",
+    "organization": "Test Clinic Organization",
+    "message": "This is a test inquiry for clinic partnership.",
+    "timestamp": "2026-02-12T15:24:22.164319"
+  },
+  {
+    "type": "research",
+    "name": "Test Research Contact",
+    "email": "research_test_152422@testresearch.com",
+    "organization": "Test Research Organization",
+    "message": "This is a test inquiry for research partnership.",
+    "timestamp": "2026-02-12T15:24:22.411909"
+  },
+  {
+    "type": "investor",
+    "name": "Test Investor Contact",
+    "email": "investor_test_152422@testinvestor.com",
+    "organization": "Test Investor Organization",
+    "message": "This is a test inquiry for investor partnership.",
+    "timestamp": "2026-02-12T15:24:22.657824"
   }
 ]

@@ -328,5 +328,15 @@
     "name": "Website Subscriber",
     "email": "frontend_test_1769414483@test.com",
     "timestamp": "2026-01-26T08:01:23.805000"
+  },
+  {
+    "name": "Test User",
+    "email": "test_152419@testrecalibrate.com",
+    "timestamp": "2026-02-12T15:24:19.710436"
+  },
+  {
+    "name": "First User",
+    "email": "duplicate@testrecalibrate.com",
+    "timestamp": "2026-02-12T15:24:20.790355"
   }
 ]
