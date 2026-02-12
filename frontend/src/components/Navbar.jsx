@@ -108,16 +108,29 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-slate-900/95 border-t border-purple-500/20 py-3 px-4 space-y-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block w-full text-left py-3 px-4 rounded-xl ${
-                  location.pathname === link.to ? 'text-white bg-white/15' : 'text-white/90 hover:bg-white/10'
-                }`}
-              >
-                {link.label}
-              </Link>
+              link.external ? (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-left py-3 px-4 text-white/90 hover:bg-white/10 rounded-xl"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block w-full text-left py-3 px-4 rounded-xl ${
+                    location.pathname === link.to ? 'text-white bg-white/15' : 'text-white/90 hover:bg-white/10'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
             <button
               onClick={() => { setShowContactModal(true); setMobileMenuOpen(false); }}
