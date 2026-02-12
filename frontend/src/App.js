@@ -55,12 +55,12 @@ function App() {
   ];
 
   const hubCards = [
-    { to: '/features', title: 'Features', desc: 'Smart tracking, analytics, AI, academy & more', icon: <Zap className="w-6 h-6 text-white" />, gradient: 'from-blue-500 to-indigo-600', border: 'border-blue-200 hover:border-blue-300' },
-    { to: 'https://recalibratepain.app/protocol', title: 'Protocol', desc: '8-system clinical framework for chronic pain', icon: <Target className="w-6 h-6 text-white" />, gradient: 'from-emerald-500 to-teal-600', border: 'border-emerald-200 hover:border-emerald-300', badge: 'NEW', external: true },
-    { to: '/pricing', title: 'Pricing', desc: 'Free, Go, Pro, Super & Lifetime plans', icon: <BarChart3 className="w-6 h-6 text-white" />, gradient: 'from-purple-500 to-violet-600', border: 'border-purple-200 hover:border-purple-300' },
-    { to: '/partners', title: 'Partners', desc: 'Clinics, research & investor opportunities', icon: <Users className="w-6 h-6 text-white" />, gradient: 'from-cyan-500 to-sky-600', border: 'border-cyan-200 hover:border-cyan-300' },
-    { to: '/resources', title: 'Resources', desc: 'Blog, courses, products & support', icon: <BookOpen className="w-6 h-6 text-white" />, gradient: 'from-amber-500 to-orange-600', border: 'border-amber-200 hover:border-amber-300' },
-    { to: '/blog', title: 'Blog', desc: 'Evidence-based articles on pain science', icon: <Heart className="w-6 h-6 text-white" />, gradient: 'from-rose-500 to-pink-600', border: 'border-rose-200 hover:border-rose-300' },
+    { to: '/features', title: 'App Features', desc: 'Smart tracking, analytics, AI, academy & therapeutic tools', icon: <Zap className="w-6 h-6 text-white" />, gradient: 'from-blue-500 to-indigo-600', accent: 'blue' },
+    { to: 'https://recalibratepain.app/protocol', title: 'Recalibrate Protocol', desc: '8-system clinical framework for chronic pain', icon: <Target className="w-6 h-6 text-white" />, gradient: 'from-emerald-500 to-teal-600', accent: 'emerald', badge: 'NEW', external: true },
+    { to: '/pricing', title: 'App Pricing', desc: 'Free, Go, Pro, Super & Lifetime plans', icon: <BarChart3 className="w-6 h-6 text-white" />, gradient: 'from-purple-500 to-violet-600', accent: 'purple' },
+    { to: '/partners', title: 'Partners', desc: 'Clinics, research & investor opportunities', icon: <Users className="w-6 h-6 text-white" />, gradient: 'from-cyan-500 to-sky-600', accent: 'cyan' },
+    { to: '/resources', title: 'Resources', desc: 'Courses, products & community support', icon: <BookOpen className="w-6 h-6 text-white" />, gradient: 'from-amber-500 to-orange-600', accent: 'amber' },
+    { to: '/blog', title: 'Blog', desc: 'Evidence-based articles on pain science', icon: <Heart className="w-6 h-6 text-white" />, gradient: 'from-rose-500 to-pink-600', accent: 'rose' },
   ];
 
   return (
@@ -314,7 +314,7 @@ function App() {
             <p className="text-lg text-gray-600">Explore everything we have to offer</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {hubCards.map((card) => {
               const CardTag = card.external ? 'a' : Link;
               const cardProps = card.external
@@ -324,20 +324,28 @@ function App() {
                 <CardTag
                   key={card.to}
                   {...cardProps}
-                  data-testid={`hub-card-${card.title.toLowerCase()}`}
-                  className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl border p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${card.border}`}
+                  data-testid={`hub-card-${card.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="group relative bg-white rounded-2xl sm:rounded-3xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5"
                 >
                   {card.badge && (
-                    <span className="absolute -top-2.5 right-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">{card.badge}</span>
+                    <span className="absolute top-3 right-3 z-10 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[9px] sm:text-[10px] font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-lg shadow-emerald-500/30">{card.badge}</span>
                   )}
-                  <div className={`w-12 h-12 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform`}>
-                    {card.icon}
+                  <div className={`h-24 sm:h-32 bg-gradient-to-br ${card.gradient} relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.2),transparent_60%)]"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent"></div>
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl sm:rounded-2xl shadow-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className={`w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-br ${card.gradient} rounded-lg sm:rounded-xl flex items-center justify-center`}>
+                        {card.icon}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{card.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{card.desc}</p>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-600 group-hover:text-purple-700 transition-colors">
-                    Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                  <div className="pt-8 sm:pt-10 pb-4 sm:pb-6 px-3 sm:px-5 text-center">
+                    <h3 className="text-sm sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2">{card.title}</h3>
+                    <p className="text-gray-500 text-[11px] sm:text-sm leading-snug mb-2 sm:mb-4 line-clamp-2">{card.desc}</p>
+                    <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-purple-600 group-hover:text-purple-700 group-hover:gap-2 transition-all">
+                      Explore <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
                 </CardTag>
               );
             })}
