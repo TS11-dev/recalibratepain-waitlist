@@ -56,7 +56,7 @@ function App() {
 
   const hubCards = [
     { to: '/features', title: 'App Features', desc: 'Smart tracking, analytics, AI, academy & therapeutic tools', icon: <Zap className="w-6 h-6 text-white" />, gradient: 'from-blue-500 to-indigo-600', accent: 'blue' },
-    { to: 'https://recalibratepain.app/protocol', title: 'Recalibrate Protocol', desc: '8-system clinical framework for chronic pain', icon: <Target className="w-6 h-6 text-white" />, gradient: 'from-emerald-500 to-teal-600', accent: 'emerald', badge: 'NEW', external: true },
+    { to: 'https://recalibratepain.app/protocol', title: 'Recalibrate Protocol', desc: 'Includes: 12 Month Protocol, 8-Day Email Course, 250+ Research Directory', icon: <Target className="w-6 h-6 text-white" />, gradient: 'from-emerald-500 to-teal-600', accent: 'emerald', badge: 'NEW', external: true },
     { to: '/pricing', title: 'App Pricing', desc: 'Free, Go, Pro, Super & Lifetime plans', icon: <BarChart3 className="w-6 h-6 text-white" />, gradient: 'from-purple-500 to-violet-600', accent: 'purple' },
     { to: '/partners', title: 'Partners', desc: 'Clinics, research & investor opportunities', icon: <Users className="w-6 h-6 text-white" />, gradient: 'from-cyan-500 to-sky-600', accent: 'cyan' },
     { to: '/resources', title: 'Resources', desc: 'Courses, products & community support', icon: <BookOpen className="w-6 h-6 text-white" />, gradient: 'from-amber-500 to-orange-600', accent: 'amber' },
