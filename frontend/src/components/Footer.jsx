@@ -14,7 +14,7 @@ export default function Footer() {
 
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
             <Link to="/features" className="hover:text-white transition-colors">Features</Link>
-            <Link to="/protocol" className="hover:text-white transition-colors">Protocol</Link>
+            <a href="https://recalibratepain.app/protocol" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Protocol</a>
             <Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link>
             <Link to="/partners" className="hover:text-white transition-colors">Partners</Link>
             <Link to="/resources" className="hover:text-white transition-colors">Resources</Link>
