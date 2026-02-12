@@ -302,5 +302,13 @@
     "organization": "Test Investor Organization",
     "message": "This is a test inquiry for investor partnership.",
     "timestamp": "2026-02-12T15:24:22.657824"
+  },
+  {
+    "type": "general_contact",
+    "name": "Test User",
+    "email": "uitest_15653@testcontact.com",
+    "organization": "General Inquiry",
+    "message": "This is a UI test message",
+    "timestamp": "2026-02-12T15:27:45.138876"
   }
 ]
