@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { CheckCircle, ArrowRight, Sparkles, ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -69,6 +69,9 @@ export default function FeaturesPage() {
 
       {/* Header */}
       <section className="pt-28 pb-12 px-4 sm:px-6 text-center">
+        <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-purple-600 hover:text-purple-800 font-medium mb-6 transition-colors" data-testid="back-to-home">
+          <ArrowLeft className="w-4 h-4" /> Back to Home
+        </Link>
         <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
           The Tools
         </span>

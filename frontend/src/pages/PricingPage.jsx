@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -41,6 +41,9 @@ export default function PricingPage() {
       <section className="pt-28 pb-16 px-4 sm:px-6" data-testid="pricing-section">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
+            <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-purple-600 hover:text-purple-800 font-medium mb-6 transition-colors" data-testid="back-to-home">
+              <ArrowLeft className="w-4 h-4" /> Back to Home
+            </Link>
             <h1 data-testid="pricing-title" className="text-3xl sm:text-5xl font-bold text-gray-900 mb-3">
               Simple, Transparent <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Pricing</span>
             </h1>
