@@ -1,52 +1,41 @@
-# Recalibrate Pain - Product Requirements Document
+# Recalibrate Hub - PRD
 
 ## Original Problem Statement
-Health and pain management app landing page with waitlist functionality. Key focus on building trust with authentic messaging and real email collection.
+Clean up the page by moving each navigation section to its own dedicated page, making the main page a hub. Add a Protocol product page (from recalibratepain.app/protocol). Add "Go to App" button in top right corner linking to recalibratepain.app.
 
 ## Architecture
-- **Frontend**: React.js with Tailwind CSS, hosted on port 3000
-- **Backend**: FastAPI Python server on port 8001
-- **Database**: MongoDB Atlas for email storage with JSON backup
+- **Frontend**: React with react-router-dom, Tailwind CSS
+- **Backend**: FastAPI (Python) with MongoDB
+- **Routing**: Multi-page SPA with shared Navbar/Footer components
 
 ## User Personas
-- Chronic pain sufferers seeking management tools
-- Healthcare professionals evaluating allied health platforms
-- Potential early adopters/investors
+- Chronic pain patients seeking health management tools
+- Allied health clinicians looking for patient dashboards
+- Researchers interested in data collaboration
+- Investors exploring the health tech space
 
 ## Core Requirements (Static)
-- Email waitlist collection with welcome email automation (Resend)
-- Landing page with clear value proposition
-- Partner contact forms (clinic, research, investor)
-- Course PDF download for subscribers
+- Multi-page site structure with clean navigation
+- Protocol product showcase ($149.99 lifetime access)
+- "Go to App" external link to recalibratepain.app
+- Waitlist signup functionality
+- Contact form and partner inquiry forms
 
-## What's Been Implemented
-
-### January 26, 2026 - Session 2
-- **Blog scroll-to-top fix**: Blog page now scrolls to top on load
-- **Newsletter CTA updated**: Changed from "Subscribe Free" to "Explore More Pain Science" + "Visit Our Newsletter" (external beehiiv link)
-- **Cohesive storytelling**: Added step badges to create narrative flow:
-  - Step 1 · First Look (Phone mockup - see the app at a glance)
-  - Step 2 · Your Journey (How It Works - 8-step path)
-  - Step 3 · Deep Dive (What's Inside - detailed features)
-
-### January 26, 2026 - Session 1
-- **Removed fake waitlist counter**: Replaced inflated "228+" counter with authentic scarcity messaging
-- **New scarcity badge**: "Limited Spaces Available • Join Cohort 1 Now" with Sparkles icon
-- **Backend change**: BASE_SUBSCRIBER_COUNT set to 0 - only real emails counted now
+## What's Been Implemented (Feb 12, 2026)
+- [x] Restructured from single-page to multi-page routing
+- [x] Created shared Navbar (with Go to App button) and Footer components
+- [x] Hub page with hero, phone mockup with floating labels, how it works, navigation cards, FAQ, CTA
+- [x] /features page - 6 feature cards + evidence-based section
+- [x] /protocol page - 8 biological systems, what's included, research, pricing CTA
+- [x] /pricing page - 4 plans + lifetime option
+- [x] /partners page - 3 partner types with form modals
+- [x] /resources page - blog preview, courses, support links
+- [x] Active nav link highlighting
+- [x] Contact modal in navbar
 
 ## Prioritized Backlog
-
-### P0 (Critical)
-- None currently
-
-### P1 (High Priority)
-- Consider A/B testing different scarcity messages
-- Add social proof through testimonials instead of fake numbers
-
-### P2 (Nice to Have)
-- Add countdown timer to Q1 2026 launch
-- Add real-time subscriber milestone celebrations
-
-## Next Tasks
-- Monitor real email signups and engagement
-- Consider adding testimonials or partner logos for authentic social proof
+- P1: Update BlogPage/CoursePage to use shared Navbar/Footer
+- P1: SEO meta tags per page
+- P2: Page transition animations
+- P2: Protocol preview card on hub hero
+- P3: Analytics tracking per page view
