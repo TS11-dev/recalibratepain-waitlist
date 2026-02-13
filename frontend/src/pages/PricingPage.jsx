@@ -135,7 +135,7 @@ export default function PricingPage() {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">Join the waitlist to lock in your plan when we launch Q1 2026</p>
+            <p className="text-gray-600 mb-4">Join the waitlist to be first in line when we launch Q1 2026</p>
             <Link to="/" data-testid="pricing-cta" className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5">
               Join Waitlist <ArrowRight className="w-5 h-5" />
             </Link>
