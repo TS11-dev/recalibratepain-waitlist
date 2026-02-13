@@ -29,20 +29,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <RouteTracker />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/partners" element={<PartnersPage />} />
-        <Route path="/resources" element={<ResourcesPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
-        <Route path="/recalibrate101" element={<CoursePage />} />
-        <Route path="/course" element={<CoursePage />} />
-      </Routes>
-      <Toaster position="top-center" />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <RouteTracker />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/recalibrate101" element={<CoursePage />} />
+          <Route path="/course" element={<CoursePage />} />
+        </Routes>
+        <Toaster position="top-center" />
+      </BrowserRouter>
+    </HelmetProvider>
   </React.StrictMode>
 );
