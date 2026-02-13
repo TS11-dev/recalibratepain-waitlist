@@ -40,7 +40,7 @@ export default function PricingPage() {
 
       <section className="pt-28 pb-16 px-4 sm:px-6" data-testid="pricing-section">
         <div className="max-w-6xl mx-auto">
-          <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-purple-600 hover:text-purple-800 font-medium mb-6 transition-colors" data-testid="back-to-home">
+          <Link to="/" className="inline-flex items-center gap-1.5 text-sm bg-purple-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5 mb-6" data-testid="back-to-home">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
           <div className="text-center mb-10">
