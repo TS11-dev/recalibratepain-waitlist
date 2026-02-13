@@ -4,6 +4,7 @@ import {
   ArrowRight, Sparkles, ChevronDown, ChevronUp, ExternalLink,
   BarChart3, BookOpen, Users, Zap, Heart, Shield, Target
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import toast, { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
