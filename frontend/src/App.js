@@ -360,9 +360,6 @@ function App() {
             <div className="absolute top-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
             <div className="relative">
-              <p className="text-sm text-white/90 text-center mb-4">
-                Get instant access to our <span className="font-semibold text-white">free Self-Management 101 course</span> when you join
-              </p>
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-5 py-2.5 mb-6">
                 <Sparkles className="w-4 h-4 text-yellow-300" />
                 <span className="text-white font-semibold text-sm">Limited Spaces Available</span>
