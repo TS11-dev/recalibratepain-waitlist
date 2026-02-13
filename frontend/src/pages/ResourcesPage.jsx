@@ -11,11 +11,15 @@ export default function ResourcesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+      <Helmet>
+        <title>Resources - Recalibrate Health & Wellness Courses and Tools</title>
+        <meta name="description" content="Access Recalibrate resources: Self-Management 101 course, evidence-based blog articles, community support and wellness tools for chronic pain management." />
+        <link rel="canonical" href="https://recalibratepain.com/resources" />
+        <meta property="og:title" content="Resources - Recalibrate Health & Wellness Courses and Tools" />
+        <meta property="og:description" content="Access Recalibrate resources: Self-Management 101 course, evidence-based blog articles, community support and wellness tools for chronic pain management." />
+        <meta property="og:url" content="https://recalibratepain.com/resources" />
+      </Helmet>
       <Navbar />
-
-      {/* Header */}
-      <section className="pt-28 pb-12 px-4 sm:px-6">
-        <Link to="/" className="inline-flex items-center gap-1.5 text-sm bg-purple-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5 mb-6" data-testid="back-to-home">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
         <div className="text-center">

@@ -83,15 +83,15 @@ export default function PartnersPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+      <Helmet>
+        <title>Partners - Recalibrate Allied Health Platform</title>
+        <meta name="description" content="Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities. Integrate our platform into your practice or research." />
+        <link rel="canonical" href="https://recalibratepain.com/partners" />
+        <meta property="og:title" content="Partners - Recalibrate Allied Health Platform" />
+        <meta property="og:description" content="Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities. Integrate our platform into your practice or research." />
+        <meta property="og:url" content="https://recalibratepain.com/partners" />
+      </Helmet>
       <Navbar />
-
-      {/* Header */}
-      <section className="pt-28 pb-12 px-4 sm:px-6">
-        <Link to="/" className="inline-flex items-center gap-1.5 text-sm bg-purple-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5 mb-6" data-testid="back-to-home">
-          <ArrowLeft className="w-4 h-4" /> Back to Home
-        </Link>
-        <div className="text-center">
-        <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
           For Professionals
         </span>
         <h1 data-testid="partners-title" className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">

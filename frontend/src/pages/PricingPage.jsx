@@ -37,9 +37,15 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+      <Helmet>
+        <title>Pricing Plans - Recalibrate Health & Pain Management App</title>
+        <meta name="description" content="Choose your Recalibrate plan: Free, Go, Pro, Super or Lifetime. Advanced health tracking, AI insights, academy access and care team features at every tier." />
+        <link rel="canonical" href="https://recalibratepain.com/pricing" />
+        <meta property="og:title" content="Pricing Plans - Recalibrate Health & Pain Management App" />
+        <meta property="og:description" content="Choose your Recalibrate plan: Free, Go, Pro, Super or Lifetime. Advanced health tracking, AI insights, academy access and care team features at every tier." />
+        <meta property="og:url" content="https://recalibratepain.com/pricing" />
+      </Helmet>
       <Navbar />
-
-      <section className="pt-28 pb-16 px-4 sm:px-6" data-testid="pricing-section">
         <div className="max-w-6xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-1.5 text-sm bg-purple-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5 mb-6" data-testid="back-to-home">
             <ArrowLeft className="w-4 h-4" /> Back to Home

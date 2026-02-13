@@ -52,6 +52,14 @@ export default function BlogPage() {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+      <Helmet>
+        <title>Blog - Recalibrate Pain Science and Wellness Articles</title>
+        <meta name="description" content="Evidence-based articles on chronic pain management, pain neuroscience, sleep, mindfulness, activity pacing and more from the Recalibrate team." />
+        <link rel="canonical" href="https://recalibratepain.com/blog" />
+        <meta property="og:title" content="Blog - Recalibrate Pain Science and Wellness Articles" />
+        <meta property="og:description" content="Evidence-based articles on chronic pain management, pain neuroscience, sleep, mindfulness, activity pacing and more from the Recalibrate team." />
+        <meta property="og:url" content="https://recalibratepain.com/blog" />
+      </Helmet>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">

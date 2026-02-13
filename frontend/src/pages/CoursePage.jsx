@@ -25,6 +25,14 @@ export default function CoursePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-indigo-50">
+      <Helmet>
+        <title>Self-Management 101 Course - Recalibrate Pain Science Education</title>
+        <meta name="description" content="Free Self-Management 101 course: 8 modules covering pain neuroscience, the 8 Lifelines framework, pacing, sleep, movement, mind-body connection and building your care team." />
+        <link rel="canonical" href="https://recalibratepain.com/recalibrate101" />
+        <meta property="og:title" content="Self-Management 101 Course - Recalibrate Pain Science Education" />
+        <meta property="og:description" content="Free Self-Management 101 course: 8 modules covering pain neuroscience, the 8 Lifelines framework, pacing, sleep, movement, mind-body connection and building your care team." />
+        <meta property="og:url" content="https://recalibratepain.com/recalibrate101" />
+      </Helmet>
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
