@@ -435,57 +435,178 @@ async def download_course_pdf():
         raise HTTPException(status_code=404, detail="Course file not found")
 
 async def send_welcome_email(to_email: str, name: str):
-    """Helper function to send the welcome email using Resend API with PDF attachment"""
+    """Helper function to send the welcome email using Resend API"""
     if not os.environ.get("RESEND_API_KEY"):
         logger.info("ℹ️ Skipped welcome email (RESEND_API_KEY missing)")
         return
 
     try:
-        # Use production URL for resources
-        download_url = "https://recalibratepain.com/recalibrate101"
-        
-        welcome_html = f"""
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
-            <div style="text-align: center; margin-bottom: 32px;">
-                <img src="https://recalibratepain.com/recalibrate-logo.png" alt="Recalibrate" style="height: 48px; width: auto; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto;">
-                <h1 style="color: #4f46e5; font-size: 28px; font-weight: bold; margin: 16px 0 8px 0;">Welcome to Recalibrate! 🚀</h1>
-                <p style="color: #6b7280; font-size: 16px; margin: 0;">Thank you for joining our waitlist.</p>
+        welcome_html = """
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 640px; margin: 0 auto; color: #1f2937; background-color: #ffffff;">
+            
+            <!-- Header -->
+            <div style="background: linear-gradient(135deg, #1e1b4b 0%, #581c87 50%, #312e81 100%); padding: 40px 32px; border-radius: 16px 16px 0 0; text-align: center;">
+                <img src="https://recalibratepain.com/recalibrate-logo.png" alt="Recalibrate" style="height: 48px; width: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">
+                <h1 style="color: #ffffff; font-size: 28px; font-weight: 800; margin: 0 0 8px 0; letter-spacing: -0.5px;">Welcome to Recalibrate</h1>
+                <p style="color: #c4b5fd; font-size: 15px; margin: 0;">You're part of Cohort 1. Here's everything you need to know.</p>
             </div>
-            
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 32px; border-radius: 16px; text-align: center; margin: 24px 0;">
-                <h2 style="color: #ffffff; font-size: 20px; margin: 0 0 8px 0;">🎁 Your Free Course is Ready!</h2>
-                <p style="color: #e9d5ff; font-size: 14px; margin: 0 0 24px 0;">Self-Management 101: The 8 Lifelines</p>
-                <a href="{download_url}" style="display: inline-block; background-color: #ffffff; color: #764ba2; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                    📥 Download Your Course
-                </a>
+
+            <div style="padding: 32px;">
+
+                <!-- Cohort 1 Banner -->
+                <div style="background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); padding: 24px; border-radius: 12px; text-align: center; margin-bottom: 28px;">
+                    <p style="color: #e9d5ff; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 6px 0; font-weight: 600;">Cohort 1 Launch</p>
+                    <h2 style="color: #ffffff; font-size: 24px; font-weight: 800; margin: 0 0 6px 0;">March 2026</h2>
+                    <p style="color: #c4b5fd; font-size: 14px; margin: 0;">iOS, Android & Web</p>
+                </div>
+
+                <!-- Intro -->
+                <p style="font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 24px;">
+                    Thank you for joining us. <strong>Recalibrate</strong> is a comprehensive allied health platform built for people living with chronic pain, chronic illness, and complex health conditions &mdash; as well as the clinicians and carers who support them.
+                </p>
+                <p style="font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 28px;">
+                    We've built an ecosystem that brings together tracking, education, AI insights, therapeutic tools, and connected care into one place. Here's what's coming:
+                </p>
+
+                <!-- The Recalibrate App -->
+                <h3 style="font-size: 18px; font-weight: 700; color: #1e1b4b; margin: 0 0 16px 0; padding-bottom: 8px; border-bottom: 2px solid #e9d5ff;">The Recalibrate App</h3>
+
+                <!-- For Patients / Users -->
+                <div style="background-color: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px; border-radius: 0 12px 12px 0; margin-bottom: 16px;">
+                    <h4 style="color: #5b21b6; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">For You (Patients &amp; Users)</h4>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4b5563;">
+                        <li><strong>Smart Tracker</strong> &mdash; Log pain, sleep, mood, energy &amp; 18+ health variables across 8 biological systems</li>
+                        <li><strong>Analytics Dashboard</strong> &mdash; Your personal Stability Score, trend analysis &amp; pattern detection</li>
+                        <li><strong>Recalibrate Academy</strong> &mdash; 100+ lessons on pain science, self-management &amp; wellness strategies</li>
+                        <li><strong>Therapeutic Tools</strong> &mdash; Journaling, goal tracking, guided exercises, CBT &amp; mindfulness</li>
+                        <li><strong>Recalibrate AI</strong> &mdash; Chat about your health data, get personalised insights &amp; research answers</li>
+                    </ul>
+                </div>
+
+                <!-- For Clinicians -->
+                <div style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 0 12px 12px 0; margin-bottom: 16px;">
+                    <h4 style="color: #1d4ed8; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">For Clinicians</h4>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4b5563;">
+                        <li><strong>Multi-Patient Dashboard</strong> &mdash; Track all your patients' progress in real-time</li>
+                        <li><strong>Doctor-Ready Reports</strong> &mdash; Export comprehensive health data for appointments</li>
+                        <li><strong>Care Team Integration</strong> &mdash; Collaborate with other professionals in a patient's care team</li>
+                        <li><strong>Research Tools</strong> &mdash; Access aggregated, anonymised data for allied health research</li>
+                    </ul>
+                </div>
+
+                <!-- For Carers -->
+                <div style="background-color: #ecfdf5; border-left: 4px solid #10b981; padding: 20px; border-radius: 0 12px 12px 0; margin-bottom: 28px;">
+                    <h4 style="color: #059669; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">For Carers &amp; Family</h4>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4b5563;">
+                        <li><strong>Support Dashboard</strong> &mdash; Understand your loved one's daily health patterns</li>
+                        <li><strong>Progress Visibility</strong> &mdash; See trends and improvements over time</li>
+                        <li><strong>Connected Care</strong> &mdash; Stay in the loop with the care team</li>
+                    </ul>
+                </div>
+
+                <!-- The Recalibrate Protocol -->
+                <h3 style="font-size: 18px; font-weight: 700; color: #1e1b4b; margin: 0 0 16px 0; padding-bottom: 8px; border-bottom: 2px solid #d1fae5;">The Recalibrate Protocol</h3>
+                <div style="background: linear-gradient(135deg, #059669 0%, #0d9488 100%); padding: 24px; border-radius: 12px; margin-bottom: 28px; color: #ffffff;">
+                    <p style="font-size: 15px; line-height: 1.7; margin: 0 0 16px 0;">
+                        Our standalone clinical product &mdash; an 8-system framework addressing the root biological causes of chronic pain. Based on 250+ peer-reviewed studies.
+                    </p>
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+                        <tr>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5;">12-Month Protocol Maps</td>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5; text-align: right;">8 Systems</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5;">8-Day Email Course</td>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5; text-align: right;">Paced Implementation</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5;">Quick Reference Guides</td>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5; text-align: right;">Printable PDFs</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5;">Research Directory</td>
+                            <td style="padding: 6px 0; font-size: 14px; color: #d1fae5; text-align: right;">250+ Papers</td>
+                        </tr>
+                    </table>
+                    <div style="text-align: center;">
+                        <a href="https://recalibratepain.app/protocol" style="display: inline-block; background-color: #ffffff; color: #059669; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                            Explore The Protocol
+                        </a>
+                    </div>
+                </div>
+
+                <!-- What Happens Next -->
+                <h3 style="font-size: 18px; font-weight: 700; color: #1e1b4b; margin: 0 0 16px 0; padding-bottom: 8px; border-bottom: 2px solid #e9d5ff;">What Happens Next</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 28px;">
+                    <tr>
+                        <td style="padding: 12px 16px; vertical-align: top; width: 40px;">
+                            <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #7c3aed, #4f46e5); border-radius: 50%; color: #fff; font-size: 14px; font-weight: 700; text-align: center; line-height: 32px;">1</div>
+                        </td>
+                        <td style="padding: 12px 0; font-size: 14px; color: #374151; line-height: 1.6;">
+                            <strong>You're on the list.</strong> You'll receive priority access and updates as we prepare for launch.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 16px; vertical-align: top;">
+                            <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #7c3aed, #4f46e5); border-radius: 50%; color: #fff; font-size: 14px; font-weight: 700; text-align: center; line-height: 32px;">2</div>
+                        </td>
+                        <td style="padding: 12px 0; font-size: 14px; color: #374151; line-height: 1.6;">
+                            <strong>Cohort 1 launches March 2026</strong> on iOS, Android &amp; Web. You'll be among the first to access the full platform.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 16px; vertical-align: top;">
+                            <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #7c3aed, #4f46e5); border-radius: 50%; color: #fff; font-size: 14px; font-weight: 700; text-align: center; line-height: 32px;">3</div>
+                        </td>
+                        <td style="padding: 12px 0; font-size: 14px; color: #374151; line-height: 1.6;">
+                            <strong>Start recalibrating.</strong> Track, learn, connect with your care team, and take control of your health journey.
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- CTA -->
+                <div style="text-align: center; margin-bottom: 28px;">
+                    <a href="https://recalibratepain.app" style="display: inline-block; background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); color: #ffffff; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 4px 16px rgba(124,58,237,0.3);">
+                        Visit Recalibrate
+                    </a>
+                </div>
+
+                <!-- Sign off -->
+                <p style="font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 4px;">
+                    We're building this for people who deserve better tools to manage their health. Thank you for believing in what we're creating.
+                </p>
+                <p style="font-size: 15px; color: #6b7280; margin-top: 20px;">
+                    Warmly,<br><strong style="color: #1f2937;">The Recalibrate Team</strong>
+                </p>
             </div>
-            
-            <p style="font-size: 15px; line-height: 1.6; color: #374151;">You're now part of a movement to redefine chronic pain management. We'll keep you updated on our Q1 2026 launch and give you exclusive early access.</p>
-            
-            <p style="margin-top: 32px; font-size: 15px; color: #6b7280;">Warmly,<br><strong style="color: #1f2937;">The Recalibrate Team</strong></p>
-            
-            <div style="text-align: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #9ca3af;">
-                <p style="margin: 4px 0; color: #6b7280; font-weight: 600;">Recalibrate Inc.</p>
-                <p style="margin: 4px 0;">Smarter Health and Pain Technology</p>
+
+            <!-- Footer -->
+            <div style="text-align: center; padding: 24px 32px; border-top: 1px solid #e5e7eb;">
+                <p style="margin: 4px 0; color: #6b7280; font-weight: 600; font-size: 13px;">Recalibrate</p>
+                <p style="margin: 4px 0; color: #9ca3af; font-size: 12px;">Smarter Health and Pain Technology</p>
+                <p style="margin: 8px 0 0 0; font-size: 12px;">
+                    <a href="https://recalibratepain.app" style="color: #7c3aed; text-decoration: none; margin: 0 8px;">App</a>
+                    <a href="https://recalibratepain.app/protocol" style="color: #7c3aed; text-decoration: none; margin: 0 8px;">Protocol</a>
+                    <a href="https://www.instagram.com/recalibrateapp/" style="color: #7c3aed; text-decoration: none; margin: 0 8px;">Instagram</a>
+                    <a href="https://www.linkedin.com/company/recalibrate-app/" style="color: #7c3aed; text-decoration: none; margin: 0 8px;">LinkedIn</a>
+                </p>
             </div>
         </div>
         """
         
-        # Prepare email parameters for Resend (NO attachment, just download link)
         params = {
             "from": "Recalibrate <info@recalibratepain.com>",
             "to": [to_email],
-            "subject": "🎁 Welcome to Recalibrate! Download Your Free Course",
+            "subject": "Welcome to Recalibrate — Cohort 1 Launching March 2026",
             "html": welcome_html
         }
         
-        # Send email using Resend API
         response = await asyncio.to_thread(resend.Emails.send, params)
-        logger.info(f"📧 Welcome email sent to {to_email} via Resend (Download link)")
-        logger.info(f"📧 Resend Response: {response}")
+        logger.info(f"Welcome email sent to {to_email} via Resend")
+        logger.info(f"Resend Response: {response}")
         
     except Exception as email_error:
-        logger.error(f"❌ Failed to send welcome email to {to_email} via Resend. Error: {str(email_error)}")
+        logger.error(f"Failed to send welcome email to {to_email} via Resend. Error: {str(email_error)}")
 
 @app.post("/api/waitlist/join", response_model=WaitlistResponse)
 async def join_waitlist(entry: WaitlistEntry, background_tasks: BackgroundTasks):
