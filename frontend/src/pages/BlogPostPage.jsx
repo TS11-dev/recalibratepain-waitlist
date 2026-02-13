@@ -4,6 +4,7 @@ import {
   ArrowLeft, Clock, Calendar, Tag, User, Share2, 
   BookOpen, ChevronRight, FileText, ExternalLink
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogPosts';
 import { 
   generateArticleSchema, 
@@ -1399,6 +1400,17 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+      <Helmet>
+        <title>{post.title} - Recalibrate Blog</title>
+        <meta name="description" content={post.metaDescription || post.excerpt} />
+        <link rel="canonical" href={`https://recalibratepain.com/blog/${post.slug}`} />
+        <meta property="og:title" content={`${post.title} - Recalibrate Blog`} />
+        <meta property="og:description" content={post.metaDescription || post.excerpt} />
+        <meta property="og:url" content={`https://recalibratepain.com/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content={`${post.title} - Recalibrate Blog`} />
+        <meta name="twitter:description" content={post.metaDescription || post.excerpt} />
+      </Helmet>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">

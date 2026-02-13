@@ -5,6 +5,8 @@ Allow: /favicon-*.png
 Allow: /apple-touch-icon.png
 Allow: /manifest.json
 Allow: /blog/
+Allow: /llms.txt
+Allow: /llms-full.txt
 Allow: /features
 Allow: /pricing
 Allow: /partners
