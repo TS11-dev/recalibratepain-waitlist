@@ -46,9 +46,9 @@ export default function Navbar() {
   return (
     <>
       <nav data-testid="main-navbar" className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <div className="w-full px-6 lg:px-10 py-3">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center space-x-2" data-testid="nav-logo">
+            <Link to="/" className="flex items-center space-x-2 flex-shrink-0" data-testid="nav-logo">
               <img src="/recalibrate-logo-optimized.png" alt="Recalibrate" className="h-10 w-auto" width="40" height="40" fetchPriority="high" />
               <span className="text-xl font-bold text-white">Recalibrate</span>
             </Link>
@@ -92,16 +92,17 @@ export default function Navbar() {
               >
                 Contact Us
               </button>
-              <a
-                href="https://recalibratepain.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="go-to-app-btn"
-                className="ml-2 bg-white text-purple-700 px-5 py-2.5 rounded-xl text-sm font-bold hover:shadow-lg hover:bg-purple-50 transition-all hover:-translate-y-0.5 flex items-center gap-1.5"
-              >
-                Go to App <ExternalLink className="w-3.5 h-3.5" />
-              </a>
             </div>
+
+            <a
+              href="https://recalibratepain.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="go-to-app-btn"
+              className="hidden md:flex items-center gap-1.5 flex-shrink-0 bg-white text-purple-700 px-5 py-2.5 rounded-xl text-sm font-bold hover:shadow-lg hover:bg-purple-50 transition-all hover:-translate-y-0.5"
+            >
+              Go to App <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 
