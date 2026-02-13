@@ -551,7 +551,7 @@ async def send_welcome_email(to_email: str, name: str):
                             <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #7c3aed, #4f46e5); border-radius: 50%; color: #fff; font-size: 14px; font-weight: 700; text-align: center; line-height: 32px;">2</div>
                         </td>
                         <td style="padding: 12px 0; font-size: 14px; color: #374151; line-height: 1.6;">
-                            <strong>Cohort 1 launches March 2026</strong> on iOS, Android &amp; Web. You'll be among the first to access the full platform.
+                            <strong>Cohort 1 launches March 2026.</strong> You'll be among the first to access the full platform.
                         </td>
                     </tr>
                     <tr>
