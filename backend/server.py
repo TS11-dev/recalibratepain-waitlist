@@ -457,7 +457,7 @@ async def send_welcome_email(to_email: str, name: str):
                 <div style="background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); padding: 24px; border-radius: 12px; text-align: center; margin-bottom: 28px;">
                     <p style="color: #e9d5ff; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 6px 0; font-weight: 600;">Cohort 1 Launch</p>
                     <h2 style="color: #ffffff; font-size: 24px; font-weight: 800; margin: 0 0 6px 0;">March 2026</h2>
-                    <p style="color: #c4b5fd; font-size: 14px; margin: 0;">iOS, Android & Web</p>
+                    <p style="color: #c4b5fd; font-size: 14px; margin: 0;">Be among the first to access the full platform</p>
                 </div>
 
                 <!-- Intro -->
