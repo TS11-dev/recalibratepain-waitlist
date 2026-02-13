@@ -24,7 +24,7 @@ const blogContent = {
 
 **The key question everyone asks: "Why won't my pain go away?"**
 
-Unlike acute pain (the sharp sting of a cut or burn that fades as you heal), chronic pain persists **long after tissue healing has occurred**—often fundamentally changing how your nervous system processes information.
+Unlike acute pain (the sharp sting of a cut or burn that fades as you heal), chronic pain persists **long after tissue healing has occurred** -often fundamentally changing how your nervous system processes information.
 
 The International Association for the Study of Pain (IASP) now recognizes chronic pain as a disease in its own right, not merely a symptom.`
       },
@@ -43,7 +43,7 @@ The International Association for the Study of Pain (IASP) now recognizes chroni
       },
       {
         title: "What Causes Chronic Pain? The Biopsychosocial Model Explained",
-        content: `**"Is my pain all in my head?"** — This is perhaps the most damaging misconception about chronic pain.
+        content: `**"Is my pain all in my head?"**  - This is perhaps the most damaging misconception about chronic pain.
 
 Modern pain science uses the **biopsychosocial model**, which recognizes pain is influenced by THREE interconnected factors:
 
@@ -74,7 +74,7 @@ Modern pain science uses the **biopsychosocial model**, which recognizes pain is
         title: "What Is Central Sensitization? (And Why Your Pain Alarm Is Stuck)",
         content: `**"Why does everything hurt more than it should?"**
 
-Central sensitization is one of the most important concepts in chronic pain. It's when your nervous system becomes **hypersensitive**—like a smoke alarm that goes off when you make toast.
+Central sensitization is one of the most important concepts in chronic pain. It's when your nervous system becomes **hypersensitive** -like a smoke alarm that goes off when you make toast.
 
 **Signs of central sensitization:**
 - **Allodynia:** Normal touch feels painful (even clothing or light pressure)
@@ -139,13 +139,13 @@ When needed, may include non-opioid analgesics, certain antidepressants, or anti
       {
         title: "Frequently Asked Questions About Chronic Pain",
         content: `**Q: Is chronic pain "real" or psychological?**
-A: Chronic pain is 100% real. Modern imaging shows measurable changes in the brain. Understanding the psychological components doesn't make it less real—it opens doors to effective treatment.
+A: Chronic pain is 100% real. Modern imaging shows measurable changes in the brain. Understanding the psychological components doesn't make it less real -it opens doors to effective treatment.
 
 **Q: Will I have pain forever?**
 A: Many people experience significant improvement with proper treatment. The nervous system can change in positive directions (neuroplasticity works both ways).
 
 **Q: Should I push through pain or rest?**
-A: Neither extreme. Pacing—balancing activity and rest—is most effective. Complete rest often worsens chronic pain.
+A: Neither extreme. Pacing -balancing activity and rest -is most effective. Complete rest often worsens chronic pain.
 
 **Q: Do I need to find the exact cause?**
 A: Not always. Many effective treatments work regardless of the original cause. Focus on function, not just finding a diagnosis.
@@ -179,7 +179,7 @@ For centuries, we thought pain worked like a simple alarm system: damage the tis
 Here's the actual process:
 
 **Step 1: Danger Detection (Nociception)**
-Specialized nerve endings detect potentially harmful stimuli. Important: This is NOT pain yet—it's just information.
+Specialized nerve endings detect potentially harmful stimuli. Important: This is NOT pain yet -it's just information.
 
 **Step 2: Spinal Cord Processing**
 Signals get processed and filtered. They can be amplified OR dampened before reaching the brain.
@@ -193,13 +193,13 @@ Your brain evaluates the signals against:
 - What you're paying attention to
 
 **Step 4: Decision**
-If your brain concludes you need protection, it creates pain. If it determines you're safe, it might not—even with tissue damage.`
+If your brain concludes you need protection, it creates pain. If it determines you're safe, it might not -even with tissue damage.`
       },
       {
         title: "What Are DIMs and SIMs? (Danger vs Safety Signals)",
         content: `Your brain constantly weighs **Danger In Me (DIMs)** against **Safety In Me (SIMs)**.
 
-**DIMs — Things that increase pain:**
+**DIMs  - Things that increase pain:**
 - Fear and anxiety about symptoms
 - Negative beliefs ("my back is damaged")
 - Poor sleep and exhaustion
@@ -208,7 +208,7 @@ If your brain concludes you need protection, it creates pain. If it determines y
 - Scary medical language
 - Focusing intensely on pain
 
-**SIMs — Things that decrease pain:**
+**SIMs  - Things that decrease pain:**
 - Understanding pain neuroscience
 - Confidence in your body
 - Good sleep and rest
@@ -292,7 +292,7 @@ Here's what research shows about imaging:
     sections: [
       {
         title: "Why Does Pain Get Worse When I Don't Sleep?",
-        content: `**The sleep-pain connection is bidirectional—and vicious:**
+        content: `**The sleep-pain connection is bidirectional -and vicious:**
 - Poor sleep increases pain sensitivity the next day
 - Pain disrupts sleep quality and duration
 - Sleep deprivation impairs your body's natural pain-relief systems
@@ -382,7 +382,7 @@ Optimize your environment and habits.
 - Back sleeping with arm supported
 
 **General tips:**
-- Change positions is okay—you don't need to stay perfectly still
+- Change positions is okay -you don't need to stay perfectly still
 - Use as many pillows as you need for support
 - Your comfort matters more than "perfect" positioning`
       },
@@ -450,12 +450,12 @@ Let's break that down:
 - **Without judgment:** Observing sensations without labeling them "bad"
 
 **Can it actually help chronic pain?**
-Yes—and there's strong research to prove it. A 2017 meta-analysis found:
+Yes -and there's strong research to prove it. A 2017 meta-analysis found:
 - **Moderate effects** on pain intensity
 - **Large effects** on depression and quality of life
 - **Benefits lasting 6+ months** after program completion
 
-**Important:** Mindfulness doesn't eliminate pain—it changes your relationship with it.`
+**Important:** Mindfulness doesn't eliminate pain -it changes your relationship with it.`
       },
       {
         title: "How Does Mindfulness Change Pain in the Brain?",
@@ -472,7 +472,7 @@ Yes—and there's strong research to prove it. A 2017 meta-analysis found:
 - Attention control networks
 
 **What this means practically:**
-Mindfulness doesn't block pain signals—it changes how your brain responds to them.
+Mindfulness doesn't block pain signals -it changes how your brain responds to them.
 
 **The two components of pain:**
 1. **Sensory dimension:** The physical sensation
@@ -495,10 +495,10 @@ Mindfulness helps separate these. You might still feel pain, but with significan
 **Common questions:**
 
 **"My mind won't stop wandering."**
-That's normal! The practice isn't about preventing thoughts—it's about noticing when you've wandered and returning. Each return is a "rep" that strengthens mindfulness.
+That's normal! The practice isn't about preventing thoughts -it's about noticing when you've wandered and returning. Each return is a "rep" that strengthens mindfulness.
 
 **"What about when I'm in pain?"**
-Acknowledge the pain, then gently guide attention back to breath. You're not ignoring pain—you're choosing where to focus.
+Acknowledge the pain, then gently guide attention back to breath. You're not ignoring pain -you're choosing where to focus.
 
 **"How long should I practice?"**
 Start with 5 minutes. Consistency beats duration. Daily short practice is better than occasional long sessions.`
@@ -507,19 +507,19 @@ Start with 5 minutes. Consistency beats duration. Daily short practice is better
         title: "What Is the RAIN Technique for Pain?",
         content: `**RAIN is a four-step process for working with difficult experiences:**
 
-**R — Recognize**
+**R  - Recognize**
 "I notice pain in my lower back right now."
 Simply acknowledge what's happening without trying to change it.
 
-**A — Allow**
+**A  - Allow**
 "I can let this sensation be here."
-Not resignation—just willingness to stop fighting for a moment.
+Not resignation -just willingness to stop fighting for a moment.
 
-**I — Investigate**
+**I  - Investigate**
 "Where exactly is the sensation? What's its quality? Is it constant or pulsing?"
 Bring curiosity rather than fear. Often, examining pain closely reveals it's not a solid block but a changing experience.
 
-**N — Non-identification**
+**N  - Non-identification**
 "I have pain, but I am not only pain."
 You are the awareness observing the pain, not the pain itself.
 
@@ -531,7 +531,7 @@ You are the awareness observing the pain, not the pain itself.
       },
       {
         title: "What About Body Scan Meditation?",
-        content: `**Body scan is systematic attention through the body—particularly useful for chronic pain.**
+        content: `**Body scan is systematic attention through the body -particularly useful for chronic pain.**
 
 **How to practice:**
 1. Lie down comfortably
@@ -550,13 +550,13 @@ You are the awareness observing the pain, not the pain itself.
 
 **If pain is too intense:**
 - Spend less time on painful areas
-- "Touch and go"—acknowledge and move on
+- "Touch and go" -acknowledge and move on
 - Or skip that area and return later
 - Pain-specific guided meditations can help`
       },
       {
         title: "How Can I Be Mindful During the Day?",
-        content: `**Mindfulness isn't just meditation—it's a way of being.**
+        content: `**Mindfulness isn't just meditation -it's a way of being.**
 
 **Informal practice ideas:**
 
@@ -594,7 +594,7 @@ You are the awareness observing the pain, not the pain itself.
     sections: [
       {
         title: "Why Do I Need a Team for Pain Management?",
-        content: `**Chronic pain is complex—it affects multiple life domains:**
+        content: `**Chronic pain is complex -it affects multiple life domains:**
 - Physical function
 - Emotional wellbeing
 - Work and productivity
@@ -610,7 +610,7 @@ You are the awareness observing the pain, not the pain itself.
 - Return-to-work rates are higher
 - Long-term benefits are more sustained
 
-**The question isn't whether you need a team—it's how to build the right one for YOU.**`
+**The question isn't whether you need a team -it's how to build the right one for YOU.**`
       },
       {
         title: "Who Should Be On My Core Pain Management Team?",

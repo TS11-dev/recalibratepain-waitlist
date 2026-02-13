@@ -13,7 +13,7 @@ export const blogFAQs = {
     },
     {
       question: "Is chronic pain real or psychological?",
-      answer: "Chronic pain is 100% real. Modern brain imaging shows measurable changes in the nervous system. Understanding the psychological components doesn't make pain less real—it explains how pain works and opens doors to effective treatment."
+      answer: "Chronic pain is 100% real. Modern brain imaging shows measurable changes in the nervous system. Understanding the psychological components doesn't make pain less real -it explains how pain works and opens doors to effective treatment."
     },
     {
       question: "What is the biopsychosocial model of pain?",
@@ -21,7 +21,7 @@ export const blogFAQs = {
     },
     {
       question: "What is central sensitization?",
-      answer: "Central sensitization is when your nervous system becomes hypersensitive to stimuli—like a smoke alarm that goes off at burnt toast. It explains why normal touch can feel painful (allodynia), mild stimuli cause exaggerated pain (hyperalgesia), and pain spreads beyond original injury sites."
+      answer: "Central sensitization is when your nervous system becomes hypersensitive to stimuli -like a smoke alarm that goes off at burnt toast. It explains why normal touch can feel painful (allodynia), mild stimuli cause exaggerated pain (hyperalgesia), and pain spreads beyond original injury sites."
     }
   ],
   'pain-neuroscience-education-brain-processes-pain': [
@@ -93,7 +93,7 @@ export const blogFAQs = {
   'building-pain-management-support-team': [
     {
       question: "Why do I need a team for chronic pain management?",
-      answer: "Chronic pain affects multiple life domains—physical, emotional, work, relationships, sleep. No single provider can optimally address all these. Research shows multidisciplinary care produces better outcomes, higher return-to-work rates, and more sustained long-term benefits than single-provider treatment."
+      answer: "Chronic pain affects multiple life domains -physical, emotional, work, relationships, sleep. No single provider can optimally address all these. Research shows multidisciplinary care produces better outcomes, higher return-to-work rates, and more sustained long-term benefits than single-provider treatment."
     },
     {
       question: "Who should be on my chronic pain management team?",
