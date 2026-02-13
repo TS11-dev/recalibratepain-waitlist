@@ -18,6 +18,24 @@ export default function ResourcesPage() {
         <meta property="og:title" content="Resources - Recalibrate Health & Wellness Courses and Tools" />
         <meta property="og:description" content="Access Recalibrate resources: Self-Management 101 course, evidence-based blog articles, community support and wellness tools for chronic pain management." />
         <meta property="og:url" content="https://recalibratepain.com/resources" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "CollectionPage", "name": "Recalibrate Resources",
+          "description": "Free courses, evidence-based articles, and wellness tools for chronic pain self-management.",
+          "url": "https://recalibratepain.com/resources",
+          "mainEntity": {
+            "@type": "Course", "name": "Self-Management 101",
+            "description": "Free 8-module course covering pain neuroscience, the 8 Lifelines framework, pacing, sleep, movement, mind-body connection and building your care team.",
+            "provider": { "@type": "Organization", "name": "Recalibrate" },
+            "isAccessibleForFree": true
+          }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://recalibratepain.com" },
+            { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://recalibratepain.com/resources" }
+          ]
+        })}</script>
       </Helmet>
       <Navbar />
 

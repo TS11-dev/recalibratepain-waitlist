@@ -32,6 +32,23 @@ export default function CoursePage() {
         <meta property="og:title" content="Self-Management 101 Course - Recalibrate Pain Science Education" />
         <meta property="og:description" content="Free Self-Management 101 course: 8 modules covering pain neuroscience, the 8 Lifelines framework, pacing, sleep, movement, mind-body connection and building your care team." />
         <meta property="og:url" content="https://recalibratepain.com/recalibrate101" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "Course",
+          "name": "Self-Management 101", "description": "Free 8-module course on chronic pain self-management",
+          "url": "https://recalibratepain.com/recalibrate101",
+          "provider": { "@type": "Organization", "name": "Recalibrate", "url": "https://recalibratepain.com" },
+          "isAccessibleForFree": true,
+          "numberOfCredits": 8,
+          "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT2H" }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://recalibratepain.com" },
+            { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://recalibratepain.com/resources" },
+            { "@type": "ListItem", "position": 3, "name": "Self-Management 101", "item": "https://recalibratepain.com/recalibrate101" }
+          ]
+        })}</script>
       </Helmet>
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">

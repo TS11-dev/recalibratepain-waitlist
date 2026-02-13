@@ -90,6 +90,24 @@ export default function PartnersPage() {
         <meta property="og:title" content="Partners - Recalibrate Allied Health Platform" />
         <meta property="og:description" content="Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities. Integrate our platform into your practice or research." />
         <meta property="og:url" content="https://recalibratepain.com/partners" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "WebPage", "name": "Recalibrate Partners",
+          "description": "Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities.",
+          "url": "https://recalibratepain.com/partners",
+          "mainEntity": {
+            "@type": "Organization", "name": "Recalibrate",
+            "description": "Comprehensive allied health platform seeking clinic, research, and investment partnerships.",
+            "url": "https://recalibratepain.com",
+            "contactPoint": { "@type": "ContactPoint", "email": "info@recalibratepain.com", "contactType": "partnerships" }
+          }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://recalibratepain.com" },
+            { "@type": "ListItem", "position": 2, "name": "Partners", "item": "https://recalibratepain.com/partners" }
+          ]
+        })}</script>
       </Helmet>
       <Navbar />
 

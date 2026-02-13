@@ -59,6 +59,13 @@ export default function BlogPage() {
         <meta property="og:title" content="Blog - Recalibrate Pain Science and Wellness Articles" />
         <meta property="og:description" content="Evidence-based articles on chronic pain management, pain neuroscience, sleep, mindfulness, activity pacing and more from the Recalibrate team." />
         <meta property="og:url" content="https://recalibratepain.com/blog" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://recalibratepain.com" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://recalibratepain.com/blog" }
+          ]
+        })}</script>
       </Helmet>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">

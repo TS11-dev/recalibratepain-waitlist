@@ -44,6 +44,25 @@ export default function PricingPage() {
         <meta property="og:title" content="Pricing Plans - Recalibrate Health & Pain Management App" />
         <meta property="og:description" content="Choose your Recalibrate plan: Free, Go, Pro, Super or Lifetime. Advanced health tracking, AI insights, academy access and care team features at every tier." />
         <meta property="og:url" content="https://recalibratepain.com/pricing" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "Product", "name": "Recalibrate App",
+          "description": "Allied health platform for chronic pain and health management",
+          "url": "https://recalibratepain.com/pricing",
+          "brand": { "@type": "Brand", "name": "Recalibrate" },
+          "offers": [
+            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "Smart Tracking, Analytics Dashboard, Medication tracking, Basic Reports" },
+            { "@type": "Offer", "name": "Go", "price": "12.99", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "Full Academy, Therapeutic Tools, Journal & Goal Tracking" },
+            { "@type": "Offer", "name": "Pro", "price": "34.99", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "Recalibrate AI, Care Team Access, Advanced Courses" },
+            { "@type": "Offer", "name": "Super", "price": "59.99", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "More AI Credits, More Care Team, Priority Support" }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://recalibratepain.com" },
+            { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://recalibratepain.com/pricing" }
+          ]
+        })}</script>
       </Helmet>
       <Navbar />
 

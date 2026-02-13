@@ -73,6 +73,23 @@ export default function FeaturesPage() {
         <meta property="og:title" content="App Features - Recalibrate Health & Pain Management Platform" />
         <meta property="og:description" content="Explore Recalibrate's features: Smart Tracker, Analytics Dashboard, Pain Science Academy, AI Insights, Therapeutic Tools, Care Team Integration and more." />
         <meta property="og:url" content="https://recalibratepain.com/features" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Recalibrate",
+          "applicationCategory": "HealthApplication",
+          "description": "Comprehensive allied health platform with Smart Tracker, Analytics Dashboard, Pain Science Academy, AI Insights, Therapeutic Tools, and Care Team Integration.",
+          "url": "https://recalibratepain.com/features",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/ComingSoon" },
+          "featureList": ["Smart Tracker - 18+ health variables", "Analytics Dashboard - Stability Score", "Pain Science Academy - 100+ lessons", "Recalibrate AI - Personalized insights", "Therapeutic Tools - Journaling, exercises, CBT", "Care Team - Clinician and family connection"]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://recalibratepain.com" },
+            { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://recalibratepain.com/features" }
+          ]
+        })}</script>
       </Helmet>
       <Navbar />
 
