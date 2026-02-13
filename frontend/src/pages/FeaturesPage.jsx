@@ -75,6 +75,12 @@ export default function FeaturesPage() {
         <meta property="og:url" content="https://recalibratepain.com/features" />
       </Helmet>
       <Navbar />
+
+      {/* Header */}
+      <section className="pt-28 pb-12 px-4 sm:px-6">
+        <Link to="/" className="inline-flex items-center gap-1.5 text-sm bg-purple-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5 mb-6" data-testid="back-to-home">
+          <ArrowLeft className="w-4 h-4" /> Back to Home
+        </Link>
         <div className="text-center">
         <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
           The Tools

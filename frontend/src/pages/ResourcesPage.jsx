@@ -20,6 +20,10 @@ export default function ResourcesPage() {
         <meta property="og:url" content="https://recalibratepain.com/resources" />
       </Helmet>
       <Navbar />
+
+      {/* Header */}
+      <section className="pt-28 pb-12 px-4 sm:px-6">
+        <Link to="/" className="inline-flex items-center gap-1.5 text-sm bg-purple-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5 mb-6" data-testid="back-to-home">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
         <div className="text-center">
