@@ -1,0 +1,39 @@
+# Recalibrate
+
+> Comprehensive allied health platform for chronic pain, chronic illness, and health management.
+
+## About
+Recalibrate is an all-in-one health and pain management platform designed for patients, clinicians, and carers. It combines symptom tracking, education, AI-powered insights, therapeutic tools, and connected care.
+
+## Key Products
+
+### Recalibrate App
+- Smart Tracker: 18+ health variables across 8 biological systems
+- Analytics Dashboard: Stability Score, trend analysis, pattern detection
+- Pain Science Academy: 100+ evidence-based lessons
+- Therapeutic Tools: Journaling, goal tracking, guided exercises, CBT, mindfulness
+- Recalibrate AI: Chat about health data, get personalized insights
+- Care Team: Connect patients with clinicians and family
+
+### Recalibrate Protocol
+- 8-system clinical framework for chronic pain
+- 12-month protocol maps
+- 8-day email course
+- Quick reference guides
+- Research directory with 250+ peer-reviewed studies
+- URL: https://recalibratepain.app/protocol
+
+## Links
+- Website: https://recalibratepain.com
+- App: https://recalibratepain.app
+- Blog: https://recalibratepain.com/blog
+- Features: https://recalibratepain.com/features
+- Pricing: https://recalibratepain.com/pricing
+- Partners: https://recalibratepain.com/partners
+- Resources: https://recalibratepain.com/resources
+- Course: https://recalibratepain.com/recalibrate101
+- Instagram: https://www.instagram.com/recalibrateapp/
+- LinkedIn: https://www.linkedin.com/company/recalibrate-app/
+
+## Contact
+- Email: info@recalibratepain.com

@@ -1,0 +1,168 @@
+# Recalibrate - Full Documentation for AI Systems
+
+> Recalibrate is a comprehensive allied health platform for chronic pain, chronic illness, and health management. Built for patients, clinicians, and carers.
+
+## Company Overview
+
+Recalibrate is building the future of allied health technology. The platform brings together symptom tracking, pain science education, AI-powered insights, therapeutic tools, and connected care into one unified ecosystem. It serves three user types: patients managing chronic conditions, allied health clinicians (physiotherapists, occupational therapists, chiropractors, psychologists, dietitians), and carers/family members supporting loved ones.
+
+## Products
+
+### 1. Recalibrate App
+
+The Recalibrate App is available on iOS, Android, and Web. It includes:
+
+#### For Patients & Users
+- **Smart Tracker**: Log pain, sleep, mood, energy, and 18+ health variables across 8 biological systems. Quick daily check-ins take under 2 minutes.
+- **Analytics Dashboard**: Personal Stability Score calculated from tracked variables. Trend analysis, pattern detection, and historical data comparison. Doctor-ready reports for appointments.
+- **Recalibrate Academy**: 100+ bite-sized lessons on pain science, self-management strategies, and wellness. Covers pain neuroscience education, pacing, sleep hygiene, mindfulness, CBT techniques, and more. Earn XP and badges as you learn.
+- **Therapeutic Tools**: Journaling with guided prompts, goal tracking, guided exercises, CBT worksheets, mindfulness and breathing exercises, activity pacing timers.
+- **Recalibrate AI**: Chat about your health data. Get personalized insights based on tracked patterns. Ask questions about pain science and management strategies. Available 24/7.
+- **Medication Tracker**: Log medications, dosages, and set reminders. Track effectiveness over time.
+
+#### For Clinicians
+- **Multi-Patient Dashboard**: Track all patients' progress in real-time from one interface.
+- **Doctor-Ready Reports**: Export comprehensive health data summaries for appointments and clinical use.
+- **Care Team Integration**: Collaborate with other professionals in a patient's care team.
+- **Research Tools**: Access aggregated, anonymized data for allied health research.
+
+#### For Carers & Family
+- **Support Dashboard**: Understand a loved one's daily health patterns at a glance.
+- **Progress Visibility**: See trends and improvements over time.
+- **Connected Care**: Stay in the loop with the clinical care team.
+
+#### Pricing Plans
+- **Free**: Smart Tracking (18+ variables), Analytics Dashboard, Medication tracking, Basic Reports
+- **Go ($12.99/mo or $99.99/yr)**: Everything in Free + Full Academy (100+ lessons), Therapeutic Tools, Journal & Goal Tracking
+- **Pro ($34.99/mo or $299.99/yr)**: Everything in Go + Recalibrate AI, Care Team Access, Advanced Courses (Most Popular)
+- **Super ($59.99/mo or $599.99/yr)**: Everything in Pro + More AI Credits, More Care Team, Priority Support
+- **Lifetime**: One-time purchase for permanent access to all features
+
+### 2. Recalibrate Protocol
+
+The Recalibrate Protocol is a standalone clinical product - an 8-system framework addressing the root biological causes of chronic pain. Based on 250+ peer-reviewed studies.
+
+Components:
+- **12-Month Protocol Maps**: Structured plans across 8 biological systems
+- **8-Day Email Course**: Paced implementation guide delivered daily
+- **Quick Reference Guides**: Printable PDFs for daily use
+- **Research Directory**: 250+ peer-reviewed papers organized by system
+
+URL: https://recalibratepain.app/protocol
+
+## Blog & Educational Content
+
+Recalibrate maintains an evidence-based blog covering chronic pain management topics:
+
+### Published Articles
+
+1. **Understanding Chronic Pain: The Complete Science-Based Guide**
+   - Covers: What chronic pain is, the biopsychosocial model, central sensitization, evidence-based treatments, lifestyle changes
+   - Key insight: Chronic pain is recognized by IASP as a disease in its own right, affecting 1.5 billion people worldwide
+
+2. **Pain Neuroscience Education: How Your Brain Processes Pain**
+   - Covers: Pain does not equal damage, how the brain creates pain, DIMs and SIMs, knowledge as medicine
+   - Key insight: Pain is a protection output created by the brain, not a direct measure of tissue damage
+
+3. **Sleep and Chronic Pain: Breaking the Vicious Cycle**
+   - Covers: Sleep-pain bidirectional relationship, CBT-I as gold standard, bedroom optimization, sleep positions for pain
+   - Key insight: One night of poor sleep can increase pain sensitivity by 15-25%
+
+4. **Mindfulness and Pain Management: Evidence-Based Approaches**
+   - Covers: Mindfulness definition, brain changes from practice, breath awareness, RAIN technique, body scan meditation
+   - Key insight: 2017 meta-analysis found mindfulness produces moderate effects on pain intensity and large effects on quality of life
+
+5. **Building Your Pain Management Support Team**
+   - Covers: Why multidisciplinary care works, core team members, finding providers, coordinating care, self-advocacy
+   - Key insight: Multidisciplinary care produces better outcomes than single-provider treatment
+
+6. **Activity Pacing: Breaking the Boom-Bust Cycle**
+   - Covers: The boom-bust pattern, what pacing is, finding your baseline, using tracking data
+   - Key insight: Doing less on good days and more on bad days creates sustainable activity levels
+
+7. **Fibromyalgia Flare Triggers and Management**
+   - Covers: Common triggers (physical, emotional, lifestyle), identifying personal triggers, flare management strategies
+   - Key insight: Triggers are highly individual and often have delayed effects (24-72 hours)
+
+8. **Central Sensitization: Why Pain Persists After Healing**
+   - Covers: How the nervous system becomes hypersensitive, signs of sensitization, reversibility through neuroplasticity
+   - Key insight: Central sensitization is a real, measurable change in nervous system function that CAN be reversed
+
+9. **Pain Catastrophizing: Breaking Negative Thought Patterns**
+   - Covers: Three components (rumination, magnification, helplessness), how thoughts amplify pain, CBT techniques
+   - Key insight: Catastrophizing accounts for up to 31% of pain severity and is modifiable
+
+10. **Gabapentin Alternatives: Non-Medication Pain Relief**
+    - Covers: Why people seek alternatives, evidence-based non-medication approaches, building a pain plan
+    - Key insight: Non-pharmacological approaches can be equally or more effective than medications for chronic pain
+
+## Free Resources
+
+### Self-Management 101 Course
+A free 8-module course covering:
+1. Understanding Pain (neuroscience of chronic pain)
+2. The 8 Lifelines (core pillars of self-management)
+3. Pacing & Activity (break the boom-bust cycle)
+4. Sleep & Recovery (optimize rest)
+5. Movement & Exercise (safe, graded approaches)
+6. Mind-Body Connection (thoughts, emotions & pain)
+7. Building Your Team (working with healthcare providers)
+8. Your Action Plan (putting it all together)
+
+URL: https://recalibratepain.com/recalibrate101
+
+## Conditions Supported
+
+Recalibrate is designed for people managing:
+- Chronic pain (back pain, neck pain, widespread pain)
+- Fibromyalgia
+- Arthritis (osteoarthritis, rheumatoid arthritis)
+- Migraines and chronic headaches
+- Chronic fatigue syndrome
+- Autoimmune conditions
+- Complex regional pain syndrome (CRPS)
+- Mental health conditions related to chronic illness
+- Rehabilitation from injury or surgery
+- Any condition requiring ongoing self-management
+
+## Target Audience
+
+### Patients & Users
+People living with chronic pain, chronic illness, or complex health conditions who want to take an active role in their health management.
+
+### Allied Health Professionals
+- Physiotherapists / Physical Therapists
+- Occupational Therapists
+- Chiropractors
+- Psychologists
+- Dietitians / Nutritionists
+- Pain Specialists
+- Exercise Physiologists
+
+### Carers & Family
+Family members and caregivers supporting someone with a chronic condition.
+
+## Partnership Opportunities
+
+### Allied Health Clinics
+Integrate Recalibrate into clinical practice with multi-patient dashboards, care team integration, secure data sharing, and progress reports.
+
+### Research Collaborations
+Access anonymized, aggregated health data for allied health and chronic pain research. Longitudinal datasets, multi-variable correlations, and ethical data partnerships.
+
+### Investors
+Support the growth of allied health technology and patient-centered care innovation.
+
+## Technical Details
+- Available on: Web (https://recalibratepain.app)
+- Cohort 1 Launch: March 2026
+- Data: Encrypted, private, user-owned
+- Compliance: Industry-standard security practices
+
+## Contact
+- Website: https://recalibratepain.com
+- App: https://recalibratepain.app
+- Email: info@recalibratepain.com
+- Instagram: https://www.instagram.com/recalibrateapp/
+- LinkedIn: https://www.linkedin.com/company/recalibrate-app/
+- Twitter/X: https://x.com/RecalibrateApp
