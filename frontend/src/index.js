@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import App from './App';
 import FeaturesPage from './pages/FeaturesPage';
@@ -12,11 +12,24 @@ import BlogPostPage from './pages/BlogPostPage';
 import CoursePage from './pages/CoursePage';
 import './index.css';
 
+function RouteTracker() {
+  const location = useLocation();
+  useEffect(() => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('config', 'G-49QJKVP7Y6', {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+  return null;
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <RouteTracker />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/features" element={<FeaturesPage />} />

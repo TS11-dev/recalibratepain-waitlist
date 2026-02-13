@@ -5,6 +5,12 @@ Allow: /favicon-*.png
 Allow: /apple-touch-icon.png
 Allow: /manifest.json
 Allow: /blog/
+Allow: /features
+Allow: /pricing
+Allow: /partners
+Allow: /resources
+Allow: /recalibrate101
+Allow: /course
 Allow: /blog/*.md
 
 # Blog content for AI crawlers
