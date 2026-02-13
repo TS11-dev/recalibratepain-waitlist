@@ -66,6 +66,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
+      <Helmet>
+        <title>Recalibrate - All-in-One Health and Pain Management App</title>
+        <meta name="description" content="The comprehensive allied health platform for chronic pain, chronic illness, and health management. Track 25+ health metrics, learn from our academy, get AI-powered insights, and connect with your care team." />
+        <link rel="canonical" href="https://recalibratepain.com" />
+      </Helmet>
       <Toaster position="top-center" toastOptions={{ style: { borderRadius: '12px', background: '#1f2937', color: '#fff' } }} />
       <Navbar />
 
