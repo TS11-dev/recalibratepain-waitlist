@@ -8,7 +8,7 @@ import time
 import os
 
 # Use production backend URL from frontend .env
-BACKEND_URL = 'https://recalibrate-hub.preview.emergentagent.com'
+BACKEND_URL = 'https://waitlist-redesign.preview.emergentagent.com'
 
 def test_resend_skip_message():
     """Test the Resend skip message when RESEND_API_KEY is missing"""

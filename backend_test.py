@@ -4,7 +4,7 @@ from datetime import datetime
 import json
 
 class RecalibrateAPITester:
-    def __init__(self, base_url="https://recalibrate-hub.preview.emergentagent.com"):
+    def __init__(self, base_url="https://waitlist-redesign.preview.emergentagent.com"):
         self.base_url = base_url
         self.tests_run = 0
         self.tests_passed = 0
