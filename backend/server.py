@@ -462,7 +462,7 @@ async def send_welcome_email(to_email: str, name: str):
 
                 <!-- Intro -->
                 <p style="font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 24px;">
-                    Thank you for joining us. <strong>Recalibrate</strong> is a comprehensive allied health platform built for people living with chronic pain, chronic illness, and complex health conditions &mdash; as well as the clinicians and carers who support them.
+                    Thank you for joining us. <strong>Recalibrate</strong> is a comprehensive allied health platform built for people living with chronic pain, chronic illness, and complex health conditions  - as well as the clinicians and carers who support them.
                 </p>
                 <p style="font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 28px;">
                     We've built an ecosystem that brings together tracking, education, AI insights, therapeutic tools, and connected care into one place. Here's what's coming:
@@ -475,11 +475,11 @@ async def send_welcome_email(to_email: str, name: str):
                 <div style="background-color: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px; border-radius: 0 12px 12px 0; margin-bottom: 16px;">
                     <h4 style="color: #5b21b6; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">For You (Patients &amp; Users)</h4>
                     <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4b5563;">
-                        <li><strong>Smart Tracker</strong> &mdash; Log pain, sleep, mood, energy &amp; 18+ health variables across 8 biological systems</li>
-                        <li><strong>Analytics Dashboard</strong> &mdash; Your personal Stability Score, trend analysis &amp; pattern detection</li>
-                        <li><strong>Recalibrate Academy</strong> &mdash; 100+ lessons on pain science, self-management &amp; wellness strategies</li>
-                        <li><strong>Therapeutic Tools</strong> &mdash; Journaling, goal tracking, guided exercises, CBT &amp; mindfulness</li>
-                        <li><strong>Recalibrate AI</strong> &mdash; Chat about your health data, get personalised insights &amp; research answers</li>
+                        <li><strong>Smart Tracker</strong>  - Log pain, sleep, mood, energy &amp; 18+ health variables across 8 biological systems</li>
+                        <li><strong>Analytics Dashboard</strong>  - Your personal Stability Score, trend analysis &amp; pattern detection</li>
+                        <li><strong>Recalibrate Academy</strong>  - 100+ lessons on pain science, self-management &amp; wellness strategies</li>
+                        <li><strong>Therapeutic Tools</strong>  - Journaling, goal tracking, guided exercises, CBT &amp; mindfulness</li>
+                        <li><strong>Recalibrate AI</strong>  - Chat about your health data, get personalised insights &amp; research answers</li>
                     </ul>
                 </div>
 
@@ -487,10 +487,10 @@ async def send_welcome_email(to_email: str, name: str):
                 <div style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 0 12px 12px 0; margin-bottom: 16px;">
                     <h4 style="color: #1d4ed8; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">For Clinicians</h4>
                     <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4b5563;">
-                        <li><strong>Multi-Patient Dashboard</strong> &mdash; Track all your patients' progress in real-time</li>
-                        <li><strong>Doctor-Ready Reports</strong> &mdash; Export comprehensive health data for appointments</li>
-                        <li><strong>Care Team Integration</strong> &mdash; Collaborate with other professionals in a patient's care team</li>
-                        <li><strong>Research Tools</strong> &mdash; Access aggregated, anonymised data for allied health research</li>
+                        <li><strong>Multi-Patient Dashboard</strong>  - Track all your patients' progress in real-time</li>
+                        <li><strong>Doctor-Ready Reports</strong>  - Export comprehensive health data for appointments</li>
+                        <li><strong>Care Team Integration</strong>  - Collaborate with other professionals in a patient's care team</li>
+                        <li><strong>Research Tools</strong>  - Access aggregated, anonymised data for allied health research</li>
                     </ul>
                 </div>
 
@@ -498,9 +498,9 @@ async def send_welcome_email(to_email: str, name: str):
                 <div style="background-color: #ecfdf5; border-left: 4px solid #10b981; padding: 20px; border-radius: 0 12px 12px 0; margin-bottom: 28px;">
                     <h4 style="color: #059669; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">For Carers &amp; Family</h4>
                     <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4b5563;">
-                        <li><strong>Support Dashboard</strong> &mdash; Understand your loved one's daily health patterns</li>
-                        <li><strong>Progress Visibility</strong> &mdash; See trends and improvements over time</li>
-                        <li><strong>Connected Care</strong> &mdash; Stay in the loop with the care team</li>
+                        <li><strong>Support Dashboard</strong>  - Understand your loved one's daily health patterns</li>
+                        <li><strong>Progress Visibility</strong>  - See trends and improvements over time</li>
+                        <li><strong>Connected Care</strong>  - Stay in the loop with the care team</li>
                     </ul>
                 </div>
 
@@ -508,7 +508,7 @@ async def send_welcome_email(to_email: str, name: str):
                 <h3 style="font-size: 18px; font-weight: 700; color: #1e1b4b; margin: 0 0 16px 0; padding-bottom: 8px; border-bottom: 2px solid #d1fae5;">The Recalibrate Protocol</h3>
                 <div style="background: linear-gradient(135deg, #059669 0%, #0d9488 100%); padding: 24px; border-radius: 12px; margin-bottom: 28px; color: #ffffff;">
                     <p style="font-size: 15px; line-height: 1.7; margin: 0 0 16px 0;">
-                        Our standalone clinical product &mdash; an 8-system framework addressing the root biological causes of chronic pain. Based on 250+ peer-reviewed studies.
+                        Our standalone clinical product  - an 8-system framework addressing the root biological causes of chronic pain. Based on 250+ peer-reviewed studies.
                     </p>
                     <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
                         <tr>
