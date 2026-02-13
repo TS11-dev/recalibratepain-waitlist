@@ -4,6 +4,7 @@ import {
   FileText, Clock, Calendar, Tag, ArrowRight, 
   ArrowLeft, Search, Mail, ExternalLink
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogPosts';
 import { generateOrganizationSchema, useSchemaMarkup } from '../utils/schemaMarkup';
 

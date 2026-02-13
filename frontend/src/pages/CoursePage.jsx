@@ -5,6 +5,7 @@ import {
   Heart, Brain, Activity, Target, Clock, Users,
   Sparkles, FileText
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 export default function CoursePage() {
   useEffect(() => {

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, ExternalLink, FileText, Clock, ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogPosts';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
