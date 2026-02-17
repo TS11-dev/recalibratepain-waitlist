@@ -53,12 +53,12 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
-        <title>Pain Science Blog - Evidence-Based Articles on Chronic Pain | Recalibrate</title>
-        <meta name="description" content="10 evidence-based articles on chronic pain, pain neuroscience, sleep and pain, mindfulness, fibromyalgia, central sensitization, activity pacing and self-management strategies. Written by health professionals." />
+        <title>Pain Science Blog — Evidence-Based Articles on Chronic Pain | Recalibrate</title>
+        <meta name="description" content="10 free articles written by health professionals: pain neuroscience, why chronic pain persists, sleep, mindfulness, fibromyalgia, central sensitization, pacing and more. Actually useful. Actually evidence-based." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com/blog" />
-        <meta property="og:title" content="Pain Science Blog - Evidence-Based Articles on Chronic Pain | Recalibrate" />
-        <meta property="og:description" content="10+ evidence-based articles on chronic pain management, pain neuroscience, sleep, mindfulness, fibromyalgia, central sensitization and self-management from the Recalibrate health team." />
+        <meta property="og:title" content="Pain Science Blog — Evidence-Based Articles on Chronic Pain | Recalibrate" />
+        <meta property="og:description" content="10 articles written by health professionals on chronic pain, pain neuroscience, fibromyalgia, sleep, mindfulness and self-management. Free to read." />
         <meta property="og:url" content="https://recalibratepain.com/blog" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Recalibrate" />
@@ -66,12 +66,12 @@ export default function BlogPage() {
         <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Recalibrate Pain Science Blog - Evidence-Based Chronic Pain Articles" />
+        <meta property="og:image:alt" content="Recalibrate Pain Science Blog — Evidence-Based Chronic Pain Articles" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@RecalibrateApp" />
         <meta name="twitter:creator" content="@RecalibrateApp" />
-        <meta name="twitter:title" content="Pain Science Blog - Evidence-Based Chronic Pain Articles | Recalibrate" />
-        <meta name="twitter:description" content="10+ evidence-based articles: pain neuroscience, sleep, mindfulness, fibromyalgia, central sensitization, pacing and more from the Recalibrate health team." />
+        <meta name="twitter:title" content="Pain Science Blog — Evidence-Based Chronic Pain Articles | Recalibrate" />
+        <meta name="twitter:description" content="Pain neuroscience, fibromyalgia, sleep, mindfulness and self-management — 10 evidence-based articles written by health professionals. Free to read." />
         <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org", "@type": "BreadcrumbList",
