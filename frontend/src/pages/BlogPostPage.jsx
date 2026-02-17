@@ -1401,15 +1401,26 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
-        <title>{post.title} - Recalibrate Blog</title>
+        <title>{post.title} | Recalibrate Pain Science Blog</title>
         <meta name="description" content={post.metaDescription || post.excerpt} />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`https://recalibratepain.com/blog/${post.slug}`} />
-        <meta property="og:title" content={`${post.title} - Recalibrate Blog`} />
+        <meta property="og:title" content={`${post.title} | Recalibrate`} />
         <meta property="og:description" content={post.metaDescription || post.excerpt} />
         <meta property="og:url" content={`https://recalibratepain.com/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
-        <meta name="twitter:title" content={`${post.title} - Recalibrate Blog`} />
+        <meta property="og:site_name" content="Recalibrate" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${post.title} - Recalibrate Pain Science Blog`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@RecalibrateApp" />
+        <meta name="twitter:creator" content="@RecalibrateApp" />
+        <meta name="twitter:title" content={`${post.title} | Recalibrate`} />
         <meta name="twitter:description" content={post.metaDescription || post.excerpt} />
+        <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
       </Helmet>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">
