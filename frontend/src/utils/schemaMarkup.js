@@ -213,25 +213,25 @@ export const generateOrganizationSchema = (siteUrl = 'https://recalibratepain.co
 // Hook to inject schema into page head
 export const useSchemaMarkup = (schemas) => {
   useEffect(() => {
-    // Remove any existing schema scripts
-    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
-    existingScripts.forEach(script => script.remove());
-    
-    // Add new schema scripts
+    // Only add/update the scripts managed by this hook (by ID), never remove unrelated scripts
     schemas.forEach((schema, index) => {
       if (schema) {
+        const id = `schema-hook-${index}`;
+        const existing = document.getElementById(id);
+        if (existing) existing.remove();
+
         const script = document.createElement('script');
         script.type = 'application/ld+json';
-        script.id = `schema-${index}`;
+        script.id = id;
         script.textContent = JSON.stringify(schema);
         document.head.appendChild(script);
       }
     });
-    
-    // Cleanup on unmount
+
+    // Cleanup on unmount — only remove what this hook added
     return () => {
       schemas.forEach((_, index) => {
-        const script = document.getElementById(`schema-${index}`);
+        const script = document.getElementById(`schema-hook-${index}`);
         if (script) script.remove();
       });
     };
