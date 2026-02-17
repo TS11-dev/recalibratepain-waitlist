@@ -84,12 +84,26 @@ export default function PartnersPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
-        <title>Partners - Recalibrate Allied Health Platform</title>
-        <meta name="description" content="Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities. Integrate our platform into your practice or research." />
+        <title>Partnerships &amp; Investment - Allied Health Clinics, Research &amp; Investors | Recalibrate</title>
+        <meta name="description" content="Partner with Recalibrate: Allied health clinics get multi-patient dashboards, researchers access anonymised longitudinal data, investors join a $600B+ market opportunity. $250K pre-seed at $1M valuation." />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com/partners" />
-        <meta property="og:title" content="Partners - Recalibrate Allied Health Platform" />
-        <meta property="og:description" content="Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities. Integrate our platform into your practice or research." />
+        <meta property="og:title" content="Partnerships & Investment - Allied Health Clinics, Research & Investors | Recalibrate" />
+        <meta property="og:description" content="Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities. Join us in revolutionising patient care. $600B+ market, $250K pre-seed open." />
         <meta property="og:url" content="https://recalibratepain.com/partners" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Recalibrate" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Recalibrate Partnerships - Allied Health Clinics, Research and Investor Opportunities" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@RecalibrateApp" />
+        <meta name="twitter:creator" content="@RecalibrateApp" />
+        <meta name="twitter:title" content="Partnerships & Investment | Recalibrate Allied Health Platform" />
+        <meta name="twitter:description" content="Allied health clinics, research collaborations and investor opportunities. $600B+ market. $250K pre-seed at $1M valuation. Join us." />
+        <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org", "@type": "WebPage", "name": "Recalibrate Partners",
           "description": "Partner with Recalibrate: Allied health clinics, research collaborations and investor opportunities.",

@@ -12,12 +12,26 @@ export default function ResourcesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
-        <title>Resources - Recalibrate Health & Wellness Courses and Tools</title>
-        <meta name="description" content="Access Recalibrate resources: Self-Management 101 course, evidence-based blog articles, community support and wellness tools for chronic pain management." />
+        <title>Free Resources - Pain Science Blog, Courses &amp; Tools | Recalibrate</title>
+        <meta name="description" content="Free evidence-based resources for chronic pain: 10+ Pain Science Academy articles, Self-Management 101 course (8 modules, no signup needed), downloadable guides and community support." />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com/resources" />
-        <meta property="og:title" content="Resources - Recalibrate Health & Wellness Courses and Tools" />
-        <meta property="og:description" content="Access Recalibrate resources: Self-Management 101 course, evidence-based blog articles, community support and wellness tools for chronic pain management." />
+        <meta property="og:title" content="Free Resources - Pain Science Blog, Courses & Tools | Recalibrate" />
+        <meta property="og:description" content="Free evidence-based resources for chronic pain management: 10+ blog articles, Self-Management 101 course, downloadable guides, and community support tools." />
         <meta property="og:url" content="https://recalibratepain.com/resources" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Recalibrate" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Recalibrate Free Resources - Chronic Pain Blog, Courses and Tools" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@RecalibrateApp" />
+        <meta name="twitter:creator" content="@RecalibrateApp" />
+        <meta name="twitter:title" content="Free Resources - Pain Science Blog, Courses & Tools | Recalibrate" />
+        <meta name="twitter:description" content="Free chronic pain resources: 10+ evidence-based articles, Self-Management 101 course (8 modules, no signup), and downloadable guides." />
+        <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org", "@type": "CollectionPage", "name": "Recalibrate Resources",
           "description": "Free courses, evidence-based articles, and wellness tools for chronic pain self-management.",
