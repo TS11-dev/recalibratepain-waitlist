@@ -38,12 +38,12 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
-        <title>Pricing - Free, Go, Pro, Super &amp; Lifetime Plans | Recalibrate</title>
-        <meta name="description" content="Simple, transparent pricing. Free tier with 18+ metric tracking. Go from $12.99/mo, Pro from $34.99/mo with AI insights and care team, Super from $59.99/mo. Lifetime access $999.99. Launch Q1 2026." />
+        <title>Recalibrate Pricing — Free to Start, Unlock More as You Grow</title>
+        <meta name="description" content="Start free with full symptom tracking. Unlock the Pain Science Academy from $12.99/mo, AI insights and care team from $34.99/mo. Lifetime access $999.99. Get early access when we launch Q1 2026." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com/pricing" />
-        <meta property="og:title" content="Pricing - Free, Go, Pro, Super & Lifetime Plans | Recalibrate" />
-        <meta property="og:description" content="Simple, transparent pricing for Recalibrate. Free tier available. Go from $12.99/mo, Pro from $34.99/mo, Super from $59.99/mo, or Lifetime access for $999.99. Launching Q1 2026." />
+        <meta property="og:title" content="Recalibrate Pricing — Free to Start, Unlock More as You Grow" />
+        <meta property="og:description" content="Start free with full symptom tracking. Unlock the Pain Science Academy from $12.99/mo, AI insights and care team from $34.99/mo. Lifetime access $999.99. Q1 2026 launch." />
         <meta property="og:url" content="https://recalibratepain.com/pricing" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Recalibrate" />
@@ -51,12 +51,12 @@ export default function PricingPage() {
         <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Recalibrate Pricing Plans - Free, Go, Pro, Super and Lifetime" />
+        <meta property="og:image:alt" content="Recalibrate Pricing Plans — Free, Go, Pro, Super and Lifetime" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@RecalibrateApp" />
         <meta name="twitter:creator" content="@RecalibrateApp" />
-        <meta name="twitter:title" content="Pricing - Free, Go, Pro, Super & Lifetime Plans | Recalibrate" />
-        <meta name="twitter:description" content="Free tier available. Go $12.99/mo, Pro $34.99/mo with AI & care team, Super $59.99/mo, Lifetime $999.99. Allied health platform for chronic pain." />
+        <meta name="twitter:title" content="Recalibrate Pricing — Free to Start, Unlock More as You Grow" />
+        <meta name="twitter:description" content="Free tracking, Academy from $12.99/mo, AI + care team from $34.99/mo, Lifetime $999.99. Join the Q1 2026 waitlist now." />
         <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org", "@type": "Product", "name": "Recalibrate App",
