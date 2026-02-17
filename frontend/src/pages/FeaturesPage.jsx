@@ -67,12 +67,26 @@ export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
-        <title>App Features - Recalibrate Health & Pain Management Platform</title>
-        <meta name="description" content="Explore Recalibrate's features: Smart Tracker, Analytics Dashboard, Pain Science Academy, AI Insights, Therapeutic Tools, Care Team Integration and more." />
+        <title>App Features - Smart Tracker, AI Insights &amp; Care Team | Recalibrate</title>
+        <meta name="description" content="Explore Recalibrate's 6 core features: Smart Tracker (18+ metrics), Analytics Dashboard with Stability Score, Pain Science Academy (100+ lessons), Recalibrate AI, Therapeutic Tools, and Care Team integration." />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com/features" />
-        <meta property="og:title" content="App Features - Recalibrate Health & Pain Management Platform" />
-        <meta property="og:description" content="Explore Recalibrate's features: Smart Tracker, Analytics Dashboard, Pain Science Academy, AI Insights, Therapeutic Tools, Care Team Integration and more." />
+        <meta property="og:title" content="App Features - Smart Tracker, AI Insights & Care Team | Recalibrate" />
+        <meta property="og:description" content="Explore Recalibrate's 6 core features: Smart Tracker (18+ metrics), Stability Score analytics, Pain Science Academy (100+ lessons), Recalibrate AI, Therapeutic Tools, and Care Team integration." />
         <meta property="og:url" content="https://recalibratepain.com/features" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Recalibrate" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Recalibrate App Features - Smart Tracking, AI Insights and Care Team" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@RecalibrateApp" />
+        <meta name="twitter:creator" content="@RecalibrateApp" />
+        <meta name="twitter:title" content="App Features - Smart Tracker, AI Insights & Care Team | Recalibrate" />
+        <meta name="twitter:description" content="Smart Tracker (18+ metrics), Stability Score analytics, Pain Science Academy (100+ lessons), Recalibrate AI, Therapeutic Tools, Care Team." />
+        <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",

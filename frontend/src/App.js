@@ -67,9 +67,26 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
-        <title>Recalibrate - All-in-One Health and Pain Management App</title>
-        <meta name="description" content="The comprehensive allied health platform for chronic pain, chronic illness, and health management. Track 25+ health metrics, learn from our academy, get AI-powered insights, and connect with your care team." />
+        <title>Recalibrate - AI-Powered Health &amp; Chronic Pain Management App</title>
+        <meta name="description" content="Track 18+ health metrics, access 100+ lessons in the Pain Science Academy, get AI-powered insights, and connect with your care team. Comprehensive allied health platform for chronic pain and chronic illness. Launching Q1 2026." />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com" />
+        <meta property="og:title" content="Recalibrate - AI-Powered Health & Chronic Pain Management App" />
+        <meta property="og:description" content="Track 18+ health metrics, access 100+ lessons in the Pain Science Academy, get AI-powered insights, and connect with your care team. Launching on iOS, Android & Web Q1 2026." />
+        <meta property="og:url" content="https://recalibratepain.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Recalibrate" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Recalibrate - AI-Powered Health & Chronic Pain Management App" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@RecalibrateApp" />
+        <meta name="twitter:creator" content="@RecalibrateApp" />
+        <meta name="twitter:title" content="Recalibrate - AI-Powered Health & Chronic Pain Management App" />
+        <meta name="twitter:description" content="Track 18+ health metrics, Pain Science Academy, AI insights, care team. Allied health platform for chronic pain. Launching Q1 2026." />
+        <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
       </Helmet>
       <Toaster position="top-center" toastOptions={{ style: { borderRadius: '12px', background: '#1f2937', color: '#fff' } }} />
       <Navbar />
