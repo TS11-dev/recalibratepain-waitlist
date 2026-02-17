@@ -1,39 +1,28 @@
 # Recalibrate
 
-> Comprehensive allied health platform for chronic pain, chronic illness, and health management.
+> AI-powered chronic pain and allied health management platform built from 5 years of lived experience with fibromyalgia. Launching on iOS, Android and Web in Q1 2026.
 
-## About
-Recalibrate is an all-in-one health and pain management platform designed for patients, clinicians, and carers. It combines symptom tracking, education, AI-powered insights, therapeutic tools, and connected care.
+## Pages
+- [Home](https://recalibratepain.com): Platform overview, app waitlist and ecosystem hub
+- [Features](https://recalibratepain.com/features): Smart Tracker, Analytics Dashboard, Pain Science Academy, Recalibrate AI, Tools & Exercises, Care Team
+- [Pricing](https://recalibratepain.com/pricing): Free, Go ($12.99/mo), Pro ($34.99/mo), Super ($59.99/mo), Lifetime ($999.99)
+- [Blog](https://recalibratepain.com/blog): 10+ evidence-based articles on pain science, sleep, mindfulness, fibromyalgia and self-management
+- [Resources](https://recalibratepain.com/resources): Free courses, downloadable guides, community support
+- [Partners](https://recalibratepain.com/partners): Allied health clinics, research collaborations, investor opportunities
+- [Self-Management 101](https://recalibratepain.com/recalibrate101): Free 8-module chronic pain course (PDF, no signup)
+- [Recalibrate Protocol](https://recalibratepain.app/protocol): Standalone clinical product — 50+ protocols across 8 biological systems, $149.99 lifetime access
 
-## Key Products
+## Product
+Recalibrate is a comprehensive allied health platform for patients managing chronic pain, chronic illness, and complex health conditions. It combines 18+ metric health tracking, a Pain Science Academy with 100+ evidence-based lessons, AI-powered health insights (Recalibrate AI), therapeutic tools (journaling, CBT, mindfulness, goal tracking), medication tracking, and a connected care team for clinicians and family.
 
-### Recalibrate App
-- Smart Tracker: 18+ health variables across 8 biological systems
-- Analytics Dashboard: Stability Score, trend analysis, pattern detection
-- Pain Science Academy: 100+ evidence-based lessons
-- Therapeutic Tools: Journaling, goal tracking, guided exercises, CBT, mindfulness
-- Recalibrate AI: Chat about health data, get personalized insights
-- Care Team: Connect patients with clinicians and family
+Serves three user types: Patients, Allied Health Clinicians (physiotherapists, occupational therapists, chiropractors, psychologists, dietitians), and Carers/Family.
 
-### Recalibrate Protocol
-- 8-system clinical framework for chronic pain
-- 12-month protocol maps
-- 8-day email course
-- Quick reference guides
-- Research directory with 250+ peer-reviewed studies
-- URL: https://recalibratepain.app/protocol
-
-## Links
-- Website: https://recalibratepain.com
-- App: https://recalibratepain.app
-- Blog: https://recalibratepain.com/blog
-- Features: https://recalibratepain.com/features
-- Pricing: https://recalibratepain.com/pricing
-- Partners: https://recalibratepain.com/partners
-- Resources: https://recalibratepain.com/resources
-- Course: https://recalibratepain.com/recalibrate101
-- Instagram: https://www.instagram.com/recalibrateapp/
-- LinkedIn: https://www.linkedin.com/company/recalibrate-app/
+## Recalibrate Protocol
+The Recalibrate Protocol is a standalone science-based product addressing root biological causes of chronic pain across 8 systems: Digestive, Endocrine, Sleep, Immune, Autonomic, Neural, Musculoskeletal and Cognitive. Includes 50+ protocols, 8-day email course, quick reference guides and 250+ research paper directory. One-time payment $149.99 (was $300). URL: https://recalibratepain.app/protocol
 
 ## Contact
 - Email: info@recalibratepain.com
+- Instagram: https://www.instagram.com/recalibrateapp/
+- LinkedIn: https://www.linkedin.com/company/recalibrate-app/
+- Twitter/X: https://x.com/RecalibrateApp
+- Newsletter: https://recalibrate.beehiiv.com/

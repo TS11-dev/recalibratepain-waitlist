@@ -1,34 +1,36 @@
 User-agent: *
 Allow: /
-Allow: /favicon.ico
-Allow: /favicon-*.png
-Allow: /apple-touch-icon.png
-Allow: /manifest.json
-Allow: /blog/
-Allow: /llms.txt
-Allow: /llms-full.txt
+Disallow: /api/
+
+# Explicitly allow all crawlable content
 Allow: /features
 Allow: /pricing
 Allow: /partners
 Allow: /resources
-Allow: /recalibrate101
-Allow: /course
-Allow: /blog/*.md
-
-# Blog content for AI crawlers
-User-agent: GPTBot
+Allow: /blog
 Allow: /blog/
+Allow: /recalibrate101
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+
+# AI crawlers — allow all educational content
+User-agent: GPTBot
+Allow: /
 
 User-agent: ChatGPT-User
-Allow: /blog/
+Allow: /
 
 User-agent: Google-Extended
-Allow: /blog/
+Allow: /
 
 User-agent: anthropic-ai
-Allow: /blog/
+Allow: /
 
 User-agent: ClaudeBot
-Allow: /blog/
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 
 Sitemap: https://recalibratepain.com/sitemap.xml
