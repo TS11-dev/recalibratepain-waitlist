@@ -26,12 +26,12 @@ export default function CoursePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-indigo-50">
       <Helmet>
-        <title>Self-Management 101 - Free 8-Module Chronic Pain Course | Recalibrate</title>
-        <meta name="description" content="Free downloadable course: 8 evidence-based modules covering pain neuroscience, the 8 Lifelines framework, activity pacing, sleep, movement, mind-body connection and your action plan. No signup required." />
+        <title>Self-Management 101 — Free 8-Module Chronic Pain Course | Recalibrate</title>
+        <meta name="description" content="Free downloadable course built for people living with chronic pain. 8 modules: pain neuroscience, the 8 Lifelines, pacing, sleep, movement and your action plan. No signup. Download now." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com/recalibrate101" />
-        <meta property="og:title" content="Self-Management 101 - Free 8-Module Chronic Pain Course | Recalibrate" />
-        <meta property="og:description" content="Free 8-module course covering pain neuroscience, the 8 Lifelines framework, pacing, sleep, movement and your chronic pain action plan. Download instantly, no signup needed." />
+        <meta property="og:title" content="Self-Management 101 — Free 8-Module Chronic Pain Course | Recalibrate" />
+        <meta property="og:description" content="Free 8-module course built for chronic pain patients. Pain neuroscience, the 8 Lifelines, pacing, sleep, movement and your action plan. No signup. Download now." />
         <meta property="og:url" content="https://recalibratepain.com/recalibrate101" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Recalibrate" />
@@ -39,12 +39,12 @@ export default function CoursePage() {
         <meta property="og:image" content="https://recalibratepain.com/social-preview.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Recalibrate Self-Management 101 - Free Chronic Pain Course" />
+        <meta property="og:image:alt" content="Recalibrate Self-Management 101 — Free Chronic Pain Course" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@RecalibrateApp" />
         <meta name="twitter:creator" content="@RecalibrateApp" />
-        <meta name="twitter:title" content="Self-Management 101 - Free 8-Module Chronic Pain Course | Recalibrate" />
-        <meta name="twitter:description" content="Free 8-module course: pain neuroscience, 8 Lifelines framework, pacing, sleep and your action plan. Download instantly, no signup required." />
+        <meta name="twitter:title" content="Self-Management 101 — Free 8-Module Chronic Pain Course | Recalibrate" />
+        <meta name="twitter:description" content="Free course for chronic pain patients: pain neuroscience, 8 Lifelines, pacing, sleep and action plan. 8 modules, no signup, download now." />
         <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org", "@type": "Course",
