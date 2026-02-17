@@ -1,0 +1,55 @@
+{
+  "summary": "SEO/meta tag testing across all pages. Most features working correctly. One issue found: blog post og:type renders as 'website' instead of 'article' in the DOM despite BlogPostPage.jsx having correct og:type=article - App.js default Helmet og:type=website is overriding the page-level tag.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Blog post SEO meta tag",
+        "issue": "og:type renders as 'website' instead of 'article' on blog post pages. App.js Helmet has og:type=website which overrides BlogPostPage's og:type=article. In react-helmet-async, the last Helmet in the tree should win, but App.js's value is winning.",
+        "affected_selectors": ["meta[property='og:type']"],
+        "priority": "MEDIUM"
+      }
+    ],
+    "design_issues": []
+  },
+  "test_results": {
+    "homepage_title": "PASS - 'Recalibrate - AI-Powered Health & Chronic Pain Management App'",
+    "homepage_og_image": "PASS - https://recalibratepain.com/social-preview.jpg",
+    "homepage_og_type": "PASS - website",
+    "homepage_og_site_name": "PASS - Recalibrate - Allied Health Platform",
+    "homepage_og_locale": "PASS - en_US",
+    "homepage_twitter_card": "PASS - summary_large_image",
+    "homepage_robots": "PASS - index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "homepage_json_ld": "PASS - SoftwareApplication/MedicalWebPage, WebSite, FAQPage schemas present",
+    "features_page_meta": "PASS - og:image, og:type=website, og:site_name, twitter:card all present",
+    "pricing_page_meta": "PASS - og:image, og:type=website, twitter:card all present",
+    "partners_page_meta": "PASS - og:image, og:site_name, twitter:card all present",
+    "resources_page_meta": "PASS - og:image, twitter:card all present",
+    "blog_page_meta": "PASS - og:image, twitter:card all present",
+    "blog_post_og_image": "PASS - og:image present",
+    "blog_post_og_type": "FAIL - shows 'website', expected 'article'",
+    "blog_post_twitter_image": "PASS - present",
+    "blog_post_json_ld": "PASS - Article, FAQPage, BreadcrumbList, Organization schemas present",
+    "course_page_meta": "PASS - og:image, twitter:card all present",
+    "404_page": "PASS - custom 404 with home/blog/pricing links (data-testid attributes working)",
+    "sitemap_url_count": "PASS - 17 URLs, no blog/README.md entry",
+    "robots_txt": "PASS - Disallow /api/ present, Sitemap line present, AI crawlers allowed",
+    "llms_txt": "PASS - Protocol $149.99 and Q1 2026 launch info present"
+  },
+  "test_report_links": ["/app/test_reports/iteration_5.json"],
+  "action_items": [
+    "Fix blog post og:type: App.js global Helmet og:type=website is overriding BlogPostPage's og:type=article. One fix is to not include og:type in App.js's default Helmet, and let each page Helmet set it individually. Or ensure BlogPostPage Helmet renders after App.js in the tree order."
+  ],
+  "critical_code_review_comments": [
+    "App.js Helmet contains og:type=website as a default. When BlogPostPage renders its own Helmet with og:type=article, the app-level tag wins, resulting in wrong og:type for blog posts. react-helmet-async should allow page-level overrides, but the current setup has a conflict."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "93% (13/14 SEO checks pass)"},
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "All SEO meta tags working except blog post og:type which shows 'website' instead of 'article'. Check if react-helmet-async properly overrides og:type from App.js (global Helmet) with page-level Helmet in BlogPostPage."
+}
