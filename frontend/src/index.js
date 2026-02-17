@@ -11,6 +11,7 @@ import ResourcesPage from './pages/ResourcesPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import CoursePage from './pages/CoursePage';
+import NotFoundPage from './pages/NotFoundPage';
 import './index.css';
 
 function RouteTracker() {
@@ -42,6 +43,7 @@ root.render(
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/recalibrate101" element={<CoursePage />} />
           <Route path="/course" element={<CoursePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Toaster position="top-center" />
       </BrowserRouter>
