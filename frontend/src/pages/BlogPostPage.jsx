@@ -14,8 +14,150 @@ import {
   useSchemaMarkup 
 } from '../utils/schemaMarkup';
 
+// Concentric zones diagram component
+const ZonesDiagram = () => (
+  <div className="my-8 flex flex-col items-center">
+    <div className="relative flex items-center justify-center" style={{ width: '300px', height: '300px' }}>
+      {/* Growth Zone - outermost */}
+      <div className="absolute inset-0 rounded-full border-2 border-dashed border-blue-400 bg-blue-50 flex items-start justify-center pt-3">
+        <div className="text-center px-2">
+          <span className="text-xs font-bold text-blue-700 uppercase tracking-wider block">Growth Zone</span>
+          <span className="text-xs text-blue-500 block">Flow Architecture</span>
+        </div>
+      </div>
+      {/* Learning Zone */}
+      <div className="absolute rounded-full border-2 border-dashed border-amber-400 bg-amber-50 flex items-start justify-center pt-3" style={{ width: '218px', height: '218px' }}>
+        <div className="text-center px-2">
+          <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block">Learning Zone</span>
+          <span className="text-xs text-amber-500 block">Neuroplasticity Active</span>
+        </div>
+      </div>
+      {/* Fear Zone */}
+      <div className="absolute rounded-full border-2 border-dashed border-red-400 bg-red-50 flex items-start justify-center pt-2" style={{ width: '145px', height: '145px' }}>
+        <div className="text-center px-2">
+          <span className="text-xs font-bold text-red-700 uppercase tracking-wider block">Fear Zone</span>
+          <span className="text-xs text-red-400 block">Amygdala Hijack</span>
+        </div>
+      </div>
+      {/* Comfort Zone - innermost */}
+      <div className="absolute rounded-full border-2 border-green-400 bg-green-50 flex items-center justify-center" style={{ width: '80px', height: '80px' }}>
+        <div className="text-center px-1">
+          <span className="text-xs font-bold text-green-700 uppercase tracking-wider leading-tight block">Comfort<br/>Zone</span>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-400 mt-3 text-center max-w-xs">Each outer zone requires managing the one before it. There is no shortcut from Comfort to Growth.</p>
+  </div>
+);
+
 // Full blog content for each post - written in Tristan Siokos's voice
 const blogContent = {
+  'neuroscience-comfort-zone-growth': {
+    sections: [
+      {
+        title: "The Phrase That Gets Misused More Than Any Other",
+        content: `"Get out of your comfort zone."
+
+You have heard this a thousand times. From coaches, managers, motivational speakers, gym posters.
+
+Almost none of them explain what is actually happening in the brain when you do. Or do not.
+
+The four-zone model is not just a motivational framework. It is a neurological map. Each zone represents a distinct biological state with a distinct neurochemical signature. The transition between zones is not a mindset shift. It is a physiological process.
+
+And once you understand the biology, you have leverage that "push through it" never gives you.`
+      },
+      {
+        title: "The 4 Zones: Your Brain's Actual Map",
+        content: `This is what the diagram shows. Not just where you sit emotionally but what your nervous system is doing in each zone.
+
+**The Comfort Zone (The Stagnation Trap)**
+The Science: This is a state of Neural Autopilot. When you stop encountering novelty, your brain prioritizes metabolic efficiency over growth. It begins Synaptic Pruning, literally deleting unused neural pathways to conserve energy. The brain is always editing itself based on what you actually use.
+💡 If you are not building new circuits, you are losing the ones you have. Comfort is not neutral. It is a slow subtraction.
+
+**The Fear Zone (The Amygdala Hijack)**
+The Science: This is the HPA Axis in overdrive. Encountering the unknown triggers a cortisol surge that physically shrinks the Prefrontal Cortex (your decision-making and rational evaluation center) and enlarges the Amygdala. You lose access to your CEO and get stuck running on your alarm system.
+💡 Most people retreat here not because they are weak but because they lack the biological protocols to flush cortisol and stay cognitively online.
+
+**The Learning Zone (The Rewiring Phase)**
+The Science: Manageable discomfort triggers the release of Norepinephrine and Acetylcholine. Think of these as chemical highlighters. They mark specific synapses for Neuroplasticity, signaling the brain to physically reshape itself around the new skill or experience. No friction = no chemical signal = no rewiring.
+💡 This is where you upgrade your hardware. Not through motivation. Through chemistry.
+
+**The Growth Zone (The Flow Architecture)**
+The Science: This is a state of Prefrontal Oxygenation. When you consistently manage the Fear Zone without retreating, you build Cognitive Reserve: redundant neural pathways that make your brain genuinely resilient to stress and cognitive aging.
+💡 You are not just "finding purpose." You are operating at peak biological capacity.`,
+        diagram: 'zones'
+      },
+      {
+        title: "The Biology of Retreating: Why the Fear Zone Wins by Default",
+        content: `The Fear Zone is neurologically persuasive.
+
+When the amygdala fires, it does three things simultaneously:
+- Cortisol suppresses prefrontal activity (rational thinking goes offline)
+- Norepinephrine narrows attention to the perceived threat
+- The body primes for retreat: increased heart rate, shallow breathing, muscle tension
+
+Your biology is actively working to push you back into the Comfort Zone. This is not a character flaw. It is a survival mechanism that evolved for short-term physical threats.
+
+The problem: it applies the same response to giving a presentation, starting a new business, reintroducing movement after chronic pain, or having a difficult conversation.
+
+**The Science:** The amygdala cannot distinguish between a genuine threat and a novel challenge. To the amygdala, both look like danger. The cortisol response is identical.
+
+This means retreating from the Fear Zone is the biologically expected outcome. Staying in it is the skill. And skills are trainable.`
+      },
+      {
+        title: "The Protocols: How to Stay Online in the Fear Zone",
+        content: `Staying in the Fear Zone is not a matter of wanting it more. It is a matter of actively flushing cortisol and restoring Prefrontal function before you make the decision to retreat.
+
+**Protocol 1: Box Breathing (The Cortisol Flush)**
+Inhale 4s, hold 4s, exhale 4s, hold 4s. This directly activates the vagus nerve and parasympathetic nervous system, interrupting the HPA axis response. Do this before making any decision in the Fear Zone.
+The mechanism: extended exhale activates the vagal brake → parasympathetic activity → cortisol levels begin dropping → prefrontal access returns.
+
+**Protocol 2: Grounding (The Thalamic Re-tune)**
+Name 5 things you can see, 4 you can physically feel. This re-tunes the thalamus (the sensory relay station) which becomes hyperactive during amygdala activation, amplifying every signal as a threat. Grounding gives it accurate, neutral sensory data.
+
+**Protocol 3: Reframe the Signal**
+The physical sensation of the Fear Zone (elevated heart rate, heightened alertness) is neurologically identical to excitement. This is not a metaphor. The physiological signature is the same. Your interpretation is the variable.
+Telling yourself "I am excited" rather than "I am afraid" in the Fear Zone has been shown in research to improve performance outcomes because it keeps the Prefrontal Cortex in the evaluation seat rather than handing control to the amygdala.
+
+**Protocol 4: Minimum Viable Action**
+The longest you stay frozen in the Fear Zone, the stronger the amygdala's case becomes. Take the smallest possible action in the direction of the Learning Zone. Movement breaks the cortisol loop. Any movement.`
+      },
+      {
+        title: "Building Cognitive Reserve: The Long-Term Payoff",
+        content: `Cognitive Reserve is the Growth Zone's most important product. And most people have never heard of it.
+
+**The Science:** Cognitive Reserve refers to the brain's capacity to maintain function under stress, injury, or aging by using alternative neural pathways. It is built through:
+- Consistently engaging in novel, challenging tasks
+- Managing the Fear Zone repeatedly without permanent retreat
+- Learning new skills that require the brain to form new networks
+- Physical exercise (which releases BDNF, the brain's primary growth factor)
+
+People with higher Cognitive Reserve show later onset of cognitive decline, better recovery from neurological injury, and greater resilience to chronic stress. This is not a supplement or a hack. It is the compounding effect of spending time in the Learning and Growth Zones over years.
+
+**For chronic pain specifically:** Cognitive Reserve directly impacts pain resilience. A brain with robust redundant pathways is more capable of activating its own descending inhibitory systems, regulating the emotional distress component of pain, and maintaining function under the cognitive load that chronic pain creates.
+
+Building Cognitive Reserve is not separate from chronic pain management. It is part of it.`
+      },
+      {
+        title: "Why This Applies Directly to Chronic Pain Recovery",
+        content: `The four-zone model is not just a performance framework. It maps directly onto what happens in chronic pain recovery.
+
+**Comfort Zone in chronic pain:** Complete avoidance of feared movements and activities. Feels safe. Is actively making the sensitization worse through deconditioning and reinforced fear-avoidance memory in the amygdala.
+
+**Fear Zone in chronic pain:** Attempting any movement beyond your current baseline. The amygdala fires. Cortisol rises. The Prefrontal Cortex loses the ability to accurately assess whether the movement is actually harmful or just unfamiliar.
+This is why graded exposure requires protocols. Without them, the Fear Zone reliably triggers retreat.
+
+**Learning Zone in chronic pain:** Graded exposure done correctly. Manageable discomfort. Norepinephrine and acetylcholine release marking the nervous system for rewiring. The amygdala's threat memory is being updated with new, accurate information: this movement is safe.
+
+**Growth Zone in chronic pain:** Restored function, reduced fear-avoidance, built Cognitive Reserve, and a nervous system that has learned to distinguish between threat and challenge.
+
+The biology of growth and the biology of chronic pain recovery are the same biology.
+
+Recalibrate builds the protocols to manage your nervous system through all four zones: the education, the tracking, the pacing tools, the care team integration. So you can spend less time in the Comfort Zone of avoidance and more time in the zones where recovery actually happens.`
+      }
+    ]
+  },
+
   'understanding-chronic-pain-science-based-guide': {
     sections: [
       {
@@ -1534,8 +1676,35 @@ export default function BlogPostPage() {
                     );
                   })}
                 </div>
+                {/* Render diagram if section has one */}
+                {section.diagram === 'zones' && <ZonesDiagram />}
               </section>
             ))}
+          </div>
+
+          {/* Author Bio */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-lg">TS</span>
+              </div>
+              <div>
+                <p className="font-bold text-gray-900 text-base">Tristan Siokos</p>
+                <p className="text-sm text-purple-600 font-medium mb-2">Founder, Recalibrate</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Building the protocols to manage your biological operating system. Recalibrate is an all-in-one health and pain management ecosystem for patients, clinicians, and coaches.
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/tristan-siokos-750a86247/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm mt-3 hover:text-blue-800 transition-colors"
+                  data-testid="author-linkedin-link"
+                >
+                  <Linkedin className="w-4 h-4" /> Follow on LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* LinkedIn CTA (if post has a linked LinkedIn post) */}

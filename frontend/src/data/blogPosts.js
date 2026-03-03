@@ -145,6 +145,22 @@ export const blogPosts = [
     keywords: ['pain catastrophizing neuroscience', 'how to stop catastrophizing pain', 'amygdala and chronic pain', 'CBT for chronic pain', 'threat detection and pain']
   },
   {
+    id: 11,
+    slug: 'neuroscience-comfort-zone-growth',
+    title: 'People Talk About Getting Out of Your Comfort Zone. Here Is the Neuroscience of Why It Actually Works.',
+    excerpt: 'Comfort zone, fear zone, learning zone, growth zone. Everyone uses these words. Almost nobody explains the biology underneath them. Here is what is actually happening in your brain across all four.',
+    category: 'Neuroscience',
+    readTime: '9 min read',
+    date: 'February 20, 2026',
+    color: 'indigo',
+    author: 'Tristan Siokos',
+    authorTitle: 'Founder, Recalibrate',
+    linkedInUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:7423341233324064768',
+    tags: ['comfort zone', 'neuroplasticity', 'amygdala', 'cognitive reserve', 'HPA axis'],
+    metaDescription: 'The neuroscience behind the 4 psychological zones. Tristan Siokos explains what synaptic pruning, the amygdala hijack, norepinephrine, and cognitive reserve actually mean for growth.',
+    keywords: ['neuroscience comfort zone', 'amygdala hijack explained', 'neuroplasticity and growth', 'cognitive reserve brain', 'comfort zone biology']
+  },
+  {
     id: 10,
     slug: 'gabapentin-alternatives-non-medication-pain-relief',
     title: 'Gabapentin is Prescribed 15 Million Times a Year. The Research Points to a Better Way.',

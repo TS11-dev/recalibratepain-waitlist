@@ -112,10 +112,13 @@ export default function BlogPage() {
             <span className="text-sm font-semibold text-purple-700">Recalibrate Blog</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-            Pain Science & <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Wellness</span>
+            Neuroscience <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Made Usable</span>
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Evidence-based articles on chronic pain management, neuroscience, and recovery strategies written by health professionals.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+            The science your clinician never had time to explain. Written by Tristan Siokos, Founder of Recalibrate.
+          </p>
+          <p className="text-sm text-gray-400 max-w-xl mx-auto mb-8">
+            No generic advice. No em dashes. Just the neuroscience behind chronic pain, nervous system regulation, and what actually works.
           </p>
           
           {/* Categories */}
