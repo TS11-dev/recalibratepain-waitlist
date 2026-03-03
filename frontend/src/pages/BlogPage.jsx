@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FileText, Clock, Calendar, Tag, ArrowRight, 
@@ -37,8 +37,12 @@ const generateBlogListSchema = (siteUrl = 'https://recalibratepain.com') => ({
 });
 
 export default function BlogPage() {
-  const categories = [...new Set(blogPosts.map(post => post.category))];
-  
+  const [activeCategory, setActiveCategory] = useState('All');
+  const allCategories = ['All', ...new Set(blogPosts.map(post => post.category))];
+  const filteredPosts = activeCategory === 'All'
+    ? blogPosts
+    : blogPosts.filter(p => p.category === activeCategory);
+
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -114,22 +118,25 @@ export default function BlogPage() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
             Neuroscience <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Made Usable</span>
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             The science your clinician never had time to explain. Written by Tristan Siokos, Founder of Recalibrate.
           </p>
-          <p className="text-sm text-gray-400 max-w-xl mx-auto mb-8">
-            No generic advice. No em dashes. Just the neuroscience behind chronic pain, nervous system regulation, and what actually works.
-          </p>
           
-          {/* Categories */}
+          {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {categories.map((category) => (
-              <span 
+            {allCategories.map((category) => (
+              <button
                 key={category}
-                className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-purple-300 hover:text-purple-700 transition-all cursor-pointer"
+                onClick={() => setActiveCategory(category)}
+                data-testid={`filter-${category.toLowerCase().replace(/\s+/g, '-')}`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+                  activeCategory === category
+                    ? 'bg-purple-600 text-white border-purple-600 shadow-md'
+                    : 'bg-white border-gray-200 text-gray-700 hover:border-purple-300 hover:text-purple-700'
+                }`}
               >
                 {category}
-              </span>
+              </button>
             ))}
           </div>
         </div>
@@ -138,8 +145,11 @@ export default function BlogPage() {
       {/* Blog Posts Grid */}
       <section className="pb-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
+          {filteredPosts.length === 0 && (
+            <p className="text-center text-gray-500 py-12">No articles in this category yet.</p>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
+            {filteredPosts.map((post) => (
               <Link 
                 key={post.id}
                 to={`/blog/${post.slug}`}

@@ -13,6 +13,21 @@ import {
   generateOrganizationSchema,
   useSchemaMarkup 
 } from '../utils/schemaMarkup';
+import { DIAGRAM_MAP } from '../components/BlogDiagrams';
+
+// Diagram placement: which section index in each post gets a diagram
+const diagramMap = {
+  'understanding-chronic-pain-science-based-guide':         { 1: 'biopsychosocial' },
+  'pain-neuroscience-education-brain-processes-pain':       { 2: 'paindecision' },
+  'sleep-chronic-pain-breaking-vicious-cycle':              { 3: 'sleeppain' },
+  'mindfulness-pain-management-evidence-based-approaches':  { 1: 'mindfulnesspain' },
+  'building-pain-management-support-team':                  { 1: 'teamwheel' },
+  'activity-pacing-boom-bust-cycle-chronic-pain':           { 3: 'boombust' },
+  'fibromyalgia-flare-triggers-management':                 { 1: 'fibromyalgia' },
+  'central-sensitization-why-pain-persists':                { 1: 'centralsensitization' },
+  'pain-catastrophizing-break-negative-thought-patterns':   { 1: 'catastrophizing' },
+  'gabapentin-alternatives-non-medication-pain-relief':     { 3: 'treatmentevidence' },
+};
 
 // Concentric zones diagram component
 const ZonesDiagram = () => (
@@ -1677,7 +1692,12 @@ export default function BlogPostPage() {
                   })}
                 </div>
                 {/* Render diagram if section has one */}
-                {section.diagram === 'zones' && <ZonesDiagram />}
+                {(() => {
+                  const diagramKey = section.diagram || diagramMap[slug]?.[index];
+                  if (diagramKey === 'zones') return <ZonesDiagram />;
+                  const DiagramComponent = diagramKey ? DIAGRAM_MAP[diagramKey] : null;
+                  return DiagramComponent ? <DiagramComponent /> : null;
+                })()}
               </section>
             ))}
           </div>
