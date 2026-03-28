@@ -8,12 +8,17 @@ export default function Navbar() {
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const progress = Math.min(window.scrollY / 100, 1);
+      setScrollProgress(progress);
+      setScrolled(window.scrollY > 20);
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -52,7 +57,16 @@ export default function Navbar() {
 
   return (
     <>
-      <nav data-testid="main-navbar" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg shadow-purple-900/30' : 'bg-transparent'}`}>
+      <nav
+        data-testid="main-navbar"
+        className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
+        style={{
+          background: `linear-gradient(to right, rgba(15,23,42,${0.15 + scrollProgress * 0.85}), rgba(88,28,135,${0.15 + scrollProgress * 0.85}), rgba(49,46,129,${0.15 + scrollProgress * 0.85}))`,
+          backdropFilter: `blur(${scrollProgress * 16}px)`,
+          WebkitBackdropFilter: `blur(${scrollProgress * 16}px)`,
+          boxShadow: scrollProgress > 0.5 ? `0 10px 30px rgba(88,28,135,${(scrollProgress - 0.5) * 0.4})` : 'none',
+        }}
+      >
         <div className="w-full px-6 lg:px-10 py-3">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 flex-shrink-0" data-testid="nav-logo">
