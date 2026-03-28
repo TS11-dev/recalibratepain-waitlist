@@ -61,7 +61,7 @@ export default function Navbar() {
         data-testid="main-navbar"
         className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
         style={{
-          background: `linear-gradient(to right, rgba(15,23,42,${0.15 + scrollProgress * 0.85}), rgba(88,28,135,${0.15 + scrollProgress * 0.85}), rgba(49,46,129,${0.15 + scrollProgress * 0.85}))`,
+          background: `linear-gradient(to right, rgba(103,22,190,${0.15 + scrollProgress * 0.85}), rgba(85,16,168,${0.15 + scrollProgress * 0.85}), rgba(61,11,122,${0.15 + scrollProgress * 0.85}))`,
           backdropFilter: `blur(${scrollProgress * 16}px)`,
           WebkitBackdropFilter: `blur(${scrollProgress * 16}px)`,
           boxShadow: scrollProgress > 0.5 ? `0 10px 30px rgba(88,28,135,${(scrollProgress - 0.5) * 0.4})` : 'none',

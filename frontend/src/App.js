@@ -110,7 +110,7 @@ function App() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-[#4a1d96] via-[#3b1282] to-[#2a0e6b]">
+      <section className="relative min-h-[85vh] flex flex-col justify-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-[#6716be] via-[#5510a8] to-[#3d0b7a]">
         {/* Animated background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="hero-orb hero-orb-1"></div>
