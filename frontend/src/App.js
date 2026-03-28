@@ -297,7 +297,7 @@ function App() {
               {/* Calum Image */}
               <div className="flex-shrink-0 relative">
                 <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/20 animate-float border-4 border-purple-100">
-                  <img src="/calum-dragon.png" alt="Calum the Dragon - Recalibrate's mascot" className="w-full h-full object-cover" data-testid="calum-image" />
+                  <img src="/calum-dragon.jpg" alt="Calum the Dragon - Recalibrate's mascot" className="w-full h-full object-cover" data-testid="calum-image" />
                 </div>
                 <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                   Your Health Buddy

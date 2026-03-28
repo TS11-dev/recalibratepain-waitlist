@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
 
-const CALUM_IMAGE = "/calum-dragon.png";
+const CALUM_IMAGE = "/calum-dragon.jpg";
 const BETA_BUBBLE_KEY = 'recalibrate_beta_bubble_dismissed';
 
 export default function HelpDeskWidget() {
