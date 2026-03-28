@@ -110,23 +110,13 @@ export default function HelpDeskWidget() {
             style={{ transformOrigin: '100% 100%' }}
           >
             <div className="relative bg-white border border-violet-200 rounded-2xl px-3.5 py-2.5 shadow-lg shadow-violet-100/50 min-w-[152px]">
-              <button
-                onClick={dismissBetaBubble}
-                className="absolute top-1.5 right-1.5 w-4 h-4 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
-                aria-label="Dismiss beta notice"
-                data-testid="dismiss-beta-bubble"
-              >
-                <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
               <div className="flex items-center gap-1.5 mb-0.5">
                 <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-violet-600 text-white text-[10px] font-bold rounded-md tracking-wide leading-none">
                   <span className="w-1.5 h-1.5 bg-white/80 rounded-full animate-pulse inline-block" />
                   BETA
                 </span>
               </div>
-              <p className="text-[12px] font-semibold text-gray-800 leading-tight pr-3">We are in Beta</p>
+              <p className="text-[12px] font-semibold text-gray-800 leading-tight">We are in Beta</p>
               <p className="text-[11px] text-gray-500 leading-tight mt-0.5">Your feedback shapes the app</p>
               <div className="absolute -bottom-[7px] right-4 w-3.5 h-3.5 bg-white border-r border-b border-violet-200 rotate-45 rounded-br-sm" />
             </div>
