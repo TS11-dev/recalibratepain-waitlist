@@ -144,53 +144,18 @@ function App() {
             </p>
 
             {/* Get Started CTA */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+            <div className="flex items-center justify-center mb-6">
               <a
                 href="https://recalibratepain.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-get-started-btn"
-                className="group bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
+                className="group bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
               >
-                <span>Go to App</span>
+                <span>Get Started Now</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a
-                href="https://recalibratepain.app/understand"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="hero-understand-btn"
-                className="bg-white text-purple-700 border-2 border-purple-200 px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-lg hover:border-purple-300 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
-              >
-                <Brain className="w-5 h-5" />
-                <span>Free AI Assessment</span>
-              </a>
             </div>
-
-            {/* Email Collection */}
-            <form onSubmit={handleEmailSubmit} className="max-w-lg mx-auto mb-6" id="waitlist" data-testid="waitlist-form">
-              <div className="relative bg-white rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1.5">
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <input
-                    type="email"
-                    placeholder="Get updates — enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    data-testid="waitlist-email-input"
-                    className="flex-1 px-5 py-3.5 bg-gray-50/50 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500/20 transition-all"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    data-testid="waitlist-submit-btn"
-                    className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
-                  >
-                    {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <><span>Subscribe</span><ArrowRight className="w-4 h-4" /></>}
-                  </button>
-                </div>
-              </div>
-            </form>
 
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-6 py-2.5 shadow-lg shadow-emerald-500/25">
               <Sparkles className="w-4 h-4 text-yellow-300" />
@@ -649,7 +614,7 @@ function App() {
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Ready to recalibrate your health?</h2>
               <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">Join the revolution. Experience the future of allied health management today.</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
                   href="https://recalibratepain.app"
                   target="_blank"
@@ -669,27 +634,6 @@ function App() {
                   <Brain className="w-5 h-5" /> Free AI Assessment
                 </a>
               </div>
-              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <input
-                    type="email"
-                    placeholder="Get updates — enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    data-testid="cta-email-input"
-                    className="flex-1 px-5 py-3.5 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:bg-white/20 focus:border-white/40 transition-all backdrop-blur-sm"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    data-testid="cta-submit-btn"
-                    className="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-60"
-                  >
-                    {loading ? 'Joining...' : 'Subscribe'}
-                  </button>
-                </div>
-              </form>
             </div>
           </div>
         </div>
