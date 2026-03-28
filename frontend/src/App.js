@@ -461,7 +461,7 @@ function App() {
       </section>
 
       {/* Recalibrate: Understand Section */}
-      <section id="understand-section" data-animate data-testid="understand-section" className={`py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-950 relative overflow-hidden transition-all duration-700 ${visibleSections['understand-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <section id="understand-section" data-animate data-testid="understand-section" className={`py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#2a1a5e] via-[#1e2a6e] to-[#1a2454] relative overflow-hidden transition-all duration-700 ${visibleSections['understand-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
