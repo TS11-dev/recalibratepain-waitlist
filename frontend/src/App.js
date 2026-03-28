@@ -110,14 +110,22 @@ function App() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-[#2d1166] via-[#1e0a4f] to-[#150835]">
-        {/* Animated background orbs */}
+      <section className="relative min-h-[85vh] flex flex-col justify-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-[#4a1d96] via-[#3b1282] to-[#2a0e6b]">
+        {/* Animated background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] bg-violet-600/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] bg-purple-400/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '4s' }}></div>
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+          <div className="hero-orb hero-orb-1"></div>
+          <div className="hero-orb hero-orb-2"></div>
+          <div className="hero-orb hero-orb-3"></div>
+          <div className="hero-orb hero-orb-4"></div>
+          {/* Mesh gradient overlay */}
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+          {/* Floating particles */}
+          <div className="hero-particle hero-particle-1"></div>
+          <div className="hero-particle hero-particle-2"></div>
+          <div className="hero-particle hero-particle-3"></div>
+          <div className="hero-particle hero-particle-4"></div>
+          <div className="hero-particle hero-particle-5"></div>
+          <div className="hero-particle hero-particle-6"></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 pt-28 sm:pt-32 pb-12 sm:pb-16">

@@ -52,7 +52,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav data-testid="main-navbar" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 ${scrolled ? 'shadow-lg shadow-purple-900/30' : ''}`}>
+      <nav data-testid="main-navbar" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg shadow-purple-900/30' : 'bg-transparent'}`}>
         <div className="w-full px-6 lg:px-10 py-3">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 flex-shrink-0" data-testid="nav-logo">
