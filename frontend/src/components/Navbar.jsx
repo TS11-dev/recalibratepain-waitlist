@@ -59,18 +59,12 @@ export default function Navbar() {
     <>
       <nav
         data-testid="main-navbar"
-        className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
-        style={{
-          background: `linear-gradient(to right, rgba(103,22,190,${0.15 + scrollProgress * 0.85}), rgba(85,16,168,${0.15 + scrollProgress * 0.85}), rgba(61,11,122,${0.15 + scrollProgress * 0.85}))`,
-          backdropFilter: `blur(${scrollProgress * 16}px)`,
-          WebkitBackdropFilter: `blur(${scrollProgress * 16}px)`,
-          boxShadow: scrollProgress > 0.5 ? `0 10px 30px rgba(88,28,135,${(scrollProgress - 0.5) * 0.4})` : 'none',
-        }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-[#6716be] via-[#5510a8] to-[#3d0b7a] ${scrolled ? 'shadow-lg shadow-purple-900/30' : ''}`}
       >
         <div className="w-full px-6 lg:px-10 py-3">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 flex-shrink-0" data-testid="nav-logo">
-              <img src="/recalibrate-logo-optimized.png" alt="Recalibrate" className="h-10 w-auto" width="40" height="40" fetchPriority="high" />
+              <img src="/recalibrate-logo-optimized.png" alt="Recalibrate" className="h-10 w-auto rounded-lg" width="40" height="40" fetchPriority="high" />
               <span className="text-xl font-bold text-white">Recalibrate</span>
             </Link>
 

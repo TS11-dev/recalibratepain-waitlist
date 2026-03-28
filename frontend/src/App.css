@@ -304,27 +304,27 @@ img {
   filter: blur(100px);
 }
 .hero-orb-1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(103, 22, 190, 0.35), transparent 70%);
-  top: -10%; left: -5%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(103, 22, 190, 0.2), transparent 65%);
+  top: -15%; left: -10%;
   animation: orbDrift1 12s ease-in-out infinite;
 }
 .hero-orb-2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(150, 97, 210, 0.25), transparent 70%);
-  top: 20%; right: -8%;
+  width: 550px; height: 550px;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.2), transparent 65%);
+  top: 15%; right: -10%;
   animation: orbDrift2 15s ease-in-out infinite;
 }
 .hero-orb-3 {
-  width: 450px; height: 450px;
-  background: radial-gradient(circle, rgba(103, 22, 190, 0.2), transparent 70%);
-  bottom: -5%; left: 25%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 65%);
+  bottom: -10%; left: 20%;
   animation: orbDrift3 18s ease-in-out infinite;
 }
 .hero-orb-4 {
-  width: 350px; height: 350px;
-  background: radial-gradient(circle, rgba(94, 8, 186, 0.25), transparent 70%);
-  top: 40%; left: 50%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(103, 22, 190, 0.15), transparent 65%);
+  top: 35%; left: 55%;
   animation: orbDrift4 20s ease-in-out infinite;
 }
 
@@ -355,7 +355,7 @@ img {
 .hero-particle {
   position: absolute;
   width: 3px; height: 3px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(103, 22, 190, 0.4);
   border-radius: 50%;
 }
 .hero-particle-1 {
