@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { X, Menu, Mail, ExternalLink } from 'lucide-react';
 
@@ -7,9 +7,16 @@ export default function Navbar() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { to: '/features', label: 'Features' },
@@ -45,7 +52,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav data-testid="main-navbar" className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg">
+      <nav data-testid="main-navbar" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg shadow-purple-900/20 py-0' : 'bg-gradient-to-r from-slate-900/95 via-purple-900/95 to-indigo-900/95 backdrop-blur-xl py-0'}`}>
         <div className="w-full px-6 lg:px-10 py-3">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 flex-shrink-0" data-testid="nav-logo">
@@ -167,9 +174,9 @@ export default function Navbar() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div className="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-purple-100">
-                <p className="font-bold text-gray-900 text-sm mb-1">Launch Date</p>
-                <p className="text-purple-700 font-semibold">Q1 2026</p>
-                <p className="text-xs text-gray-500">iOS / Android / Web</p>
+                <p className="font-bold text-gray-900 text-sm mb-1">Status</p>
+                <p className="text-purple-700 font-semibold">Now in Beta</p>
+                <p className="text-xs text-gray-500">Web / iOS & Android coming soon</p>
               </div>
               <a href="mailto:info@recalibratepain.com" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-purple-200 transition-colors">
                 <p className="font-bold text-gray-900 text-sm mb-1">Direct Email</p>

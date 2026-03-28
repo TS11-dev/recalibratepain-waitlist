@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Sparkles, ChevronDown, ChevronUp, ExternalLink,
-  BarChart3, BookOpen, Users, Zap, Heart, Shield, Target
+  BarChart3, BookOpen, Users, Zap, Heart, Shield, Target,
+  Brain, Activity, Globe, FileText, Stethoscope
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import toast, { Toaster } from 'react-hot-toast';
@@ -13,8 +14,25 @@ function App() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
+  const [visibleSections, setVisibleSections] = useState({});
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
+
+  // Intersection observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setVisibleSections(prev => ({ ...prev, [entry.target.id]: true }));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +53,7 @@ function App() {
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'sign_up', { method: 'waitlist', event_category: 'engagement', event_label: 'Waitlist Signup Success' });
         }
-        toast.success("You're on the list! We'll email you when we launch.", { duration: 5000 });
+        toast.success("Welcome! Check your inbox for next steps.", { duration: 5000 });
         setEmail('');
       } else {
         toast.error(data.message || 'Something went wrong. Try again!');
@@ -48,7 +66,7 @@ function App() {
   };
 
   const faqs = [
-    { q: 'When does Recalibrate launch?', a: 'Q1 2026 on iOS, Android, and Web. Join the waitlist to be first in line!' },
+    { q: 'Is Recalibrate available now?', a: "Yes! Recalibrate is now in beta. You can access the app at recalibratepain.app on web, with iOS and Android coming soon." },
     { q: 'Is my health data private?', a: '100% private. Encrypted, never shared, and you own your data. We follow secure, industry-standard practices.' },
     { q: 'How does the AI companion work?', a: 'Recalibrate AI analyzes your patterns and provides personalized insights based on your tracked data.' },
     { q: 'What makes this different?', a: 'We combine tracking, education, therapeutic tools, and AI insights in one comprehensive allied health platform designed for chronic pain, chronic illness, and rehabilitation.' },
@@ -68,11 +86,11 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/50">
       <Helmet>
         <title>Recalibrate — Chronic Pain & Health Management App for Patients & Clinicians</title>
-        <meta name="description" content="Track symptoms, learn pain science and get AI-powered insights — built for people living with chronic pain and the allied health clinicians who treat them. Free tier. Joining waitlist now for Q1 2026 launch." />
+        <meta name="description" content="Track symptoms, learn pain science and get AI-powered insights — built for people living with chronic pain and the allied health clinicians who treat them. Now in beta. Free tier available." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://recalibratepain.com" />
         <meta property="og:title" content="Recalibrate — Chronic Pain & Health Management App for Patients & Clinicians" />
-        <meta property="og:description" content="Track symptoms, learn pain science and get AI-powered insights — built for people living with chronic pain and the allied health clinicians who treat them. Free tier. Joining waitlist now for Q1 2026 launch." />
+        <meta property="og:description" content="Track symptoms, learn pain science and get AI-powered insights — built for people living with chronic pain and the allied health clinicians who treat them. Now in beta." />
         <meta property="og:url" content="https://recalibratepain.com" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Recalibrate" />
@@ -85,7 +103,7 @@ function App() {
         <meta name="twitter:site" content="@RecalibrateApp" />
         <meta name="twitter:creator" content="@RecalibrateApp" />
         <meta name="twitter:title" content="Recalibrate — Chronic Pain & Health Management App for Patients & Clinicians" />
-        <meta name="twitter:description" content="Symptom tracking, pain science education, AI insights and connected care — built from lived experience with fibromyalgia. Free tier. Q1 2026." />
+        <meta name="twitter:description" content="Symptom tracking, pain science education, AI insights and connected care — built from lived experience with fibromyalgia. Now in beta. Free tier." />
         <meta name="twitter:image" content="https://recalibratepain.com/social-preview.jpg" />
       </Helmet>
       <Toaster position="top-center" toastOptions={{ style: { borderRadius: '12px', background: '#1f2937', color: '#fff' } }} />
@@ -101,15 +119,16 @@ function App() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-5xl mx-auto mb-8 sm:mb-12">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-purple-200/50 rounded-full px-4 py-2 mb-6">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200/50 rounded-full px-4 py-2 mb-6 animate-fade-in-up">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span className="text-sm font-semibold text-purple-900">Launching Q1 2026</span>
+              <span className="text-sm font-semibold text-emerald-900">Welcome to Recalibrate</span>
+              <span className="text-xs font-medium text-emerald-700 bg-emerald-200/60 px-2 py-0.5 rounded-full">BETA</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6" data-testid="hero-title">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6 hero-stagger-2" data-testid="hero-title">
               Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-900 bg-clip-text text-transparent">Health</span>
               <span className="sm:hidden"><br />and </span>
               <span className="hidden sm:inline"> & </span>
@@ -120,17 +139,41 @@ function App() {
               Companion
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed hero-stagger-3">
               <strong className="text-gray-800">Recalibrate App</strong> is the comprehensive allied health platform for chronic pain, chronic illness, and health management. Advanced Health Tracking and Analytics, Learn from our Academy, Explore exercises and tools, get AI-powered insights and chat about your health data, connect with physiotherapists, psychologists, pain specialists and other allied health professionals in your care team and much more!
             </p>
 
-            {/* Email Form */}
+            {/* Get Started CTA */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+              <a
+                href="https://recalibratepain.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="hero-get-started-btn"
+                className="group bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
+              >
+                <span>Go to App</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="https://recalibratepain.app/understand"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="hero-understand-btn"
+                className="bg-white text-purple-700 border-2 border-purple-200 px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-lg hover:border-purple-300 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
+              >
+                <Brain className="w-5 h-5" />
+                <span>Free AI Assessment</span>
+              </a>
+            </div>
+
+            {/* Email Collection */}
             <form onSubmit={handleEmailSubmit} className="max-w-lg mx-auto mb-6" id="waitlist" data-testid="waitlist-form">
               <div className="relative bg-white rounded-2xl shadow-xl shadow-purple-500/10 border border-purple-100 p-1.5">
                 <div className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Get updates — enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     data-testid="waitlist-email-input"
@@ -143,16 +186,16 @@ function App() {
                     data-testid="waitlist-submit-btn"
                     className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:-translate-y-0.5"
                   >
-                    {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <><span>Join Waitlist</span><ArrowRight className="w-4 h-4" /></>}
+                    {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <><span>Subscribe</span><ArrowRight className="w-4 h-4" /></>}
                   </button>
                 </div>
               </div>
             </form>
 
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full px-6 py-2.5 shadow-lg shadow-purple-500/25">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-6 py-2.5 shadow-lg shadow-emerald-500/25">
               <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span className="font-semibold text-white text-sm">Limited Spaces Available</span>
-              <span className="text-white/90 text-sm font-medium">&#8226; Join Cohort 1 Now</span>
+              <span className="font-semibold text-white text-sm">Now in Beta</span>
+              <span className="text-white/90 text-sm font-medium">&#8226; Free to Get Started</span>
             </div>
           </div>
 
@@ -376,6 +419,222 @@ function App() {
         </div>
       </section>
 
+      {/* Recalibrate: Understand Section */}
+      <section id="understand-section" data-animate data-testid="understand-section" className={`py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-950 relative overflow-hidden transition-all duration-700 ${visibleSections['understand-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-purple-500/20 text-purple-300 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-500/30">
+              AI-Powered Assessment
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4" data-testid="understand-title">
+              Recalibrate: <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Understand</span>
+            </h2>
+            <p className="text-base lg:text-lg text-purple-200/80 max-w-2xl mx-auto">
+              Your condition, explained. An AI-powered deep assessment that maps what is happening across your body's 8 biological systems and gives you a personalized blueprint.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+            {[
+              { icon: <Brain className="w-6 h-6 text-white" />, title: 'AI-Powered Assessment', desc: 'Deep conversational analysis of your condition', gradient: 'from-violet-500 to-purple-600' },
+              { icon: <Activity className="w-6 h-6 text-white" />, title: '8 Biological Systems', desc: 'Mapped to your specific symptoms', gradient: 'from-blue-500 to-cyan-600' },
+              { icon: <Heart className="w-6 h-6 text-white" />, title: 'Biopsychosocial Model', desc: 'Biology, psychology, and environment', gradient: 'from-rose-500 to-pink-600' },
+              { icon: <FileText className="w-6 h-6 text-white" />, title: 'Personalized Blueprint', desc: 'Your condition explained, your way forward', gradient: 'from-amber-500 to-orange-600' },
+            ].map((item, i) => (
+              <div key={i} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-1">
+                <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-bold text-base mb-2">{item.title}</h3>
+                <p className="text-purple-200/70 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* How it works steps */}
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-10 mb-10">
+            <h3 className="text-xl font-bold text-white text-center mb-8">How it works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { num: '01', title: 'Intake Form', desc: 'Answer structured questions about your condition, symptoms, and experience. Takes about 5 minutes.' },
+                { num: '02', title: 'AI Conversation', desc: 'A short AI-guided conversation that digs deeper into your specific situation. About 5 minutes.' },
+                { num: '03', title: 'Your Report', desc: 'Receive a personalized health blueprint explaining your condition across 8 biological systems.' },
+              ].map((step, i) => (
+                <div key={i} className="text-center">
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">{step.num}</div>
+                  <h4 className="text-white font-bold mb-2">{step.title}</h4>
+                  <p className="text-purple-200/70 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://recalibratepain.app/understand"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="understand-cta-btn"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-purple-500/30 transition-all hover:-translate-y-1"
+            >
+              Begin Free Assessment <ArrowRight className="w-5 h-5" />
+            </a>
+            <p className="text-purple-300/60 text-sm mt-3">Takes about 10 minutes. Free basic report, $19.99 for full blueprint.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Health Portals Section */}
+      <section id="health-portals-section" data-animate data-testid="health-portals-section" className={`py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden transition-all duration-700 ${visibleSections['health-portals-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-gradient-to-r from-emerald-500/10 to-teal-500/10 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-emerald-200">
+              Free Patient Intelligence
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" data-testid="health-portals-title">
+              Health <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Portals</span>
+            </h2>
+            <p className="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+              Deep patient intelligence portals for the most misunderstood conditions on earth. Live research, evidence-rated treatments, clinical trials, and community.
+            </p>
+          </div>
+
+          {/* Stats row */}
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-12">
+            {[
+              { value: '2B+', label: 'Chronic Illness Patients' },
+              { value: '4', label: 'Portals Live Now' },
+              { value: '10+', label: 'Conditions Covered' },
+              { value: 'Free', label: 'Forever' },
+            ].map((stat, i) => (
+              <div key={i} className="text-center px-4 py-3">
+                <div className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-500 font-medium mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Live Portals */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10">
+            {[
+              { emoji: '🧬', name: 'Fibromyalgia', tags: 'Widespread Pain · Fatigue · Sleep', desc: 'FIQ-R impact assessment, evidence-rated treatments, live research, clinical trials and global specialists.', url: 'https://recalibrate-health-portals.github.io/Portals/fibromyalgia/', color: 'from-purple-500 to-violet-600', borderColor: 'border-purple-200 hover:border-purple-400' },
+              { emoji: '🦠', name: 'Long COVID / ME-CFS', tags: 'Post-Viral · Fatigue · Brain Fog', desc: 'PEM screener, evidence-rated treatments, live research, clinical trials, pacing guide.', url: 'https://recalibrate-health-portals.github.io/Portals/long-covid/', color: 'from-blue-500 to-indigo-600', borderColor: 'border-blue-200 hover:border-blue-400' },
+              { emoji: '⚡', name: 'ADHD & Neurodivergence', tags: 'Attention · Executive Function', desc: 'ASRS self-screening, full medication guide, evidence-rated treatments, live research.', url: 'https://recalibrate-health-portals.github.io/Portals/adhd/', color: 'from-amber-500 to-orange-600', borderColor: 'border-amber-200 hover:border-amber-400' },
+              { emoji: '🧠', name: 'Central Sensitisation', tags: 'Syndrome (CSS)', desc: 'Validated CSI self-assessment, evidence-rated treatments, live research, active clinical trials.', url: 'https://recalibrate-health-portals.github.io/Portals/css/', color: 'from-rose-500 to-pink-600', borderColor: 'border-rose-200 hover:border-rose-400' },
+            ].map((portal, i) => (
+              <a
+                key={i}
+                href={portal.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid={`portal-card-${i}`}
+                className={`group relative bg-white rounded-2xl border ${portal.borderColor} p-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 block`}
+              >
+                <span className="absolute top-3 right-3 flex items-center gap-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> LIVE
+                </span>
+                <div className="text-3xl mb-3">{portal.emoji}</div>
+                <h3 className="font-bold text-gray-900 text-sm mb-1">{portal.name}</h3>
+                <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider mb-2">{portal.tags}</p>
+                <p className="text-gray-500 text-xs leading-relaxed mb-3">{portal.desc}</p>
+                <span className={`inline-flex items-center gap-1 text-xs font-semibold bg-gradient-to-r ${portal.color} bg-clip-text text-transparent`}>
+                  Open Portal <ArrowRight className="w-3 h-3 text-purple-500 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* Coming Soon portals */}
+          <div className="mb-8">
+            <p className="text-center text-sm font-semibold text-gray-400 uppercase tracking-wider mb-5">Coming Soon</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              {[
+                { emoji: '🩸', name: 'Diabetes' },
+                { emoji: '🦋', name: 'Lupus (SLE)' },
+                { emoji: '🦴', name: 'Rheumatoid Arthritis' },
+                { emoji: '🧬', name: 'Endometriosis' },
+                { emoji: '🫁', name: 'IBS' },
+                { emoji: '🔴', name: 'Multiple Sclerosis' },
+              ].map((portal, i) => (
+                <div key={i} className="bg-gray-50 rounded-xl border border-gray-100 p-3 text-center opacity-70">
+                  <div className="text-xl mb-1">{portal.emoji}</div>
+                  <p className="text-xs font-semibold text-gray-600">{portal.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://recalibrate-health-portals.github.io/Portals"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="view-all-portals-btn"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-7 py-3.5 rounded-2xl font-bold hover:shadow-xl hover:shadow-emerald-500/25 transition-all hover:-translate-y-1"
+            >
+              View All Portals <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Calum the Dragon */}
+      <section id="calum-section" data-animate data-testid="calum-section" className={`py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-purple-50 via-indigo-50/50 to-white relative overflow-hidden transition-all duration-700 ${visibleSections['calum-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className="max-w-5xl mx-auto">
+          <div className="relative bg-white rounded-3xl border border-purple-100 shadow-xl shadow-purple-500/5 overflow-hidden">
+            <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none"></div>
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 sm:p-12">
+              {/* Calum Image */}
+              <div className="flex-shrink-0 relative">
+                <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/20 animate-float border-4 border-purple-100">
+                  <img src="/calum-dragon.png" alt="Calum the Dragon - Recalibrate's mascot" className="w-full h-full object-cover" data-testid="calum-image" />
+                </div>
+                <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  Your Health Buddy
+                </div>
+              </div>
+
+              {/* Calum Info */}
+              <div className="flex-1 text-center lg:text-left">
+                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">Meet Your Companion</span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-testid="calum-title">
+                  This is <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Calum</span> the Dragon
+                </h2>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Calum is your friendly health companion throughout the Recalibrate app. He'll guide you through your health journey, celebrate your wins, keep you motivated on tough days, and make managing your health a little less daunting and a lot more fun. Think of him as your personal cheerleader who actually understands chronic pain.
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                  {[
+                    { label: 'Guides your journey', icon: '🧭' },
+                    { label: 'Celebrates your wins', icon: '🎉' },
+                    { label: 'Keeps you motivated', icon: '💪' },
+                  ].map((trait, i) => (
+                    <span key={i} className="inline-flex items-center gap-1.5 bg-purple-50 border border-purple-100 text-purple-700 text-sm font-medium px-3 py-2 rounded-xl">
+                      <span>{trait.icon}</span> {trait.label}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6">
+                  <a
+                    href="https://recalibratepain.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="calum-cta-btn"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5"
+                  >
+                    Meet Calum in the App <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
@@ -385,16 +644,36 @@ function App() {
             <div className="relative">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-5 py-2.5 mb-6">
                 <Sparkles className="w-4 h-4 text-yellow-300" />
-                <span className="text-white font-semibold text-sm">Limited Spaces Available</span>
-                <span className="text-white/90 text-sm">&#8226; Join Cohort 1 Now</span>
+                <span className="text-white font-semibold text-sm">Now in Beta</span>
+                <span className="text-white/90 text-sm">&#8226; Free to Get Started</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Ready to recalibrate your health?</h2>
-              <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">Join the revolution. Be the first to experience the future of allied health.</p>
-              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto mb-6">
+              <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">Join the revolution. Experience the future of allied health management today.</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+                <a
+                  href="https://recalibratepain.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="final-cta-app-btn"
+                  className="bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all flex items-center gap-2 hover:-translate-y-0.5"
+                >
+                  Go to App <ArrowRight className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://recalibratepain.app/understand"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="final-cta-understand-btn"
+                  className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all flex items-center gap-2 hover:-translate-y-0.5 backdrop-blur-sm"
+                >
+                  <Brain className="w-5 h-5" /> Free AI Assessment
+                </a>
+              </div>
+              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
                 <div className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Get updates — enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     data-testid="cta-email-input"
@@ -405,9 +684,9 @@ function App() {
                     type="submit"
                     disabled={loading}
                     data-testid="cta-submit-btn"
-                    className="bg-white text-gray-900 px-6 py-3.5 rounded-xl font-semibold hover:bg-gray-50 transition-all disabled:opacity-60"
+                    className="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-60"
                   >
-                    {loading ? 'Joining...' : 'Join Waitlist'}
+                    {loading ? 'Joining...' : 'Subscribe'}
                   </button>
                 </div>
               </form>
