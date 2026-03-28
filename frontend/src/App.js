@@ -264,6 +264,64 @@ function App() {
         </div>
       </section>
 
+      {/* Step 2 · Meet Calum - Your Health Companion */}
+      <section id="calum-section" data-animate data-testid="calum-section" className={`py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-purple-50 via-indigo-50/50 to-white relative overflow-hidden transition-all duration-700 ${visibleSections['calum-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-purple-200">
+              Step 2 &middot; Meet Your Health Companion
+            </span>
+          </div>
+          <div className="relative bg-white rounded-3xl border border-purple-100 shadow-xl shadow-purple-500/5 overflow-hidden">
+            <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none"></div>
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 sm:p-12">
+              {/* Calum Image */}
+              <div className="flex-shrink-0 relative">
+                <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/20 animate-float border-4 border-purple-100">
+                  <img src="/calum-dragon.png" alt="Calum the Dragon - Recalibrate's mascot" className="w-full h-full object-cover" data-testid="calum-image" />
+                </div>
+                <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  Your Health Buddy
+                </div>
+              </div>
+
+              {/* Calum Info */}
+              <div className="flex-1 text-center lg:text-left">
+                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">Meet Your Companion</span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-testid="calum-title">
+                  This is <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Calum</span> the Dragon
+                </h2>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Calum is your friendly health companion throughout the Recalibrate app. He'll guide you through your health journey, celebrate your wins, keep you motivated on tough days, and make managing your health a little less daunting and a lot more fun. Think of him as your personal cheerleader who actually understands chronic pain.
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                  {[
+                    { label: 'Guides your journey', icon: '🧭' },
+                    { label: 'Celebrates your wins', icon: '🎉' },
+                    { label: 'Keeps you motivated', icon: '💪' },
+                  ].map((trait, i) => (
+                    <span key={i} className="inline-flex items-center gap-1.5 bg-purple-50 border border-purple-100 text-purple-700 text-sm font-medium px-3 py-2 rounded-xl">
+                      <span>{trait.icon}</span> {trait.label}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6">
+                  <a
+                    href="https://recalibratepain.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="calum-cta-btn"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5"
+                  >
+                    Meet Calum in the App <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works Roadmap */}
       <section className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 overflow-hidden relative">
         <div className="absolute inset-0 overflow-hidden">
@@ -274,7 +332,7 @@ function App() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12 lg:mb-16">
             <span className="inline-block bg-purple-500/20 text-purple-300 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-500/30">
-              Step 2 &middot; Your Journey
+              Step 3 &middot; Your Journey
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               How It <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Works</span>
@@ -337,7 +395,7 @@ function App() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-200">
-              Step 3 &middot; Explore
+              Step 4 &middot; Explore
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Discover <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Recalibrate</span>
@@ -543,59 +601,6 @@ function App() {
             >
               View All Portals <ExternalLink className="w-4 h-4" />
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet Calum the Dragon */}
-      <section id="calum-section" data-animate data-testid="calum-section" className={`py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-purple-50 via-indigo-50/50 to-white relative overflow-hidden transition-all duration-700 ${visibleSections['calum-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <div className="max-w-5xl mx-auto">
-          <div className="relative bg-white rounded-3xl border border-purple-100 shadow-xl shadow-purple-500/5 overflow-hidden">
-            <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none"></div>
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 sm:p-12">
-              {/* Calum Image */}
-              <div className="flex-shrink-0 relative">
-                <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/20 animate-float border-4 border-purple-100">
-                  <img src="/calum-dragon.png" alt="Calum the Dragon - Recalibrate's mascot" className="w-full h-full object-cover" data-testid="calum-image" />
-                </div>
-                <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                  Your Health Buddy
-                </div>
-              </div>
-
-              {/* Calum Info */}
-              <div className="flex-1 text-center lg:text-left">
-                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">Meet Your Companion</span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-testid="calum-title">
-                  This is <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Calum</span> the Dragon
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Calum is your friendly health companion throughout the Recalibrate app. He'll guide you through your health journey, celebrate your wins, keep you motivated on tough days, and make managing your health a little less daunting and a lot more fun. Think of him as your personal cheerleader who actually understands chronic pain.
-                </p>
-                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                  {[
-                    { label: 'Guides your journey', icon: '🧭' },
-                    { label: 'Celebrates your wins', icon: '🎉' },
-                    { label: 'Keeps you motivated', icon: '💪' },
-                  ].map((trait, i) => (
-                    <span key={i} className="inline-flex items-center gap-1.5 bg-purple-50 border border-purple-100 text-purple-700 text-sm font-medium px-3 py-2 rounded-xl">
-                      <span>{trait.icon}</span> {trait.label}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-6">
-                  <a
-                    href="https://recalibratepain.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid="calum-cta-btn"
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:-translate-y-0.5"
-                  >
-                    Meet Calum in the App <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
