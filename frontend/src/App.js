@@ -110,158 +110,64 @@ function App() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-24 sm:pt-28 pb-8 sm:pb-16 px-4 sm:px-6 overflow-hidden bg-gradient-to-b from-slate-50 to-white relative">
+      <section className="relative min-h-[85vh] flex flex-col justify-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-[#0f0a2e] via-[#1a1145] to-[#0d1b3e]">
+        {/* Animated background orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] animate-pulse"></div>
+          <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] bg-blue-600/12 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] bg-indigo-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '4s' }}></div>
+          {/* Grid pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center max-w-5xl mx-auto mb-8 sm:mb-12">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-100 to-teal-100 border border-emerald-200/50 rounded-full px-4 py-2 mb-6 animate-fade-in-up">
-              <span className="relative flex h-2.5 w-2.5">
+        <div className="max-w-7xl mx-auto relative z-10 pt-28 sm:pt-32 pb-12 sm:pb-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="hero-stagger-1 inline-flex items-center space-x-2 bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] rounded-full px-5 py-2.5 mb-8">
+              <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
-              <span className="text-sm font-semibold text-emerald-900">Welcome to Recalibrate</span>
-              <span className="text-xs font-medium text-emerald-700 bg-emerald-200/60 px-2 py-0.5 rounded-full">BETA</span>
+              <span className="text-sm font-medium text-white/90">Welcome to Recalibrate</span>
+              <span className="text-[10px] font-bold text-emerald-400 bg-emerald-400/15 px-2 py-0.5 rounded-full uppercase tracking-wider">Beta</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-4 sm:mb-6 hero-stagger-2" data-testid="hero-title">
-              Your Intelligent <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-900 bg-clip-text text-transparent">Health</span>
-              <span className="sm:hidden"><br />and </span>
-              <span className="hidden sm:inline"> & </span>
-              <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-900 bg-clip-text text-transparent">Pain Management</span>
-              <span className="hidden sm:inline"> </span>
-              <span className="sm:hidden"><br /></span>
-              Companion
+            <h1 className="hero-stagger-2 text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6 tracking-tight" data-testid="hero-title">
+              Your Intelligent
+              <br />
+              <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">Health & Pain</span>
+              <br />
+              Management Companion
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed hero-stagger-3">
-              <strong className="text-gray-800">Recalibrate App</strong> is the comprehensive allied health platform for chronic pain, chronic illness, and health management. Advanced Health Tracking and Analytics, Learn from our Academy, Explore exercises and tools, get AI-powered insights and chat about your health data, connect with physiotherapists, psychologists, pain specialists and other allied health professionals in your care team and much more!
+            <p className="hero-stagger-3 text-base sm:text-lg text-white/60 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+              The comprehensive allied health platform for chronic pain, chronic illness, and health management. Track, learn, explore tools, get AI-powered insights, and connect with your care team.
             </p>
 
-            {/* Get Started CTA */}
-            <div className="flex items-center justify-center mb-6">
+            {/* CTA */}
+            <div className="hero-stagger-4 flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <a
                 href="https://recalibratepain.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-get-started-btn"
-                className="group bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
+                className="group relative bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/20 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
               >
                 <span>Get Started Now</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-6 py-2.5 shadow-lg shadow-emerald-500/25">
-              <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span className="font-semibold text-white text-sm">Now in Beta</span>
-              <span className="text-white/90 text-sm font-medium">&#8226; Free to Get Started</span>
-            </div>
-          </div>
-
-          {/* Phone Mockup */}
-          <div className="text-center mb-6">
-            <span className="inline-block bg-gradient-to-r from-blue-100 to-purple-100 text-purple-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-purple-200">
-              Step 1 &middot; First Look
-            </span>
-            <p className="text-sm text-gray-500 mt-2">See what you'll get</p>
-          </div>
-
-          <div className="relative flex justify-center px-4 sm:px-8">
-            {/* Container for phone and labels */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[700px]">
-
-              {/* Phone Frame */}
-              <div className="relative mx-auto w-[180px] h-[380px] sm:w-[220px] sm:h-[460px] lg:w-[280px] lg:h-[580px] bg-gray-900 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-1.5 sm:p-2 lg:p-3 shadow-2xl shadow-purple-500/20 z-10">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-28 h-4 sm:h-5 lg:h-7 bg-gray-900 rounded-b-xl lg:rounded-b-2xl z-10"></div>
-                <div className="w-full h-full bg-white rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.3rem] overflow-hidden">
-                  <img src="/app-screenshot-optimized.jpg" alt="Recalibrate App" className="w-full h-full object-cover object-top" width="560" height="1102" loading="eager" decoding="async" />
-                </div>
-              </div>
-
-              {/* Mobile Floating Labels (hidden on lg) */}
-              <div className="absolute -left-8 sm:-left-12 top-[3%] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg shadow-blue-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">📊</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">18+ Health Metrics</p><p className="text-[7px] sm:text-[8px] text-white/80">Pain, sleep, mood</p></div>
-                </div>
-              </div>
-              <div className="absolute -left-10 sm:-left-14 top-[24%] bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg shadow-lg shadow-emerald-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">🎓</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">Pain Science Academy</p><p className="text-[7px] sm:text-[8px] text-white/80">100+ lessons</p></div>
-                </div>
-              </div>
-              <div className="absolute -left-8 sm:-left-12 top-[50%] bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg shadow-lg shadow-amber-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">🛠️</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">Tools Library</p><p className="text-[7px] sm:text-[8px] text-white/80">Exercises, journal, goals</p></div>
-                </div>
-              </div>
-              <div className="absolute -left-10 sm:-left-14 top-[72%] bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg shadow-lg shadow-fuchsia-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">📈</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">Visual Analytics</p><p className="text-[7px] sm:text-[8px] text-white/80">Trends & correlations</p></div>
-                </div>
-              </div>
-              <div className="absolute -right-8 sm:-right-12 top-[8%] bg-gradient-to-r from-rose-500 to-pink-600 rounded-lg shadow-lg shadow-rose-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">💊</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">Medication Tracker</p><p className="text-[7px] sm:text-[8px] text-white/80">Reminders & logging</p></div>
-                </div>
-              </div>
-              <div className="absolute -right-10 sm:-right-14 top-[30%] bg-gradient-to-r from-violet-500 to-purple-600 rounded-lg shadow-lg shadow-violet-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">🤖</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">Recalibrate AI</p><p className="text-[7px] sm:text-[8px] text-white/80">Chat with your data</p></div>
-                </div>
-              </div>
-              <div className="absolute -right-8 sm:-right-12 top-[52%] bg-gradient-to-r from-cyan-500 to-sky-600 rounded-lg shadow-lg shadow-cyan-500/25 p-1.5 sm:p-2 animate-float-delayed lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">👥</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">Clinician Dashboard</p><p className="text-[7px] sm:text-[8px] text-white/80">Real-time patient data</p></div>
-                </div>
-              </div>
-              <div className="absolute -right-10 sm:-right-14 top-[74%] bg-gradient-to-r from-lime-500 to-green-600 rounded-lg shadow-lg shadow-lime-500/25 p-1.5 sm:p-2 animate-float lg:hidden text-white z-20">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0"><span className="text-sm sm:text-base">👨‍👩‍👧</span></div>
-                  <div><p className="font-bold text-[9px] sm:text-[11px]">3 User Types</p><p className="text-[7px] sm:text-[8px] text-white/80">Patient, Clinician, Carer</p></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop Floating Cards (hidden below lg) */}
-            <div className="absolute left-[18%] top-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl shadow-xl shadow-blue-500/25 p-4 max-w-[200px] animate-float hidden lg:block text-white">
-              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">📊</span></div><div><p className="font-bold text-sm">18+ Health Metrics</p><p className="text-xs text-white/80">Pain, sleep, mood & more</p></div></div>
-            </div>
-            <div className="absolute right-[18%] top-16 bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl shadow-xl shadow-rose-500/25 p-4 max-w-[190px] animate-float-delayed hidden lg:block text-white">
-              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">💊</span></div><div><p className="font-bold text-sm">Medication Tracker</p><p className="text-xs text-white/80">Reminders & logging</p></div></div>
-            </div>
-            <div className="absolute left-[12%] top-44 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl shadow-xl shadow-emerald-500/25 p-4 max-w-[200px] animate-float-delayed hidden lg:block text-white">
-              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">🎓</span></div><div><p className="font-bold text-sm">Pain Science Academy</p><p className="text-xs text-white/80">100+ bite-sized lessons</p></div></div>
-            </div>
-            <div className="absolute right-[12%] top-48 bg-gradient-to-r from-violet-500 to-purple-600 rounded-2xl shadow-xl shadow-violet-500/25 p-4 max-w-[180px] animate-float hidden lg:block text-white">
-              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">🤖</span></div><div><p className="font-bold text-sm">Recalibrate AI</p><p className="text-xs text-white/80">Chat with your data</p></div></div>
-            </div>
-            <div className="absolute left-[16%] bottom-32 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl shadow-xl shadow-amber-500/25 p-4 max-w-[190px] animate-float hidden lg:block text-white">
-              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">🛠️</span></div><div><p className="font-bold text-sm">Tools Library</p><p className="text-xs text-white/80">Exercises, journal, goals</p></div></div>
-            </div>
-            <div className="absolute right-[16%] bottom-40 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-2xl shadow-xl shadow-cyan-500/25 p-4 max-w-[200px] animate-float-delayed hidden lg:block text-white">
-              <div className="flex items-start gap-3"><div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0"><span className="text-lg">👥</span></div><div><p className="font-bold text-sm">Clinician Dashboard</p><p className="text-xs text-white/80">Real-time patient data</p></div></div>
-            </div>
-            <div className="absolute left-[20%] bottom-8 bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-2xl shadow-xl shadow-fuchsia-500/25 p-4 max-w-[170px] text-white animate-float hidden lg:block">
-              <div className="flex items-center gap-2"><span className="text-lg">📈</span><div><p className="font-bold text-sm">Visual Analytics</p><p className="text-xs text-white/80">Trends & correlations</p></div></div>
-            </div>
-            <div className="absolute right-[20%] bottom-12 bg-gradient-to-r from-lime-500 to-green-600 rounded-2xl shadow-xl shadow-lime-500/25 p-4 max-w-[180px] text-white animate-float-delayed hidden lg:block">
-              <div className="flex items-center gap-2"><span className="text-lg">👨‍👩‍👧</span><div><p className="font-bold text-sm">3 User Types</p><p className="text-xs text-white/80">Patient, Clinician, Carer</p></div></div>
+            <div className="hero-stagger-5 inline-flex items-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] rounded-full px-5 py-2.5">
+              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span className="font-medium text-white/80 text-sm">Now in Beta</span>
+              <span className="text-white/40 text-sm">&#8226;</span>
+              <span className="text-white/60 text-sm">Free to Get Started</span>
             </div>
           </div>
         </div>
+
+        {/* Bottom fade to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"></div>
       </section>
 
       {/* Step 2 · Meet Calum - Your Health Companion */}

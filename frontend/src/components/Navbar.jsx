@@ -52,7 +52,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav data-testid="main-navbar" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 shadow-lg shadow-purple-900/20 py-0' : 'bg-gradient-to-r from-slate-900/95 via-purple-900/95 to-indigo-900/95 backdrop-blur-xl py-0'}`}>
+      <nav data-testid="main-navbar" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-slate-900/98 shadow-lg shadow-purple-900/20 backdrop-blur-xl' : 'bg-transparent'}`}>
         <div className="w-full px-6 lg:px-10 py-3">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 flex-shrink-0" data-testid="nav-logo">
@@ -106,7 +106,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="go-to-app-btn"
-              className="hidden md:flex items-center gap-1.5 flex-shrink-0 bg-white text-purple-700 px-5 py-2.5 rounded-xl text-sm font-bold hover:shadow-lg hover:bg-purple-50 transition-all hover:-translate-y-0.5"
+              className={`hidden md:flex items-center gap-1.5 flex-shrink-0 px-5 py-2.5 rounded-xl text-sm font-bold transition-all hover:-translate-y-0.5 ${scrolled ? 'bg-white text-purple-700 hover:shadow-lg hover:bg-purple-50' : 'bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20'}`}
             >
               Go to App <ExternalLink className="w-3.5 h-3.5" />
             </a>
