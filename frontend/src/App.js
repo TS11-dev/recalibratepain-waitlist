@@ -110,18 +110,18 @@ function App() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-[#0f0a2e] via-[#1a1145] to-[#0d1b3e]">
+      <section className="relative min-h-[85vh] flex flex-col justify-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-[#2d1166] via-[#1e0a4f] to-[#150835]">
         {/* Animated background orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] bg-blue-600/12 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] bg-indigo-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px] animate-pulse"></div>
+          <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] bg-violet-600/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] bg-purple-400/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '4s' }}></div>
           {/* Grid pattern overlay */}
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 pt-28 sm:pt-32 pb-12 sm:pb-16">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-5xl mx-auto">
             <div className="hero-stagger-1 inline-flex items-center space-x-2 bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] rounded-full px-5 py-2.5 mb-8">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -131,26 +131,29 @@ function App() {
               <span className="text-[10px] font-bold text-emerald-400 bg-emerald-400/15 px-2 py-0.5 rounded-full uppercase tracking-wider">Beta</span>
             </div>
 
-            <h1 className="hero-stagger-2 text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6 tracking-tight" data-testid="hero-title">
-              Your Intelligent
-              <br />
-              <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">Health & Pain</span>
-              <br />
-              Management Companion
+            <h1 className="hero-stagger-2 text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-4 sm:mb-6" data-testid="hero-title">
+              Your Intelligent <span className="bg-gradient-to-r from-purple-300 via-violet-300 to-blue-300 bg-clip-text text-transparent">Health</span>
+              <span className="sm:hidden"><br />and </span>
+              <span className="hidden sm:inline"> & </span>
+              <br className="hidden sm:block" />
+              <span className="bg-gradient-to-r from-purple-300 via-violet-300 to-blue-300 bg-clip-text text-transparent">Pain Management</span>
+              <span className="hidden sm:inline"> </span>
+              <span className="sm:hidden"><br /></span>
+              Companion
             </h1>
 
-            <p className="hero-stagger-3 text-base sm:text-lg text-white/60 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-              The comprehensive allied health platform for chronic pain, chronic illness, and health management. Track, learn, explore tools, get AI-powered insights, and connect with your care team.
+            <p className="hero-stagger-3 text-sm sm:text-base lg:text-lg text-white/70 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+              <strong className="text-white/90">Recalibrate App</strong> is the comprehensive allied health platform for chronic pain, chronic illness, and health management. Advanced Health Tracking and Analytics, Learn from our Academy, Explore exercises and tools, get AI-powered insights and chat about your health data, connect with physiotherapists, psychologists, pain specialists and other allied health professionals in your care team and much more!
             </p>
 
             {/* CTA */}
-            <div className="hero-stagger-4 flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <div className="hero-stagger-4 flex items-center justify-center mb-8">
               <a
                 href="https://recalibratepain.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-get-started-btn"
-                className="group relative bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/20 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
+                className="group relative bg-white text-gray-900 px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/20 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
               >
                 <span>Get Started Now</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
