@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet-async';
 import toast, { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import HelpDeskWidget from './components/HelpDeskWidget';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -683,6 +684,7 @@ function App() {
       </section>
 
       <Footer />
+      <HelpDeskWidget />
     </div>
   );
 }

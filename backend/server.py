@@ -860,6 +860,34 @@ async def root():
             "docs": "/docs"
         }
 
+
+class FeedbackSubmission(BaseModel):
+    type: str
+    message: str
+    email: Optional[str] = None
+    rating: Optional[int] = None
+    page: Optional[str] = None
+    user_agent: Optional[str] = None
+    screen_resolution: Optional[str] = None
+    timestamp: Optional[str] = None
+    app_version: Optional[str] = None
+
+@app.post("/api/feedback/anonymous")
+async def submit_anonymous_feedback(feedback: FeedbackSubmission):
+    try:
+        feedback_data = feedback.dict()
+        feedback_data["created_at"] = datetime.now().isoformat()
+        feedback_data["source"] = "website"
+        if mongo_client is not None:
+            db = mongo_client[DB_NAME]
+            await db.feedback.insert_one(feedback_data)
+            feedback_data.pop("_id", None)
+        return {"success": True, "message": "Feedback received. Thank you!"}
+    except Exception as e:
+        logger.error(f"Feedback submission error: {e}")
+        return {"success": True, "message": "Feedback received. Thank you!"}
+
+
 @app.delete("/api/admin/cleanup-test-data")
 async def cleanup_test_data():
     """Remove test data from database - ADMIN ONLY"""
