@@ -889,8 +889,11 @@ async def submit_anonymous_feedback(feedback: FeedbackSubmission):
 
 
 @app.delete("/api/admin/cleanup-test-data")
-async def cleanup_test_data():
+async def cleanup_test_data(request: Request):
     """Remove test data from database - ADMIN ONLY"""
+    admin_key = request.headers.get("X-Admin-Key")
+    if admin_key != os.environ.get("ADMIN_SECRET_KEY", "recalibrate-admin-2026"):
+        raise HTTPException(status_code=403, detail="Forbidden")
     try:
         removed_count = 0
         
@@ -952,8 +955,11 @@ async def cleanup_test_data():
         raise HTTPException(status_code=500, detail=f"Cleanup failed: {str(e)}")
 
 @app.get("/api/debug/send-welcome")
-async def debug_send_welcome(email: str):
-    """Debug endpoint to force send a welcome email and see the result"""
+async def debug_send_welcome(email: str, request: Request):
+    """Debug endpoint to force send a welcome email - secured"""
+    admin_key = request.headers.get("X-Admin-Key")
+    if admin_key != os.environ.get("ADMIN_SECRET_KEY", "recalibrate-admin-2026"):
+        raise HTTPException(status_code=403, detail="Forbidden")
     try:
         await send_welcome_email(email, "Debug User")
         return {"status": "Attempted send", "email": email, "check_logs": "Check server logs for success/failure"}
@@ -961,8 +967,11 @@ async def debug_send_welcome(email: str):
         return {"status": "Error", "error": str(e)}
 
 @app.get("/api/debug/network-test")
-async def debug_network_test():
-    """Test TCP connection to email server from Railway"""
+async def debug_network_test(request: Request):
+    """Test TCP connection to email server - secured"""
+    admin_key = request.headers.get("X-Admin-Key")
+    if admin_key != os.environ.get("ADMIN_SECRET_KEY", "recalibrate-admin-2026"):
+        raise HTTPException(status_code=403, detail="Forbidden")
     import socket
     
     target = os.environ.get("MAIL_SERVER", "mail.spacemail.com")
