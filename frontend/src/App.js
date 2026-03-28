@@ -166,7 +166,7 @@ function App() {
                 data-testid="hero-get-started-btn"
                 className="group relative bg-[#6716be] text-white px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-[#6716be]/30 transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
               >
-                <span>Get Started Now</span>
+                <span>Get Started for Free</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
