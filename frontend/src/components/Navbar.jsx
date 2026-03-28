@@ -59,7 +59,7 @@ export default function Navbar() {
     <>
       <nav
         data-testid="main-navbar"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-[#6716be] via-[#5510a8] to-[#3d0b7a] ${scrolled ? 'shadow-lg shadow-purple-900/30' : ''}`}
+        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#6716be] via-[#5510a8] to-[#3d0b7a] shadow-lg shadow-purple-900/30"
       >
         <div className="w-full px-6 lg:px-10 py-3">
           <div className="flex items-center justify-between">
