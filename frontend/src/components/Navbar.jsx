@@ -24,8 +24,7 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { to: '/features', label: 'Features' },
-    { to: 'https://recalibratepain.app/protocol', label: 'Protocol', external: true },
+    { to: '/features', label: 'App Features' },
     { to: '/pricing', label: 'Pricing' },
     { to: '/partners', label: 'Partners' },
     { to: '/resources', label: 'Resources' },
