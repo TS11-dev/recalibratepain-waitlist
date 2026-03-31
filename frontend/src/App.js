@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ArrowRight, Sparkles, ChevronDown, ChevronUp, ExternalLink,
   BarChart3, BookOpen, Users, Zap, Heart, Shield, Target,
-  Brain, Activity, Globe, FileText, Stethoscope
+  Activity, Globe, FileText, Stethoscope
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import toast, { Toaster } from 'react-hot-toast';
@@ -461,75 +461,6 @@ function App() {
         </div>
       </section>
 
-      {/* Recalibrate: Understand Section */}
-      <section id="understand-section" data-animate data-testid="understand-section" className={`py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#2a1a5e] via-[#1e2a6e] to-[#1a2454] relative overflow-hidden transition-all duration-700 ${visibleSections['understand-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-10 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
-        </div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <span className="inline-block bg-purple-500/20 text-purple-300 text-sm font-semibold px-4 py-2 rounded-full mb-4 border border-purple-500/30">
-              AI-Powered Assessment
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4" data-testid="understand-title">
-              Recalibrate: <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Understand</span>
-            </h2>
-            <p className="text-base lg:text-lg text-purple-200/80 max-w-2xl mx-auto">
-              Your condition, explained. An AI-powered deep assessment that maps what is happening across your body's 8 biological systems and gives you a personalized blueprint.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
-            {[
-              { icon: <Brain className="w-6 h-6 text-white" />, title: 'AI-Powered Assessment', desc: 'Deep conversational analysis of your condition', gradient: 'from-violet-500 to-purple-600' },
-              { icon: <Activity className="w-6 h-6 text-white" />, title: '8 Biological Systems', desc: 'Mapped to your specific symptoms', gradient: 'from-blue-500 to-cyan-600' },
-              { icon: <Heart className="w-6 h-6 text-white" />, title: 'Biopsychosocial Model', desc: 'Biology, psychology, and environment', gradient: 'from-rose-500 to-pink-600' },
-              { icon: <FileText className="w-6 h-6 text-white" />, title: 'Personalized Blueprint', desc: 'Your condition explained, your way forward', gradient: 'from-amber-500 to-orange-600' },
-            ].map((item, i) => (
-              <div key={i} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-1">
-                <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  {item.icon}
-                </div>
-                <h3 className="text-white font-bold text-base mb-2">{item.title}</h3>
-                <p className="text-purple-200/70 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* How it works steps */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-10 mb-10">
-            <h3 className="text-xl font-bold text-white text-center mb-8">How it works</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { num: '01', title: 'Intake Form', desc: 'Answer structured questions about your condition, symptoms, and experience. Takes about 5 minutes.' },
-                { num: '02', title: 'AI Conversation', desc: 'A short AI-guided conversation that digs deeper into your specific situation. About 5 minutes.' },
-                { num: '03', title: 'Your Report', desc: 'Receive a personalized health blueprint explaining your condition across 8 biological systems.' },
-              ].map((step, i) => (
-                <div key={i} className="text-center">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">{step.num}</div>
-                  <h4 className="text-white font-bold mb-2">{step.title}</h4>
-                  <p className="text-purple-200/70 text-sm leading-relaxed">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://recalibratepain.app/understand"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="understand-cta-btn"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-purple-500/30 transition-all hover:-translate-y-1"
-            >
-              Begin Free Assessment <ArrowRight className="w-5 h-5" />
-            </a>
-            <p className="text-purple-300/60 text-sm mt-3">Takes about 10 minutes. Free basic report, $19.99 for full blueprint.</p>
-          </div>
-        </div>
-      </section>
-
       {/* Health Portals Section */}
       <section id="health-portals-section" data-animate data-testid="health-portals-section" className={`py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden transition-all duration-700 ${visibleSections['health-portals-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="max-w-6xl mx-auto">
@@ -647,15 +578,6 @@ function App() {
                   className="bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all flex items-center gap-2 hover:-translate-y-0.5"
                 >
                   Go to App <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://recalibratepain.app/understand"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="final-cta-understand-btn"
-                  className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all flex items-center gap-2 hover:-translate-y-0.5 backdrop-blur-sm"
-                >
-                  <Brain className="w-5 h-5" /> Free AI Assessment
                 </a>
               </div>
             </div>

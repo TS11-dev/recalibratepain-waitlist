@@ -47,7 +47,11 @@ Prepare the Recalibrate website for launch. Remove waitlist messaging, replace w
 - **Meta Tags**: Updated all SEO descriptions to reflect beta status
 - **Entrance Animations**: Hero stagger animations, scroll-triggered section reveals
 
-## Testing Status
+### Session 7 (Feb 2026)
+- **Removed Understand Section**: The "Recalibrate: Understand" product section removed from the homepage as it is now an intake AI assessment, not a standalone product/feature
+- **Removed Free AI Assessment button**: Removed from the final CTA section as well
+
+
 - 23/23 core frontend features passed (98% success)
 - Minor: Email subscription shows network error in preview env (works on real domain)
 
