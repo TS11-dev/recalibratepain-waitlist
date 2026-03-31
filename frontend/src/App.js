@@ -366,7 +366,7 @@ function App() {
             <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 via-pink-500 to-teal-500 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.4)] lg:left-1/2 lg:-translate-x-1/2 lg:w-1.5 lg:shadow-[0_0_30px_rgba(168,85,247,0.5)]"></div>
             <div className="space-y-8 lg:space-y-10 relative">
               {[
-                { icon: '📋', title: 'Initial Assessment', desc: 'Complete your health profile & baseline assessment', color: 'from-blue-500 to-cyan-500', num: 1 },
+                { icon: '📋', title: 'Initial and In-Depth AI Assessments', desc: 'Complete your health profile & baseline assessment', color: 'from-blue-500 to-cyan-500', num: 1 },
                 { icon: '✅', title: 'Daily Check Ins', desc: "Quick daily logging of symptoms & how you're feeling", color: 'from-emerald-500 to-teal-500', num: 2 },
                 { icon: '📊', title: 'Track Health', desc: 'Physical, mental & lifestyle tracking - 18+ variables', color: 'from-cyan-500 to-blue-600', num: 3 },
                 { icon: '💊', title: 'Medications', desc: 'Track medications, dosages & set reminders', color: 'from-indigo-500 to-violet-600', num: 4 },
