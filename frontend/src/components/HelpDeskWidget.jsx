@@ -109,8 +109,22 @@ export default function HelpDeskWidget() {
             transition={{ type: 'spring', stiffness: 340, damping: 26 }}
             style={{ transformOrigin: '100% 100%' }}
           >
-            <div className="relative bg-white border border-violet-200 rounded-2xl px-3.5 py-2.5 shadow-lg shadow-violet-100/50 min-w-[152px]">
-              <div className="flex items-center gap-1.5 mb-0.5">
+            <div
+              onClick={handleExpand}
+              className="relative bg-white border border-violet-200 rounded-2xl px-3.5 py-2.5 shadow-lg shadow-violet-100/50 min-w-[152px] cursor-pointer hover:border-violet-400 transition-colors"
+              data-testid="beta-bubble"
+            >
+              <button
+                onClick={dismissBetaBubble}
+                aria-label="Dismiss"
+                data-testid="beta-bubble-close"
+                className="absolute top-1.5 right-1.5 w-4 h-4 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+              >
+                <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <div className="flex items-center gap-1.5 mb-0.5 pr-4">
                 <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-violet-600 text-white text-[10px] font-bold rounded-md tracking-wide leading-none">
                   <span className="w-1.5 h-1.5 bg-white/80 rounded-full animate-pulse inline-block" />
                   BETA
